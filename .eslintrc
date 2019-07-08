@@ -1,0 +1,34 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["airbnb", "plugin:@typescript-eslint/recommended"],
+  "plugins": [
+    "react",
+    "jsx-a11y", // accessability checker
+    "import", // lints import names and paths
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "indent": ["error", 2],
+    "@typescript-eslint/indent": "off",
+    "no-console": "off", // allow the use of console
+    "space-infix-ops": "off",
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "ENV": true,
+    "describe": true,
+    "it": true,
+    "expect": true,
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+}
