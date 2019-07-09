@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { observer } from 'mobx-react';
 
 import A from './components/common/A';
@@ -38,6 +38,11 @@ const App = observer((props: Props): JSX.Element => {
   const newGameChanged = (newGame: string): void => {
     setState({ newGame });
   };
+
+  // Cause side effects with useEffect
+  // This executes after the render (like didUpdate or didMount)
+  // If you want stuff to execute before (like willMount), just call the function before returning the view
+  useEffect((): void => console.log('effect'), []);
 
   return (
     <div>
