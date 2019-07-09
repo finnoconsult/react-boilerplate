@@ -1,3 +1,4 @@
+import { createContext } from 'react';
 import GameStore from './GameStore';
 
 export interface Stores {
@@ -9,4 +10,5 @@ const stores: Stores = {
   gameStore,
 };
 
-export default stores;
+// Use the React context API so that the stores are available anywhere in the app
+export default createContext(stores);

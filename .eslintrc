@@ -14,7 +14,8 @@
     "space-infix-ops": "off",
     "react/jsx-filename-extension": "off",
     "import/prefer-default-export": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "max-len": "off"
   },
   "globals": {
     "window": true,
