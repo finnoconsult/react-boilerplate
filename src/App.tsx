@@ -18,6 +18,11 @@ const App = observer((props: Props): JSX.Element => {
     newGame: '',
   });
 
+  // You can define multiple states, and each state gets its own setter
+  // const [someOtherState, setSomeOtherState] = useState({
+  //   imStateToo: '',
+  // });
+
   const newGameChanged = (newGame: string): void => {
     setState({ newGame });
   };
