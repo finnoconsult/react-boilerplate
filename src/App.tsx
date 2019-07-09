@@ -42,7 +42,11 @@ const App = observer((props: Props): JSX.Element => {
   // Cause side effects with useEffect
   // This executes after the render (like didUpdate or didMount)
   // If you want stuff to execute before (like willMount), just call the function before returning the view
-  useEffect((): void => console.log('effect'), []);
+  useEffect((): () => void => {
+    console.log('effect');
+    // This gets called before the effect is called the next time
+    return (): void => console.log('cleaning up');
+  }, []);
   // You can put whatever changes yo want to "lsiten to" in the array: if any of the elements change, the effect is called
   // Empty array basically turns it into componentDidMount
 
