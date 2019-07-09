@@ -1,7 +1,28 @@
 {
   "name": "finnoconsult-react-boilerplate",
+  "title": "FinnoConsult React boilerplate",
   "version": "0.1.0",
+  "description": "Our Latest React mockup boilerplate",
   "private": true,
+  "keywords": [
+    "mockup",
+    "react",
+    "boilerplate"
+  ],
+  "author": "Peter Horvath <peter.horvath@finnoconsult.at>, Levente Mathe <levente.mathe@finnoconsult.at>",
+  "contributors": "Levente Mathe <levente.mathe@finnoconsult.at>, Levente Mathe <levente.mathe@finnoconsult.at>",
+  "repository": "https://github.com/finnoconsult/sparda-app/tree/mobile/master",
+  "bugs": "https://github.com/finnoconsult/react-boilerplate/issues",
+  "license": "UNLICENSED",
+  "homepage": "https://demo.finnoconsult.at",
+  "slackChannel": "",
+  "environments": {
+    "dev": {
+      "protocol": "https://",
+      "host": "0.0.0.0",
+      "port": 3007
+    }
+  },
   "dependencies": {
     "mobx": "^5.11.0",
     "mobx-react": "^6.1.1",
@@ -28,6 +49,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x",
+    "yarn": "1.x"
+  },
+  "devEngines": {
+    "node": "12.x",
+    "npm": "6.x",
+    "yarn": "1.x"
   },
   "browserslist": {
     "production": [
