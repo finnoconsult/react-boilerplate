@@ -10,6 +10,6 @@ export default class GameStore {
   }
 
   @action public addGame(game: string): void {
-    this.games.push(game);
+    if (game) this.games.push(game);
   }
 }
