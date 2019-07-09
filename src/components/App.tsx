@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
 
-import StorexContext from '../stores';
+import StoreContext from '../stores';
 
 import A from './common/A';
 
@@ -23,7 +23,7 @@ function useOpen(): [boolean, () => void] {
 
 const App = observer((): JSX.Element => {
   // Use the React context API to pass the stores
-  const stores = useContext(StorexContext);
+  const stores = useContext(StoreContext);
 
   const [state, setState] = useState<State>({
     newGame: '',
