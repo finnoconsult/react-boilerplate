@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
+// import { capitalize } from 'core';
 
 import StoreContext from '../stores';
 
 import A from './common/A';
 
-import { capitalize } from '../helpers/string-helpers';
 
 // TypeScript types for props and state(s)
 interface State {
@@ -75,7 +75,8 @@ const App = observer((): JSX.Element => {
       {/* Action */}
       <button
         type="button"
-        onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
+        // onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
+        onClick={(): void => stores.gameStore.addGame(state.newGame)} // TODO: turn on capitalize
       >
        Add game
       </button>
