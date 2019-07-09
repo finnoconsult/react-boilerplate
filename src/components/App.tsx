@@ -57,7 +57,7 @@ const App = observer((): JSX.Element => {
       <A href="/index">Login</A>
       <br />
 
-      {/* Using custom render props */}
+      {/* Using custom hooks */}
       <button type="button" onClick={toggle}>Show/hide list</button>
       <br />
       {/* Store observable/computed getter */}
