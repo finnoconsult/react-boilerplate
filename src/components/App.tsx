@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
 
-import A from './components/common/A';
+import StorexContext from '../stores';
 
-import { Stores } from './stores';
+import A from './common/A';
 
 // TypeScript types for props and state(s)
-interface Props {
-  stores: Stores;
-}
-
 interface State {
   newGame: string;
 }
@@ -23,7 +19,10 @@ function useOpen(): [boolean, () => void] {
   return [isOpen, toggle];
 }
 
-const App = observer((props: Props): JSX.Element => {
+const App = observer((): JSX.Element => {
+  // Use the React context API to pass the stores
+  const stores = useContext(StorexContext);
+
   const [state, setState] = useState<State>({
     newGame: '',
   });
@@ -60,7 +59,7 @@ const App = observer((props: Props): JSX.Element => {
       <button type="button" onClick={toggle}>Show/hide list</button>
       <br />
       {/* Store observable/computed getter */}
-      {isOpen && props.stores.gameStore.allGames.map((game: string): JSX.Element => (
+      {isOpen && stores.gameStore.allGames.map((game: string): JSX.Element => (
         <p key={game}>{game}</p>
       ))}
 
@@ -74,7 +73,7 @@ const App = observer((props: Props): JSX.Element => {
       {/* Action */}
       <button
         type="button"
-        onClick={(): void => props.stores.gameStore.addGame(state.newGame)}
+        onClick={(): void => stores.gameStore.addGame(state.newGame)}
       >
        Add game
       </button>
