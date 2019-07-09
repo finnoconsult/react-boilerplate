@@ -9,19 +9,29 @@ interface Props {
   stores: Stores;
 }
 
-// interface State {
-//   newGame: string;
-// }
+interface State {
+  newGame: string;
+}
+
+function useOpen(): [boolean, () => void] {
+  const [isOpen, setIsOpen] = useState(true);
+  function toggle(): void {
+    setIsOpen(!isOpen);
+  }
+  return [isOpen, toggle];
+}
 
 const App = observer((props: Props): JSX.Element => {
-  const [state, setState] = useState({
+  const [state, setState] = useState<State>({
     newGame: '',
   });
 
   // You can define multiple states, and each state gets its own setter
-  // const [someOtherState, setSomeOtherState] = useState({
-  //   imStateToo: '',
-  // });
+  // They also don't have to be objects
+  // const [someOtherState, setSomeOtherState] = useState('imSateToo');
+
+  // You can use your own hooks: good reusability, and less nesting than render props
+  const [isOpen, toggle] = useOpen();
 
   const newGameChanged = (newGame: string): void => {
     setState({ newGame });
@@ -34,7 +44,9 @@ const App = observer((props: Props): JSX.Element => {
       <br />
 
       {/* Store observable/computed getter */}
-      {props.stores.gameStore.allGames.map((game: string): JSX.Element => (
+      <button type="button" onClick={toggle}>Show/hide list</button>
+      <br />
+      {isOpen && props.stores.gameStore.allGames.map((game: string): JSX.Element => (
         <p key={game}>{game}</p>
       ))}
 
