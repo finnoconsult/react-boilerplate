@@ -5,6 +5,7 @@ import A from './components/common/A';
 
 import { Stores } from './stores';
 
+// TypeScript types for props and state(s)
 interface Props {
   stores: Stores;
 }
@@ -13,6 +14,7 @@ interface State {
   newGame: string;
 }
 
+// Custom hook
 function useOpen(): [boolean, () => void] {
   const [isOpen, setIsOpen] = useState(true);
   function toggle(): void {
@@ -26,7 +28,7 @@ const App = observer((props: Props): JSX.Element => {
     newGame: '',
   });
 
-  // You can define multiple states, and each state gets its own setter
+  // You can (and should) define multiple states, and each state gets its own setter
   // They also don't have to be objects
   // const [someOtherState, setSomeOtherState] = useState('imSateToo');
 
@@ -43,9 +45,10 @@ const App = observer((props: Props): JSX.Element => {
       <A href="/index">Login</A>
       <br />
 
-      {/* Store observable/computed getter */}
+      {/* Using custom render props */}
       <button type="button" onClick={toggle}>Show/hide list</button>
       <br />
+      {/* Store observable/computed getter */}
       {isOpen && props.stores.gameStore.allGames.map((game: string): JSX.Element => (
         <p key={game}>{game}</p>
       ))}
