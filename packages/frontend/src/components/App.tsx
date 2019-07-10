@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
-// import { capitalize } from 'core';
+import { capitalize } from 'core';
 
 import StoreContext from '../stores';
 
@@ -75,8 +75,7 @@ const App = observer((): JSX.Element => {
       {/* Action */}
       <button
         type="button"
-        // onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
-        onClick={(): void => stores.gameStore.addGame(state.newGame)} // TODO: turn on capitalize
+        onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
       >
        Add game
       </button>

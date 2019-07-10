@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "dependencies": {
-    "cross-env": "5.0.5",
     "core": "0.1.0",
     "mobx": "^5.11.0",
     "mobx-react": "^6.1.1",
