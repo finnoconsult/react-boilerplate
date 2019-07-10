@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "description": "Our Latest React mockup boilerplate",
   "private": true,
-  "workspaces": ["core", "frontend", "backend"],
-  "main": "app.js",
+  "workspaces": [
+    "packages/*"
+  ],
   "keywords": [
     "mockup",
     "react",
@@ -21,6 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/finnoconsult/react-boilerplate.git"
   },
+
   "environments": {
     "dev": {
       "protocol": "https://",
@@ -29,13 +31,7 @@
     }
   },
   "dependencies": {
-    "mobx": "^5.11.0",
-    "mobx-react": "^6.1.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "styled-components": "^4.3.2"
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
@@ -51,9 +47,6 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "typescript": "^3.5.2"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "12.x",
