@@ -5,11 +5,5 @@
     "rootDir": "src",
     "declaration": true,
     "module": "commonjs"
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src"
-  ]
+  }
 }
