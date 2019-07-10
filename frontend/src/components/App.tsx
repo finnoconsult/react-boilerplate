@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
+// import { capitalize } from 'core';
 
-import StorexContext from '../stores';
+import StoreContext from '../stores';
 
 import A from './common/A';
 
-import { capitalize } from '../helpers/string-helpers';
 
 // TypeScript types for props and state(s)
 interface State {
@@ -23,7 +23,7 @@ function useOpen(): [boolean, () => void] {
 
 const App = observer((): JSX.Element => {
   // Use the React context API to pass the stores
-  const stores = useContext(StorexContext);
+  const stores = useContext(StoreContext);
 
   const [state, setState] = useState<State>({
     newGame: '',
@@ -57,7 +57,7 @@ const App = observer((): JSX.Element => {
       <A href="/index">Login</A>
       <br />
 
-      {/* Using custom render props */}
+      {/* Using custom hooks */}
       <button type="button" onClick={toggle}>Show/hide list</button>
       <br />
       {/* Store observable/computed getter */}
@@ -75,7 +75,8 @@ const App = observer((): JSX.Element => {
       {/* Action */}
       <button
         type="button"
-        onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
+        // onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
+        onClick={(): void => stores.gameStore.addGame(state.newGame)} // TODO: turn on capitalize
       >
        Add game
       </button>

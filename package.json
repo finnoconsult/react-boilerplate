@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "description": "Our Latest React mockup boilerplate",
   "private": true,
+  "workspaces": ["core", "frontend", "backend"],
+  "main": "app.js",
   "keywords": [
     "mockup",
     "react",
@@ -11,11 +13,14 @@
   ],
   "author": "Peter Horvath <peter.horvath@finnoconsult.at>, Levente Mathe <levente.mathe@finnoconsult.at>",
   "contributors": "Levente Mathe <levente.mathe@finnoconsult.at>, Levente Mathe <levente.mathe@finnoconsult.at>",
-  "repository": "https://github.com/finnoconsult/sparda-app/tree/mobile/master",
   "bugs": "https://github.com/finnoconsult/react-boilerplate/issues",
   "license": "UNLICENSED",
   "homepage": "https://demo.finnoconsult.at",
   "slackChannel": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnoconsult/react-boilerplate.git"
+  },
   "environments": {
     "dev": {
       "protocol": "https://",
@@ -48,10 +53,7 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "12.x",
