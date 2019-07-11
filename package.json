@@ -9,7 +9,7 @@
     "projects/*"
   ],
   "scripts": {
-    "test": "lerna run test",
+    "test": "jest",
     "build": "lerna run build",
     "dev": "lerna run dev --parallel watch",
     "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
