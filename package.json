@@ -12,7 +12,7 @@
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run dev --parallel watch",
-    "dev:frontend": "lerna run dev --parallel watch --ignore backend",
+    "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
     "version": "lerna version"
   },
   "dependencies": {
