@@ -10,7 +10,8 @@
     "projects/*"
   ],
   "scripts": {
-    "build": "lerna run build"
+    "build": "lerna run build",
+    "dev": "lerna run dev --parallel watch"
   },
   "dependencies": {
     "react-scripts": "3.0.1"
