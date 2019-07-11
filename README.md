@@ -29,7 +29,7 @@ TypeScript is installed in the root, and there is a common tsconfig in root.
 Projects should inherit from this, and add changes as necessary.
 
 ## Jest
-Jest is installed with CRA in root. The config file (supports ts) is in the root as well. To run all the test, run "yarn tes" in root. To run a specific project's test, cd into the project and run the test there. Running specific tests from root with lerna is currently not supported.
+Jest is installed with CRA in root. The config file (supports ts) is in the root as well. To run all the tests, run "yarn test" in root. To run a specific project's tests, cd into the project and run the tests there. Running specific tests from root with lerna is currently not supported.
 
 ## Versioning
 We use lerna for this. Run the "bump-version" task in root, this will bump the version of all the packages that were changed, along with the monorepo's version in lerna.json. It will also commit and push to origin, and create a release.
