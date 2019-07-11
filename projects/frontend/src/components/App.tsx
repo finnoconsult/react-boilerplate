@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
 import { capitalize } from '@finnoconsult/core-model';
+import { A } from '@finnoconsult/core-view';
 
 import StoreContext from '../stores';
-
-import A from './common/A';
-
 
 // TypeScript types for props and state(s)
 interface State {
