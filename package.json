@@ -12,8 +12,7 @@
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run dev --parallel watch",
-    "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",    
-    "version": "lerna version --conventional-commits"
+    "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend"
   },
   "dependencies": {
     "react-scripts": "3.0.1"
