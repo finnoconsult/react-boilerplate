@@ -2,7 +2,8 @@
   "name": "@finnoconsult/frontend",
   "version": "0.2.1",
   "dependencies": {
-    "@finnoconsult/core": "^0.2.0",
+    "@finnoconsult/core-model": "^0.2.0",
+    "@finnoconsult/core-view": "^0.2.0",
     "mobx": "^5.11.0",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",

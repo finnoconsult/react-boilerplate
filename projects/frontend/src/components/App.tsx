@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
-import { capitalize } from '@finnoconsult/core';
+import { capitalize } from '@finnoconsult/core-model';
 
 import StoreContext from '../stores';
 
