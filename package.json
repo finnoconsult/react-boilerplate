@@ -12,7 +12,8 @@
   "scripts": {
     "build": "lerna run build",
     "dev": "lerna run dev --parallel watch",
-    "dev:frontend": "lerna run dev --parallel watch --ignore backend"
+    "dev:frontend": "lerna run dev --parallel watch --ignore backend",
+    "version": "lerna version"
   },
   "dependencies": {
     "react-scripts": "3.0.1"
