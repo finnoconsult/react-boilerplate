@@ -1,6 +1,6 @@
 {
   "name": "@finnoconsult/frontend",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "dependencies": {
     "@finnoconsult/core": "^0.2.0",
     "mobx": "^5.11.0",
