@@ -9,6 +9,7 @@
     "projects/*"
   ],
   "scripts": {
+    "test": "lerna run test",
     "build": "lerna run build",
     "dev": "lerna run dev --parallel watch",
     "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
@@ -31,6 +32,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
     "lerna": "^3.15.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
   }
 }

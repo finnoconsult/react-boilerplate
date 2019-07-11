@@ -5,6 +5,7 @@
   "typings": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "test": "jest"
   }
 }

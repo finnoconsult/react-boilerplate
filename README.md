@@ -14,12 +14,12 @@ To build all projects, run "yarn build" in the root folder.
 To run only specific projects, use/create a script in the root package.json, for example: dev:frontend will only run the frontend package, and it's dependencies.  
 You can also just cd into a project, and run its tasks.
 
-You get the idea. Based on the above pattern, you can create other tasks in root with lerna: "lerna run [task]" will run all scripts named [task] in all the projects' package.jons.
+You get the idea. Based on the above pattern, you can create other tasks in root with lerna: "lerna run [task]" will run all scripts named [task] in all the projects' package.jsons.
 
 ## What goes where
 Common devDependencies, like TypeScript, ESLint packages etc. should go into root.  
 Dependencies that are not used throughout the repo, should be installed in the needed projects only.  
-CRA (react-scripts) is probably the only non-dev dependency that should be root, as it also cotnains dev packages, like ESLint.
+CRA (react-scripts) is probably the only non-dev dependency that should be in root, as it also contains dev packages, like ESLint.
 
 ## Lintig
 For consistent code throughout the packages, we keep the eslintrc in the root, and so all projects use the same rules.
