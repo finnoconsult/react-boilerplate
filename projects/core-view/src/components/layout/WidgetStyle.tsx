@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const WidgetStyle = styled.div`
+import { FlexFragment } from './Fragment';
+
+const WidgetStyle = styled(FlexFragment)`
 `;
 WidgetStyle.displayName='WidgetStyle';
 

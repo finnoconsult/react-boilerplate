@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Fragment, { FragmentProps } from './Fragment';
+import { Fragment, FragmentProps } from './Fragment';
 
 const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
   display: grid;
@@ -18,7 +18,6 @@ const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
     display: flex;
     flex: 1 1 auto;
     place-content: center;
-    border: solid 1px black;
   }
 
   > header,

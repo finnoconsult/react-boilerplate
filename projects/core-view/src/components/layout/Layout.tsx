@@ -6,8 +6,8 @@ interface Props {
   children: JSX.Element[] | JSX.Element | string;
   nav?: () => JSX.Element;
   header?: () => JSX.Element;
-  left?: () => JSX.Element | string;
-  right?: () => JSX.Element | string;
+  left?: () => JSX.Element;
+  right?: () => JSX.Element;
   footer?: () => JSX.Element;
 }
 

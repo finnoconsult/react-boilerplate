@@ -1,15 +1,20 @@
 import React from 'react';
 
 import { Layout } from '@finnoconsult/core-view';
+import {
+  HeaderContainer,
+  NavigationContainer,
+  LeftContainer,
+  FooterContainer,
+} from './components/layout';
 
 
 const App = () => (
   <Layout
-    header={() => <h1>header</h1>}
-    nav={() => <>nav</>}
-    left={() => 'left'}
-    right={() => <div>right</div>}
-    footer={() => <h1>tab</h1>}
+    header={() => <HeaderContainer />}
+    nav={() => <NavigationContainer />}
+    left={() => <LeftContainer />}
+    footer={() => <FooterContainer />}
   >
     main
   </Layout>

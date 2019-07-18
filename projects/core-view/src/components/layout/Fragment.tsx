@@ -2,28 +2,28 @@ import styled, { css } from 'styled-components';
 
 // import styles from '../../theme/app.global.scss';
 export interface FragmentProps {
-  padding: number;
-  margin: number;
-  normal: number | boolean;
-  marginLeft: string | number;
-  marginRight: string | number;
-  marginTop: string | number;
-  marginBottom: string | number;
-  paddingTop: string | number;
-  paddingBottom: string | number;
-  background: string;
-  hidden: boolean;
-  overflow: string;
-  width: number;
-  fullWidth: boolean;
-  fullHeight: boolean;
-  autoHeight: boolean;
-  auto: boolean;
-  height: number;
-  border: string | boolean;
-  round: number | boolean;
-  underline: number | boolean;
-  compact: number | boolean;
+  padding?: number;
+  margin?: number;
+  normal?: number | boolean;
+  marginLeft?: string | number;
+  marginRight?: string | number;
+  marginTop?: string | number;
+  marginBottom?: string | number;
+  paddingTop?: string | number;
+  paddingBottom?: string | number;
+  background?: string;
+  hidden?: boolean;
+  overflow?: string;
+  width?: number;
+  fullWidth?: boolean;
+  fullHeight?: boolean;
+  autoHeight?: boolean;
+  auto?: boolean;
+  height?: number;
+  border?: string | boolean;
+  round?: number | boolean;
+  underline?: number | boolean;
+  compact?: number | boolean;
 }
 
 export const Fragment = styled.div<FragmentProps>`
