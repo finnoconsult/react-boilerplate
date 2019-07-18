@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "jsx": "preserve",
+    "jsx": "react",
 
     "strict": true,
     "alwaysStrict": true,
@@ -27,7 +27,7 @@
     "resolveJsonModule": true,
 
     "experimentalDecorators": true,
-    
+
     "sourceMap": true,
     "removeComments": true
   }
