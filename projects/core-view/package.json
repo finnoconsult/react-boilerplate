@@ -1,0 +1,15 @@
+{
+  "name": "@finnoconsult/core-view",
+  "version": "0.2.0",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/styled-components": "^4.1.18",
+    "styled-components": "^4.3.2"
+  }
+}

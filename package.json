@@ -1,11 +1,14 @@
 {
   "name": "finnoconsult-react-boilerplate",
   "title": "FinnoConsult React boilerplate",
-  "version": "0.1.0",
   "description": "Our Latest React mockup boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finnoconsult/react-boilerplate.git"
+  },
   "private": true,
   "workspaces": [
-    "packages/*"
+    "projects/*"
   ],
   "keywords": [
     "mockup",
@@ -18,17 +21,20 @@
   "license": "UNLICENSED",
   "homepage": "https://demo.finnoconsult.at",
   "slackChannel": "",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/finnoconsult/react-boilerplate.git"
-  },
 
   "environments": {
     "dev": {
       "protocol": "https://",
       "host": "0.0.0.0",
-      "port": 3007
+      "port": 3000
     }
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "lerna run build",
+    "dev": "lerna run dev --parallel watch",
+    "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
+    "bump-version": "lerna version"
   },
   "dependencies": {
     "react-scripts": "3.0.1"
@@ -46,6 +52,8 @@
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.2",
+    "lerna": "^3.15.0",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
   },
   "engines": {

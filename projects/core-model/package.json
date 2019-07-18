@@ -1,0 +1,11 @@
+{
+  "name": "@finnoconsult/core-model",
+  "version": "0.2.0",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest"
+  }
+}
