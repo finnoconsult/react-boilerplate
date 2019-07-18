@@ -3,20 +3,21 @@ import React from 'react';
 import { Layout } from '@finnoconsult/core-view';
 import {
   HeaderContainer,
-  NavigationContainer,
+  NavBarContainer,
   LeftContainer,
   FooterContainer,
+  MainPageContainer,
 } from './components/layout';
 
 
 const App = () => (
   <Layout
     header={() => <HeaderContainer />}
-    nav={() => <NavigationContainer />}
+    nav={() => <NavBarContainer />}
     left={() => <LeftContainer />}
     footer={() => <FooterContainer />}
   >
-    main
+    <MainPageContainer />
   </Layout>
 );
 

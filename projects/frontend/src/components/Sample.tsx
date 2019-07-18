@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { observer } from 'mobx-react';
 import { capitalize } from '@finnoconsult/core-model';
-import { A } from '@finnoconsult/core-view';
+import { LinkStyle } from '@finnoconsult/core-view';
 
 import StoreContext from '../stores';
 
@@ -52,7 +52,7 @@ const App = observer((): JSX.Element => {
   return (
     <div>
       {/* Styled component */}
-      <A href="/index">Login</A>
+      <LinkStyle href="/index">Login</LinkStyle>
       <br />
 
       {/* Using custom hooks */}

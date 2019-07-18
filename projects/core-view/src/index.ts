@@ -1,7 +1,7 @@
-import A from './components/A';
+import LinkStyle from './components/ui/LinkStyle';
 import Layout from './components/layout';
 
 export {
-  A,
+  LinkStyle,
   Layout,
 };

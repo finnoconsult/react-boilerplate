@@ -1,11 +1,13 @@
 import HeaderContainer from './HeaderContainer';
-import NavigationContainer from './NavigationContainer';
+import NavBarContainer from './NavBarContainer';
 import LeftContainer from './LeftContainer';
 import FooterContainer from './FooterContainer';
+import MainPageContainer from './MainPageContainer';
 
 export {
   HeaderContainer,
-  NavigationContainer,
+  NavBarContainer,
   LeftContainer,
   FooterContainer,
+  MainPageContainer,
 };
