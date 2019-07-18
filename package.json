@@ -11,8 +11,9 @@
   "scripts": {
     "test": "jest",
     "build": "lerna run build",
-    "dev": "lerna run dev --parallel watch",
+    "dev": "lerna run dev --parallel watch --ignore @finnoconsult/playground",
     "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
+    "dev:playground": "lerna run dev --parallel watch --scope @finnoconsult/playground",
     "bump-version": "lerna version"
   },
   "dependencies": {
