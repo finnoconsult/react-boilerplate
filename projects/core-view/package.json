@@ -1,6 +1,6 @@
 {
   "name": "@finnoconsult/core-view",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {

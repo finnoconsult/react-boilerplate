@@ -1,7 +1,7 @@
 {
   "name": "@finnoconsult/backend",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "dependencies": {
-    "@finnoconsult/core-model": "^0.2.0"
+    "@finnoconsult/core-model": "^0.2.2"
   }
 }
