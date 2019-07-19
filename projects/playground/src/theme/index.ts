@@ -8,4 +8,8 @@ export const theme = {
   font: {
     sizeButton: '1.6rem',
   },
+  animation: {
+    transformTransition: '0.2s transform ease-out',
+    hegihtTransition: '0.8s max-height ease-out',
+  },
 };

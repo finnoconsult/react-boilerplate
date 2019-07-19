@@ -5,6 +5,7 @@ import { theme } from './theme';
 
 import Button from './components/Button';
 import TextField from './components/TextField';
+import TableView from './components/TableView';
 
 const PlaygroundLayout = styled.div`
   margin: 12px;
@@ -21,6 +22,14 @@ export default () => (
     <PlaygroundLayout>
       <Button cta title="Click me!" />
       <TextField placeholder="Type here!" badgeTitle="Title" utilityView={<p>Utility</p>} />
+      <TableView
+        cellItems={[
+          { title: 'hello', description: 'bello' },
+          { title: 'hi', description: 'ho' },
+        ]}
+        title="Table"
+        // onlyOneCellShouldOpen
+      />
     </PlaygroundLayout>
   </ThemeProvider>
 );
