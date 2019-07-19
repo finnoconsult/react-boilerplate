@@ -1,6 +1,6 @@
 {
   "name": "@finnoconsult/core-view",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@finnoconsult/core-model": "^0.2.2",
+    "@finnoconsult/core-model": "^0.3.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
