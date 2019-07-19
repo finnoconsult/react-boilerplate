@@ -28,7 +28,7 @@ export default () => (
           { title: 'hi', description: 'ho' },
         ]}
         title="Table"
-        // onlyOneCellShouldOpen
+        onlyOneCellShouldOpen
       />
     </PlaygroundLayout>
   </ThemeProvider>

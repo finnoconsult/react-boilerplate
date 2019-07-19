@@ -32,23 +32,12 @@ interface TableViewCellStylesProps {
   isOpen: boolean;
 }
 
-const TableViewCellStyles = styled.div<TableViewCellStylesProps>`
+const TableViewCell = styled.div<TableViewCellStylesProps>`
   overflow: hidden;
   ${TableViewCellDescription} {
     display: ${props => (props.isOpen ? 'block' : 'none')};
   }
 `;
-interface TableViewCellProps {
-  children: JSX.Element | JSX.Element[];
-  isOpen: boolean;
-  onClick: () => void;
-}
-
-const TableViewCell = ({ children, isOpen, onClick }: TableViewCellProps) => (
-  <TableViewCellStyles isOpen={isOpen} onClick={onClick}>
-    {children}
-  </TableViewCellStyles>
-);
 
 interface CellItem {
   title: string;
