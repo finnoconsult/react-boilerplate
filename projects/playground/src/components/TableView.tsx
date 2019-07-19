@@ -77,7 +77,11 @@ function useOpenStates(initialState: boolean, count: number, onlyOneCellShouldOp
 
   const [openStates, setOpenStates] = useState(states);
   function toggle(index: number): void {
-    const newStates = onlyOneCellShouldOpen ? [false] : [...openStates];
+    const newStates = [...openStates];
+    if (onlyOneCellShouldOpen) {
+      const openIndex = newStates.indexOf(true);
+      if (openIndex !== index) newStates[openIndex] = false;
+    }
     newStates[index] = !newStates[index];
     setOpenStates(newStates);
   }
