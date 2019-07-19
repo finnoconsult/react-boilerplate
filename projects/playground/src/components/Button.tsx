@@ -11,7 +11,7 @@ const ButtonStyles = styled.button<ButtonStylesProps>`
   background-color: ${props => (props.cta ? props.theme.color.cta : props.theme.color.background)};
   border: ${props => (props.cta ? 'none' : `1px solid ${props.theme.color.text}`)};
   border-radius: 4px;
-  pading: 14px auto;
+  padding: 13px;
   cursor: pointer;
 `;
 
@@ -24,12 +24,16 @@ const ButtonText = styled(Text)`
 interface Props {
   title?: string;
   cta?: boolean;
+  children?: JSX.Element | JSX.Element[];
 }
 
-export default ({ title, cta }: Props) => (
+export default ({ title, cta, children }: Props) => (
   <ButtonStyles cta={cta}>
-    {title && (
+    {(title && !children) && (
       <ButtonText>{title}</ButtonText>
+    )}
+    {(!title && children) && (
+      { children }
     )}
   </ButtonStyles>
 );
