@@ -33,9 +33,23 @@ const TextField = styled.input`
   color: ${props => props.theme.color.text};
 `;
 
-export default () => (
+const UtilityViewStyles = styled.div`
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+interface Props {
+  badgeTitle: string;
+  placeholder?: string;
+  utilityView?: JSX.Element | JSX.Element[];
+}
+
+export default ({ badgeTitle, placeholder, utilityView }: Props) => (
   <TextFieldOuterBox>
-    <BadgeTitle>Title</BadgeTitle>
-    <TextField type="text" placeholder="Put some text here!" />
+    <BadgeTitle>{badgeTitle}</BadgeTitle>
+    <TextField type="text" placeholder={placeholder} />
+    {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
   </TextFieldOuterBox>
 );

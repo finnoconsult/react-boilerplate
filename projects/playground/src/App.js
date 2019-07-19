@@ -20,7 +20,7 @@ export default () => (
   <ThemeProvider theme={theme}>
     <PlaygroundLayout>
       <Button cta title="Click me!" />
-      <TextField />
+      <TextField placeholder="Type here!" badgeTitle="Title" utilityView={<p>Utility</p>} />
     </PlaygroundLayout>
   </ThemeProvider>
 );
