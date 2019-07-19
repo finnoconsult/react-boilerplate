@@ -1,12 +1,26 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import { theme } from './theme';
 
 import Button from './components/Button';
+import TextField from './components/TextField';
+
+const PlaygroundLayout = styled.div`
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  &>* {
+    margin: 12px 0;
+  }
+`;
 
 export default () => (
   <ThemeProvider theme={theme}>
-    <Button cta title="Click me!" />
+    <PlaygroundLayout>
+      <Button cta title="Click me!" />
+      <TextField />
+    </PlaygroundLayout>
   </ThemeProvider>
 );

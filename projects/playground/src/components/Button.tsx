@@ -28,7 +28,7 @@ interface Props {
 }
 
 export default ({ title, cta, children }: Props) => (
-  <ButtonStyles cta={cta}>
+  <ButtonStyles type="button" cta={cta}>
     {(title && !children) && (
       <ButtonText>{title}</ButtonText>
     )}
