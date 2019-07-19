@@ -19,11 +19,9 @@ interface Props {
 }
 
 export default ({ title }: Props) => (
-  <div>
+  <ButtonStyles>
     {title && (
-      <ButtonStyles>
-        <ButtonText>{title}</ButtonText>
-      </ButtonStyles>
+      <ButtonText>{title}</ButtonText>
     )}
-  </div>
+  </ButtonStyles>
 );
