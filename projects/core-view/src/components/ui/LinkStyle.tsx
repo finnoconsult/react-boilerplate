@@ -12,7 +12,6 @@ interface Props {
 }
 
 export const LinkStyle = styled.a<Props>`
-  color: orange;
   cursor: pointer;
 
   &:hover {

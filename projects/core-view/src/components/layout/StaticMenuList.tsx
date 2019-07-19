@@ -9,7 +9,10 @@ import { Image } from '../ui/Image';
 
 
 const NavBarStyle = styled(FlexFragment)`
-
+  a {
+    color: ${props => props.theme.colors.main};
+    border-bottom: solid 1px ${props => props.theme.all.dark.colors.main};
+  }
 `;
 const BadgeStyle = styled(Fragment)`
 `;
