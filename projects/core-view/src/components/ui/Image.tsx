@@ -55,7 +55,7 @@ export const ImageStyle = styled.figure`
 
 interface ImgTagProps {
   id?: number | string;
-  source: () => JSX.Element | JSX.Element | string;
+  source: (() => JSX.Element) | JSX.Element | string;
   title: string;
   caption?: string;
   usemap?: string;
@@ -121,11 +121,11 @@ const ImgTag = (props: ImgTagProps) => {
 
 interface ImageProps {
   children?: JSX.Element[] | JSX.Element | string;
-  link: string;
-  title: string;
-  source: () => JSX.Element | JSX.Element | string;
-  image: () => JSX.Element | JSX.Element | string; // using this in case source is not given
-  onClick: () => void;
+  link?: string;
+  title?: string;
+  source: (() => JSX.Element) | JSX.Element | string;
+  image?: (() => JSX.Element) | JSX.Element | string; // using this in case source is not given
+  onClick?: () => void;
 }
 
 

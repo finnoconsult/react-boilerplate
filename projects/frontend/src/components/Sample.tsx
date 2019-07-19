@@ -59,7 +59,7 @@ const App = observer((): JSX.Element => {
       <button type="button" onClick={toggle}>Show/hide list</button>
       <br />
       {/* Store observable/computed getter */}
-      {isOpen && stores.gameStore.allGames.map((game: string): JSX.Element => (
+      {isOpen && stores.ui.allGames.map((game: string): JSX.Element => (
         <p key={game}>{game}</p>
       ))}
 
@@ -73,7 +73,7 @@ const App = observer((): JSX.Element => {
       {/* Action */}
       <button
         type="button"
-        onClick={(): void => stores.gameStore.addGame(capitalize(state.newGame))}
+        onClick={(): void => stores.ui.addGame(capitalize(state.newGame))}
       >
        Add game
       </button>

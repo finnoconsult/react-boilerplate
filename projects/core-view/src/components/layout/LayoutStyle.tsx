@@ -23,6 +23,8 @@ const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
 
   > nav {
     grid-area: header;
+    // display: flex;
+    flex-direction: row;
   }
   > main {
     grid-area: main;

@@ -1,13 +1,13 @@
 import { createContext } from 'react';
-import GameStore from './GameStore';
+import UIStore from './UIStore';
 
 export interface Stores {
-  gameStore: GameStore;
+  ui: UIStore;
 }
 
-const gameStore = new GameStore();
+const uiStore = new UIStore();
 const stores: Stores = {
-  gameStore,
+  ui: uiStore,
 };
 
 // Use the React context API so that the stores are available anywhere in the app

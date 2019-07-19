@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default function WelcomePage() {
-  return (
-    <>mainpage</>
-  );
-}
+const WelcomePage = () => (
+  <>mainpage</>
+);
+
+export default WelcomePage;

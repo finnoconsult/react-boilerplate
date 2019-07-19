@@ -2,8 +2,8 @@ import React from 'react';
 
 import LayoutStyle from './LayoutStyle';
 
-interface Props {
-  children: JSX.Element[] | JSX.Element | string;
+export interface LayoutProps {
+  children?: JSX.Element[] | JSX.Element | string;
   nav?: () => JSX.Element;
   header?: () => JSX.Element;
   left?: () => JSX.Element;
@@ -18,7 +18,7 @@ const Layout = ({
   right: RightSide,
   children,
   footer: Footer,
-}: Props) => (
+}: LayoutProps) => (
   <LayoutStyle>
     {Header && <header><Header /></header>}
     {Nav && <nav><Nav /></nav>}

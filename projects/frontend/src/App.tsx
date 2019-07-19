@@ -1,27 +1,29 @@
 import React from 'react';
-import { Layout, Security } from '@finnoconsult/core-view';
+import { Security } from '@finnoconsult/core-view';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import {
-  HeaderContainer,
-  NavBarContainer,
-  LeftContainer,
-  FooterContainer,
-  MainPageContainer,
+  // HeaderContainer,
+  // NavBarContainer,
+  // LeftContainer,
+  // FooterContainer,
+  // MainPageContainer,
+  WidgetDrivenLayout,
 } from './components/layout';
 
 
 const App = () => (
   <Security>
     <Router>
-      <Layout
+      {/* <Layout
         header={() => <HeaderContainer />}
         nav={() => <NavBarContainer />}
         left={() => <LeftContainer />}
         footer={() => <FooterContainer />}
       >
         <MainPageContainer />
-      </Layout>
+      </Layout> */}
+      <WidgetDrivenLayout />
     </Router>
   </Security>
 );
