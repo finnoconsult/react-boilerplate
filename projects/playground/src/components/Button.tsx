@@ -3,17 +3,32 @@ import styled, { ThemeProvider } from 'styled-components';
 
 import { theme } from '../theme';
 
+import Text from './Text';
+
 const ButtonStyles = styled.button`
-  background-color: ${props => props.theme.color.cta}
+  background-color: ${props => props.theme.color.cta};
   border: none;
   border-radius: 4px;
-  font-size: ${props => props.theme.font.sizeButton}
+  pading: 14px auto;
 `;
 
-export default function Button() {
+const ButtonText = styled(Text)`
+  font-size: ${props => props.theme.font.sizeButton};
+`;
+
+interface Props {
+  title: string;
+}
+
+export default (props: Props) => {
+  const { title } = props;
   return (
     <ThemeProvider theme={theme}>
-      <ButtonStyles>Click me!</ButtonStyles>
+      {title && (
+        <ButtonStyles>
+          <ButtonText>{title}</ButtonText>
+        </ButtonStyles>
+      )}
     </ThemeProvider>
   );
-}
+};

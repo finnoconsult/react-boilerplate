@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import Button from './components/Button';
 
-ReactDOM.render(<Button />, document.getElementById('root'));
+ReactDOM.render(<Button title="Click me!" />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
