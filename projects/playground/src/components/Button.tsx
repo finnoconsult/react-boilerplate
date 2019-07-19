@@ -17,7 +17,7 @@ const ButtonText = styled(Text)`
 `;
 
 interface Props {
-  title: string;
+  title?: string;
 }
 
 export default (props: Props) => {
