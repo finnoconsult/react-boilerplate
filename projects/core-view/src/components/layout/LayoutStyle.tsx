@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Fragment, FragmentProps } from './Fragment';
+import { Fragment, FragmentProps } from '../Fragment';
 
 const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
   display: grid;
@@ -16,11 +16,11 @@ const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
 
   > * {
     display: flex;
+    flex-direction: column;
     flex: 1 1 auto;
-    place-content: center;
+    // place-content: center;
   }
 
-  > header,
   > nav {
     grid-area: header;
   }
@@ -30,6 +30,7 @@ const MobileLayoutStyle = styled(Fragment)<FragmentProps>`
   > footer {
     grid-area: footer;
   }
+  > header,
   > aside.left,
   > aside.right {
     display: none;

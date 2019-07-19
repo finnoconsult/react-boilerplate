@@ -1,12 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import WelcomePage from '../pages/WelcomePage';
+import SamplePage from '../pages/SamplePage';
+import LoremPage from '../pages/LoremPage';
 
 export default function MainRouterContainer(): JSX.Element {
   return (
-    <Router>
+    <>
       <Route path="/" exact component={WelcomePage} />
-    </Router>
+      <Route path="/sample" exact component={SamplePage} />
+      <Route path="/lorem" exact component={LoremPage} />
+    </>
   );
 }

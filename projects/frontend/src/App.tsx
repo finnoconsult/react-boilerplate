@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { Layout } from '@finnoconsult/core-view';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import {
   HeaderContainer,
   NavBarContainer,
@@ -11,14 +12,16 @@ import {
 
 
 const App = () => (
-  <Layout
-    header={() => <HeaderContainer />}
-    nav={() => <NavBarContainer />}
-    left={() => <LeftContainer />}
-    footer={() => <FooterContainer />}
-  >
-    <MainPageContainer />
-  </Layout>
+  <Router>
+    <Layout
+      header={() => <HeaderContainer />}
+      nav={() => <NavBarContainer />}
+      left={() => <LeftContainer />}
+      footer={() => <FooterContainer />}
+    >
+      <MainPageContainer />
+    </Layout>
+  </Router>
 );
 
 export default App;
