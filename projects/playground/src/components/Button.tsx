@@ -1,7 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-
-import { theme } from '../theme';
+import styled from 'styled-components';
 
 import Text from './Text';
 
@@ -20,15 +18,12 @@ interface Props {
   title?: string;
 }
 
-export default (props: Props) => {
-  const { title } = props;
-  return (
-    <ThemeProvider theme={theme}>
-      {title && (
-        <ButtonStyles>
-          <ButtonText>{title}</ButtonText>
-        </ButtonStyles>
-      )}
-    </ThemeProvider>
-  );
-};
+export default ({ title }: Props) => (
+  <div>
+    {title && (
+      <ButtonStyles>
+        <ButtonText>{title}</ButtonText>
+      </ButtonStyles>
+    )}
+  </div>
+);
