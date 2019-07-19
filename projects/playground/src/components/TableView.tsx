@@ -16,28 +16,50 @@ const TableViewCellTitle = styled(Text)`
   font-size: 1.6rem;
   font-weight: bold;
   color: ${props => props.theme.color.text};
-  margin-left: 16px;
-  margin-top: 16px;
 `;
 
 const TableViewCellDescription = styled(Text)`
   font-size: 1.6rem;
   color: ${props => props.theme.color.text};
-  margin-left: 16px;
   margin-top: 8px;
-  margin-bottom: 16px;
 `;
 
 interface TableViewCellStylesProps {
   isOpen: boolean;
 }
 
-const TableViewCell = styled.div<TableViewCellStylesProps>`
+const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
   overflow: hidden;
   ${TableViewCellDescription} {
     display: ${props => (props.isOpen ? 'block' : 'none')};
   }
+
+  &:not(:last-child)::after {
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 0 16px;
+    background-color: ${props => props.theme.color.divider};
+  }
 `;
+
+const TableViewCellInnerStyles = styled.div`
+  padding: 16px;
+`;
+
+interface TableViewCellProps {
+  children: JSX.Element | JSX.Element[];
+  isOpen: boolean;
+  toggle: () => void;
+}
+
+const TableViewCell = ({ children, isOpen, toggle }: TableViewCellProps) => (
+  <TableViewCellOuterStyles isOpen={isOpen} onClick={toggle}>
+    <TableViewCellInnerStyles>
+      {children}
+    </TableViewCellInnerStyles>
+  </TableViewCellOuterStyles>
+);
 
 interface CellItem {
   title: string;
@@ -69,7 +91,7 @@ export default ({ title, cellItems, onlyOneCellShouldOpen }: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <TableViewCell key={item.title} isOpen={openStates[index]} onClick={() => toggle(index)}>
+        <TableViewCell key={item.title} isOpen={openStates[index]} toggle={() => toggle(index)}>
           <TableViewCellTitle>{item.title}</TableViewCellTitle>
           <TableViewCellDescription>{item.description}</TableViewCellDescription>
         </TableViewCell>

@@ -2,6 +2,7 @@ export const theme = {
   color: {
     background: '#fff',
     border: '#b2b2b2',
+    divider: '#e5e5e5',
     cta: '#ffcc00',
     text: '#191919',
   },
