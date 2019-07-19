@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@finnoconsult/core-view';
+import { Layout, Security } from '@finnoconsult/core-view';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import {
@@ -12,16 +12,18 @@ import {
 
 
 const App = () => (
-  <Router>
-    <Layout
-      header={() => <HeaderContainer />}
-      nav={() => <NavBarContainer />}
-      left={() => <LeftContainer />}
-      footer={() => <FooterContainer />}
-    >
-      <MainPageContainer />
-    </Layout>
-  </Router>
+  <Security>
+    <Router>
+      <Layout
+        header={() => <HeaderContainer />}
+        nav={() => <NavBarContainer />}
+        left={() => <LeftContainer />}
+        footer={() => <FooterContainer />}
+      >
+        <MainPageContainer />
+      </Layout>
+    </Router>
+  </Security>
 );
 
 export default App;
