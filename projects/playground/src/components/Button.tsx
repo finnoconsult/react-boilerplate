@@ -8,8 +8,8 @@ interface ButtonStylesProps {
 }
 
 const ButtonStyles = styled.button<ButtonStylesProps>`
-  background-color: ${props => (props.cta ? props.theme.color.cta : props.theme.color.background)};
-  border: ${props => (props.cta ? 'none' : `1px solid ${props.theme.color.text}`)};
+  background-color: ${props => (props.cta ? props.theme.colors.cta : props.theme.colors.background)};
+  border: ${props => (props.cta ? 'none' : `1px solid ${props.theme.colors.text}`)};
   border-radius: 4px;
   padding: 13px;
   cursor: pointer;
@@ -18,7 +18,6 @@ const ButtonStyles = styled.button<ButtonStylesProps>`
 const ButtonText = styled(Text)`
   font-size: ${props => props.theme.font.sizeButton};
   font-weight: bold;
-  color: ${props => props.theme.color.text};
 `;
 
 interface Props {

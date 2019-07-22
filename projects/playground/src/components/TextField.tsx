@@ -13,11 +13,10 @@ const BadgeTitle = styled(Text)`
   left: 1.6rem;
   top: -${1.2 / 2}rem;
   
-  color: ${props => props.theme.color.text}
   font-size: 1.2rem;
 
   padding: 0 8px;
-  background-color: ${props => props.theme.color.background};
+  background-color: ${props => props.theme.colors.background};
 `;
 
 const TextField = styled.input`
@@ -26,11 +25,10 @@ const TextField = styled.input`
   padding: 13px;
   
   border-radius: 4px;
-  border: solid 1px ${props => props.theme.color.border};
+  border: solid 1px ${props => props.theme.colors.border};
   outline: none;
   
   font-size: 1.6rem;
-  color: ${props => props.theme.color.text};
 `;
 
 const UtilityViewStyles = styled.div`

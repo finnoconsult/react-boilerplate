@@ -15,12 +15,10 @@ const Title = styled(Text)`
 const TableViewCellTitle = styled(Text)`
   font-size: 1.6rem;
   font-weight: bold;
-  color: ${props => props.theme.color.text};
 `;
 
 const TableViewCellDescription = styled(Text)`
   font-size: 1.6rem;
-  color: ${props => props.theme.color.text};
   margin-top: 8px;
 `;
 
@@ -39,7 +37,7 @@ const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
     display: block;
     height: 1px;
     margin: 0 16px;
-    background-color: ${props => props.theme.color.divider};
+    background-color: ${props => props.theme.colors.divider};
   }
 `;
 

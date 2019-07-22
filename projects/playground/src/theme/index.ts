@@ -1,5 +1,5 @@
 export const theme = {
-  color: {
+  colors: {
     background: '#fff',
     border: '#b2b2b2',
     divider: '#e5e5e5',
@@ -12,5 +12,10 @@ export const theme = {
   animation: {
     transformTransition: '0.2s transform ease-out',
     hegihtTransition: '0.8s max-height ease-out',
+  },
+  spacing: {
+    basicPadding: '14px',
+    paragraphPadding: '14px 20px',
+    basicMargin: '14px',
   },
 };
