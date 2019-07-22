@@ -6,6 +6,7 @@ import Title from '../components/Title';
 import TextField, { MapPinUtilityView } from '../components/TextField';
 import Button from '../components/Button';
 import Divider from '../components/Divider';
+import RadioGroup from '../components/RadioGroup';
 
 import { FullWidthLayout, ColumnLayout as InputColumnLayout } from '../components/layouts';
 
@@ -29,6 +30,15 @@ export default () => (
       <Divider />
 
       <Title>Wie können wir Sie erreichen?</Title>
+      <RadioGroup
+        title="Anrede"
+        name="gender"
+        items={[
+          { value: 'male', title: 'Herr' },
+          { value: 'female', title: 'Frau' },
+        ]}
+        // onChange={value => console.log(value)}
+      />
       <InputColumnLayout ratio="1fr 1fr">
         <TextField badgeTitle="Vorname" />
         <TextField badgeTitle="Nachname" />
