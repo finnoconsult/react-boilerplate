@@ -8,7 +8,8 @@ import { theme } from './theme';
 // import TableView from './components/TableView';
 
 // import AddressPage from './pages/Address';
-import LandingPage from './pages/Landing';
+// import LandingPage from './pages/Landing';
+import SMS1 from './pages/sms/SMS1';
 
 // const PlaygroundLayout = styled.div`
 //   margin: 12px;
@@ -35,6 +36,7 @@ export default () => (
       />
     </PlaygroundLayout> */}
     {/* <AddressPage /> */}
-    <LandingPage />
+    {/* <LandingPage /> */}
+    <SMS1 />
   </ThemeProvider>
 );
