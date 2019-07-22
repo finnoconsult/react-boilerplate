@@ -6,8 +6,6 @@ import Text from './Text';
 const TableView = styled.div``;
 
 const Title = styled(Text)`
-  margin-left: 16px;
-  margin-top: 16px;
   font-size: 2.4rem;
   font-weight: bold;
 `;
@@ -36,13 +34,12 @@ const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
     content: '';
     display: block;
     height: 1px;
-    margin: 0 16px;
     background-color: ${props => props.theme.colors.divider};
   }
 `;
 
 const TableViewCellInnerStyles = styled.div`
-  padding: 16px;
+  padding: 16px 0;
 `;
 
 interface TableViewCellProps {
@@ -68,12 +65,11 @@ interface Props {
   title?: string;
   cellItems: CellItem[];
   onlyOneCellShouldOpen?: boolean;
+  firstOpen?: boolean;
 }
 
-function useOpenStates(initialState: boolean, count: number, onlyOneCellShouldOpen?: boolean): [boolean[], (index: number) => void] {
-  const states = Array<boolean>(count).fill(initialState);
-
-  const [openStates, setOpenStates] = useState(states);
+function useOpenStates(initialState: boolean[], onlyOneCellShouldOpen?: boolean): [boolean[], (index: number) => void] {
+  const [openStates, setOpenStates] = useState(initialState);
   function toggle(index: number): void {
     const newStates = [...openStates];
     if (onlyOneCellShouldOpen) {
@@ -86,8 +82,14 @@ function useOpenStates(initialState: boolean, count: number, onlyOneCellShouldOp
   return [openStates, toggle];
 }
 
-export default ({ title, cellItems, onlyOneCellShouldOpen }: Props) => {
-  const [openStates, toggle] = useOpenStates(false, cellItems.length, onlyOneCellShouldOpen);
+export default (props: Props) => {
+  const {
+    title, cellItems, onlyOneCellShouldOpen, firstOpen,
+  } = props;
+
+  const initialState = Array<boolean>(cellItems.length).fill(false);
+  if (firstOpen) initialState[0] = true;
+  const [openStates, toggle] = useOpenStates(initialState, onlyOneCellShouldOpen);
 
   return (
     <TableView>

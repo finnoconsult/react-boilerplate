@@ -32,7 +32,7 @@ export default ({ title, cta, children }: Props) => (
       <ButtonText>{title}</ButtonText>
     )}
     {(!title && children) && (
-      { children }
+      children
     )}
   </ButtonStyles>
 );

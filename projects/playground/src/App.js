@@ -7,7 +7,8 @@ import { theme } from './theme';
 // import TextField from './components/TextField';
 // import TableView from './components/TableView';
 
-import AddressPage from './pages/Address';
+// import AddressPage from './pages/Address';
+import LandingPage from './pages/Landing';
 
 // const PlaygroundLayout = styled.div`
 //   margin: 12px;
@@ -33,6 +34,7 @@ export default () => (
         onlyOneCellShouldOpen
       />
     </PlaygroundLayout> */}
-    <AddressPage />
+    {/* <AddressPage /> */}
+    <LandingPage />
   </ThemeProvider>
 );

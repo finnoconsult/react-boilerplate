@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Page from '../components/Page';
-import Title from '../components/Title';
+import Title from '../components/Text/Title';
 import TextField, { MapPinUtilityView } from '../components/TextField';
 import Button from '../components/Button';
 import Divider from '../components/Divider';
@@ -13,6 +13,10 @@ import { FullWidthLayout, ColumnLayout as InputColumnLayout } from '../component
 const InputLayout = styled.div`
   &>div {
     margin-bottom: 24px;
+  }
+
+  ${Title} {
+    margin-bottom: 16px;
   }
 `;
 
