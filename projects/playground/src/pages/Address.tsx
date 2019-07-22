@@ -2,50 +2,33 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Page from '../components/Page';
-import Text from '../components/Text';
 import Title from '../components/Title';
-import TextField from '../components/TextField';
+import TextField, { MapPinUtilityView } from '../components/TextField';
+import Button from '../components/Button';
+import Divider from '../components/Divider';
 
-const MapPinUtilityViewStyles = styled.div``;
-const MapPinUtilityViewTitle = styled(Text)`
-  font-size: 13px;
-  font-weight: bold;
-`;
-
-const MapPinUtilityView = () => (
-  <MapPinUtilityViewStyles>
-    <MapPinUtilityViewTitle>Meinen Standort bestimmen</MapPinUtilityViewTitle>
-  </MapPinUtilityViewStyles>
-);
+import { FullWidthLayout, ColumnLayout as InputColumnLayout } from '../components/layouts';
 
 const InputLayout = styled.div`
-  &>* {
+  &>div {
     margin-bottom: 24px;
-  }
-`;
-
-
-interface InputColumnLayoutProps {
-  ratio: string;
-}
-
-const InputColumnLayout = styled.div<InputColumnLayoutProps>`
-  display: grid;
-  grid-template-columns: ${props => props.ratio};
-  &>div:first-child {
-    margin-right: 8px;
   }
 `;
 
 export default () => (
   <Page>
-    <Title>Ihre Adresse</Title>
     <InputLayout>
-      <TextField badgeTitle="PLZ" utilityView={<MapPinUtilityView />} />
+      <Title>Ihre Adresse</Title>
+      <InputColumnLayout ratio="1fr">
+        <TextField badgeTitle="PLZ" utilityView={<MapPinUtilityView />} />
+      </InputColumnLayout>
       <InputColumnLayout ratio="2fr 1fr">
         <TextField badgeTitle="Strasse und Hausnummer" />
         <TextField badgeTitle="Stockwerk" />
       </InputColumnLayout>
+      <Divider />
+
+      <Title>Wie können wir Sie erreichen?</Title>
       <InputColumnLayout ratio="1fr 1fr">
         <TextField badgeTitle="Vorname" />
         <TextField badgeTitle="Nachname" />
@@ -55,5 +38,9 @@ export default () => (
         <TextField badgeTitle="Handy-Nummer" />
       </InputColumnLayout>
     </InputLayout>
+
+    <FullWidthLayout>
+      <Button title="Handy-Nummer bestätigen" cta />
+    </FullWidthLayout>
   </Page>
 );
