@@ -18,9 +18,42 @@ const MapPinUtilityView = () => (
   </MapPinUtilityViewStyles>
 );
 
+const InputLayout = styled.div`
+  &>* {
+    margin-bottom: 24px;
+  }
+`;
+
+
+interface InputColumnLayoutProps {
+  ratio: string;
+}
+
+const InputColumnLayout = styled.div<InputColumnLayoutProps>`
+  display: grid;
+  grid-template-columns: ${props => props.ratio};
+  &>div:first-child {
+    margin-right: 8px;
+  }
+`;
+
 export default () => (
   <Page>
     <Title>Ihre Adresse</Title>
-    <TextField badgeTitle="PLZ" utilityView={<MapPinUtilityView />} />
+    <InputLayout>
+      <TextField badgeTitle="PLZ" utilityView={<MapPinUtilityView />} />
+      <InputColumnLayout ratio="2fr 1fr">
+        <TextField badgeTitle="Strasse und Hausnummer" />
+        <TextField badgeTitle="Stockwerk" />
+      </InputColumnLayout>
+      <InputColumnLayout ratio="1fr 1fr">
+        <TextField badgeTitle="Vorname" />
+        <TextField badgeTitle="Nachname" />
+      </InputColumnLayout>
+      <InputColumnLayout ratio="1fr 2fr">
+        <TextField badgeTitle="Vorwahl" />
+        <TextField badgeTitle="Handy-Nummer" />
+      </InputColumnLayout>
+    </InputLayout>
   </Page>
 );
