@@ -24,7 +24,14 @@ const PhoneButtonView = ({ phoneNumber }: PhoneButtonViewProps) => (
   </PhoneButtonViewStyles>
 );
 
-const PhoneButtonStyles = styled.div``;
+const PhoneButtonStyles = styled.div`
+  &>${SubTitle} {
+    margin-bottom: 10px;
+  }
+  &>${FullWidthLayout} {
+    margin-bottom: 24px;
+  }
+`;
 
 interface PhoneButtonProps {
   title: string;
