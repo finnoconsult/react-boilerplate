@@ -71,10 +71,10 @@ export default () => (
         title="FAQ"
         cellItems={[
           { title: 'Warum ein Schlüsselnotdienst?', description: 'Weil der ADAC bekannt dafür ist, seinen Mitgliedern im Notfall zu helfen – dies wird durch den Schlüsselnotdienst nun auch auf die Wohnungstür ausgeweitet. Der ADAC hilft Ihnen, schnell wieder in Ihre Wohnung oder Ihr Einfamilien-, Reihen-, Doppelhaus zu kommen.' },
-          { title: 'Öffnet der ADAC Schlüsselnotdienst auch Autotüren?', description: '' },
-          { title: 'Was unterscheidet einen Schlüsselnotdienst von einem Schlüsseldienst?', description: '' },
-          { title: 'Warum nur in Berlin, Hamburg und München?', description: '' },
-          { title: 'Wie lange muss ich warten?', description: '' },
+          { title: 'Öffnet der ADAC Schlüsselnotdienst auch Autotüren?', description: 'Die Gelben Engel öffnen Ihnen in Einzelfällen auch Ihre Autotür. Dies fällt beim ADAC in den Bereich Pannenhilfe und wird nur Mitgliedern angeboten – wenden Sie sich daher in einem solchen Fall bitte an die 22 22 22 oder melden Sie Ihre Panne ganz bequem hier. Der ADAC Schlüsselnotdienst öffnet Ihre Wohnungs-, Einfamilienhaus-, Reihenhaus- oder Doppelhaus-Tür.' },
+          { title: 'Was unterscheidet einen Schlüsselnotdienst von einem Schlüsseldienst?', description: 'Der Schlüsselnotdienst kümmert sich ausschließlich um die Öffnung von Wohnungstüren, ein Schlüsseldienst übernimmt auch Montagearbeiten und Beratung.' },
+          { title: 'Warum nur in Berlin, Hamburg und München?', description: 'Weil Erfahrungen und Anpassungen im Testlauf durch die Nähe zur ADAC Zentrale schnell und flexibel umgesetzt werden können.' },
+          { title: 'Wie lange muss ich warten?', description: 'Wir bemühen uns, so schnell wie möglich bei Ihnen zu sein. Die Wartezeit kann je nach Auftragslage und Verkehrssituation variieren.' },
         ]}
         firstOpen
       />
