@@ -20,3 +20,5 @@ export {
   StaticMenuList,
   Security,
 };
+
+export * from './helpers/browser-helper';

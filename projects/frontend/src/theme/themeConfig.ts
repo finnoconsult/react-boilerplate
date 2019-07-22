@@ -20,6 +20,9 @@ export const mainTheme = {
   spacing: {
     basicPadding: '20px',
   },
+};
+
+export const mainConfig = {
   devices: {
     mobileMaxWidth: '400px',
     tabletMaxWidth: '900px',
@@ -40,6 +43,7 @@ export const darkTheme = {
 // TODO: mobile?
 
 export default {
+  ...mainConfig,
   ...mainTheme,
   all: {
     main: mainTheme,

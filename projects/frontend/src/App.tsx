@@ -8,7 +8,7 @@ import {
   // LeftContainer,
   // FooterContainer,
   // MainPageContainer,
-  WidgetDrivenLayout,
+  WidgetLayoutContainer,
 } from './components/layout';
 
 
@@ -23,7 +23,7 @@ const App = () => (
       >
         <MainPageContainer />
       </Layout> */}
-      <WidgetDrivenLayout />
+      <WidgetLayoutContainer />
     </Router>
   </Security>
 );
