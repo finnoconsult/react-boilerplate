@@ -1,5 +1,5 @@
 import platform from 'platform';
-import { Dimensions } from './Dimensions.d';
+import { Dimensions } from '../types/Dimensions.d';
 
 
 export function isPortrait({ width, height }) {

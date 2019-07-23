@@ -27,6 +27,8 @@ const Layout = ({
   browser,
 }: LayoutProps) => (
   <LayoutStyle
+    {...resolution}
+    browser={browser}
     data-layout={resolution.isPortrait ? 'portrait' : 'landscape'}
     data-platform-name={browser.name}
     data-platform-version={browser.version}

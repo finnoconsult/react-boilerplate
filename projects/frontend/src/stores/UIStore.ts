@@ -6,11 +6,12 @@ import {
   isTablet,
   isPhone,
   isPortrait,
+  isLandscape,
   getResolution,
 } from '@finnoconsult/core-view';
-// import {
-//   Dimensions,
-// } from '@finnoconsult/core-view/index.d';
+import {
+  Dimensions,
+} from '@finnoconsult/core-view/lib/index.d';
 
 import {
   widgets,
@@ -19,19 +20,17 @@ import {
 
 import themes from '../theme/themeConfig';
 
-// TODO: import from core-view
-export interface Dimensions extends ClientRect {
-  isPortrait?: boolean;
-}
-// console.log('Dimensions', Dimensions);
-
 
 export default class UIStore {
   public constructor() {
     window.addEventListener('resize', () => this.setDefaultResolution());
   }
 
-  @observable public resolution = getResolution();
+  @observable public resolution = {
+    ...getResolution(),
+    isPortrait: isPortrait(getResolution()),
+    isLandscape: isLandscape(getResolution()),
+  };
 
   @action public setDefaultResolution() {
     this.setResolution(getResolution());
@@ -44,6 +43,7 @@ export default class UIStore {
       width: res.width,
       height: res.height,
       isPortrait: isPortrait(res),
+      isLandscape: isLandscape(res),
     };
   }
 

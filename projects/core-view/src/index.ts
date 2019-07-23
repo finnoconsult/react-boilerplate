@@ -22,4 +22,4 @@ export {
 };
 
 export * from './helpers/browser-helper';
-export * from './types';
+export { Dimensions, Browser } from './types';
