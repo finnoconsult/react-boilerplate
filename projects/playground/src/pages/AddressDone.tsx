@@ -10,6 +10,8 @@ import CheckBoxGroup from '../components/CheckBoxGroup';
 import { FullWidthLayout } from '../components/layouts';
 import Button from '../components/Button';
 
+import Offer from '../components/svgs/Offer';
+
 const AddressTextLayout = styled.div`
   margin-top: 5px;
 `;
@@ -31,6 +33,7 @@ export default () => (
         <Text>Landwehrstraße 67, 80331 München</Text>
       </AddressTextLayout>
     </SubPage>
+    <Offer />
     <SubPage>
       <CheckBoxGroup
         name="agreement"
