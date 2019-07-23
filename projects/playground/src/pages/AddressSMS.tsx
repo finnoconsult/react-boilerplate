@@ -8,6 +8,7 @@ import Title from '../components/Text/Title';
 import Text from '../components/Text';
 import { FullWidthLayout } from '../components/layouts';
 import Button from '../components/Button';
+import SOSMessage from '../components/SOSMessage';
 
 const Question = styled(Text)`
   text-align: center;
@@ -27,7 +28,13 @@ export default () => (
     <SubPage>
       <Title>Handy-Nummer bestätigen</Title>
     </SubPage>
-    {/* // TODO: Image */}
+    <SOSMessage grey>
+      <Text>
+        Wir haben eine SMS an
+        <strong> 0172 123 123 </strong>
+geschickt. Bitte folgen Sie den Anweisungen.
+      </Text>
+    </SOSMessage>
     <SubPage>
       <FullWidthLayout>
         <Question>SMS nicht angekommen?</Question>
