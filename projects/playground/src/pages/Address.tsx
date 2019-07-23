@@ -8,6 +8,7 @@ import TextField, { MapPinUtilityView } from '../components/TextField';
 import Button from '../components/Button';
 import Divider from '../components/Divider';
 import RadioGroup from '../components/RadioGroup';
+import HorizontalProgressView from '../components/HorizontalProgressView';
 
 import { FullWidthLayout, ColumnLayout as InputColumnLayout } from '../components/layouts';
 
@@ -23,6 +24,14 @@ const InputLayout = styled.div`
 
 export default () => (
   <Page>
+    <HorizontalProgressView
+      items={[
+        'Adresse',
+        'Handy-Nummer bestätigen',
+        'Beauftragen',
+      ]}
+      progress={0}
+    />
     <SubPage>
       <InputLayout>
         <Title>Ihre Adresse</Title>
