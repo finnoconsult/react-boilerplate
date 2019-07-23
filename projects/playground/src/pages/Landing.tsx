@@ -10,9 +10,19 @@ import Text from '../components/Text';
 import Divider from '../components/Divider';
 import TableView from '../components/TableView';
 
+import FireDepartment from '../components/svgs/FireDepartment';
+import Prices from '../components/svgs/Prices';
+import Conditions from '../components/svgs/Conditions';
+
 import { FullWidthLayout } from '../components/layouts';
 
 const PhoneButtonViewStyles = styled.div``;
+
+const Marginizer = styled.div`
+  &>* {
+    margin-bottom: 20px;
+  }
+`;
 
 interface PhoneButtonViewProps {
   phoneNumber: string;
@@ -52,15 +62,26 @@ const PhoneButton = ({ title, phoneNumber }: PhoneButtonProps) => (
 export default () => (
   <Page>
     <SubPage>
-      <Title>Ihr ADAC Schlüsselnotdienst</Title>
-      <SubTitle>Berlin, Hamburg und München </SubTitle>
+      <Title>Ihr ADAC Schlüsselnotdienst in Berlin, Hamburg und München </Title>
+    </SubPage>
 
-      <Title>Wir sind von 0–24 Uhr für Sie da!</Title>
-      <FullWidthLayout>
-        <Button title="Schlüsselnotdienst anfordern" cta />
-      </FullWidthLayout>
+    <FireDepartment />
 
-      <Text>Lieber telefonisch anfragen?</Text>
+    <SubPage>
+      {/* <SubTitle>Berlin, Hamburg und München </SubTitle> */}
+
+      <Marginizer>
+        <Title>Wir sind von 0–24 Uhr für Sie da!</Title>
+        <Prices />
+        <Conditions />
+        <FullWidthLayout>
+          <Button title="Schlüsselnotdienst anfordern" cta />
+        </FullWidthLayout>
+      </Marginizer>
+
+      <Marginizer>
+        <Text>Lieber telefonisch anfragen?</Text>
+      </Marginizer>
       <PhoneButton title="ADAC Berlin" phoneNumber="030 76 76 55 77" />
       <PhoneButton title="ADAC Hamburg" phoneNumber="040 76 76 55 77" />
       <PhoneButton title="ADAC München" phoneNumber="089 76 76 55 77" />
