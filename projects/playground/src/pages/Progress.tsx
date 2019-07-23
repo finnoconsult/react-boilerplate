@@ -7,6 +7,7 @@ import Title from '../components/Text/Title';
 import LightSubTitle from '../components/Text/LightSubTitle';
 import Text from '../components/Text';
 import SOSMessage from '../components/SOSMessage';
+import Divider from '../components/Divider';
 
 const SOSMessageStyles = styled.div`
   &>* {
@@ -28,5 +29,6 @@ export default () => (
         </Text>
       </SOSMessage>
     </SOSMessageStyles>
+    <Divider />
   </Page>
 );

@@ -7,7 +7,7 @@ interface DividerProps {
 export default styled.div<DividerProps>`
   margin: 0 ${props => !props.fullWidth && '16px'};
   height: 1px;
-  width: 100%;
   background-color: ${props => props.theme.colors.divider};
   overflow: hidden;
+  box-sizing: content-box;
 `;
