@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default () => (
+interface FireDepartmentProps {
+  onCloseClicked: () => void;
+}
+
+export default ({ onCloseClicked }: FireDepartmentProps) => (
   <svg width="360px" height="203px" viewBox="0 0 360 203" version="1.1">
-    <title>Group 15</title>
-    <desc>Created with Sketch.</desc>
     <defs>
       <polygon id="path-1" points="19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12" />
       <rect id="path-3" x="0" y="0" width="328" height="48" rx="4" />
@@ -19,7 +21,7 @@ export default () => (
           <text id="Body-1" fontFamily="MiloADAC-Bold, Milo ADAC" fontSize="16" fontWeight="bold" line-spacing="21" fill="#191919">
             <tspan x="16" y="31">Ist Gefahr im Verzug?</tspan>
           </text>
-          <g id="Icon-/-Navigation-/-Close" transform="translate(320.000000, 15.000000)">
+          <g onClick={onCloseClicked} id="Icon-/-Navigation-/-Close" transform="translate(320.000000, 15.000000)">
             <mask id="mask-2" fill="white">
               <use href="#path-1" />
             </mask>
