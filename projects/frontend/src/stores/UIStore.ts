@@ -26,27 +26,6 @@ export default class UIStore {
     window.addEventListener('resize', () => this.setDefaultResolution());
   }
 
-  @observable public resolution = {
-    ...getResolution(),
-    isPortrait: isPortrait(getResolution()),
-    isLandscape: isLandscape(getResolution()),
-  };
-
-  @action public setDefaultResolution() {
-    this.setResolution(getResolution());
-  }
-
-  @action public setResolution(resolution: Dimensions): void {
-    const res = resolution || {};
-    this.resolution = {
-      ...res,
-      width: res.width,
-      height: res.height,
-      isPortrait: isPortrait(res),
-      isLandscape: isLandscape(res),
-    };
-  }
-
   @observable private themeConfig = themes;
 
   @observable private theme = undefined;
@@ -78,6 +57,40 @@ export default class UIStore {
 
   @computed public get isPortrait() {
     return isPortrait(this.resolution);
+  }
+
+  @computed public get isLandscape() {
+    return isLandscape(this.resolution);
+  }
+
+
+  private calculateDeviceMeasures = (resolution: Dimensions) => ({
+    isPortrait: isPortrait(resolution),
+    isLandscape: isLandscape(resolution),
+    isDesktop: isDesktop({ ...this.themeConfig.devices, ...resolution }),
+    isTablet: isTablet({ ...this.themeConfig.devices, ...resolution }),
+    isPhone: isPhone({ ...this.themeConfig.devices, ...resolution }),
+    isMobile: isTablet({ ...this.themeConfig.devices, ...resolution }) || isPhone({ ...this.themeConfig.devices, ...resolution }),
+  })
+
+
+  @observable public resolution = {
+    ...getResolution(),
+    ...this.calculateDeviceMeasures(getResolution()),
+  };
+
+  @action public setDefaultResolution() {
+    this.setResolution(getResolution());
+  }
+
+  @action public setResolution(resolution: Dimensions): void {
+    const res = resolution || {};
+    this.resolution = {
+      ...res,
+      width: res.width,
+      height: res.height,
+      ...this.calculateDeviceMeasures(res),
+    };
   }
 
 

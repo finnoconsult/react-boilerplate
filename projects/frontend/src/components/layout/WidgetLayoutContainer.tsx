@@ -8,7 +8,7 @@ import StoreContext from '../../stores';
 
 export const WidgetDrivenLayout = observer(() => {
   const stores = useContext(StoreContext);
-  console.log('stores.ui.resolution', stores.ui.resolution);
+
   return (
     <ThemeProvider theme={stores.ui.currentTheme}>
       <WidgetLayoutBuilder

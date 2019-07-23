@@ -50,6 +50,7 @@ export function isTablet({ mobileMaxWidth, tabletMaxWidth, size = getResolution(
 }
 export function isPhone({ mobileMaxWidth, size = getResolution() }) {
   const isIt = parseInt(mobileMaxWidth, 10) >= size.width;
+  console.log('isPhone?', mobileMaxWidth, size, '=>', isIt);
   return isIt;
 }
 

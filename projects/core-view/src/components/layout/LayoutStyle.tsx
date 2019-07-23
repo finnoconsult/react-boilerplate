@@ -43,8 +43,16 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     display: none;
   }
 
+  ${props => props.isMobile && `
+  `}
+  ${props => props.isPhone && `
+  `}
+  ${props => props.isTablet && `
+  `}
+  ${props => props.isDesktop && `
+  `}
+
   ${props => props.isLandscape && `
-    border: double 5px ${props.theme.colors.info};
 
     &:after {
       position: fixed;
@@ -53,6 +61,7 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
       height: 100vh;
       top: 0;
       left: 0;
+      box-sizing: border-box;
 
       display: flex;
       align-items: center;
@@ -60,6 +69,7 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
 
       content: 'Please rotate your device to Landscape mode!';
       background-color: rgba(60,60,60,0.7);
+      border: double 5px ${props.theme.colors.info};
       color: ${props.theme.colors.info};
       opacity: 0.9;
     }
