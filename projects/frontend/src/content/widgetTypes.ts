@@ -1,5 +1,7 @@
 // TODO: refactor types to the core-model
 
+import { ImageOrComponent } from '@finnoconsult/core-view/lib/index.d';
+
 export interface WidgetIdType {
   id: string | number;
 }
@@ -15,9 +17,9 @@ export interface WidgetDefinitionType extends WidgetIdType {
   group?: string;
 }
 export interface WidgetStaticType extends WidgetDefinitionType {
-  small?: (() => JSX.Element) | JSX.Element | string;
-  medium?: (() => JSX.Element) | JSX.Element | string;
-  large?: (() => JSX.Element) | JSX.Element | string;
+  small?: ImageOrComponent;
+  medium?: ImageOrComponent;
+  large?: ImageOrComponent;
 }
 export interface WidgetComponentType extends WidgetDefinitionType {
   component: () => JSX.Element | JSX.Element;

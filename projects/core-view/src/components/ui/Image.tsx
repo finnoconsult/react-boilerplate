@@ -3,8 +3,7 @@ import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 
-// import { oneChildElementOrFunction, numberOrStringText, oneOrManyChildElements } from '../../prop-types';
-
+import { Children, ImageOrComponent } from '../../types';
 
 // import styles from './Image.scss';
 
@@ -55,7 +54,7 @@ export const ImageStyle = styled.figure`
 
 interface ImgTagProps {
   id?: number | string;
-  source: (() => JSX.Element) | JSX.Element | string;
+  source: ImageOrComponent;
   title: string;
   caption?: string;
   usemap?: string;
@@ -120,11 +119,11 @@ const ImgTag = (props: ImgTagProps) => {
 };
 
 interface ImageProps {
-  children?: JSX.Element[] | JSX.Element | string;
+  children?: Children;
   link?: string;
   title?: string;
-  source: (() => JSX.Element) | JSX.Element | string;
-  image?: (() => JSX.Element) | JSX.Element | string; // using this in case source is not given
+  source: ImageOrComponent;
+  image?: ImageOrComponent; // using this in case source is not given
   onClick?: () => void;
 }
 

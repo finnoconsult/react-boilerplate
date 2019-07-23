@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Dimensions } from '../../types/Dimensions.d';
-import { Browser } from '../../types/Browser.d';
+import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
 import { WidgetStyle } from './WidgetStyle';
@@ -50,7 +49,7 @@ function renderWidgets({ widgets, position }: FindWidgetProps) {
 interface Props {
   layout: (props: LayoutProps) => JSX.Element;
   widgets: WidgetType[];
-  children: JSX.Element[] | JSX.Element | string;
+  children: Children;
   resolution: Dimensions;
   browser: Browser;
 }

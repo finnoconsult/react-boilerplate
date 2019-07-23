@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { Children } from '../../types';
+
 interface Props {
-  children: JSX.Element[] | JSX.Element | string;
+  children: Children;
 }
 
 // TODO: implement auth check

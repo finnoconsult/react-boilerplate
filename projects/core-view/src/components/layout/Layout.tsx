@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { Dimensions } from '../../types/Dimensions.d';
-import { Browser } from '../../types/Browser.d';
+import { Dimensions, Browser, Children } from '../../types';
 
 import LayoutStyle from './LayoutStyle';
 
 export interface LayoutProps {
-  children?: JSX.Element[] | JSX.Element | string;
+  children?: Children;
   nav?: () => JSX.Element;
   header?: () => JSX.Element;
   left?: () => JSX.Element;
@@ -36,8 +35,8 @@ const Layout = ({
     data-platform-version={browser.version}
     data-platform-os-family={browser.os.family.toLowerCase()}
     data-platform-os-version={browser.os.version}
-    {...resolution}
-    browser={browser}
+    // {...resolution}
+    // browser={browser}
   >
     {Header && <header><Header /></header>}
     {Nav && <nav><Nav /></nav>}

@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 
+import { Children } from '../../types';
+
 interface Props {
-  children: JSX.Element[] | JSX.Element | string;
+  children: Children;
   to?: string;
   title?: string;
   className?: string;

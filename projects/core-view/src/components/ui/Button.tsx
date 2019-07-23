@@ -7,8 +7,10 @@ import { withRouter, Link } from 'react-router-dom';
 
 // import styles from '../../../../theme/app.global.scss';
 
+import { Children } from '../../types';
+
 interface Props {
-  children?: JSX.Element[] | JSX.Element | string;
+  children?: Children;
   to?: string;
   title?: string;
   className?: string;
