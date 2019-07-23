@@ -10,11 +10,6 @@ interface WidgetType {
   title?: string;
 }
 
-interface Props {
-  layout: (props: LayoutProps) => JSX.Element;
-  widgets: WidgetType[];
-  children: JSX.Element[] | JSX.Element | string;
-}
 
 // TODO: display static images:
 const WidgetFactoryStatic = ({ title }: WidgetType) => (
@@ -48,10 +43,31 @@ function renderWidgets({ widgets, position }: FindWidgetProps) {
   );
 }
 
+
+// TODO: import from core-view
+export interface Dimensions extends ClientRect {
+  isPortrait?: boolean;
+}
+export interface Browser {
+  name?: string;
+  version: string;
+  os: string;
+}
+
+interface Props {
+  layout: (props: LayoutProps) => JSX.Element;
+  widgets: WidgetType[];
+  children: JSX.Element[] | JSX.Element | string;
+  resolution: Dimensions;
+  browser: Browser;
+}
+
 export const WidgetLayoutBuilder = ({
   layout: Layout,
   widgets,
   children,
+  resolution,
+  browser,
 }: Props) => (
   <Layout
     header={() => renderWidgets({ widgets, position: 'header' })}
@@ -59,6 +75,8 @@ export const WidgetLayoutBuilder = ({
     left={() => renderWidgets({ widgets, position: 'left' })}
     right={() => renderWidgets({ widgets, position: 'right' })}
     footer={() => renderWidgets({ widgets, position: 'footer' })}
+    resolution={resolution}
+    browser={browser}
   >
     {children}
   </Layout>

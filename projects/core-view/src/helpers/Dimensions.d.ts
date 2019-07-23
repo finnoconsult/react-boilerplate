@@ -1,1 +1,3 @@
-export type Dimensions = ClientRect;
+export interface Dimensions extends ClientRect {
+  isPortrait?: boolean;
+}

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { observer } from 'mobx-react';
 import { ThemeProvider } from 'styled-components';
-import { Layout, WidgetLayoutBuilder } from '@finnoconsult/core-view';
+import { Layout, WidgetLayoutBuilder, browser } from '@finnoconsult/core-view';
 
 import MainPageContainer from './MainPageContainer';
 import StoreContext from '../../stores';
@@ -14,6 +14,8 @@ export const WidgetDrivenLayout = observer(() => {
       <WidgetLayoutBuilder
         layout={Layout}
         widgets={stores.ui.mobileWidgetList}
+        resolution={stores.ui.resolution}
+        browser={browser}
       >
         <MainPageContainer />
       </WidgetLayoutBuilder>

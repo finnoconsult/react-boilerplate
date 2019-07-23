@@ -5,6 +5,7 @@ import {
   isDesktop,
   isTablet,
   isPhone,
+  isPortrait,
   getResolution,
 } from '@finnoconsult/core-view';
 
@@ -16,7 +17,10 @@ import {
 import themes from '../theme/themeConfig';
 
 // TODO: import from core-view
-type Dimensions = ClientRect;
+export interface Dimensions extends ClientRect {
+  isPortrait?: boolean;
+}
+
 
 export default class UIStore {
   public constructor() {
@@ -35,6 +39,7 @@ export default class UIStore {
       ...res,
       width: res.width,
       height: res.height,
+      isPortrait: isPortrait(res),
     };
   }
 
@@ -66,6 +71,11 @@ export default class UIStore {
   @computed public get isMobile() {
     return this.isTablet || this.isPhone;
   }
+
+  @computed public get isPortrait() {
+    return isPortrait(this.resolution);
+  }
+
 
   @computed public get currentTheme() {
     return {
