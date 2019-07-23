@@ -43,14 +43,14 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     display: none;
   }
 
-  ${props => props.isMobile && `
-  `}
-  ${props => props.isPhone && `
-  `}
-  ${props => props.isTablet && `
-  `}
-  ${props => props.isDesktop && `
-  `}
+  // ${props => (props.theme.isMobile || props.isMobile) && `
+  // `}
+  // ${props => (props.theme.isPhone || props.isPhone) && `
+  // `}
+  // ${props => (props.theme.isTablet || props.isTablet) && `
+  // `}
+  // ${props => (props.theme.isDesktop || props.isDesktop) && `
+  // `}
 
   ${props => props.isLandscape && `
 

@@ -27,13 +27,17 @@ const Layout = ({
   browser,
 }: LayoutProps) => (
   <LayoutStyle
+    data-layout={resolution.isPortrait ? 'portrait' : 'landscape'}
+    data-layout-desktop={resolution.isDesktop}
+    data-layout-tablet={resolution.isTablet}
+    data-layout-phone={resolution.isPhone}
+    data-layout-mobile={resolution.isMobile}
+    data-platform-name={browser.name.toLowerCase()}
+    data-platform-version={browser.version}
+    data-platform-os-family={browser.os.family.toLowerCase()}
+    data-platform-os-version={browser.os.version}
     {...resolution}
     browser={browser}
-    data-layout={resolution.isPortrait ? 'portrait' : 'landscape'}
-    data-platform-name={browser.name}
-    data-platform-version={browser.version}
-    data-platform-os-family={browser.os.family}
-    data-platform-os-version={browser.os.version}
   >
     {Header && <header><Header /></header>}
     {Nav && <nav><Nav /></nav>}
