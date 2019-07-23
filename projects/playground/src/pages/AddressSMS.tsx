@@ -9,10 +9,15 @@ import Text from '../components/Text';
 import { FullWidthLayout } from '../components/layouts';
 import Button from '../components/Button';
 import SOSMessage from '../components/SOSMessage';
+import Link from '../components/Link';
 
 const Question = styled(Text)`
   text-align: center;
   margin-bottom: 16px;
+`;
+
+const WarningText = styled(Text)`
+  font-size: 2.4rem;
 `;
 
 export default () => (
@@ -28,12 +33,12 @@ export default () => (
     <SubPage>
       <Title>Handy-Nummer bestätigen</Title>
     </SubPage>
-    <SOSMessage grey>
-      <Text>
+    <SOSMessage grey auxView={<Link href="/">Nummer ändern</Link>}>
+      <WarningText>
         Wir haben eine SMS an
         <strong> 0172 123 123 </strong>
 geschickt. Bitte folgen Sie den Anweisungen.
-      </Text>
+      </WarningText>
     </SOSMessage>
     <SubPage>
       <FullWidthLayout>
