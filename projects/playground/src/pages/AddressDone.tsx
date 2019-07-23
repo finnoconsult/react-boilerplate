@@ -6,6 +6,7 @@ import Page from '../components/Page';
 import SubPage from '../components/SubPage';
 import Title from '../components/Text/Title';
 import Text from '../components/Text';
+import CheckBoxGroup from '../components/CheckBoxGroup';
 import { FullWidthLayout } from '../components/layouts';
 import Button from '../components/Button';
 
@@ -29,6 +30,16 @@ export default () => (
         <Text>Einsatzadresse: </Text>
         <Text>Landwehrstraße 67, 80331 München</Text>
       </AddressTextLayout>
+    </SubPage>
+    <SubPage>
+      <CheckBoxGroup
+        name="agreement"
+        items={[
+          { title: 'Ich stimme den AGBs zu', value: 'agb' },
+          { title: 'Ich stimme den Richlinien gemäß der DSGVO zu', value: 'dsgvo' },
+        ]}
+        // accepted={allAccepted => console.log(allAccepted)}
+      />
     </SubPage>
     <SubPage>
       <FullWidthLayout>
