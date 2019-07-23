@@ -22,3 +22,4 @@ export {
 };
 
 export * from './helpers/browser-helper';
+export * from './types';

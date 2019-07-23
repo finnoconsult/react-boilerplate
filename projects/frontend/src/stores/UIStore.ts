@@ -8,6 +8,9 @@ import {
   isPortrait,
   getResolution,
 } from '@finnoconsult/core-view';
+// import {
+//   Dimensions,
+// } from '@finnoconsult/core-view/index.d';
 
 import {
   widgets,
@@ -20,6 +23,7 @@ import themes from '../theme/themeConfig';
 export interface Dimensions extends ClientRect {
   isPortrait?: boolean;
 }
+// console.log('Dimensions', Dimensions);
 
 
 export default class UIStore {

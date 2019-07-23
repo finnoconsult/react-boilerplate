@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Dimensions } from '../../types/Dimensions.d';
+import { Browser } from '../../types/Browser.d';
+
 import { LayoutProps } from './Layout';
 import { WidgetStyle } from './WidgetStyle';
 
@@ -43,16 +46,6 @@ function renderWidgets({ widgets, position }: FindWidgetProps) {
   );
 }
 
-
-// TODO: import from core-view
-export interface Dimensions extends ClientRect {
-  isPortrait?: boolean;
-}
-export interface Browser {
-  name?: string;
-  version: string;
-  os: string;
-}
 
 interface Props {
   layout: (props: LayoutProps) => JSX.Element;

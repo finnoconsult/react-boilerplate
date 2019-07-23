@@ -1,16 +1,10 @@
 import React from 'react';
 
+import { Dimensions } from '../../types/Dimensions.d';
+import { Browser } from '../../types/Browser.d';
+
 import LayoutStyle from './LayoutStyle';
 
-// TODO: import from core-view
-export interface Dimensions extends ClientRect {
-  isPortrait?: boolean;
-}
-export interface Browser {
-  name?: string;
-  version: string;
-  os: string;
-}
 export interface LayoutProps {
   children?: JSX.Element[] | JSX.Element | string;
   nav?: () => JSX.Element;
