@@ -46,7 +46,7 @@ export default () => (
     </SubPage>
     <SubPage>
       <FullWidthLayout>
-        <Button title="Auftrag bestätigen" cta />
+        <Button disabled title="Auftrag bestätigen" cta />
       </FullWidthLayout>
     </SubPage>
   </Page>
