@@ -1,9 +1,11 @@
 import React from 'react';
 
-import SMS, { SMSText, SMSLink } from '../../components/SMS';
+import SMS, { SMSText, SMSLink } from '../SMS';
 
 export default () => (
-  <SMS>
+  <SMS animated>
+    <SMSText>Hallo Max,</SMSText>
+    <br />
     <SMSText>
       Willkommen beim ADAC Schlüsselnotdienst.
       Bitte öffnen Sie den Link, um Ihre Handy-Nummer zu bestätigen.
