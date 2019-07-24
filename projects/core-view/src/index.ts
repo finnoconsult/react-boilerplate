@@ -27,6 +27,7 @@ export {
 };
 
 export * from './helpers/browser-helper';
+export * from './helpers/router-helper';
 export {
   Dimensions,
   PlatformProps,

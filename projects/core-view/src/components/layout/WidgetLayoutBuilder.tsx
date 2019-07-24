@@ -35,11 +35,11 @@ export const WidgetLayoutBuilder = ({
   browser,
 }: Props) => (
   <Layout
-    header={() => renderWidgets({ widgets, position: 'header', route: 'TODO: hook it!' })}
-    nav={() => renderWidgets({ widgets, position: 'nav', route: 'TODO: hook it!' })}
-    left={() => renderWidgets({ widgets, position: 'left', route: 'TODO: hook it!' })}
-    right={() => renderWidgets({ widgets, position: 'right', route: 'TODO: hook it!' })}
-    footer={() => renderWidgets({ widgets, position: 'footer', route: 'TODO: hook it!' })}
+    header={() => renderWidgets({ widgets, position: 'header' })}
+    nav={() => renderWidgets({ widgets, position: 'nav' })}
+    left={() => renderWidgets({ widgets, position: 'left' })}
+    right={() => renderWidgets({ widgets, position: 'right' })}
+    footer={() => renderWidgets({ widgets, position: 'footer' })}
     resolution={resolution}
     browser={browser}
   >

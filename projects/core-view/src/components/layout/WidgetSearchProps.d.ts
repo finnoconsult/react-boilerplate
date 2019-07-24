@@ -6,5 +6,5 @@ export interface WidgetSearchProps extends WidgetMatchType {
   widgets: WidgetType[];
   // TODO: just use WidgetMatchType;
   position: string;
-  route: string;
+  // route: string;
 }

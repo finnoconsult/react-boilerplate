@@ -32,12 +32,15 @@ export interface WidgetMatchPlatformType extends WidgetIdType {
   platform?: string;
 }
 
+// TODO: add regex support
 export interface WidgetMatchRouteType extends WidgetIdType {
-  routes?: string[] | Regex[] | string | Regex;
-  excludedRoutes?: string[] | Regex[] | string | Regex;
+  routes?: string[];
+  excludedRoutes?: string[];
 }
 
-export type WidgetMatchType = WidgetMatchPlatformType | WidgetMatchRouteType;
+export interface WidgetMatchType extends WidgetMatchPlatformType, WidgetMatchRouteType {
+
+}
 
 export interface StandaloneWidgetConfigType extends WidgetMatchType {
   position?: string;
