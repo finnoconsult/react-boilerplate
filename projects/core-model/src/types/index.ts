@@ -1,1 +1,1 @@
-export * from './WidgetTypes';
+export * from './WidgetConfigTypes';

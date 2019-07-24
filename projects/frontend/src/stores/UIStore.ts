@@ -13,7 +13,7 @@ import {
 
 import {
   widgets,
-  WidgetType,
+  WidgetConfigType,
 } from '../content';
 
 import themes from '../theme/themeConfig';
@@ -105,11 +105,11 @@ export default class UIStore {
 
   @observable private widgets = widgets;
 
-  @computed public get widgetList(): WidgetType[] {
+  @computed public get widgetList(): WidgetConfigType[] {
     return this.widgets;
   }
 
-  @computed public get mobileWidgetList(): WidgetType[] {
+  @computed public get mobileWidgetList(): WidgetConfigType[] {
     return this.widgets.filter(widget => (widget.platform || '').match(/^(.*mobile.*|.*\*.*|)$/gi));
   }
 

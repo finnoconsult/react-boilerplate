@@ -4,8 +4,7 @@ export {
   WidgetDefinitionType,
   WidgetStaticType,
   WidgetComponentType,
-  WidgetConfigType,
   StandaloneWidgetConfigType,
   ListWidgetConfigType,
-  WidgetType,
+  WidgetConfigType,
 } from './types';

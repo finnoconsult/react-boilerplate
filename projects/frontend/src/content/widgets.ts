@@ -3,7 +3,7 @@ import {
   WidgetComponentType,
   StandaloneWidgetConfigType,
   ListWidgetConfigType,
-  WidgetType,
+  WidgetConfigType,
 } from '@finnoconsult/core-model';
 
 import HeaderContainer from '../components/layout/HeaderContainer';
@@ -51,4 +51,4 @@ export const widgetConfigs: (StandaloneWidgetConfigType[] | ListWidgetConfigType
 ];
 
 
-export const widgets: WidgetType[] = widgetConfigs.map(w => ({ ...w, ...(widgetDefinitions.find(d => d.id === w.id) || {}) }));
+export const widgets: WidgetConfigType[] = widgetConfigs.map(w => ({ ...w, ...(widgetDefinitions.find(d => d.id === w.id) || {}) }));

@@ -26,20 +26,24 @@ export interface WidgetComponentType extends WidgetDefinitionType {
 }
 
 
-export interface WidgetConfigType extends WidgetIdType {
+export interface WidgetPlatformType extends WidgetIdType {
   platform?: string;
 }
 
-export interface StandaloneWidgetConfigType extends WidgetConfigType {
+export interface StandaloneWidgetConfigType extends WidgetPlatformType {
   position?: string;
-  order?: number;
+  order?: number | string;
+  column?: number | string;
+  row?: number | string;
+  area?: number | string;
+
 }
-export interface ListWidgetConfigType extends WidgetConfigType {
+export interface ListWidgetConfigType extends WidgetPlatformType {
   x: number;
   y: number;
   size: string;
 }
 
-export interface WidgetType extends WidgetDefinitionType, WidgetConfigType {
+export interface WidgetConfigType extends WidgetStaticType, WidgetComponentType, StandaloneWidgetConfigType, ListWidgetConfigType {
 
 }

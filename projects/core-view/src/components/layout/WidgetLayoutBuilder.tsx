@@ -3,16 +3,17 @@ import React from 'react';
 import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
-import { WidgetStyle, WidgetStyleProps } from './WidgetStyle';
+import { WidgetStyle } from './WidgetStyle';
+import { WidgetType } from "./WidgetType.d";
 
 // TODO: use other widgets
-interface WidgetType extends WidgetStyleProps {
-  id: string | number;
-  component?: () => JSX.Element;
-  title?: string;
-  position?: string;
-}
-
+// interface WidgetConfigType extends WidgetType {
+  //   id: string | number;
+  //   component?: () => JSX.Element;
+  //   title?: string;
+  //   position?: string;
+  // }
+  
 
 // TODO: display static images:
 const WidgetFactoryStatic = ({ title }: WidgetType) => (
