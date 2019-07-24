@@ -1,0 +1,7 @@
+<svg width="22px" height="15px" viewBox="0 0 22 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="account.jsx" fill-rule="nonzero">
+            <path fill="#00A8D6" d="M20,3.5 C17.790861,3.5 16,5.290861 16,7.5 C16,9.709139 17.790861,11.5 20,11.5 L20,13 C20,14.1045695 19.1045695,15 18,15 L2,15 C0.8954305,15 0,14.1045695 0,13 L0,2 C0,0.8954305 0.8954305,0 2,0 L18,0 C19.1045695,0 20,0.8954305 20,2 L20,3.5 Z M20,9.5 C18.8954305,9.5 18,8.6045695 18,7.5 C18,6.3954305 18.8954305,5.5 20,5.5 C21.1045695,5.5 22,6.3954305 22,7.5 C22,8.6045695 21.1045695,9.5 20,9.5 Z" id="account"></path>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="letter-i.jsx" stroke="none" stroke-width="1" fill-rule="evenodd">
+      <g id="i" transform="translate(5.833333, 6.000000)">
+        <polygon fill="#00A8D6" id="path-1" points="5.83333333 14 2.24980754 14 2.24980754 3.1598916 2.27373675e-13 3.1598916 2.27373675e-13 0.666666667 5.83333333 0.666666667"></polygon>
+      </g>
+      <ellipse fill="#00A8D6" id="Oval" cx="10" cy="2.5" rx="3" ry="2.5"></ellipse>
+    </g>
+</svg>

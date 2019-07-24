@@ -1,22 +1,35 @@
-const camelCase = require('camelcase'); // eslint-disable-line
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const camelCase = require('camelcase');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const fs = require('fs');
+
+const {
+  readdirSync,
+  lstatSync,
+  readFileSync,
+  writeFileSync,
+  openSync,
+  writeSync,
+} = fs;
 
 // the maximum difference between the defined colors
 // and the colors that should be replaced (in percentage)
 const COLOR_MAXIMUM_DIFFERENCE = 10;
-const IMAGE_PATH = 'images/ui/ico';
-const MODULE_PATH = 'app/content';
+
+const IMAGE_INPUT_PATH = 'projects/frontend/src/theme/images';
+const MODULE_PATH = 'projects/frontend/src/content';
+const IMAGE_OUTPUT_PATH = '../theme/images';
 const MODULE_FILE_NAME = 'icons-ui-generated.js';
 
 const fileExtensions = ['svg', 'png', 'js'];
 
 const colors = {
-  black: '#282828',
-  blue: '#00a8d6',
-  grey: '#8b959e',
-  orange: '#d64218',
-  // ocher: '#F29315',
-  white: '#ffffff',
+  // black: '#282828',
+  // blue: '#00a8d6',
+  // grey: '#8b959e',
+  // orange: '#d64218',
+  // // ocher: '#F29315',
+  // white: '#ffffff',
 };
 
 const restrictedFolders = [
@@ -27,7 +40,8 @@ const restrictedFolders = [
   // TODO: add all above color folders once all icon('') is removed!
 ];
 
-const relativeImportPath = `${MODULE_PATH.replace(/[^/]+/g, '..')}/${IMAGE_PATH}`;
+const relativeImportPath = `${IMAGE_OUTPUT_PATH}`;
+// const relativeImportPath = `${MODULE_PATH.replace(/[^/]+/g, '..')}/${IMAGE_INPUT_PATH}`;
 
 const convertToRgb = color => [
   parseInt(color.substring(1, 3), 16),
@@ -51,12 +65,12 @@ const findColors = text => text.match(/#([0-9a-fA-F]){6}/gm);
 
 const colorsArray = Object.keys(colors);
 
-const getFilesFor = folder => fs.readdirSync(`${IMAGE_PATH}/${folder}`).filter(
-  file => fs.lstatSync(`${IMAGE_PATH}/${folder}/${file}`).isFile(),
+const getFilesFor = folder => readdirSync(`${IMAGE_INPUT_PATH}/${folder}`).filter(
+  file => lstatSync(`${IMAGE_INPUT_PATH}/${folder}/${file}`).isFile(),
 ).map(splitFileName).filter(([, extension]) => fileExtensions.includes(extension));
 
-const otherDirs = fs.readdirSync(IMAGE_PATH, 'utf8')
-  .filter(entry => !colorsArray.includes(entry) && !restrictedFolders.includes(entry) && fs.lstatSync(`${IMAGE_PATH}/${entry}`).isDirectory());
+const otherDirs = readdirSync(IMAGE_INPUT_PATH, 'utf8')
+  .filter(entry => !colorsArray.includes(entry) && !restrictedFolders.includes(entry) && lstatSync(`${IMAGE_INPUT_PATH}/${entry}`).isDirectory());
 
 const structure = colorsArray.reduce((acc, color) => ({
   ...acc,
@@ -74,14 +88,14 @@ colorsArray.forEach((color) => {
   svgs.forEach(([name]) => {
     otherColors.forEach((other) => {
       if (!containedItems[other].has(name)) {
-        const fileText = fs.readFileSync(`${IMAGE_PATH}/${color}/${name}.svg`, { encoding: 'utf8' });
+        const fileText = readFileSync(`${IMAGE_INPUT_PATH}/${color}/${name}.svg`, { encoding: 'utf8' });
         const colorsInFile = findColors(fileText);
         const colorsToBeChanged = colorsInFile.filter(fileColor => calculateDifference(fileColor, colors[color]) <= COLOR_MAXIMUM_DIFFERENCE);
         const newFile = colorsToBeChanged.length
           ? fileText.replace(new RegExp(colorsToBeChanged.map(c => `(${c})`).join('|'), 'gm'), colors[other])
           : fileText;
-        fs.writeFileSync(`${IMAGE_PATH}/${other}/${name}.svg`, newFile);
-        console.warn('creating', `${IMAGE_PATH}/${other}/${name}.svg`);
+        writeFileSync(`${IMAGE_INPUT_PATH}/${other}/${name}.svg`, newFile);
+        console.warn('creating', `${IMAGE_INPUT_PATH}/${other}/${name}.svg`);
         containedItems[other].add(name);
       }
     });
@@ -89,11 +103,11 @@ colorsArray.forEach((color) => {
 });
 
 const exportObject = {
-  red: {},
-  gray: {},
+  // red: {},
+  // gray: {},
 };
 
-const indexFile = fs.openSync(`${MODULE_PATH}/${MODULE_FILE_NAME}`, 'w');
+const indexFile = openSync(`${MODULE_PATH}/${MODULE_FILE_NAME}`, 'w');
 
 const stringify = (obj, key, level) => {
   if (typeof obj === 'string') {
@@ -101,7 +115,7 @@ const stringify = (obj, key, level) => {
   }
   return `${' '.repeat(level * 2)}${key ? `${key}: ` : ''}{\n${
     Object.keys(obj).reduce((acc, objKey) => `${acc}${stringify(obj[objKey], objKey, level + 1)
-  }`, '')}${' '.repeat(level * 2)}},\n`;
+    }`, '')}${' '.repeat(level * 2)}},\n`;
 };
 
 const extenstionLinter = extension => ((extension === 'js') ? '' : `.${extension}`);
@@ -111,7 +125,7 @@ const processFile = (color, name, extension) => {
   const importName = camelCase(`icon-${color}-${extenstionCleaner(name)}`);
   const importCommand = `import ${importName} from '${relativeImportPath}/${color}/${name}${extenstionLinter(extension)}';`;
   // console.log(importCommand);
-  fs.writeSync(indexFile, `${importCommand}\n`);
+  writeSync(indexFile, `${importCommand}\n`);
   exportObject[color][importName] = importName;
   if (color === 'grey') {
     exportObject.gray[camelCase(`icon-gray-${name}`)] = importName;
@@ -143,4 +157,4 @@ otherDirs.forEach((dir) => {
 
 const exportString = stringify({ ico: exportObject }, null, 0).slice(0, -2);
 
-fs.writeSync(indexFile, `\nexport const uiIcons = ${exportString};\n`);
+writeSync(indexFile, `\nexport const uiIcons = ${exportString};\n`);

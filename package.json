@@ -34,6 +34,7 @@
         "dev": "lerna run dev --parallel watch",
         "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
         "cleanup": "rm -rf node_modules; rm -rf projects/core-view/lib; rm -rf projects/core-model/lib",
+        "genicons": "node projects/core-model/src/helpers/icon-helpers.js IMAGE_INPUT_PATH=projects/frontend/theme/images/jsx MODULE_PATH=projects/frontend/src/content MODULE_FILE_NAME=icons-ui-generated.js",
         "bump-version": "lerna version"
     },
     "dependencies": {

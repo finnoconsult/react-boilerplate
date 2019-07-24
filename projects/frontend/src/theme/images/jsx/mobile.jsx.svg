@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="26px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="category" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M7,1 L19,1 C20.1045695,1 21,1.8954305 21,3 L21,23 C21,24.1045695 20.1045695,25 19,25 L7,25 C5.8954305,25 5,24.1045695 5,23 L5,3 C5,1.8954305 5.8954305,1 7,1 Z M7,3 L7,20 L19,20 L19,3 L7,3 Z M11.5,22 C11.2238576,22 11,22.2238576 11,22.5 C11,22.7761424 11.2238576,23 11.5,23 L14.5,23 C14.7761424,23 15,22.7761424 15,22.5 C15,22.2238576 14.7761424,22 14.5,22 L11.5,22 Z" id="Combined-Shape" fill="#00a8d6"></path>
+    </g>
+</svg>

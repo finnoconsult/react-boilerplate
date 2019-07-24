@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>ico/dauerauftrag-neu</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.0502373,5.0502373 C2.35510352,7.74352911 2.30742229,12.1109984 4.9646214,14.8626086 C7.65016597,17.6435714 12.0816458,17.7209232 14.8626086,15.0353786 C17.6435714,12.349834 17.7209232,7.91835422 15.0353786,5.13739141 C13.6991185,3.75365354 11.8907575,3.00151763 10.0048179,2.99999531 L10.006433,0.999995305 C12.4289155,1.00195157 14.7573917,1.9704145 16.4740582,3.74807467 C19.9269012,7.32359828 19.8274489,13.0212152 16.2519253,16.4740582 C12.6764017,19.9269012 6.97878482,19.8274489 3.5259418,16.2519253 C0.109542943,12.7141408 0.170847389,7.09882314 3.63601939,3.63601939 L1.9999914,1.99999531 L6.9999914,1.99999531 L6.9999914,6.99999531 L5.0502373,5.0502373 Z M11,9 L14,9 L14,11 L11,11 L11,14 L9,14 L9,11 L6,11 L6,9 L9,9 L9,6 L11,6 L11,9 Z" id="path-1"></path>
+    </defs>
+    <g id="ico/dauerauftrag-neu" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Combined-Shape" fill="#979797" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="color/blue" mask="url(#mask-2)" fill="#00A8D6">
+            <rect id="Rectangle-3" x="0" y="0" width="20" height="20"></rect>
+        </g>
+    </g>
+</svg>

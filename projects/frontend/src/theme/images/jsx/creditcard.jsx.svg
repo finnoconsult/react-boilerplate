@@ -1,0 +1,6 @@
+
+<svg width="20px" height="14px" viewBox="0 0 20 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="creditcard.jsx" fill-rule="nonzero">
+            <path fill="#00A8D6" d="M2,0 L18,0 C19.1045695,0 20,0.8954305 20,2 L20,12 C20,13.1045695 19.1045695,14 18,14 L2,14 C0.8954305,14 0,13.1045695 0,12 L0,2 C0,0.8954305 0.8954305,0 2,0 Z M1,5 L1,8 L19,8 L19,5 L1,5 Z M1,10 L1,11 L5,11 L5,10 L1,10 Z M6,10 L6,11 L10,11 L10,10 L6,10 Z" id="Combined-Shape"></path>
+        </g>
+</svg>

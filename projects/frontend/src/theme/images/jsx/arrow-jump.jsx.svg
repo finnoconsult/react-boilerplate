@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="future" stroke="none" stroke-width="1" fill="#00a8d6" fill-rule="evenodd">
+        <path d="M17,13.5 L16.1363636,14.5 C16.1363636,10.8850453 13.3890201,7.95454545 10,7.95454545 C6.61097994,7.95454545 3.86363636,10.8850453 3.86363636,14.5 C3.86363636,14.344943 2.62080229,14.344943 2.5,14.5 C2.5,10.081722 5.85786438,6.5 10,6.5 C14.1421356,6.5 17,9.081722 17,13.5 Z" id="Combined-Shape" fill-rule="nonzero"></path>
+        <polygon id="Rectangle-2" fill-rule="nonzero" transform="translate(16.073892, 12.121433) rotate(45.000000) translate(-16.073892, -12.121433) " points="16.7981292 12.7600283 16.7981292 10.205649 18.2466044 10.205649 18.2466044 14.0372179 13.9011789 14.0372179 13.9011789 12.7600283"></polygon>
+    </g>
+</svg>
