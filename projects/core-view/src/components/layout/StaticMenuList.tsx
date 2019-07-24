@@ -6,7 +6,7 @@ import { FlexFragment, Fragment } from '../Fragment';
 import { View } from './View';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
-import { Image } from '../ui/Image';
+// import { Image } from '../ui/Image';
 
 
 const NavBarStyle = styled(FlexFragment)`
@@ -70,7 +70,7 @@ export default function StaticMenuList(props: Props) {
           )} */}
 
           {item.Component && (
-            <View id={index}>
+            <View id={`${index}`}>
               <item.Component />
             </View>
           )}

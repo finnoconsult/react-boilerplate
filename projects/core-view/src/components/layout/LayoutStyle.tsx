@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { Fragment, FragmentProps } from '../Fragment';
-import { Dimensions, Browser } from '../../types';
+import { Dimensions, Browser, PlatformProps } from '../../types';
 
-interface LayoutStyleProps extends FragmentProps{
+interface LayoutStyleProps extends FragmentProps, PlatformProps {
   browser?: Browser;
 }
 
@@ -17,7 +17,6 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
   width: 100%;
   height: 100%;
   place-content: center;
-  place-self: center;
 
   > * {
     display: flex;
@@ -43,14 +42,15 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     display: none;
   }
 
-  // ${props => (props.theme.isMobile || props.isMobile) && `
-  // `}
-  // ${props => (props.theme.isPhone || props.isPhone) && `
-  // `}
-  // ${props => (props.theme.isTablet || props.isTablet) && `
-  // `}
-  // ${props => (props.theme.isDesktop || props.isDesktop) && `
-  // `}
+  /* ${props => (props.theme.isMobile || props.isMobile) && `
+  `}
+  ${props => (props.theme.isPhone || props.isPhone) && `
+  `}
+  ${props => (props.theme.isTablet || props.isTablet) && `
+  `}
+  ${props => (props.theme.isDesktop || props.isDesktop) && `
+  `}
+  */
 
   ${props => props.isLandscape && `
 

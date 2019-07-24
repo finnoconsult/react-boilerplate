@@ -10,6 +10,7 @@ interface WidgetType extends WidgetStyleProps {
   id: string | number;
   component?: () => JSX.Element;
   title?: string;
+  position?: string;
 }
 
 

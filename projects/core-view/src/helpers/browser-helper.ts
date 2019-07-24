@@ -1,7 +1,7 @@
 import platform from 'platform';
 import get from 'lodash.get';
 
-import { Dimensions, SizeRect } from '../types/Dimensions.d';
+import { Dimensions, SizeRect } from '../types';
 
 export function isPortrait({ width, height }: SizeRect) {
   return Math.floor(width / height) === 0;

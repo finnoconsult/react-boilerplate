@@ -24,6 +24,7 @@ export {
 export * from './helpers/browser-helper';
 export {
   Dimensions,
+  PlatformProps,
   Browser,
   Children,
   ChildrenOrComponent,
