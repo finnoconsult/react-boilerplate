@@ -39,15 +39,22 @@ const UtilityViewStyles = styled.div`
 `;
 
 interface Props {
+  defaultValue?: string;
   badgeTitle: string;
   placeholder?: string;
   utilityView?: JSX.Element | JSX.Element[];
+  onClick?: () => void;
 }
 
-export default ({ badgeTitle, placeholder, utilityView }: Props) => (
-  <TextFieldOuterBox>
-    <BadgeTitle>{badgeTitle}</BadgeTitle>
-    <TextField type="text" placeholder={placeholder} />
-    {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
-  </TextFieldOuterBox>
-);
+export default (props: Props) => {
+  const {
+    defaultValue, badgeTitle, placeholder, utilityView, onClick,
+  } = props;
+  return (
+    <TextFieldOuterBox>
+      <BadgeTitle>{badgeTitle}</BadgeTitle>
+      <TextField defaultValue={defaultValue} onClick={onClick} type="text" placeholder={placeholder} />
+      {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
+    </TextFieldOuterBox>
+  );
+};

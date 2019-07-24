@@ -26,16 +26,23 @@ interface RadioProps {
   name: string;
   value: string;
   onChange?: (value: string) => void;
+  checked?: boolean;
 }
 
-const Radio = ({ name, value, onChange }: RadioProps) => (
-  <RadioStyles
-    type="radio"
-    name={name}
-    value={value}
-    onChange={e => onChange && onChange(e.target.value)}
-  />
-);
+const Radio = (props: RadioProps) => {
+  const {
+    name, value, onChange, checked,
+  } = props;
+  return (
+    <RadioStyles
+      checked={checked}
+      type="radio"
+      name={name}
+      value={value}
+      onChange={e => onChange && onChange(e.target.value)}
+    />
+  );
+};
 
 const RadioTitle = styled(Text)``;
 
@@ -55,6 +62,8 @@ interface RadioGroupProps {
   name: string;
   items: RadioItem[];
   onChange?: (value: string) => void;
+  defaultCheckedIndex?: number;
+  onClick?: () => void;
 }
 
 export default (props: RadioGroupProps) => {
@@ -63,17 +72,20 @@ export default (props: RadioGroupProps) => {
     name,
     items,
     onChange,
+    defaultCheckedIndex,
+    onClick,
   } = props;
   return (
-    <RadioGroupWithTitleStyles>
+    <RadioGroupWithTitleStyles onClick={onClick}>
       <Title>{title}</Title>
       <RadioGroupStyles>
-        {items.map(item => (
+        {items.map((item, index) => (
           <RadioWithTitleStyles key={item.value + item.title}>
             <Radio
               name={name}
               value={item.value}
               onChange={onChange}
+              checked={defaultCheckedIndex === index}
             />
             <RadioTitle>{item.title}</RadioTitle>
           </RadioWithTitleStyles>
