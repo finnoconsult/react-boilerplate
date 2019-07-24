@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Page from '../components/Page';
 import SubPage from '../components/SubPage';
-import Title from '../components/Text/Title';
+import { Title, SmallText } from '../components/Text';
 import TextField, { MapPinUtilityView } from '../components/TextField';
 import Button from '../components/Button';
 import Divider from '../components/Divider';
@@ -20,6 +20,10 @@ const InputLayout = styled.div`
   ${Title} {
     margin-bottom: 16px;
   }
+`;
+
+const DescriptionText = styled(SmallText)`
+  margin-top: 16px;
 `;
 
 export default () => {
@@ -118,6 +122,9 @@ export default () => {
         <FullWidthLayout>
           <Button title="Handy-Nummer bestätigen" cta />
         </FullWidthLayout>
+        <DescriptionText>
+          Der Auftrag wird erst aktiv, wenn Sie Ihre Handy-Nummer bestätigt haben. Diese brauchen wir, um Sie ggf. zu kontaktieren.
+        </DescriptionText>
       </SubPage>
     </Page>
   );
