@@ -107,7 +107,7 @@ export const Icon = (props: (IconProps)) => {
 
   return (
     <IconStyle round={round} center={center} color={color} size={size} border={border}>
-      {Source && <Source width="100%" height="auto" title={title || caption} color={finalColor} /> }
+      {Source && <Source title={title || caption} color={finalColor} /> }
       {!Source && name && `[${name || 'X'}]`}
     </IconStyle>
   );

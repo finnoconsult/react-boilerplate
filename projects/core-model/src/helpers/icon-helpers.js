@@ -21,8 +21,7 @@ const MODULE_PATH = 'projects/frontend/src/content';
 const IMAGE_OUTPUT_PATH = '../theme/images';
 const MODULE_FILE_NAME = 'iconsGenerated.ts';
 
-const fileExtensions = ['svg', 'png'];
-// TODO: fix 'js' for TS
+const fileExtensions = ['svg', 'png', 'ts'];
 
 const colors = {
   // black: '#282828',
@@ -119,12 +118,12 @@ const stringify = (obj, key, level) => {
     }`, '')}${' '.repeat(level * 2)}},\n`;
 };
 
-const extenstionLinter = extension => ((extension === 'js') ? '' : `.${extension}`);
+const extenstionLinter = extension => ((extension === 'ts' || extension === 'js') ? '' : `.${extension}`);
 const extenstionCleaner = name => name.split('.').splice(0, 1).join('');
 
 const processFile = (color, name, extension) => {
   const importName = camelCase(`icon-${color}-${extenstionCleaner(name)}`);
-  const importCommand = `import ${importName} from '${relativeImportPath}/${color}/${name}${extenstionLinter(extension)}';`;
+  const importCommand = `import { ReactComponent as ${importName} } from '${relativeImportPath}/${color}/${name}${extenstionLinter(extension)}';`;
   // console.log(importCommand);
   writeSync(indexFile, `${importCommand}\n`);
   exportObject[color][importName] = importName;

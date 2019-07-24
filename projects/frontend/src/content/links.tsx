@@ -5,13 +5,14 @@ export const links = {
   nav: [
     {
       id: '',
-      title: 'Welcome',
+      // title: 'Welcome',
       route: '/',
       image: <Icon name="phone" />,
     },
     {
       id: '',
       title: 'Lorem',
+      image: <Icon name="disks" />,
       route: '/lorem',
     },
     {
