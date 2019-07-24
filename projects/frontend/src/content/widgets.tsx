@@ -21,6 +21,11 @@ export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
     id: 'mobileNavBar', title: 'mobileNavBar', component: NavBarContainer,
   },
   {
+    id: 'mobileNavBarStatic', title: 'mobileNavBar', images: {
+      medium: <Icon name="close" />
+    },
+  },
+  {
     id: 'logo', title: 'logo', component: LogoContainer,
   },
   {
@@ -43,7 +48,10 @@ export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
 
 export const widgetConfigs: (StandaloneWidgetConfigType[] | ListWidgetConfigType[]) = [
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2,
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/)$/]
+  },
+  {
+    id: 'mobileNavBarStatic', platform: 'mobile', position: 'nav', order: 2, routes: [/^(|\/)$/]
   },
   {
     id: 'logo', platform: '*', position: 'nav', order: 1,
