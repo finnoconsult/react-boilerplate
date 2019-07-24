@@ -26,11 +26,17 @@ export interface WidgetComponentType extends WidgetDefinitionType {
 }
 
 
-export interface WidgetPlatformType extends WidgetIdType {
+export interface WidgetMatchPlatformType extends WidgetIdType {
   platform?: string;
 }
 
-export interface StandaloneWidgetConfigType extends WidgetPlatformType {
+export interface WidgetMatchRouteType extends WidgetIdType {
+  routes?: string[] | Regex[] | string | Regex;
+}
+
+export type WidgetMatchType = WidgetMatchPlatformType | WidgetMatchRouteType;
+
+export interface StandaloneWidgetConfigType extends WidgetMatchType {
   position?: string;
   order?: number | string;
   column?: number | string;
@@ -38,7 +44,7 @@ export interface StandaloneWidgetConfigType extends WidgetPlatformType {
   area?: number | string;
 
 }
-export interface ListWidgetConfigType extends WidgetPlatformType {
+export interface ListWidgetConfigType extends WidgetMatchType {
   x: number;
   y: number;
   size: string;

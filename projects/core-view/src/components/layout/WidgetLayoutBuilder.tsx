@@ -3,59 +3,17 @@ import React from 'react';
 import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
-import { WidgetStyle } from './WidgetStyle';
 import { WidgetType } from "./WidgetType.d";
+import { WidgetFactory } from './WidgetFactory';
+import { WidgetFinderFactory } from './WidgetFinderFactory';
+import { WidgetSearchProps } from './WidgetSearchProps';
 
-// TODO: use other widgets
-// interface WidgetConfigType extends WidgetType {
-  //   id: string | number;
-  //   component?: () => JSX.Element;
-  //   title?: string;
-  //   position?: string;
-  // }
-  
-
-// TODO: display static images:
-const WidgetFactoryStatic = ({ title }: WidgetType) => (
-  <div>
-    STATIC:
-    {title}
-    , TOOD: image
-  </div>
-);
-
-// TODO: refactor
-const WidgetFactory = (props: WidgetType) => {
-  const {
-    component: Component, order, column, row, area,
-  } = props;
-
-  const allowedStyledProps = {
-    order, column, row, area,
-  };
-
-  return (
-    <WidgetStyle
-      {...allowedStyledProps}
-    >
-      {Component ? <Component /> : <WidgetFactoryStatic {...props} />}
-    </WidgetStyle>
-  );
-};
-
-
-interface FindWidgetProps {
-  widgets: WidgetType[];
-  position: string;
-}
-
-function renderWidgets({ widgets, position }: FindWidgetProps) {
-  const findWidgets = widgets
-    .filter(widget => widget.position === position);
-  // console.log('findWidget', position, findWidgets);
+function renderWidgets(props: WidgetSearchProps) {
+  const foundWidgets = WidgetFinderFactory(props);
+  // console.log('findWidget', position, foundWidgets);
   return (
     <>
-      {findWidgets.map((widget, index) => <WidgetFactory key={widget.id || index} {...widget} />)}
+      {foundWidgets.map((widget, index) => <WidgetFactory key={widget.id || index} {...widget} />)}
     </>
   );
 }
