@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from "@finnoconsult/core-view";
+import { Icon } from '../components/ui/Icon';
 
 export const links = {
   nav: [
@@ -7,7 +7,7 @@ export const links = {
       id: '',
       title: 'Welcome',
       route: '/',
-      image: <Icon />,
+      image: <Icon name="phone" />,
     },
     {
       id: '',

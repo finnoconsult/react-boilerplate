@@ -19,9 +19,10 @@ const COLOR_MAXIMUM_DIFFERENCE = 10;
 const IMAGE_INPUT_PATH = 'projects/frontend/src/theme/images';
 const MODULE_PATH = 'projects/frontend/src/content';
 const IMAGE_OUTPUT_PATH = '../theme/images';
-const MODULE_FILE_NAME = 'icons-ui-generated.js';
+const MODULE_FILE_NAME = 'iconsGenerated.ts';
 
-const fileExtensions = ['svg', 'png', 'js'];
+const fileExtensions = ['svg', 'png'];
+// TODO: fix 'js' for TS
 
 const colors = {
   // black: '#282828',
@@ -157,4 +158,4 @@ otherDirs.forEach((dir) => {
 
 const exportString = stringify({ ico: exportObject }, null, 0).slice(0, -2);
 
-writeSync(indexFile, `\nexport const uiIcons = ${exportString};\n`);
+writeSync(indexFile, `\nexport const iconsGenerated = ${exportString};\n`);

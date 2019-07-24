@@ -10,7 +10,6 @@ import iconJsxArrow from '../theme/images/jsx/arrow.jsx.svg';
 import iconJsxArrowLeft from '../theme/images/jsx/arrowLeft.jsx.svg';
 import iconJsxAutomatic from '../theme/images/jsx/automatic.jsx.svg';
 import iconJsxBack from '../theme/images/jsx/back.jsx.svg';
-import iconJsxBag from '../theme/images/jsx/bag';
 import iconJsxBall from '../theme/images/jsx/ball.jsx.svg';
 import iconJsxBell from '../theme/images/jsx/bell.jsx.svg';
 import iconJsxBeyondBanking from '../theme/images/jsx/beyond-banking.jsx.svg';
@@ -20,12 +19,10 @@ import iconJsxCalendar from '../theme/images/jsx/calendar.jsx.svg';
 import iconJsxCallin from '../theme/images/jsx/callin.jsx.svg';
 import iconJsxCamera from '../theme/images/jsx/camera.jsx.svg';
 import iconJsxCarAndBike from '../theme/images/jsx/car-and-bike.jsx.svg';
-import iconJsxCardTilt from '../theme/images/jsx/card-tilt';
 import iconJsxCard from '../theme/images/jsx/card.jsx.svg';
 import iconJsxCart from '../theme/images/jsx/cart.jsx.svg';
 import iconJsxChat from '../theme/images/jsx/chat.jsx.svg';
 import iconJsxCheckboxChecked from '../theme/images/jsx/checkbox-checked.jsx.svg';
-import iconJsxCheckboxDefault from '../theme/images/jsx/checkbox-default';
 import iconJsxCheckmark from '../theme/images/jsx/checkmark.jsx.svg';
 import iconJsxChild from '../theme/images/jsx/child.jsx.svg';
 import iconJsxClockFuture from '../theme/images/jsx/clock-future.jsx.svg';
@@ -42,7 +39,6 @@ import iconJsxCurrency from '../theme/images/jsx/currency.jsx.svg';
 import iconJsxDashNarrow from '../theme/images/jsx/dash-narrow.jsx.svg';
 import iconJsxDash from '../theme/images/jsx/dash.jsx.svg';
 import iconJsxDashboard from '../theme/images/jsx/dashboard.jsx.svg';
-import iconJsxDiscCurrency from '../theme/images/jsx/disc-currency';
 import iconJsxDishes from '../theme/images/jsx/dishes.jsx.svg';
 import iconJsxDisks from '../theme/images/jsx/disks.jsx.svg';
 import iconJsxDocuments from '../theme/images/jsx/documents.jsx.svg';
@@ -73,7 +69,6 @@ import iconJsxLetterK from '../theme/images/jsx/letter-k.jsx.svg';
 import iconJsxLetterM from '../theme/images/jsx/letter-m.jsx.svg';
 import iconJsxList from '../theme/images/jsx/list.jsx.svg';
 import iconJsxListType1 from '../theme/images/jsx/listType1.jsx.svg';
-import iconJsxLock from '../theme/images/jsx/lock';
 import iconJsxLogout from '../theme/images/jsx/logout.jsx.svg';
 import iconJsxLotus from '../theme/images/jsx/lotus.jsx.svg';
 import iconJsxMail from '../theme/images/jsx/mail.jsx.svg';
@@ -109,7 +104,6 @@ import iconJsxSearch from '../theme/images/jsx/search.jsx.svg';
 import iconJsxSettings from '../theme/images/jsx/settings.jsx.svg';
 import iconJsxShare from '../theme/images/jsx/share.jsx.svg';
 import iconJsxShield from '../theme/images/jsx/shield.jsx.svg';
-import iconJsxShopping from '../theme/images/jsx/shopping';
 import iconJsxSimpleQr from '../theme/images/jsx/simple-qr.jsx.svg';
 import iconJsxSms from '../theme/images/jsx/sms.jsx.svg';
 import iconJsxSofa from '../theme/images/jsx/sofa.jsx.svg';
@@ -128,7 +122,7 @@ import iconJsxWallet from '../theme/images/jsx/wallet.jsx.svg';
 import iconJsxWalletAlt from '../theme/images/jsx/wallet_alt.jsx.svg';
 import iconJsxZiel from '../theme/images/jsx/ziel.jsx.svg';
 
-export const uiIcons = {
+export const iconsGenerated = {
   ico: {
     jsx: {
       iconJsx3Dots,
@@ -143,7 +137,6 @@ export const uiIcons = {
       iconJsxArrowLeft,
       iconJsxAutomatic,
       iconJsxBack,
-      iconJsxBag,
       iconJsxBall,
       iconJsxBell,
       iconJsxBeyondBanking,
@@ -153,12 +146,10 @@ export const uiIcons = {
       iconJsxCallin,
       iconJsxCamera,
       iconJsxCarAndBike,
-      iconJsxCardTilt,
       iconJsxCard,
       iconJsxCart,
       iconJsxChat,
       iconJsxCheckboxChecked,
-      iconJsxCheckboxDefault,
       iconJsxCheckmark,
       iconJsxChild,
       iconJsxClockFuture,
@@ -175,7 +166,6 @@ export const uiIcons = {
       iconJsxDashNarrow,
       iconJsxDash,
       iconJsxDashboard,
-      iconJsxDiscCurrency,
       iconJsxDishes,
       iconJsxDisks,
       iconJsxDocuments,
@@ -206,7 +196,6 @@ export const uiIcons = {
       iconJsxLetterM,
       iconJsxList,
       iconJsxListType1,
-      iconJsxLock,
       iconJsxLogout,
       iconJsxLotus,
       iconJsxMail,
@@ -242,7 +231,6 @@ export const uiIcons = {
       iconJsxSettings,
       iconJsxShare,
       iconJsxShield,
-      iconJsxShopping,
       iconJsxSimpleQr,
       iconJsxSms,
       iconJsxSofa,

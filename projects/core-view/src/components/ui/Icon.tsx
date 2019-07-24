@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-interface IconStyleProp {
+export interface IconStyleProp {
   color?: string;
   size?: string;
   round?: boolean | string;
@@ -80,7 +80,8 @@ export const IconStyle = styled.span <IconStyleProp>`
 
 `;
 
-interface IconProps extends IconStyleProp {
+export interface IconProps extends IconStyleProp {
+  name?: string;
   source?: React.ComponentClass<any>;
   caption?: string;
   title?: string;
@@ -88,6 +89,7 @@ interface IconProps extends IconStyleProp {
 
 export const Icon = (props: (IconProps)) => {
   const {
+    name,
     source: Source,
     color,
     size,
@@ -96,14 +98,17 @@ export const Icon = (props: (IconProps)) => {
     round,
     center,
     border,
-  } = props; //eslint-disable-lineú
+  } = props;
 
   // TODO: implement logic, probably based on UI store
   const finalColor = color;
 
+  // const LookUpSource = getIcon();
+
   return (
     <IconStyle round={round} center={center} color={color} size={size} border={border}>
-      {Source ? <Source width="100%" height="auto" title={title || caption} color={finalColor} /> : `[X]`}
+      {Source && <Source width="100%" height="auto" title={title || caption} color={finalColor} /> }
+      {!Source && name && `[${name || 'X'}]`}
     </IconStyle>
   );
 }
