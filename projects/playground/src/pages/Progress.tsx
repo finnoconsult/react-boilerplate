@@ -8,6 +8,7 @@ import LightSubTitle from '../components/Text/LightSubTitle';
 import Text from '../components/Text';
 import SOSMessage from '../components/SOSMessage';
 import Divider from '../components/Divider';
+import VerticalProgressView from '../components/VerticalProgressView';
 
 const SOSMessageStyles = styled.div`
   &>* {
@@ -30,5 +31,16 @@ export default () => (
       </SOSMessage>
     </SOSMessageStyles>
     <Divider />
+    <SubPage>
+      <VerticalProgressView
+        progress={2}
+        items={[
+          'Ihre Beauftragung',
+          'Auftrag wird bearbeitet',
+          'Suche nach ADAC Schlüsselnotdienst in Ihrer Nähe',
+          'Helfer fährt los',
+        ]}
+      />
+    </SubPage>
   </Page>
 );

@@ -31,12 +31,12 @@ const ProgressViewItemStyles = styled.div<ProgressViewItemStylesProps>`
   }
 `;
 
-interface HorizontalProgressVewProps {
+interface HorizontalProgressViewProps {
   items: string[];
   progress: number;
 }
 
-export default ({ items, progress }: HorizontalProgressVewProps) => (
+export default ({ items, progress }: HorizontalProgressViewProps) => (
   <ProgressViewStyles>
     {items.map((item, index) => (
       <ProgressViewItemStyles key={item} done={progress > index} current={progress === index}>

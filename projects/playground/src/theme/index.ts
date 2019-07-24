@@ -6,6 +6,7 @@ export const theme = {
     divider: '#e5e5e5',
     cta: '#ffcc00',
     text: '#191919',
+    ready: '#2e7d2b',
   },
   font: {
     sizeButton: '1.6rem',
