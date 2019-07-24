@@ -110,7 +110,8 @@ export default class UIStore {
   }
 
   @computed public get mobileWidgetList(): WidgetConfigType[] {
-    return this.widgets.filter(widget => (widget.platform || '').match(/^(.*mobile.*|.*\*.*|)$/gi));
+    return this.widgets
+      .filter(widget => (widget.platform || '').match(/^(.*mobile.*|.*\*.*|)$/gi));
   }
 
   @observable private games: string[] = [];

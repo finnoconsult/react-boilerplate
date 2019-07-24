@@ -34,6 +34,7 @@ export interface WidgetMatchPlatformType extends WidgetIdType {
 
 export interface WidgetMatchRouteType extends WidgetIdType {
   routes?: string[] | Regex[] | string | Regex;
+  excludedRoutes?: string[] | Regex[] | string | Regex;
 }
 
 export type WidgetMatchType = WidgetMatchPlatformType | WidgetMatchRouteType;
