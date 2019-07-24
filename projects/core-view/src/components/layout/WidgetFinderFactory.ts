@@ -1,5 +1,5 @@
-import { useLocation } from '@finnoconsult/core-view';
 import { WidgetSearchProps } from "./WidgetSearchProps.d";
+import { useLocation } from "../..";
 
 const matchingRoute = (routeMatcher: string | any): boolean => {
   const location = useLocation();
