@@ -7,7 +7,7 @@ export interface PlatformProps {
   isMobile?: boolean;
 }
 
-export interface Dimensions extends ClientRect, DOMRect, PlatformProps {
+export interface Dimensions extends ClientRect, PlatformProps {
 }
 
 export interface SizeRect {
