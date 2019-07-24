@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
 
 import { FlexFragment } from '../Fragment';
-import { WidgetType } from './WidgetType.d';
+import { WidgetType } from './WidgetType';
 
 export const WidgetStyle = styled(FlexFragment) <WidgetType>`
+  flex: 0 0 auto;
+  height: auto;
+
   ${''/* In case of flex box */}
   ${props => props.order && css`
     order: ${props.order};

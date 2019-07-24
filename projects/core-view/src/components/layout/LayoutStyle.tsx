@@ -27,14 +27,18 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
 
   > nav {
     grid-area: header;
-    // display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
   > main {
     grid-area: main;
   }
   > footer {
     grid-area: footer;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
   }
   > header,
   > aside.left,

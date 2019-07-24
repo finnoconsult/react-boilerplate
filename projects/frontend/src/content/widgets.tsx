@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   WidgetStaticType,
   WidgetComponentType,
@@ -11,6 +12,7 @@ import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
 import LeftContainer from '../components/layout/LeftContainer';
 import FooterContainer from '../components/layout/FooterContainer';
+import Icon from '../components/ui/Icon';
 // import MainPageContainer from './MainPageContainer';
 
 export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
@@ -30,6 +32,13 @@ export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
   {
     id: 'desktopContentMenu', title: 'desktopContentMenu', component: LeftContainer,
   },
+  {
+    id: 'SampleStaticImage', title: 'SampleStaticImage', images: {
+      small: <Icon name="plane" />,
+      medium: <Icon name="plane" round="100px" />,
+      large: <Icon name="disks" size="100px" border="black" />,
+    },
+  },
 ];
 
 export const widgetConfigs: (StandaloneWidgetConfigType[] | ListWidgetConfigType[]) = [
@@ -47,6 +56,9 @@ export const widgetConfigs: (StandaloneWidgetConfigType[] | ListWidgetConfigType
   },
   {
     id: 'desktopContentMenu', platform: 'desktop', position: 'left',
+  },
+  {
+    id: 'SampleStaticImage', position: 'footer', size: 'medium',
   },
 ];
 

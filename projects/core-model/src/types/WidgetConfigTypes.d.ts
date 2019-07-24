@@ -17,9 +17,11 @@ export interface WidgetDefinitionType extends WidgetIdType {
   group?: string;
 }
 export interface WidgetStaticType extends WidgetDefinitionType {
-  small?: ImageOrComponent;
-  medium?: ImageOrComponent;
-  large?: ImageOrComponent;
+  images: {
+    small?: ImageOrComponent;
+    medium?: ImageOrComponent;
+    large?: ImageOrComponent;
+  }
 }
 export interface WidgetComponentType extends WidgetDefinitionType {
   component: () => JSX.Element | JSX.Element;
@@ -42,12 +44,12 @@ export interface StandaloneWidgetConfigType extends WidgetMatchType {
   column?: number | string;
   row?: number | string;
   area?: number | string;
+  size: string;
 
 }
 export interface ListWidgetConfigType extends WidgetMatchType {
   x: number;
   y: number;
-  size: string;
 }
 
 export interface WidgetConfigType extends WidgetStaticType, WidgetComponentType, StandaloneWidgetConfigType, ListWidgetConfigType {
