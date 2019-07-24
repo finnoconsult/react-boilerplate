@@ -23,7 +23,7 @@ export default () => {
   return (
     <Page>
       <SubPage>
-        <Title>Hilfe ist unterwegs</Title>
+        <Title>{ arrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
         <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
         {arrived
           ? <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
