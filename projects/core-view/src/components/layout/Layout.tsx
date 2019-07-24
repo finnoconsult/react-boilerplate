@@ -1,4 +1,5 @@
 import React from 'react';
+import get from 'lodash.get';
 
 import { Dimensions, Browser, Children } from '../../types';
 
@@ -26,15 +27,15 @@ const Layout = ({
   browser,
 }: LayoutProps) => (
   <LayoutStyle
-    data-layout={resolution.isPortrait ? 'portrait' : 'landscape'}
-    data-layout-desktop={resolution.isDesktop}
-    data-layout-tablet={resolution.isTablet}
-    data-layout-phone={resolution.isPhone}
-    data-layout-mobile={resolution.isMobile}
-    data-platform-name={browser.name.toLowerCase()}
-    data-platform-version={browser.version}
-    data-platform-os-family={browser.os.family.toLowerCase()}
-    data-platform-os-version={browser.os.version}
+    data-layout={(get(resolution, 'isPortrait', false)) ? 'portrait' : 'landscape'}
+    data-layout-desktop={get(resolution, 'isDesktop')}
+    data-layout-tablet={get(resolution, 'isTablet')}
+    data-layout-phone={get(resolution, 'isPhone')}
+    data-layout-mobile={get(resolution, 'isMobile')}
+    data-platform-name={get(browser, 'name', '').toLowerCase()}
+    data-platform-version={get(browser, 'version')}
+    data-platform-os-family={get(browser, 'os.family', '').toLowerCase()}
+    data-platform-os-version={get(browser, 'os.version')}
     // {...resolution}
     // browser={browser}
   >

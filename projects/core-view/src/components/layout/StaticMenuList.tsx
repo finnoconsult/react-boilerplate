@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ChildrenOrComponent } from '../../types';
 
 import { FlexFragment, Fragment } from '../Fragment';
 import { View } from './View';
@@ -41,7 +42,9 @@ interface ItemProps {
   route?: string;
   badge?: string | number;
   Component?: () => JSX.Element;
-  image?: () => JSX.Element | string | undefined;
+  image?: ChildrenOrComponent;
+  imageActive?: ChildrenOrComponent;
+  imageClassName?: string | undefined;
 }
 
 interface Props {
@@ -62,9 +65,9 @@ export default function StaticMenuList(props: Props) {
           to={item.route}
           // this.isMatching({ ...item, index })
         >
-          {!item.Component && item.image && (
+          {/* {!item.Component && item.image && (
             <Image source={(this.isMatching(item) && item.imageActive) || item.image} className={item.imageClassName} />
-          )}
+          )} */}
 
           {item.Component && (
             <View id={index}>

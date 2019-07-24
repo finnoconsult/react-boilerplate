@@ -55,7 +55,7 @@ export const ImageStyle = styled.figure`
 interface ImgTagProps {
   id?: number | string;
   source: ImageOrComponent;
-  title: string;
+  title?: string;
   caption?: string;
   usemap?: string;
   className?: string;
@@ -93,7 +93,7 @@ const ImgTag = (props: ImgTagProps) => {
   } = props;
   return (
     <ImageStyle style={{ ...(figureStyle || {}), lineHeight: 0 }} className={className}>
-      {typeof source === 'object' && cloneComponentInstanceHOC(source, props)}
+      {source && typeof source === 'object' && cloneComponentInstanceHOC(source, props)}
       {typeof source === 'function' && (
         <source
           // {...cleanSVGProps(props)}

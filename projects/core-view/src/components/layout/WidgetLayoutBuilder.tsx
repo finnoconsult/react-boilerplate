@@ -3,10 +3,10 @@ import React from 'react';
 import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
-import { WidgetStyle } from './WidgetStyle';
+import { WidgetStyle, WidgetStyleProps } from './WidgetStyle';
 
 // TODO: use other widgets
-interface WidgetType {
+interface WidgetType extends WidgetStyleProps {
   id: string | number;
   component?: () => JSX.Element;
   title?: string;
@@ -24,8 +24,21 @@ const WidgetFactoryStatic = ({ title }: WidgetType) => (
 
 // TODO: refactor
 const WidgetFactory = (props: WidgetType) => {
-  const { component: Component } = props;
-  return Component ? <WidgetStyle {...props}><Component /></WidgetStyle> : <WidgetFactoryStatic {...props} />;
+  const {
+    component: Component, order, column, row, area,
+  } = props;
+
+  const allowedStyledProps = {
+    order, column, row, area,
+  };
+
+  return (
+    <WidgetStyle
+      {...allowedStyledProps}
+    >
+      {Component ? <Component /> : <WidgetFactoryStatic {...props} />}
+    </WidgetStyle>
+  );
 };
 
 

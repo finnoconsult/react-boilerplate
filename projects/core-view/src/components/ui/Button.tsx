@@ -1,5 +1,8 @@
 import React from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import {
+  // withRouter,
+  Link,
+} from 'react-router-dom';
 
 // import Link from './LinkStyle';
 
@@ -22,15 +25,15 @@ interface Props {
 
 // @withRouter
 // export default class Button extends ContainerWithRouter {
-export const Button = withRouter((props: Props) => {
+export const Button = /*withRouter(*/(props: Props) => {
   const {
     onClick,
     to,
     children,
-    title,
-    className,
-    style,
-    disabled,
+    // title,
+    // className,
+    // style,
+    // disabled,
   } = props;
 
   const link = to;
@@ -54,10 +57,10 @@ export const Button = withRouter((props: Props) => {
   if (link) {
     return (
       <Link
-        title={title}
-        className={className}
-        style={style || {}}
-        disabled={disabled}
+        // title={title}
+        // className={className}
+        // style={style || {}}
+        // disabled={disabled}
         to={link || '/'}
       >
         {children}
@@ -66,11 +69,11 @@ export const Button = withRouter((props: Props) => {
   }
 
   return (
-    <Button {...props} onClick={() => handleClick()}>
+    <button {...props} onClick={() => handleClick()}>
       {/* <Button {...props} onClick={e => handleClick(e)}> */}
       {children}
-    </Button>
+    </button>
   );
-});
+}/*)*/;
 
 export default Button;

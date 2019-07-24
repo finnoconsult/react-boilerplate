@@ -21,7 +21,6 @@
   "license": "UNLICENSED",
   "homepage": "https://demo.finnoconsult.at",
   "slackChannel": "",
-
   "environments": {
     "dev": {
       "protocol": "https://",
@@ -41,7 +40,9 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
+    "@types/lodash.get": "^4.4.6",
     "@types/node": "^12.0.12",
+    "@types/platform": "^1.3.2",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.4",

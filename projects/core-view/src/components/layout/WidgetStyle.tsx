@@ -1,8 +1,15 @@
 import styled, { css } from 'styled-components';
 
-import { FlexFragment } from '../Fragment';
+import { FlexFragment, FragmentProps } from '../Fragment';
 
-export const WidgetStyle = styled(FlexFragment)`
+export interface WidgetStyleProps extends FragmentProps {
+  order?: number | string;
+  column?: number | string;
+  row?: number | string;
+  area?: number | string;
+}
+
+export const WidgetStyle = styled(FlexFragment)<WidgetStyleProps>`
   ${''/* In case of flex box */}
   ${props => props.order && css`
     order: ${props.order};
@@ -13,7 +20,7 @@ export const WidgetStyle = styled(FlexFragment)`
     grid-column: ${props.column};
   `}
   ${props => props.area && css`
-    grid-column: ${props.area};
+    grid-area: ${props.area};
   `}
 `;
 WidgetStyle.displayName='WidgetStyle';

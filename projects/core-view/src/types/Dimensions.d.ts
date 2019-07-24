@@ -6,3 +6,8 @@ export interface Dimensions extends ClientRect {
   isPhone?: boolean;
   isMobile?: boolean;
 }
+
+export interface SizeRect {
+  width: number;
+  height: number;
+}
