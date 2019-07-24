@@ -1,6 +1,6 @@
 // TODO: refactor types to the core-model
 
-import { ImageOrComponent } from '@finnoconsult/core-view/lib/index.d';
+import { ImageOrComponent } from '@finnoconsult/core-view';
 
 export interface WidgetIdType {
   id: string | number;

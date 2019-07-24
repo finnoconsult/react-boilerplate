@@ -8,10 +8,8 @@ import {
   isPortrait,
   isLandscape,
   getResolution,
-} from '@finnoconsult/core-view';
-import {
   Dimensions,
-} from '@finnoconsult/core-view/lib/index.d';
+} from '@finnoconsult/core-view';
 
 import {
   widgets,

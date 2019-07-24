@@ -1,3 +1,3 @@
 export * from './links';
 export * from './widgets';
-export * from './widgetTypes';
+export * from '@finnoconsult/core-model';

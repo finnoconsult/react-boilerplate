@@ -1,2 +1,11 @@
 export * from './helpers/string-helpers';
-export * from './types';
+export {
+  WidgetIdType,
+  WidgetDefinitionType,
+  WidgetStaticType,
+  WidgetComponentType,
+  WidgetConfigType,
+  StandaloneWidgetConfigType,
+  ListWidgetConfigType,
+  WidgetType,
+} from './types';

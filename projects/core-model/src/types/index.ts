@@ -1,3 +1,1 @@
-export interface MiscType {
-  miscProperty?: string;
-}
+export * from './WidgetTypes';

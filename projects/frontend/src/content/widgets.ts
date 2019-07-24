@@ -4,7 +4,7 @@ import {
   StandaloneWidgetConfigType,
   ListWidgetConfigType,
   WidgetType,
-} from './widgetTypes';
+} from '@finnoconsult/core-model';
 
 import HeaderContainer from '../components/layout/HeaderContainer';
 import LogoContainer from '../components/layout/LogoContainer';
