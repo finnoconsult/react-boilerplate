@@ -1,6 +1,7 @@
 import View from './components/layout/View';
 import LinkStyle from './components/ui/LinkStyle';
 import Image from './components/ui/Image';
+import Icon from './components/ui/Icon';
 import Button from './components/ui/Button';
 import Text from './components/ui/Text';
 
@@ -12,6 +13,7 @@ export {
   View,
   LinkStyle,
   Image,
+  Icon,
   Button,
   Text,
 

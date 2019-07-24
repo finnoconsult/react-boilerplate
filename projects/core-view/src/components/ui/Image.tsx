@@ -118,11 +118,9 @@ const ImgTag = (props: ImgTagProps) => {
   );
 };
 
-interface ImageProps {
+interface ImageProps extends ImgTagProps{
   children?: Children;
   link?: string;
-  title?: string;
-  source: ImageOrComponent;
   image?: ImageOrComponent; // using this in case source is not given
   onClick?: () => void;
 }

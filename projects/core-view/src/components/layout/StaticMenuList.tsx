@@ -6,7 +6,7 @@ import { FlexFragment, Fragment } from '../Fragment';
 import { View } from './View';
 import { Text } from '../ui/Text';
 import { Button } from '../ui/Button';
-// import { Image } from '../ui/Image';
+import { Image } from '../ui/Image';
 
 
 const NavBarStyle = styled(FlexFragment)`
@@ -65,9 +65,10 @@ export default function StaticMenuList(props: Props) {
           to={item.route}
           // this.isMatching({ ...item, index })
         >
-          {/* {!item.Component && item.image && (
-            <Image source={(this.isMatching(item) && item.imageActive) || item.image} className={item.imageClassName} />
-          )} */}
+          {!item.Component && item.image && (
+            <Image source={(item.imageActive) || item.image} className={item.imageClassName} />
+            // this.isMatching(item) && 
+          )}
 
           {item.Component && (
             <View id={`${index}`}>
