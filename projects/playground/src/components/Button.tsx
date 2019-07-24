@@ -35,14 +35,15 @@ interface Props {
   cta?: boolean;
   children?: JSX.Element | JSX.Element[];
   disabled?: boolean;
+  onClick?: () => void;
 }
 
 export default (props: Props) => {
   const {
-    title, cta, children, disabled,
+    title, cta, children, disabled, onClick,
   } = props;
   return (
-    <ButtonStyles disabled={disabled} type="button" cta={cta}>
+    <ButtonStyles disabled={disabled} type="button" cta={cta} onClick={onClick}>
       {(title && !children) && (
         <ButtonText>{title}</ButtonText>
       )}

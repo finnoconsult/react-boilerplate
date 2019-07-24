@@ -12,15 +12,28 @@ import Button from '../components/Button';
 
 import Offer from '../components/svgs/Offer';
 
+import SMS2 from '../components/sms/SMS2';
+
 const AddressTextLayout = styled.div`
   margin-top: 5px;
 `;
 
 export default () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
+  const [smsIncoming, setSMSIncoming] = useState(false);
+  const [showSMS, setShowSMS] = useState(false);
+
+  function sendSMS() {
+    if (smsIncoming) return;
+    setSMSIncoming(true);
+    setTimeout(() => {
+      setShowSMS(true);
+    }, 1000);
+  }
 
   return (
     <Page>
+      {showSMS && <SMS2 />}
       <HorizontalProgressView
         items={[
           'Adresse',
@@ -49,7 +62,12 @@ export default () => {
       </SubPage>
       <SubPage>
         <FullWidthLayout>
-          <Button disabled={!termsAccepted} title="Auftrag bestätigen" cta />
+          <Button
+            disabled={!termsAccepted}
+            title="Auftrag bestätigen"
+            cta
+            onClick={sendSMS}
+          />
         </FullWidthLayout>
       </SubPage>
     </Page>
