@@ -7,6 +7,7 @@ import {
   WidgetAllDefinitionType,
   WidgetConfigType,
 } from '@finnoconsult/core-model';
+import { Link } from 'react-router-dom';
 
 import HeaderContainer from '../components/layout/HeaderContainer';
 import LogoContainer from '../components/layout/LogoContainer';
@@ -23,7 +24,7 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   },
   {
     id: 'mobileNavBarStatic', title: 'mobileNavBar', images: {
-      medium: <Icon name="close" />
+      medium: <Link to="/lorem">Go!<Icon key="go" name="right" title="go" /></Link>,
     },
   },
   {

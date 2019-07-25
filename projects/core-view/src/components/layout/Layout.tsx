@@ -36,8 +36,8 @@ const Layout = ({
     data-platform-version={get(browser, 'version')}
     data-platform-os-family={get(browser, 'os.family', '').toLowerCase()}
     data-platform-os-version={get(browser, 'os.version')}
-    // {...resolution}
-    // browser={browser}
+    {...resolution}
+    browser={browser}
   >
     {Header && <header><Header /></header>}
     {Nav && <nav><Nav /></nav>}
