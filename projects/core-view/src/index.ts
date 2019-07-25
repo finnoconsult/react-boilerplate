@@ -11,9 +11,11 @@ export { default as SubPage } from './components/layout/SubPage';
 export { default as LinkStyle } from './components/ui/LinkStyle';
 export { default as Image } from './components/ui/Image';
 export { default as Icon, IconProps } from './components/ui/Icon';
-export { default as getIcon } from './components/ui/getIcon';
-export { default as Button } from './components/ui/Button';
-export { default as Text, SmallText, Title, SubTitle, LightSubTitle } from './components/ui/Text';
+export { default as getIcon } from './components/ui/getIcon';
+export { default as Button } from './components/ui/Button';
+export {
+  default as Text, SmallText, Title, SubTitle, LightSubTitle,
+} from './components/ui/Text';
 export { default as TextField, MapPinUtilityView } from './components/ui/TextField';
 export { default as RadioGroup } from './components/ui/RadioGroup';
 export { default as CheckBoxGroup } from './components/ui/CheckBoxGroup';
@@ -25,7 +27,7 @@ export { default as VerticalProgressView } from './components/composite/Vertical
 export { default as SMS, SMSText, SMSLink } from './components/composite/SMS';
 export { default as SOSMessage } from './components/composite/SOSMessage';
 
-export { default as Security} from './components/security';
+export { default as Security } from './components/security';
 
 export * from './helpers/browser-helper';
 export * from './helpers/router-helper';
@@ -35,4 +37,3 @@ export {
   PlatformProps,
   Browser,
 } from './types';
-
