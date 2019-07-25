@@ -41,7 +41,7 @@ export default () => {
       setHasProgressedThisManyTimes(hasProgressedThisManyTimes + 1);
       setProgress(progress+1);
     }, 2000);
-  }, [progress]);
+  }, [progress, hasProgressedThisManyTimes]);
 
   useEffect(() => {
     if (progressThisManyTimes < hasProgressedThisManyTimes) {
