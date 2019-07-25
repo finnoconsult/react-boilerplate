@@ -13,8 +13,18 @@ import Link from './LinkStyle';
 
 export const ImageStyle = styled.figure`
   text-align: center;
-  width: 100%;
+  width: auto;
   height: auto;
+
+  ${'' /* // TODO: apply ${props.fullWidth} */}
+  &.fullWidth {
+    width: 100%;
+    height: auto;
+    svg, img {
+      width: 100%;
+      height: auto;
+    }
+  }
 
   &.fullHeight {
     width: auto;
@@ -29,6 +39,8 @@ export const ImageStyle = styled.figure`
     height: 20px;
     padding: 0px 2px;
   }
+
+  
   ${'' /* &.bordered {
     box-shadow: $theme-item-box-shadow;
     border: solid 1px $theme-color-gray;

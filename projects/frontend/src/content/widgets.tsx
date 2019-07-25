@@ -14,8 +14,10 @@ import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
 import LeftContainer from '../components/layout/LeftContainer';
 import FooterContainer from '../components/layout/FooterContainer';
-import Icon from '../components/ui/Icon';
+import { Icon, Image } from '../components/ui';
 // import MainPageContainer from './MainPageContainer';
+
+import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
 
 export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   // TODO: should be better with object id=key mapping
@@ -24,7 +26,7 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   },
   {
     id: 'mobileNavBarStatic', title: 'mobileNavBar', images: {
-      medium: <Link to="/lorem">Go!<Icon key="go" name="right" title="go" /></Link>,
+      medium: <Link to="/lorem"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
     },
   },
   {
@@ -50,13 +52,13 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
 
 export const widgetConfigs: (WidgetConfigType)[] = [
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/)$/]
+    id: 'mobileNavBarStatic', platform: 'mobile', position: 'nav', order: 2, routes: [/^(|\/)$/],
   },
   {
-    id: 'mobileNavBarStatic', platform: 'mobile', position: 'nav', order: 2, routes: [/^(|\/)$/]
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/)$/],
   },
   {
-    id: 'logo', platform: '*', position: 'nav', order: 1,
+    id: 'logo', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/)$/],
   },
   {
     id: 'mobileTabBar', position: 'footer',
