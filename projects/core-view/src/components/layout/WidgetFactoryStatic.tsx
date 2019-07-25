@@ -22,7 +22,7 @@ export const WidgetFactoryStatic = ({ title, images, size }: WidgetType) => {
   return (
     <>
       {!imageSource && title}
-      {imageSource && <Image source={imageSource} />}
+      {imageSource && <Image source={imageSource} className="fullWidth" />}
     </>
   );
 }

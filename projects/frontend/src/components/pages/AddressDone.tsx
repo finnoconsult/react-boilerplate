@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import HorizontalProgressView from '../components/HorizontalProgressView';
-import Page from '../components/Page';
-import SubPage from '../components/SubPage';
-import Title from '../components/Text/Title';
-import Text from '../components/Text';
-import CheckBoxGroup from '../components/CheckBoxGroup';
-import { FullWidthLayout } from '../components/layouts';
-import Button from '../components/Button';
 
-import Offer from '../components/svgs/Offer';
+import {
+  Page,
+  SubPage,
+  Title,
+  Text,
+  Button,
+  HorizontalProgressView,
+  FullWidthLayout,
+  CheckBoxGroup,
+} from '@finnoconsult/core-view';
 
-import SMS2 from '../components/sms/SMS2';
+import Offer from '../svgs/Offer';
+
+import SMS2 from '../sms/SMS2';
 
 const AddressTextLayout = styled.div`
   margin-top: 5px;

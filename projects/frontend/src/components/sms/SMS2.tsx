@@ -1,6 +1,7 @@
 import React from 'react';
 
-import SMS, { SMSText, SMSLink } from '../SMS';
+import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
+import { Link } from 'react-router-dom';
 
 export default () => (
   <SMS animated>
@@ -12,7 +13,7 @@ export default () => (
     <SMSText>
       Über diesen Link können Sie den aktuellen Status verfolgen:
     </SMSText>
-    <SMSLink href="">http://adac.de/schluesselnotdiest/yxc124ert</SMSLink>
+    <Link to="/progress"><SMSLink>http://adac.de/schluesselnotdiest/yxc124ert</SMSLink></Link>
     <br />
     <br />
     <SMSText>

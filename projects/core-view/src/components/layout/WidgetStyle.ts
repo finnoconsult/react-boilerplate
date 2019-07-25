@@ -4,8 +4,8 @@ import { FlexFragment } from '../Fragment';
 import { StandaloneWidgetConfigType } from '@finnoconsult/core-model';
 
 export const WidgetStyle = styled(FlexFragment) <StandaloneWidgetConfigType>`
-  flex: 0 0 auto;
   height: auto;
+  flex: 0 0 auto;
 
   ${''/* In case of flex box */}
   ${props => props.order && css`

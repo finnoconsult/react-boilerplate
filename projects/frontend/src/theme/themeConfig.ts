@@ -1,34 +1,36 @@
 export const mainTheme = {
   colors: {
-    main: 'red',
-    cta: 'orange',
-    info: 'orange',
-    normal: 'black',
-    disabled: 'gray',
-    black: '#282828',
-    blue: '#00a8d6',
-    red: '#d64218',
-    orange: '#d64218',
-    grey: '#8b959e',
-    gray: '#8b959e',
-    white: '#ffffff',
-    ocher: '#F29315',
-    azure: '#8FD2E5',
-    salmon: '#F3BE7C',
+    background: '#fff',
+    backgroundLight: '#f3f3f4',
+    border: '#b2b2b2',
+    divider: '#e5e5e5',
+    cta: '#ffcc00',
+    info: '#282828', // TODO: ADAC
+    disabled: '#e5e5e5', // TODO: ADAC
+    text: '#191919',
+    ready: '#2e7d2b',
   },
   font: {
-    base: '10px',
-    size: '1rem',
+    text: '1.6rem',
+    smallText: '1.4rem',
+    subTitle: '1.8rem',
+    title: '2.4rem',
+    link: '1.6rem',
+    sizeButton: '1.6rem',
   },
-  border: {
-    main: 'red',
-    cta: 'orange',
-    info: 'orange',
-    normal: 'black',
-    disabled: 'gray',
+  animation: {
+    time: '0.2s',
+    transformTransition: '0.2s transform ease-out',
+    hegihtTransition: '0.8s max-height ease-out',
+    topTransition: '0.8s top ease-out',
   },
   spacing: {
-    basicPadding: '20px',
+    basicPadding: '14px',
+    paragraphPadding: '14px 20px',
+    basicMargin: '14px',
+  },
+  effects: {
+    bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
   },
 };
 

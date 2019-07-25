@@ -20,5 +20,10 @@ export const links = {
       title: 'Sample',
       route: '/sample',
     },
+    {
+      id: '',
+      title: 'console',
+      onClick: () => console.log('test console'),
+    },
   ],
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SMS, { SMSText, SMSLink } from '../SMS';
+import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
 
 export default () => (
   <SMS animated>

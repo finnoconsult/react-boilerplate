@@ -1,79 +1,84 @@
 import React from 'react';
-import {
-  // withRouter,
-  Link,
-} from 'react-router-dom';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-// import Link from './LinkStyle';
-
-// import ContainerWithRouter from '../../../../containers/ContainerWithRouter';
-
-// import styles from '../../../../theme/app.global.scss';
-
+import Text from './Text';
 import { Children } from '../../types';
 
-interface Props {
-  children?: Children;
-  to?: string;
-  title?: string;
-  className?: string;
-  style?: {};
+interface CommonButtonProps {
   disabled?: boolean;
-  onClick?: () => void;
-  // onClick?: ({ event }) => void,
+  cta?: boolean;
+  info?: boolean;
+  cancel?: boolean;
+  
+}
+interface ButtonStylesProps extends CommonButtonProps{
+  shouldFormat?: boolean;
 }
 
-// @withRouter
-// export default class Button extends ContainerWithRouter {
-export const Button = /*withRouter(*/(props: Props) => {
-  const {
-    onClick,
-    to,
-    children,
-    // title,
-    // className,
-    // style,
-    // disabled,
-  } = props;
+const ButtonStyles = styled.div<ButtonStylesProps>`
+  & > button,
+  & > a {
+    width: 100%;
 
-  const link = to;
+    ${props => props.shouldFormat && `
+      background-color: ${(props.cta ? props.theme.colors.cta : props.theme.colors.background)};
 
-  const handleClick = () => {
-  // const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    if (onClick) {
-      onClick(
-        // {
-        // event: e,
-        // history: history,
-        // location: location,
-        // match: match,
-      // }
-      );
-    } else console.log(`TODO: goto ${to}`);
-    // } else this.goTo(to);
-  };
+      border: ${(props.info && `1px solid ${props.theme.colors.text}`)};
+      border-radius: 4px;
+      padding: 13px;
+      
+      cursor: pointer;
 
+      &:active {
+        background-color: #fac206;
+      }
 
-  if (link) {
-    return (
-      <Link
-        // title={title}
-        // className={className}
-        // style={style || {}}
-        // disabled={disabled}
-        to={link || '/'}
-      >
-        {children}
-      </Link>
-    );
+      &:disabled {
+        background-color: ${props.theme.colors.divider};
+      }
+    `}
   }
+`;
 
-  return (
-    <button {...props} onClick={() => handleClick()}>
-      {/* <Button {...props} onClick={e => handleClick(e)}> */}
+const ButtonText = styled(Text)`
+  font-size: ${props => props.theme.font.sizeButton};
+  font-weight: bold;
+`;
+
+interface Props extends CommonButtonProps{
+  title?: string;
+  children?: Children;
+  onClick?: () => void;
+  link?: string;
+}
+
+export default (props: Props) => {
+  const {
+    title, cta, info, cancel, children, disabled, onClick, link,
+  } = props;
+  
+  const shouldFormat = cta || info || cancel;
+  
+  const buttonContent = (
+    <>
+      {(title) && (
+        <ButtonText>{title}</ButtonText>
+      )}
       {children}
-    </button>
+    </>
   );
-}/*)*/;
+  return (
+    <ButtonStyles
+      shouldFormat={shouldFormat}
+      cta={cta}
+      info={info}
+      cancel={cancel}
+      onClick={onClick}
+    >
+      {link ? <Link to={link}>{buttonContent}</Link> : <button disabled={disabled} type="button">{buttonContent}</button>}
+    </ButtonStyles>
+  );
+};
 
-export default Button;
+

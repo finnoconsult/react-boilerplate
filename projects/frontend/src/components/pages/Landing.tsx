@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Page from '../components/Page';
-import SubPage from '../components/SubPage';
-import Title from '../components/Text/Title';
-import SubTitle from '../components/Text/SubTitle';
-import Button from '../components/Button';
-import Text from '../components/Text';
-import Divider from '../components/Divider';
-import TableView from '../components/TableView';
+import {
+  Page,
+  SubPage,
+  Title,
+  SubTitle,
+  Button,
+  Text,
+  Divider,
+  TableView,
+  FullWidthLayout,
+} from '@finnoconsult/core-view';
 
-import FireDepartment from '../components/svgs/FireDepartment';
-import Prices from '../components/svgs/Prices';
-import Conditions from '../components/svgs/Conditions';
-
-import { FullWidthLayout } from '../components/layouts';
+import FireDepartment from '../svgs/FireDepartment';
+import Prices from '../svgs/Prices';
+import Conditions from '../svgs/Conditions';
 
 const PhoneButtonViewStyles = styled.div``;
 
@@ -52,7 +53,7 @@ const PhoneButton = ({ title, phoneNumber }: PhoneButtonProps) => (
   <PhoneButtonStyles>
     <SubTitle>{title}</SubTitle>
     <FullWidthLayout>
-      <Button>
+      <Button info>
         <PhoneButtonView phoneNumber={phoneNumber} />
       </Button>
     </FullWidthLayout>
@@ -78,7 +79,7 @@ export default () => {
           <Prices />
           <Conditions />
           <FullWidthLayout>
-            <Button title="Schlüsselnotdienst anfordern" cta />
+            <Button title="Schlüsselnotdienst anfordern" cta link="/address" />
           </FullWidthLayout>
         </Marginizer>
 

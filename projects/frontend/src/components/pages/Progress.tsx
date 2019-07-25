@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Page from '../components/Page';
-import SubPage from '../components/SubPage';
-import Title from '../components/Text/Title';
-import LightSubTitle from '../components/Text/LightSubTitle';
-import Text from '../components/Text';
-import SOSMessage from '../components/SOSMessage';
-import Divider from '../components/Divider';
-import VerticalProgressView from '../components/VerticalProgressView';
+import {
+  Page,
+  SubPage,
+  Title,
+  LightSubTitle,
+  Text,
+  SOSMessage,
+  Divider,
+  VerticalProgressView,
+} from '@finnoconsult/core-view';
 
-import SMS3 from '../components/sms/SMS3';
+import SMS3 from '../sms/SMS3';
 
 const SOSMessageStyles = styled.div`
   &>* {

@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-import View from '../Fragment';
+import View from '../../View';
 
 // import styles from '../../theme/app.global.scss';
 
-interface TextProps {
+export interface TextProps {
   margin?: boolean;
   left?: boolean;
   padding?: string;
@@ -13,7 +13,8 @@ interface TextProps {
 
 export const Text = styled(View).attrs(() => ({ as: 'p' }))<TextProps>`
   margin: ${props => props.margin && '0 0 8px 0'};
-  ${''/* font-size: ${props => props.theme.font.size.normal}; */}
+  font-size: ${props => props.theme.font.text};
+  color: ${props => props.theme.colors.text};
 
   ${props => props.left && `
     text-align: left !important;

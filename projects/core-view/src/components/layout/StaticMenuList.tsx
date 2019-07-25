@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { ChildrenOrComponent } from '../../types';
 
 import { FlexFragment, Fragment } from '../Fragment';
-import { View } from './View';
-import { Text } from '../ui/Text';
-import { Button } from '../ui/Button';
+// import { View } from '../View';
+// import { Text } from '../ui/Text';
+import { default as Button } from '../ui/Button';
 import { Image } from '../ui/Image';
 
 
@@ -54,7 +54,7 @@ interface Props {
   // location: { pathname: string};
 }
 
-export default function StaticMenuList(props: Props) {
+export function StaticMenuList(props: Props) {
   const { items } = props;
   return (
     <NavBarStyle {...props}>
@@ -62,7 +62,7 @@ export default function StaticMenuList(props: Props) {
         <Button
           key={item.id as string || index}
           {...item}
-          to={item.route}
+          link={item.route}
           // this.isMatching({ ...item, index })
         >
           <>
@@ -72,13 +72,9 @@ export default function StaticMenuList(props: Props) {
             )}
 
             {item.Component && (
-              <View id={`${index}`}>
-                <item.Component />
-              </View>
-            )}
-
-            {item.title && (
-              <Text>{item.title}</Text>
+              // <View id={`${index}`}>
+              <item.Component />
+              // </View>
             )}
 
             {item.badge && (
@@ -90,3 +86,6 @@ export default function StaticMenuList(props: Props) {
     </NavBarStyle>
   );
 }
+
+
+export default StaticMenuList;

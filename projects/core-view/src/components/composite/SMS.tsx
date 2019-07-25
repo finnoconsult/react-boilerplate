@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import Text from './Text';
-import Link from './Link';
+import Text from '../ui/Text';
+import LinkStyle from '../ui/LinkStyle';
 
 interface SMSStylesProps {
   animated?: boolean;
@@ -88,6 +88,6 @@ export default ({ children, animated }: SMSProps) => {
 };
 
 export const SMSText = styled(Text)``;
-export const SMSLink = styled(Link)`
+export const SMSLink = styled(LinkStyle).attrs(() => ({ as: 'span' }))`
   color: #007aff;
 `;

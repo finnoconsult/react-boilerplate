@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Text from './Text';
+import Text from '../ui/Text';
 
 const ProgressViewStyles = styled.div`
   background-color: ${props => props.theme.colors.backgroundLight};

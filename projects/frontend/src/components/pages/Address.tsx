@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import Page from '../components/Page';
-import SubPage from '../components/SubPage';
-import { Title, SmallText } from '../components/Text';
-import TextField, { MapPinUtilityView } from '../components/TextField';
-import Button from '../components/Button';
-import Divider from '../components/Divider';
-import RadioGroup from '../components/RadioGroup';
-import HorizontalProgressView from '../components/HorizontalProgressView';
 
-import { FullWidthLayout, ColumnLayout as InputColumnLayout } from '../components/layouts';
+import {
+  Page,
+  SubPage,
+  Title,
+  SmallText,
+  TextField,
+  MapPinUtilityView,
+  Button,
+  Divider,
+  RadioGroup,
+  HorizontalProgressView,
+  FullWidthLayout,
+  ColumnLayout as InputColumnLayout,
+} from '@finnoconsult/core-view';
 
 const InputLayout = styled.div`
   &>div {
@@ -120,7 +125,7 @@ export default () => {
         </InputLayout>
 
         <FullWidthLayout>
-          <Button title="Handy-Nummer bestätigen" cta />
+          <Button title="Handy-Nummer bestätigen" cta link="/address/sms" />
         </FullWidthLayout>
         <DescriptionText>
           Der Auftrag wird erst aktiv, wenn Sie Ihre Handy-Nummer bestätigt haben. Diese brauchen wir, um Sie ggf. zu kontaktieren.

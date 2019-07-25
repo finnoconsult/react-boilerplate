@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Page from '../components/Page';
-import SubPage from '../components/SubPage';
-import { Title, LightSubTitle, SubTitle } from '../components/Text';
-import TableView from '../components/TableView';
 
-import SMS4 from '../components/sms/SMS4';
+import {
+  Page,
+  SubPage,
+  Title,
+  SubTitle,
+  LightSubTitle,
+  TableView,
+} from '@finnoconsult/core-view';
+
+import SMS4 from '../sms/SMS4';
 
 const CustomSubtitle = styled(SubTitle)`  
   font-weight: normal;

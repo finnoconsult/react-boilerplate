@@ -57,15 +57,17 @@ button:focus {
 
 html {
   /* base for rem / 1rem = 10px */
-  font-size: 62.5%;
+  /* font-size: 62.5%; */
+  font-size: 10px;
 }
 
-body {
+/* body { */
   /* default font size = 14px */
-  font-size: 1.8rem;
-}
+  /* font-size: 1.8rem; */
+/* } */
 
-html, body, div {
+/* html, body, div { */
+html, body {
   height: 100%;
 }
 

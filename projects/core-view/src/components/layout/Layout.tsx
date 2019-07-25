@@ -16,7 +16,7 @@ export interface LayoutProps {
   browser: Browser;
 }
 
-const Layout = ({
+export const Layout = ({
   header: Header,
   nav: Nav,
   left: LeftSide,

@@ -156,7 +156,7 @@ export const Image = (props: ImageProps) => {
 
   if (link) {
     return (
-      <Link to={link} className="wrappedComponent">
+      <Link to={link}>
         <ImgTag {...props} source={imageSource} />
         <>{children}</>
       </Link>
@@ -165,7 +165,7 @@ export const Image = (props: ImageProps) => {
 
   if (onClick) {
     return (
-      <Button onClick={() => onClick()} className="wrappedComponent">
+      <Button onClick={() => onClick()}>
         <ImgTag {...props} source={imageSource} />
         <>{children}</>
       </Button>
@@ -174,7 +174,7 @@ export const Image = (props: ImageProps) => {
 
   if (children) {
     return (
-      <span className="wrappedComponent">
+      <span>
         <ImgTag {...props} source={imageSource} />
         {children}
       </span>
