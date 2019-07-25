@@ -10,6 +10,8 @@ import SOSMessage from '../components/SOSMessage';
 import Divider from '../components/Divider';
 import VerticalProgressView from '../components/VerticalProgressView';
 
+import SMS3 from '../components/sms/SMS3';
+
 const SOSMessageStyles = styled.div`
   &>* {
     padding-top: 0;
@@ -29,16 +31,27 @@ export default () => {
   const progressThisManyTimes = 3;
   const [hasProgressedThisManyTimes, setHasProgressedThisManyTimes] = useState(1);
 
+  const [smsArrived, setSMSArrived] = useState(false);
+
   useEffect(() => {
     if (hasProgressedThisManyTimes > progressThisManyTimes) return;
     setTimeout(() => {
       setHasProgressedThisManyTimes(hasProgressedThisManyTimes + 1);
       setProgress(progress+1);
-    }, 1000);
+    }, 2000);
   }, [progress]);
+
+  useEffect(() => {
+    if (progressThisManyTimes < hasProgressedThisManyTimes) {
+      setTimeout(() => {
+        setSMSArrived(true);
+      }, 1000);
+    }
+  }, [hasProgressedThisManyTimes]);
 
   return (
     <Page>
+      {smsArrived && <SMS3 />}
       <SubPage>
         <Title>Danke für Ihren Auftrag</Title>
         <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
