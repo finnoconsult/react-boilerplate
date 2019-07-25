@@ -69,11 +69,14 @@ export default () => {
       <SubPage>
         <InputLayout>
           <Title>Ihre Adresse</Title>
-          <InputColumnLayout ratio="1fr">
+          <InputColumnLayout ratio="1fr 2fr">
             <TextField
               defaultValue={firstPart && firstPart.zipCode}
               onClick={firstPartClicked}
               badgeTitle="PLZ"
+            />
+            <TextField
+              onClick={firstPartClicked}
               utilityView={<MapPinUtilityView />}
             />
           </InputColumnLayout>

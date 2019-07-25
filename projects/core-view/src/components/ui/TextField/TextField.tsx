@@ -40,7 +40,7 @@ const UtilityViewStyles = styled.div`
 
 interface Props {
   defaultValue?: string;
-  badgeTitle: string;
+  badgeTitle?: string;
   placeholder?: string;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
@@ -53,7 +53,7 @@ export default (props: Props) => {
   return (
     <TextFieldOuterBox>
       <BadgeTitle>{badgeTitle}</BadgeTitle>
-      <TextField defaultValue={defaultValue} onClick={onClick} type="text" placeholder={placeholder} />
+      <TextField readOnly defaultValue={defaultValue} onClick={onClick} type="text" placeholder={placeholder} />
       {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
     </TextFieldOuterBox>
   );
