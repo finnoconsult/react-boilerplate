@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import {
   Page,
   SubPage,
+  Text,
   Title,
   SmallText,
   TextField,
@@ -22,7 +23,11 @@ const InputLayout = styled.div`
     margin-bottom: 24px;
   }
 
-  ${Title} {
+  &>${Title} {
+    margin-bottom: 16px;
+  }
+
+  &>${Text} {
     margin-bottom: 16px;
   }
 `;
@@ -39,7 +44,8 @@ export default () => {
     if (!firstPart) {
       setFirstPart({
         zipCode: '80331',
-        address: 'Landwehrstraße 67',
+        street: 'Landwehrstraße',
+        houseNumber: '67',
       });
     }
   }
@@ -69,21 +75,33 @@ export default () => {
       <SubPage>
         <InputLayout>
           <Title>Ihre Adresse</Title>
-          <InputColumnLayout ratio="1fr">
+          <Text>Wo können wir helfen?</Text>
+          <InputColumnLayout ratio="1fr 2fr">
             <TextField
               defaultValue={firstPart && firstPart.zipCode}
               onClick={firstPartClicked}
               badgeTitle="PLZ"
+              badgeEqualsPlaceholder
+            />
+            <TextField
+              strong
+              onClick={firstPartClicked}
               utilityView={<MapPinUtilityView />}
             />
           </InputColumnLayout>
-          <InputColumnLayout ratio="1fr">
+          <InputColumnLayout ratio="1fr 1fr">
             <TextField
-              defaultValue={firstPart && firstPart.address}
+              defaultValue={firstPart && firstPart.street}
               onClick={firstPartClicked}
-              badgeTitle="Strasse und Hausnummer"
+              badgeTitle="Strasse"
+              badgeEqualsPlaceholder
             />
-            {/* <TextField badgeTitle="Stockwerk" /> */}
+            <TextField
+              defaultValue={firstPart && firstPart.houseNumber}
+              onClick={firstPartClicked}
+              badgeTitle="Hausnummer"
+              badgeEqualsPlaceholder
+            />
           </InputColumnLayout>
           <Divider fullWidth />
 
@@ -103,11 +121,13 @@ export default () => {
               defaultValue={secondPart && secondPart.firstName}
               onClick={secondPartClicked}
               badgeTitle="Vorname"
+              badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.lastName}
               onClick={secondPartClicked}
               badgeTitle="Nachname"
+              badgeEqualsPlaceholder
             />
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 2fr">
@@ -115,17 +135,28 @@ export default () => {
               defaultValue={secondPart && secondPart.phoneFirstPart}
               onClick={secondPartClicked}
               badgeTitle="Vorwahl"
+              badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.phoneSecondPart}
               onClick={secondPartClicked}
               badgeTitle="Handy-Nummer"
+              badgeEqualsPlaceholder
             />
           </InputColumnLayout>
+          <DescriptionText>
+            Bitte stellen Sie sicher, dass Sie telefonisch
+            erreichbar sind.
+          </DescriptionText>
         </InputLayout>
 
         <FullWidthLayout>
-          <Button title="Handy-Nummer bestätigen" cta link="/address/sms" />
+          <Button
+            disabled={!firstPart || !secondPart}
+            title="Handy-Nummer bestätigen"
+            cta
+            link="/address/sms"
+          />
         </FullWidthLayout>
         <DescriptionText>
           Der Auftrag wird erst aktiv, wenn Sie Ihre Handy-Nummer bestätigt haben. Diese brauchen wir, um Sie ggf. zu kontaktieren.

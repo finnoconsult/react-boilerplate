@@ -19,13 +19,17 @@ const BadgeTitle = styled(Text)`
   background-color: ${props => props.theme.colors.background};
 `;
 
-const TextField = styled.input`
+interface TextFieldProps {
+  strong?: boolean;
+}
+
+const TextField = styled.input<TextFieldProps>`
   position: relative;
   width: 100%;
   padding: 13px;
   
   border-radius: 4px;
-  border: solid 1px ${props => props.theme.colors.border};
+  border: solid 1px ${props => (props.strong ? props.theme.colors.text : props.theme.colors.border)};
   outline: none;
   
   font-size: 1.6rem;
@@ -40,20 +44,43 @@ const UtilityViewStyles = styled.div`
 
 interface Props {
   defaultValue?: string;
-  badgeTitle: string;
+  badgeTitle?: string;
   placeholder?: string;
+  badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
+  strong?: boolean;
 }
 
 export default (props: Props) => {
   const {
-    defaultValue, badgeTitle, placeholder, utilityView, onClick,
+    defaultValue,
+    badgeTitle,
+    placeholder,
+    badgeEqualsPlaceholder,
+    utilityView,
+    onClick,
+    strong,
   } = props;
+
+  let badge;
+  if (badgeEqualsPlaceholder && !defaultValue) {
+    badge = null;
+  } else {
+    badge = <BadgeTitle>{badgeTitle}</BadgeTitle>;
+  }
+
   return (
     <TextFieldOuterBox>
-      <BadgeTitle>{badgeTitle}</BadgeTitle>
-      <TextField defaultValue={defaultValue} onClick={onClick} type="text" placeholder={placeholder} />
+      {badge}
+      <TextField
+        readOnly
+        defaultValue={defaultValue}
+        onClick={onClick}
+        type="text"
+        placeholder={badgeEqualsPlaceholder ? badgeTitle : placeholder}
+        strong={strong}
+      />
       {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
     </TextFieldOuterBox>
   );
