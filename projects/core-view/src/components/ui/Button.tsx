@@ -10,16 +10,18 @@ interface CommonButtonProps {
   cta?: boolean;
   info?: boolean;
   cancel?: boolean;
-  
+
 }
 interface ButtonStylesProps extends CommonButtonProps{
   shouldFormat?: boolean;
 }
 
 const ButtonStyles = styled.div<ButtonStylesProps>`
+
   & > button,
   & > a {
     width: 100%;
+    display: block;
 
     ${props => props.shouldFormat && `
       background-color: ${(props.cta ? props.theme.colors.cta : props.theme.colors.background)};
@@ -27,7 +29,7 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
       border: ${(props.info && `1px solid ${props.theme.colors.text}`)};
       border-radius: 4px;
       padding: 13px;
-      
+
       cursor: pointer;
 
       &:active {
@@ -57,9 +59,9 @@ export default (props: Props) => {
   const {
     title, cta, info, cancel, children, disabled, onClick, link,
   } = props;
-  
+
   const shouldFormat = cta || info || cancel;
-  
+
   const buttonContent = (
     <>
       {(title) && (
