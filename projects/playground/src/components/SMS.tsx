@@ -12,8 +12,10 @@ interface SMSStylesProps {
 const SMSStyles = styled.div<SMSStylesProps>`
   position: fixed;
   z-index: 10;
-  left: 50%;
-  transform: translateX(-50%);  
+  left: 16px;
+  right: 16px;
+
+  word-break: break-all;
 
   background-color: #e6e5eb;
 
