@@ -19,13 +19,17 @@ const BadgeTitle = styled(Text)`
   background-color: ${props => props.theme.colors.background};
 `;
 
-const TextField = styled.input`
+interface TextFieldProps {
+  strong?: boolean;
+}
+
+const TextField = styled.input<TextFieldProps>`
   position: relative;
   width: 100%;
   padding: 13px;
   
   border-radius: 4px;
-  border: solid 1px ${props => props.theme.colors.border};
+  border: solid 1px ${props => (props.strong ? props.theme.colors.text : props.theme.colors.border)};
   outline: none;
   
   font-size: 1.6rem;
@@ -45,6 +49,7 @@ interface Props {
   badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
+  strong?: boolean;
 }
 
 export default (props: Props) => {
@@ -55,6 +60,7 @@ export default (props: Props) => {
     badgeEqualsPlaceholder,
     utilityView,
     onClick,
+    strong,
   } = props;
 
   let badge;
@@ -73,6 +79,7 @@ export default (props: Props) => {
         onClick={onClick}
         type="text"
         placeholder={badgeEqualsPlaceholder ? badgeTitle : placeholder}
+        strong={strong}
       />
       {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
     </TextFieldOuterBox>
