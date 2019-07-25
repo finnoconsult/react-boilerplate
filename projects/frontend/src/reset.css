@@ -55,7 +55,7 @@ button:focus {
   outline: 0;
 }
 
-html {
+html, button {
   /* base for rem / 1rem = 10px */
   /* font-size: 62.5%; */
   font-size: 10px;

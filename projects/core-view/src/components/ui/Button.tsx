@@ -17,13 +17,21 @@ interface ButtonStylesProps extends CommonButtonProps{
 }
 
 const ButtonStyles = styled.div<ButtonStylesProps>`
+  ${props => props.shouldFormat && `
+    min-height: 48px;
+    display: flex;
+  `}
 
   & > button,
   & > a {
     width: 100%;
-    display: block;
 
     ${props => props.shouldFormat && `
+      flex: 1 1 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       background-color: ${(props.cta ? props.theme.colors.cta : props.theme.colors.background)};
 
       border: ${(props.info && `1px solid ${props.theme.colors.text}`)};
@@ -39,6 +47,10 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
       &:disabled {
         background-color: ${props.theme.colors.divider};
       }
+      ${props.disabled && `
+        background-color: ${props.theme.colors.divider};
+      `}
+
     `}
   }
 `;
@@ -72,6 +84,7 @@ export default (props: Props) => {
   );
   return (
     <ButtonStyles
+      disabled={disabled}
       shouldFormat={shouldFormat}
       cta={cta}
       info={info}
