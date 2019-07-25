@@ -33,6 +33,8 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
+
+    background-color: ${props => props.theme.colors.cta}
   }
   > main {
     grid-area: main;

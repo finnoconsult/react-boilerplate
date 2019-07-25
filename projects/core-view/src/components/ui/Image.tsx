@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 // import PropTypes from 'prop-types';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Children, ImageOrComponent } from '@finnoconsult/core-model';
 
 // import styles from './Image.scss';
 
 import Button from './Button';
-import Link from './LinkStyle';
+// import Link from './LinkStyle';
 
 
 export const ImageStyle = styled.figure`
@@ -40,7 +40,7 @@ export const ImageStyle = styled.figure`
     padding: 0px 2px;
   }
 
-  
+
   ${'' /* &.bordered {
     box-shadow: $theme-item-box-shadow;
     border: solid 1px $theme-color-gray;

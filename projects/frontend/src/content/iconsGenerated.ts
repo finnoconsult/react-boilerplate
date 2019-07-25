@@ -121,6 +121,8 @@ import { ReactComponent as iconJsxVouchers } from '../theme/images/jsx/vouchers.
 import { ReactComponent as iconJsxWallet } from '../theme/images/jsx/wallet.svg';
 import { ReactComponent as iconJsxWalletAlt } from '../theme/images/jsx/wallet_alt.svg';
 import { ReactComponent as iconJsxZiel } from '../theme/images/jsx/ziel.svg';
+import { ReactComponent as iconLogoAdac } from '../theme/images/logo/adac.svg';
+import { ReactComponent as iconLogoOpenHouse } from '../theme/images/logo/open-house.svg';
 
 export const iconsGenerated = {
   ico: {
@@ -248,6 +250,10 @@ export const iconsGenerated = {
       iconJsxWallet,
       iconJsxWalletAlt,
       iconJsxZiel,
+    },
+    logo: {
+      iconLogoAdac,
+      iconLogoOpenHouse,
     },
   },
 };
