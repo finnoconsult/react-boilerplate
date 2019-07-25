@@ -33,6 +33,7 @@
         "build": "lerna run build",
         "dev": "lerna run dev --parallel watch",
         "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
+        "dev:playground": "lerna run dev --parallel watch --scope @finnoconsult/playground",
         "cleanup": "rm -rf projects/core-view/lib; rm -rf projects/core-model/lib",
         "genicons": "node projects/core-model/src/helpers/icon-helpers.js IMAGE_INPUT_PATH=TODO MODULE_PATH=TODO MODULE_FILE_NAME=//TODO",
         "bump-version": "lerna version",
