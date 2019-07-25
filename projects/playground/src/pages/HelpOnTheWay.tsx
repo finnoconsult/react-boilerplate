@@ -6,26 +6,36 @@ import SubPage from '../components/SubPage';
 import { Title, LightSubTitle, SubTitle } from '../components/Text';
 import TableView from '../components/TableView';
 
+import SMS4 from '../components/sms/SMS4';
+
 const CustomSubtitle = styled(SubTitle)`  
   font-weight: normal;
   margin-top: 17px;
 `;
 
 export default () => {
-  const [arrived, setArrived] = useState(false);
+  const [helperArrived, setHelperArrived] = useState(false);
+  const [smsArrived, setSMSArrived] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setArrived(true);
+      setHelperArrived(true);
+    }, 10000);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSMSArrived(true);
     }, 1000);
   }, []);
 
   return (
     <Page>
+      {smsArrived && <SMS4 />}
       <SubPage>
-        <Title>{ arrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
+        <Title>{ helperArrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
         <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
-        {arrived
+        {helperArrived
           ? <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
           : (
             <CustomSubtitle>
