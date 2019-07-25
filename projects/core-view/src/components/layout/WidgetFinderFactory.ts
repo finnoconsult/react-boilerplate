@@ -4,7 +4,7 @@ import { useLocation } from "../..";
 const matchingRoute = (routeMatcher: string | any): boolean => {
   const location = useLocation();
   const { pathname: currentRoute } = location;
-  console.log(currentRoute, '.match(', routeMatcher, !!currentRoute .match(routeMatcher));
+  // console.log(currentRoute, '.match(', routeMatcher, !!currentRoute .match(routeMatcher));
 
   return routeMatcher === currentRoute || !!currentRoute.match(routeMatcher);
 };
