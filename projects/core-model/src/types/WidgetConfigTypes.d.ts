@@ -57,5 +57,4 @@ export interface ListWidgetConfigType extends WidgetMatchType {
 }
 
 export interface WidgetConfigType extends WidgetStaticType, WidgetComponentType, StandaloneWidgetConfigType, ListWidgetConfigType {
-
 }

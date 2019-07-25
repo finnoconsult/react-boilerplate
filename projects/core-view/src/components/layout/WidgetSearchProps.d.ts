@@ -1,5 +1,5 @@
 import { WidgetMatchType } from '@finnoconsult/core-model';
-import { WidgetType } from "./WidgetType";
+import { WidgetType } from "./WidgetType.d";
 
 // TODO: match agains WidgetMatchType & StandaloneWidgetConfigType
 export interface WidgetSearchProps extends WidgetMatchType {

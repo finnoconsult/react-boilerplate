@@ -1,5 +1,7 @@
 import { WidgetSearchProps } from "./WidgetSearchProps.d";
 import { useLocation } from "../..";
+import { WidgetType } from "./WidgetType";
+// import { WidgetConfigType } from "@finnoconsult/core-model";
 
 const matchingRoute = (routeMatcher: string | any): boolean => {
   const location = useLocation();
@@ -9,15 +11,16 @@ const matchingRoute = (routeMatcher: string | any): boolean => {
   return routeMatcher === currentRoute || !!currentRoute.match(routeMatcher);
 };
 // TODO: should be the global type!
-interface WidgetType {
-  routes?: string[];
-  excludedRoutes?: string[];
-  position: string;
-  id: string;
-}
+// interface WidgetType {
+//   routes?: string[];
+//   excludedRoutes?: string[];
+//   position: string;
+//   id: string;
+// }
 
 interface WidgetSearchProps2 extends WidgetSearchProps {
   widgets: WidgetType[];
+  // widgets: WidgetConfigType[];
 }
 
 export const WidgetFinderFactory = ({ widgets, ...search }: WidgetSearchProps2) => (
