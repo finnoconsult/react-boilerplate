@@ -26,7 +26,7 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
   & > a {
     width: 100%;
 
-    ${props => props.shouldFormat && `
+    ${props => props.shouldFormat && `
       flex: 1 1 auto;
       display: flex;
       align-items: center;
@@ -34,7 +34,7 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
 
       background-color: ${(props.cta ? props.theme.colors.cta : props.theme.colors.background)};
 
-      border: ${(props.info && `1px solid ${props.theme.colors.text}`)};
+      border: ${(props.info && `1px solid ${props.theme.colors.text}`)};
       border-radius: 4px;
       padding: 13px;
 
@@ -72,7 +72,7 @@ export default (props: Props) => {
     title, cta, info, cancel, children, disabled, onClick, link,
   } = props;
 
-  const shouldFormat = cta || info || cancel;
+  const shouldFormat = cta || info || cancel;
 
   const buttonContent = (
     <>
@@ -95,5 +95,3 @@ export default (props: Props) => {
     </ButtonStyles>
   );
 };
-
-
