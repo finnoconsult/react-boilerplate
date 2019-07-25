@@ -35,7 +35,8 @@
         "dev:frontend": "lerna run dev --parallel watch --ignore @finnoconsult/backend",
         "cleanup": "rm -rf projects/core-view/lib; rm -rf projects/core-model/lib",
         "genicons": "node projects/core-model/src/helpers/icon-helpers.js IMAGE_INPUT_PATH=TODO MODULE_PATH=TODO MODULE_FILE_NAME=//TODO",
-        "bump-version": "lerna version"
+        "bump-version": "lerna version",
+        "newver": "yarn bump-version"
     },
     "dependencies": {
         "react-scripts": "3.0.1"
