@@ -7,17 +7,20 @@ import {
   WidgetAllDefinitionType,
   WidgetConfigType,
 } from '@finnoconsult/core-model';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import HeaderContainer from '../components/layout/HeaderContainer';
 import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
 import LeftContainer from '../components/layout/LeftContainer';
 import FooterContainer from '../components/layout/FooterContainer';
-import { Icon, Image } from '../components/ui';
-// import MainPageContainer from './MainPageContainer';
+import {
+  Icon,
+  // Image,
+} from '../components/ui';
 
 import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
+import googleNavBar from '../images/google-search-navbar.png';
 
 export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   // TODO: should be better with object id=key mapping
@@ -26,12 +29,12 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   },
   {
     id: 'staticMobileNavBarGoogle', title: 'mobileNavBar', images: {
-      medium: <Link to="/landing"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
+      medium: googleNavBar,
     },
   },
   {
     id: 'staticMobileNavBarLanding', title: 'mobileNavBar', images: {
-      medium: <Image source={<NavigationLanding />} className="fullWidth" />,
+      medium: <NavigationLanding />,
     },
   },
   {

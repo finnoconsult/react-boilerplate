@@ -10,12 +10,14 @@ interface LayoutStyleProps extends FragmentProps, PlatformProps {
 const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px 1fr 50px;
+  grid-template-rows: 60px 1fr 0px;
   grid-template-areas:  "header"
                         "main"
                         "footer";
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+
   place-content: center;
 
   > * {
@@ -24,21 +26,28 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     flex: 1 1 auto;
     // place-content: center;
   }
-
+  /* mobile header navigation */
   > nav {
     grid-area: header;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
   }
   > main {
     grid-area: main;
+    overflow: scroll;
   }
   > footer {
+    display: none;
     grid-area: footer;
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
+  }
+  /* desktop header navigation */
+  > header {
+
   }
   > header,
   > aside.left,
