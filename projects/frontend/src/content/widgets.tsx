@@ -25,7 +25,12 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     id: 'mobileNavBar', title: 'mobileNavBar', component: NavBarContainer,
   },
   {
-    id: 'mobileNavBarStatic', title: 'mobileNavBar', images: {
+    id: 'staticMobileNavBarGoogle', title: 'mobileNavBar', images: {
+      medium: <Link to="/lorem"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
+    },
+  },
+  {
+    id: 'staticMobileNavBarLanding', title: 'mobileNavBar', images: {
       medium: <Link to="/lorem"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
     },
   },
@@ -52,13 +57,16 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
 
 export const widgetConfigs: (WidgetConfigType)[] = [
   {
-    id: 'mobileNavBarStatic', platform: 'mobile', position: 'nav', order: 2, routes: [/^(|\/)$/],
+    id: 'staticMobileNavBarGoogle', platform: 'mobile', position: 'nav', order: 2, routes: [/^(|\/)$/],
   },
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/)$/],
+    id: 'staticMobileNavBarLanding', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/landing$/],
   },
   {
-    id: 'logo', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/)$/],
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing)$/],
+  },
+  {
+    id: 'logo', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing)$/],
   },
   {
     id: 'mobileTabBar', position: 'footer',
