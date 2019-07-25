@@ -57,6 +57,7 @@ export default () => {
         <CheckBoxGroup
           name="agreement"
           items={[
+            { title: 'Ich verzichte auf das Widerrufsrecht', value: 'widerrufsrecht' },
             { title: 'Ich stimme den AGBs zu', value: 'agb' },
             { title: 'Ich stimme den Richlinien gemäß der DSGVO zu', value: 'dsgvo' },
           ]}
