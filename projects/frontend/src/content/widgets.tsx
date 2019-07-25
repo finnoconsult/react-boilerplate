@@ -26,12 +26,12 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   },
   {
     id: 'staticMobileNavBarGoogle', title: 'mobileNavBar', images: {
-      medium: <Link to="/lorem"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
+      medium: <Link to="/landing"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
     },
   },
   {
     id: 'staticMobileNavBarLanding', title: 'mobileNavBar', images: {
-      medium: <Link to="/lorem"><Image source={<NavigationLanding />} className="fullWidth" /></Link>,
+      medium: <Image source={<NavigationLanding />} className="fullWidth" />,
     },
   },
   {
