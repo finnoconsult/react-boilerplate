@@ -1,9 +1,9 @@
 {
   "name": "@finnoconsult/frontend",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "dependencies": {
-    "@finnoconsult/core-model": "^0.6.0",
-    "@finnoconsult/core-view": "^0.6.0",
+    "@finnoconsult/core-model": "^0.7.0",
+    "@finnoconsult/core-view": "^0.7.0",
     "lodash.get": "^4.4.2",
     "mobx": "^5.11.0",
     "mobx-react": "^6.1.1",
