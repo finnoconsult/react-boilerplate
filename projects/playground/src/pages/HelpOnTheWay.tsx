@@ -26,7 +26,7 @@ export default () => {
   useEffect(() => {
     setTimeout(() => {
       setSMSArrived(true);
-    }, 1000);
+    }, 4000);
   }, []);
 
   return (

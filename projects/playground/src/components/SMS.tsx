@@ -65,6 +65,10 @@ export default ({ children, animated }: SMSProps) => {
   }
 
   function onTouchEnd(event: React.TouchEvent) {
+    if (!touchStart || !event.changedTouches || event.changedTouches.length === 0) {
+      setHidden(true);
+      return;
+    }
     const touchEndY = event.changedTouches[0].clientY;
     if (Math.abs(touchStart.y - touchEndY) >= 50) setHidden(true);
   }
