@@ -17,6 +17,8 @@ import FireDepartment from '../svgs/FireDepartment';
 import Prices from '../svgs/Prices';
 import Conditions from '../svgs/Conditions';
 
+import Icon from '../ui/Icon';
+
 const PhoneButtonViewStyles = styled.div``;
 
 const Marginizer = styled.div`
@@ -102,6 +104,8 @@ export default () => {
             { title: 'Wie lange muss ich warten?', description: 'Wir bemühen uns, so schnell wie möglich bei Ihnen zu sein. Die Wartezeit kann je nach Auftragslage und Verkehrssituation variieren.' },
           ]}
           firstOpen
+          rightView={<Icon name="down" />}
+          rotateRightViewOnOpenClose
         />
       </SubPage>
     </Page>
