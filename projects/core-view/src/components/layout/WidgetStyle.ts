@@ -5,7 +5,7 @@ import { StandaloneWidgetConfigType } from '@finnoconsult/core-model';
 
 export const WidgetStyle = styled(FlexFragment) <StandaloneWidgetConfigType>`
   height: auto;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
 
   ${''/* In case of flex box */}
   ${props => props.order && css`
