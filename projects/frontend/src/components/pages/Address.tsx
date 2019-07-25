@@ -74,6 +74,7 @@ export default () => {
               defaultValue={firstPart && firstPart.zipCode}
               onClick={firstPartClicked}
               badgeTitle="PLZ"
+              badgeEqualsPlaceholder
             />
             <TextField
               onClick={firstPartClicked}
@@ -85,6 +86,7 @@ export default () => {
               defaultValue={firstPart && firstPart.address}
               onClick={firstPartClicked}
               badgeTitle="Strasse und Hausnummer"
+              badgeEqualsPlaceholder
             />
             {/* <TextField badgeTitle="Stockwerk" /> */}
           </InputColumnLayout>
@@ -106,11 +108,13 @@ export default () => {
               defaultValue={secondPart && secondPart.firstName}
               onClick={secondPartClicked}
               badgeTitle="Vorname"
+              badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.lastName}
               onClick={secondPartClicked}
               badgeTitle="Nachname"
+              badgeEqualsPlaceholder
             />
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 2fr">
@@ -118,11 +122,13 @@ export default () => {
               defaultValue={secondPart && secondPart.phoneFirstPart}
               onClick={secondPartClicked}
               badgeTitle="Vorwahl"
+              badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.phoneSecondPart}
               onClick={secondPartClicked}
               badgeTitle="Handy-Nummer"
+              badgeEqualsPlaceholder
             />
           </InputColumnLayout>
         </InputLayout>

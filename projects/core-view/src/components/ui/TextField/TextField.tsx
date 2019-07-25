@@ -42,18 +42,38 @@ interface Props {
   defaultValue?: string;
   badgeTitle?: string;
   placeholder?: string;
+  badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
 }
 
 export default (props: Props) => {
   const {
-    defaultValue, badgeTitle, placeholder, utilityView, onClick,
+    defaultValue,
+    badgeTitle,
+    placeholder,
+    badgeEqualsPlaceholder,
+    utilityView,
+    onClick,
   } = props;
+
+  let badge;
+  if (badgeEqualsPlaceholder && !defaultValue) {
+    badge = null;
+  } else {
+    badge = <BadgeTitle>{badgeTitle}</BadgeTitle>;
+  }
+
   return (
     <TextFieldOuterBox>
-      <BadgeTitle>{badgeTitle}</BadgeTitle>
-      <TextField readOnly defaultValue={defaultValue} onClick={onClick} type="text" placeholder={placeholder} />
+      {badge}
+      <TextField
+        readOnly
+        defaultValue={defaultValue}
+        onClick={onClick}
+        type="text"
+        placeholder={badgeEqualsPlaceholder ? badgeTitle : placeholder}
+      />
       {utilityView && <UtilityViewStyles>{utilityView}</UtilityViewStyles>}
     </TextFieldOuterBox>
   );
