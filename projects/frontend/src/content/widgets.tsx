@@ -10,12 +10,12 @@ import {
 // import { Link } from 'react-router-dom';
 
 import HeaderContainer from '../components/layout/HeaderContainer';
-import LogoContainer from '../components/layout/LogoContainer';
+// import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
 import LeftContainer from '../components/layout/LeftContainer';
 import FooterContainer from '../components/layout/FooterContainer';
 import {
-  Icon,
+  Icon, View,
   // Image,
 } from '../components/ui';
 
@@ -38,7 +38,14 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     },
   },
   {
-    id: 'logo', title: 'logo', component: LogoContainer,
+    id: 'logoMobile', title: 'logo', images: {
+      medium: <View padding><Icon name="adac" type="ico.logo" /></View>,
+    },
+  },
+  {
+    id: 'logo2Mobile', images: {
+      medium: <View><Icon name="open-house" type="ico.logo" /></View>,
+    },
   },
   {
     id: 'mobileTabBar', title: 'mobileTabBar', component: FooterContainer,
@@ -66,10 +73,13 @@ export const widgetConfigs: (WidgetConfigType)[] = [
     id: 'staticMobileNavBarLanding', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/landing$/],
   },
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 3, excludedRoutes: [/^(|\/|\/landing)$/],
   },
   {
-    id: 'logo', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing)$/],
+  },
+  {
+    id: 'logo2Mobile', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing)$/],
   },
   {
     id: 'mobileTabBar', position: 'footer',

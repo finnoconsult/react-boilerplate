@@ -4,7 +4,9 @@ import { camelize } from '@finnoconsult/core-model';
 export default function getIcon(iconList: any, name?: string, path: string = 'ico.jsx') {
   const icons = get(iconList, path, []);
 
-  const key = camelize(`icon-jsx-${name}`);
+  const key = camelize(`${path}-${name}`);
+
+  // console.log('getIcon', icons, key);
 
   if (icons && icons[key]) {
     return icons && icons[key];

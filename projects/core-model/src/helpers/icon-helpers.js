@@ -122,17 +122,17 @@ const extenstionLinter = extension => ((extension === 'ts' || extension === 'js'
 const extenstionCleaner = name => name.split('.').splice(0, 1).join('');
 
 const processFile = (color, name, extension) => {
-  const importName = camelCase(`icon-${color}-${extenstionCleaner(name)}`);
+  const importName = camelCase(`ico-${color}-${extenstionCleaner(name)}`);
   const importCommand = `import { ReactComponent as ${importName} } from '${relativeImportPath}/${color}/${name}${extenstionLinter(extension)}';`;
   // console.log(importCommand);
   writeSync(indexFile, `${importCommand}\n`);
   exportObject[color][importName] = importName;
-  if (color === 'grey') {
-    exportObject.gray[camelCase(`icon-gray-${name}`)] = importName;
-  }
-  if (color === 'orange') {
-    exportObject.red[camelCase(`icon-red-${name}`)] = importName;
-  }
+  // if (color === 'grey') {
+  //   exportObject.gray[camelCase(`icon-gray-${name}`)] = importName;
+  // }
+  // if (color === 'orange') {
+  //   exportObject.red[camelCase(`icon-red-${name}`)] = importName;
+  // }
 };
 
 colorsArray.forEach((color) => {

@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 // import styles from '../../theme/app.global.scss';
 export interface FragmentProps {
-  padding?: number;
-  margin?: number;
+  padding?: string | number | boolean;
+  margin?: string | number | boolean;
   normal?: number | boolean;
   marginLeft?: string | number;
   marginRight?: string | number;
@@ -24,11 +24,12 @@ export interface FragmentProps {
   round?: number | boolean;
   underline?: number | boolean;
   compact?: number | boolean;
+  style?: {};
 }
 
 export const Fragment = styled.div<FragmentProps>`
-  padding: ${props => props.padding || 0};
-  margin: ${props => props.margin || 0};
+  padding: ${props => (props.padding === true ? props.theme.spacing.basicPadding : props.padding) || 0};
+  margin: ${props => (props.margin === true ? props.theme.spacing.basicMargin : props.margin) || 0};
   transition: all 0.5 ease;
 
 
