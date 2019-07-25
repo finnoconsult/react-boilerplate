@@ -3,7 +3,7 @@ import React from 'react';
 import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
-import { WidgetType } from "./WidgetType.d";
+import { WidgetType } from "./WidgetType";
 import { WidgetFactory } from './WidgetFactory';
 import { WidgetFinderFactory } from './WidgetFinderFactory';
 import { WidgetSearchProps } from './WidgetSearchProps';

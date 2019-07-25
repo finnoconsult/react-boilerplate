@@ -65,10 +65,10 @@ export default class UIStore {
   private calculateDeviceMeasures = (resolution: Dimensions) => ({
     isPortrait: isPortrait(resolution),
     isLandscape: isLandscape(resolution),
-    isDesktop: isDesktop({ ...this.themeConfig.devices, ...resolution }),
-    isTablet: isTablet({ ...this.themeConfig.devices, ...resolution }),
-    isPhone: isPhone({ ...this.themeConfig.devices, ...resolution }),
-    isMobile: isTablet({ ...this.themeConfig.devices, ...resolution }) || isPhone({ ...this.themeConfig.devices, ...resolution }),
+    isDesktop: isDesktop({ ...this.themeConfig.devices, size: resolution }),
+    isTablet: isTablet({ ...this.themeConfig.devices, size: resolution }),
+    isPhone: isPhone({ ...this.themeConfig.devices, size: resolution }),
+    isMobile: isTablet({ ...this.themeConfig.devices, size: resolution }) || isPhone({ ...this.themeConfig.devices, size: resolution }),
   })
 
 

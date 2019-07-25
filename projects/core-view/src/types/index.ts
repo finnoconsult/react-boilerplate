@@ -1,3 +1,3 @@
-export * from './Browser.d';
-export * from './Dimensions.d';
-export * from './Children.d';
+export * from './Browser';
+export * from './Dimensions';
+export { Children, ChildrenOrComponent, ImageOrComponent } from '@finnoconsult/core-model';

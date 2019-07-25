@@ -32,7 +32,4 @@ export {
   Dimensions,
   PlatformProps,
   Browser,
-  Children,
-  ChildrenOrComponent,
-  ImageOrComponent,
 } from './types';

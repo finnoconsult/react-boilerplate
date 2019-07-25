@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  WidgetStaticType,
-  WidgetComponentType,
-  StandaloneWidgetConfigType,
-  ListWidgetConfigType,
+  // WidgetStaticType,
+  // WidgetComponentType,
+  // StandaloneWidgetConfigType,
+  // ListWidgetConfigType,
+  WidgetAllDefinitionType,
   WidgetConfigType,
 } from '@finnoconsult/core-model';
 
@@ -15,7 +16,7 @@ import FooterContainer from '../components/layout/FooterContainer';
 import Icon from '../components/ui/Icon';
 // import MainPageContainer from './MainPageContainer';
 
-export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
+export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   // TODO: should be better with object id=key mapping
   {
     id: 'mobileNavBar', title: 'mobileNavBar', component: NavBarContainer,
@@ -46,7 +47,7 @@ export const widgetDefinitions: (WidgetStaticType[] | WidgetComponentType[]) = [
   },
 ];
 
-export const widgetConfigs: (StandaloneWidgetConfigType[] | ListWidgetConfigType[]) = [
+export const widgetConfigs: (WidgetConfigType)[] = [
   {
     id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 2, excludedRoutes: [/^(|\/)$/]
   },

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 // import { Link } from 'react-router-dom';
 
-import { Children, ImageOrComponent } from '../../types';
+import { Children, ImageOrComponent } from '@finnoconsult/core-model';
 
 // import styles from './Image.scss';
 

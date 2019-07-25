@@ -1,26 +1,15 @@
-import { WidgetSearchProps } from "./WidgetSearchProps.d";
+import { WidgetSearchProps } from "./WidgetSearchProps";
 import { useLocation } from "../..";
 
-const matchingRoute = (routeMatcher: string | any): boolean => {
+const matchingRoute = (routeMatcher: string | RegExp | undefined): boolean => {
   const location = useLocation();
   const { pathname: currentRoute } = location;
   // console.log(currentRoute, '.match(', routeMatcher, !!currentRoute .match(routeMatcher));
 
-  return routeMatcher === currentRoute || !!currentRoute.match(routeMatcher);
+  return !!routeMatcher && (routeMatcher === currentRoute || !!currentRoute.match(routeMatcher));
 };
-// TODO: should be the global type!
-interface WidgetType {
-  routes?: string[];
-  excludedRoutes?: string[];
-  position: string;
-  id: string;
-}
 
-interface WidgetSearchProps2 extends WidgetSearchProps {
-  widgets: WidgetType[];
-}
-
-export const WidgetFinderFactory = ({ widgets, ...search }: WidgetSearchProps2) => (
+export const WidgetFinderFactory = ({ widgets, ...search }: WidgetSearchProps) => (
   widgets
     .filter(widget => widget.position === search.position)
     .filter(widget => (

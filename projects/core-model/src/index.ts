@@ -4,10 +4,19 @@ export {
   WidgetDefinitionType,
   WidgetStaticType,
   WidgetComponentType,
+  WidgetAllDefinitionType,
+
   WidgetMatchPlatformType,
   WidgetMatchRouteType,
   WidgetMatchType,
+  
   StandaloneWidgetConfigType,
   ListWidgetConfigType,
   WidgetConfigType,
+
+  WidgetType,
+
+  Children,
+  ChildrenOrComponent,
+  ImageOrComponent,
 } from './types';

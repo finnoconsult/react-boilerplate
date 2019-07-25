@@ -65,24 +65,26 @@ export default function StaticMenuList(props: Props) {
           to={item.route}
           // this.isMatching({ ...item, index })
         >
-          {!item.Component && item.image && (
-            <Image source={(item.imageActive) || item.image} className={item.imageClassName} />
-            // this.isMatching(item) && 
-          )}
+          <>
+            {!item.Component && item.image && (
+              <Image source={(item.imageActive) || item.image} className={item.imageClassName} />
+              // this.isMatching(item) && 
+            )}
 
-          {item.Component && (
-            <View id={`${index}`}>
-              <item.Component />
-            </View>
-          )}
+            {item.Component && (
+              <View id={`${index}`}>
+                <item.Component />
+              </View>
+            )}
 
-          {item.title && (
-            <Text>{item.title}</Text>
-          )}
+            {item.title && (
+              <Text>{item.title}</Text>
+            )}
 
-          {item.badge && (
-            <BadgeStyle>{item.badge}</BadgeStyle>
-          )}
+            {item.badge && (
+              <BadgeStyle>{item.badge}</BadgeStyle>
+            )}
+          </>
         </Button>
       ))}
     </NavBarStyle>

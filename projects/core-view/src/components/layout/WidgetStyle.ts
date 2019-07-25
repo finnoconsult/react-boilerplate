@@ -1,9 +1,17 @@
 import styled, { css } from 'styled-components';
 
 import { FlexFragment } from '../Fragment';
-import { WidgetType } from './WidgetType';
+// import { WidgetConfigType } from '@finnoconsult/core-model';
+// import { WidgetType } from './WidgetType';
 
-export const WidgetStyle = styled(FlexFragment) <WidgetType>`
+interface TODOWidgetConfigType {
+  order?: number | string;
+  column?: number | string;
+  row?: number | string;
+  area?: number | string;
+}
+
+export const WidgetStyle = styled(FlexFragment)<TODOWidgetConfigType>`
   flex: 0 0 auto;
   height: auto;
 
