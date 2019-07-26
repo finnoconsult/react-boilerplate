@@ -19,6 +19,11 @@ export const mainTheme = {
     link: '1.6rem',
     sizeButton: '1.6rem',
   },
+  fontFace: {
+    office: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
+    default: "'Milo ADAC', MiloADAC, sans-serif",
+    slab: "'Milo Slab ADAC', MiloSlabADAC, 'Milo ADAC', MiloADAC, sans-serif",
+  },
   animation: {
     time: '0.2s',
     transformTransition: '0.2s transform ease-out',
