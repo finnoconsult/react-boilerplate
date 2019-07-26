@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {
   Page,
   SubPage,
+  Text,
   Title,
   SubTitle,
   LightSubTitle,
@@ -16,8 +17,32 @@ import SMS4 from '../sms/SMS4';
 
 const CustomSubtitle = styled(SubTitle)`  
   font-weight: normal;
-  margin-top: 17px;
+  margin-top: 17px;  
 `;
+
+const OrderViewStyles = styled.div`
+  width: 16px;
+  height: 16px;
+
+  border-radius: 8px;
+
+  text-align: center;
+  display: grid;
+  place-items: center;
+  
+  background-color: ${props => props.theme.colors.backgroundDark};
+`;
+
+const OrderText = styled(Text)`
+  color: ${props => props.theme.colors.background};
+  font-size: 12px;
+`;
+
+const OrderView = ({ index }: { index: number }) => (
+  <OrderViewStyles>
+    <OrderText>{index}</OrderText>
+  </OrderViewStyles>
+);
 
 export default () => {
   const [helperArrived, setHelperArrived] = useState(false);
@@ -75,6 +100,7 @@ export default () => {
           ]}
           rightView={<Icon name="down" />}
           rotateRightViewOnOpenClose
+          orderView={(index: number) => <OrderView index={index} />}
         />
       </SubPage>
     </Page>
