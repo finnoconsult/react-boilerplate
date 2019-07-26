@@ -2,6 +2,7 @@ export const mainTheme = {
   colors: {
     background: '#fff',
     backgroundLight: '#f3f3f4',
+    backgroundDark: '#000',
     border: '#b2b2b2',
     divider: '#e5e5e5',
     cta: '#ffcc00',

@@ -22,9 +22,20 @@ const TableViewCellDescription = styled(Text)`
 
 interface TableViewCellStylesProps {
   isOpen: boolean;
+  isOrdered?: boolean;
 }
 
 const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
+  display: flex;
+  padding: 16px 0;
+
+  ${props => props.isOrdered && css`
+    &>*:first-child {
+      flex: 0 0 auto;
+      margin-right: 12px;
+    }
+  `}
+
   overflow: hidden;
   ${TableViewCellDescription} {
     display: ${props => (props.isOpen ? 'block' : 'none')};
@@ -39,7 +50,7 @@ const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
 `;
 
 const TableViewCellInnerStyles = styled.div`
-  padding: 16px 0;
+  flex-grow: 1;
 `;
 
 type OptionalElement = JSX.Element | undefined
@@ -48,16 +59,18 @@ interface TableViewCellProps {
   children: JSX.Element | OptionalElement[];
   isOpen: boolean;
   toggle: () => void;
+  orderView?: JSX.Element;
 }
 
 interface TableViewCellTitleStylesProps {
   rotateRightView?: boolean;
 }
 
-const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
-  display: flex;
+const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`  
+  display: flex;  
   justify-content: space-between;
   align-items: center;
+
   ${props => props.rotateRightView && css`
     &>*:last-child {
       transition: ${props.theme.animation.transformTransition};
@@ -66,13 +79,23 @@ const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
   `}
 `;
 
-const TableViewCell = ({ children, isOpen, toggle }: TableViewCellProps) => (
-  <TableViewCellOuterStyles isOpen={isOpen} onClick={toggle}>
-    <TableViewCellInnerStyles>
-      {children}
-    </TableViewCellInnerStyles>
-  </TableViewCellOuterStyles>
-);
+const TableViewCell = (props: TableViewCellProps) => {
+  const {
+    children, isOpen, toggle, orderView,
+  } = props;
+  return (
+    <TableViewCellOuterStyles
+      isOpen={isOpen}
+      isOrdered={orderView !== undefined && orderView !== null}
+      onClick={toggle}
+    >
+      {orderView}
+      <TableViewCellInnerStyles>
+        {children}
+      </TableViewCellInnerStyles>
+    </TableViewCellOuterStyles>
+  );
+};
 
 interface CellItem {
   title: string;
@@ -100,6 +123,7 @@ interface Props {
   firstOpen?: boolean;
   rightView?: JSX.Element;
   rotateRightViewOnOpenClose?: boolean;
+  orderView?: (index: number) => JSX.Element;
 }
 
 export default (props: Props) => {
@@ -110,6 +134,7 @@ export default (props: Props) => {
     firstOpen,
     rightView,
     rotateRightViewOnOpenClose,
+    orderView,
   } = props;
 
   const initialState = Array<boolean>(cellItems.length).fill(false);
@@ -120,7 +145,12 @@ export default (props: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <TableViewCell key={item.title} isOpen={openStates[index]} toggle={() => toggle(index)}>
+        <TableViewCell
+          key={item.title}
+          isOpen={openStates[index]}
+          toggle={() => toggle(index)}
+          orderView={orderView && orderView(index)}
+        >
           <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
             <TableViewCellTitle>{item.title}</TableViewCellTitle>
             {rightView}
