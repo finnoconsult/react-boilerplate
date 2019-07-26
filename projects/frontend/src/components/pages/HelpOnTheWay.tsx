@@ -29,7 +29,7 @@ const OrderViewStyles = styled.div`
   text-align: center;
   display: grid;
   place-items: center;
-  
+
   background-color: ${props => props.theme.colors.backgroundDark};
 `;
 
@@ -100,7 +100,7 @@ export default () => {
           ]}
           rightView={<Icon name="down" />}
           rotateRightViewOnOpenClose
-          orderView={(index: number) => <OrderView index={index} />}
+          orderView={(index: number) => <OrderView index={index+1} />}
         />
       </SubPage>
     </Page>
