@@ -13,6 +13,9 @@ interface VerticalProgressViewItemProps {
 const VerticalProgressViewTitle = styled(Text)`
   font-size: 1.8rem;
   margin-left: 16px;
+  a {
+    color: ${props => props.theme.colors.text};
+  }
 `;
 
 
@@ -24,7 +27,12 @@ const VerticalProgressViewIconAndDividerStyles = styled.div`
 
 const VerticalProgressViewItem = styled.div<VerticalProgressViewItemProps>`
   ${VerticalProgressViewTitle} {
-    color: ${props => (props.done ? props.theme.colors.ready : props.theme.colors.text)};
+    &, & a {
+      color: ${props => (props.done ? props.theme.colors.ready : props.theme.colors.text)};
+    }
+  }
+  ${VerticalProgressViewIconAndDividerStyles},
+  ${VerticalProgressViewTitle} {
     ${props => !props.current && !props.done && 'opacity: 0.25'}
   }
 
@@ -43,7 +51,7 @@ const VerticalDivider = styled.div`
 
 
 interface Items {
-  title: string;
+  title: string | JSX.Element;
   icon?: JSX.Element;
 }
 interface ProgressViewProps {
@@ -54,7 +62,7 @@ interface ProgressViewProps {
 export default ({ items, progress }: ProgressViewProps) => (
   <VerticalProgressViewStyles>
     {items.map(({title: item, icon: Icon}, index) => (
-      <VerticalProgressViewItem key={item} current={progress === index} done={progress > index}>
+      <VerticalProgressViewItem key={`key${index}`} current={progress === index} done={progress > index}>
         <VerticalProgressViewIconAndDividerStyles>
           {Icon}
           {index !== items.length-1 && <VerticalDivider />}

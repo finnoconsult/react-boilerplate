@@ -22,6 +22,6 @@ export default () => (
     </SMSText>
     <br />
 
-    <Link to="/progress/ontheway"><SMSLink href="">http://adac.de/schluesselnotdiest/yxc124ert</SMSLink></Link>
+    <Link to="/progress/ontheway"><SMSLink>http://adac.de/schluesselnotdiest/yxc124ert</SMSLink></Link>
   </SMS>
 );
