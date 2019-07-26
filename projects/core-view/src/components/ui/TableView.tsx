@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from './Text';
+import Divider from './Divider';
 
 const TableView = styled.div``;
 
@@ -40,13 +41,6 @@ const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
   ${TableViewCellDescription} {
     display: ${props => (props.isOpen ? 'block' : 'none')};
   }
-
-  &:not(:last-child)::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background-color: ${props => props.theme.colors.divider};
-  }
 `;
 
 const TableViewCellInnerStyles = styled.div`
@@ -58,7 +52,7 @@ type OptionalElement = JSX.Element | undefined
 interface TableViewCellProps {
   children: JSX.Element | OptionalElement[];
   isOpen: boolean;
-  toggle: () => void;
+  toggle?: () => void;
   orderView?: JSX.Element;
 }
 
@@ -120,6 +114,7 @@ interface Props {
   title?: string;
   cellItems: CellItem[];
   onlyOneCellShouldOpen?: boolean;
+  disableOpening?: boolean;
   firstOpen?: boolean;
   rightView?: JSX.Element;
   rotateRightViewOnOpenClose?: boolean;
@@ -131,6 +126,7 @@ export default (props: Props) => {
     title,
     cellItems,
     onlyOneCellShouldOpen,
+    disableOpening,
     firstOpen,
     rightView,
     rotateRightViewOnOpenClose,
@@ -145,18 +141,21 @@ export default (props: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <TableViewCell
-          key={item.title}
-          isOpen={openStates[index]}
-          toggle={() => toggle(index)}
-          orderView={orderView && orderView(index)}
-        >
-          <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-            <TableViewCellTitle>{item.title}</TableViewCellTitle>
-            {rightView}
-          </TableViewCellTitleStyles>
-          <TableViewCellDescription>{item.description}</TableViewCellDescription>
-        </TableViewCell>
+        <div>
+          <TableViewCell
+            key={item.title}
+            isOpen={!disableOpening && openStates[index]}
+            toggle={!disableOpening ? (() => toggle(index)) : undefined}
+            orderView={orderView && orderView(index)}
+          >
+            <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
+              <TableViewCellTitle>{item.title}</TableViewCellTitle>
+              {rightView}
+            </TableViewCellTitleStyles>
+            <TableViewCellDescription>{item.description}</TableViewCellDescription>
+          </TableViewCell>
+          {index !== cellItems.length-1 && <Divider fullWidth />}
+        </div>
       ))}
     </TableView>
   );

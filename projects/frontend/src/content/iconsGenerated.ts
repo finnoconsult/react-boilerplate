@@ -41,6 +41,7 @@ import { ReactComponent as icoJsxDash } from '../theme/images/jsx/dash.svg';
 import { ReactComponent as icoJsxDashboard } from '../theme/images/jsx/dashboard.svg';
 import { ReactComponent as icoJsxDishes } from '../theme/images/jsx/dishes.svg';
 import { ReactComponent as icoJsxDisks } from '../theme/images/jsx/disks.svg';
+import { ReactComponent as icoJsxDocument } from '../theme/images/jsx/document.svg';
 import { ReactComponent as icoJsxDocuments } from '../theme/images/jsx/documents.svg';
 import { ReactComponent as icoJsxDoubleDash } from '../theme/images/jsx/double-dash.svg';
 import { ReactComponent as icoJsxDoubleStackOfCoins } from '../theme/images/jsx/doubleStackOfCoins.svg';
@@ -174,6 +175,7 @@ export const iconsGenerated = {
       icoJsxDashboard,
       icoJsxDishes,
       icoJsxDisks,
+      icoJsxDocument,
       icoJsxDocuments,
       icoJsxDoubleDash,
       icoJsxDoubleStackOfCoins,
