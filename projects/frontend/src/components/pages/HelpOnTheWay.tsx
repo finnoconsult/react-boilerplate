@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import YouTube from 'react-youtube';
 
 import {
   Page,
@@ -69,6 +70,20 @@ export default () => {
     </>
   );
 
+
+  enum PlayState {
+    pause,
+    play,
+  }
+
+  const videoProps = {
+    width: '100%',
+    height: 'auto',
+    playerVars: {
+      autoplay: PlayState.pause,
+    },
+  };
+
   return (
     <Page>
       {smsArrived && <SMS4 />}
@@ -117,9 +132,13 @@ export default () => {
               title: 'Der Helfer öffnet Ihre Tür',
               description: (
                 <>
-                  <span>Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst <strong>vor Ort durch den Helfer eingeschätzt</strong> werden.</span>
-                  YTB
-                  <span>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</span>
+                  <Text>Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst <strong>vor Ort durch den Helfer eingeschätzt</strong> werden.</Text>
+                  <YouTube
+                    videoId="fyqPbjrYoCI"
+                    opts={videoProps}
+                    onReady={() => console.log('video READY!')}
+                  />
+                  <Text>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</Text>
                 </>
               ),
             },

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from './Text';
+import View from '../View';
 import { Children } from '../../types';
 
 const TableView = styled.div``;
@@ -17,11 +18,11 @@ const TableViewCellTitle = styled(Text)`
   font-weight: bold;
 `;
 
-const TableViewCellDescription = styled(Text)`
+const TableViewCellDescription = styled(View)`
   font-size: ${props => props.theme.font.text};
-  margin-top: 8px;
 
-  span {
+  &, & > * {
+    margin-top: 8px;
     display: block;
   }
 `;
@@ -64,7 +65,6 @@ type OptionalElement = JSX.Element | undefined
 interface TableViewCellProps {
   children: JSX.Element | OptionalElement[];
   isOpen: boolean;
-  toggle: () => void;
   orderView?: JSX.Element;
 }
 
@@ -87,13 +87,12 @@ const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
 
 const TableViewCell = (props: TableViewCellProps) => {
   const {
-    children, isOpen, toggle, orderView,
+    children, isOpen, orderView,
   } = props;
   return (
     <TableViewCellOuterStyles
       isOpen={isOpen}
       isOrdered={orderView !== undefined && orderView !== null}
-      onClick={toggle}
     >
       {orderView}
       <TableViewCellInnerStyles>
@@ -154,11 +153,10 @@ export default (props: Props) => {
         <TableViewCell
           key={item.title}
           isOpen={openStates[index]}
-          toggle={() => toggle(index)}
           orderView={orderView && orderView(index)}
         >
           <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-            <TableViewCellTitle>{item.title}</TableViewCellTitle>
+            <TableViewCellTitle onClick={() => toggle(index)} >{item.title}</TableViewCellTitle>
             {rightView}
           </TableViewCellTitleStyles>
           <TableViewCellDescription>{item.description}</TableViewCellDescription>
