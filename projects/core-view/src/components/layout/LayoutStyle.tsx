@@ -49,6 +49,7 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
   > main {
     grid-area: main;
     overflow: hidden;
+    position: relative;
 
     ${Page} {
       height: 100%;

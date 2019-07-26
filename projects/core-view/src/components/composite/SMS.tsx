@@ -10,7 +10,7 @@ interface SMSStylesProps {
 }
 
 const SMSStyles = styled.div<SMSStylesProps>`
-  position: fixed;
+  position: absolute;
   z-index: 10;
   left: 16px;
   right: 16px;
@@ -32,7 +32,7 @@ const SMSStyles = styled.div<SMSStylesProps>`
       100% {
         top: 16px;
       }
-    }    
+    }
     animation-name: appearanceAnimation;
     animation-duration: ${props.theme.animation.time};
     top: 16px;
@@ -44,7 +44,7 @@ const SMSStyles = styled.div<SMSStylesProps>`
           top: 16px;
         }
         100% {
-          top: -1000px;          
+          top: -1000px;
         }
       }
       animation-name: hideAnimation;
