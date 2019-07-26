@@ -9,14 +9,21 @@ export {
   WidgetMatchPlatformType,
   WidgetMatchRouteType,
   WidgetMatchType,
-  
+
   StandaloneWidgetConfigType,
   ListWidgetConfigType,
   WidgetConfigType,
 
   WidgetType,
+} from './types/WidgetConfigTypes';
 
+export {HTMLBoolean} from './types/HTMLBoolean';
+
+export {
+  OneComponentDefinitionType,
+  MultipleComponentDefinitionType,
   Children,
   ChildrenOrComponent,
   ImageOrComponent,
-} from './types';
+  ComponentDefinitionType,
+} from './types/Children';

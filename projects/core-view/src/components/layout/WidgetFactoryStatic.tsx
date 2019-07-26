@@ -13,7 +13,7 @@ import { Image } from '../..';
 //     this.small=s;
 //     this['small']
 //   }
-  
+
 // };
 // const a = new AA('ss');
 
@@ -26,4 +26,3 @@ export const WidgetFactoryStatic = ({ title, images, size }: WidgetType) => {
     </>
   );
 }
- 

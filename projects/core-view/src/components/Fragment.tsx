@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
+import { HTMLBoolean } from '@finnoconsult/core-model';
 
 // import styles from '../../theme/app.global.scss';
 export interface FragmentProps {
-  padding?: number;
-  margin?: number;
+  padding?: string | number | boolean;
+  margin?: string | number | boolean;
   normal?: number | boolean;
   marginLeft?: string | number;
   marginRight?: string | number;
@@ -11,6 +12,8 @@ export interface FragmentProps {
   marginBottom?: string | number;
   paddingTop?: string | number;
   paddingBottom?: string | number;
+  paddingLeft?: string | number;
+  paddingRight?: string | number;
   background?: string;
   hidden?: boolean;
   overflow?: string;
@@ -24,11 +27,12 @@ export interface FragmentProps {
   round?: number | boolean;
   underline?: number | boolean;
   compact?: number | boolean;
+  style?: {};
 }
 
 export const Fragment = styled.div<FragmentProps>`
-  padding: ${props => props.padding || 0};
-  margin: ${props => props.margin || 0};
+  padding: ${props => (props.padding === true ? props.theme.spacing.basicPadding : props.padding) || 0};
+  margin: ${props => (props.margin === true ? props.theme.spacing.basicMargin : props.margin) || 0};
   transition: all 0.5 ease;
 
 
@@ -80,6 +84,12 @@ export const Fragment = styled.div<FragmentProps>`
   `};
   ${props => props.paddingBottom && css`
     padding-bottom: ${props.paddingBottom};
+  `};
+  ${props => props.paddingLeft && css`
+    padding-left: ${props.paddingLeft};
+  `};
+  ${props => props.paddingRight && css`
+    padding-left: ${props.paddingLeft};
   `};
 
   ${props => props.background && css`
@@ -133,37 +143,50 @@ export const Fragment = styled.div<FragmentProps>`
 `;
 Fragment.displayName = 'Fragment';
 
+export interface FlexFragmentProps extends FragmentProps {
+  center?: HTMLBoolean;
+  row?: HTMLBoolean;
+  column?: HTMLBoolean;
 
-export const FlexFragment = styled(Fragment)`
+  between?: HTMLBoolean;
+  left?: HTMLBoolean;
+  right?: HTMLBoolean;
+  start?: HTMLBoolean;
+  end?: HTMLBoolean;
+}
+
+export const FlexFragment = styled(Fragment)<FlexFragmentProps>`
   flex: 1 1 auto;
   display: flex;
 
+  ${props => props.row && css`
+    flex-direction: row;
+  `}
+  ${props => props.column && css`
+  flex-direction: column;
+  `}
+  ${props => props.center && css`
+    align-items: center;
+    justify-content: center;
+  `};
+  ${props => props.between && css`
+    justify-content: space-between;
+  `};
+  ${props => (props.left || props.start) && css`
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left !important;
+  `};
+  ${props => (props.right || props.end) && css`
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right !important;
+  `};
   ${'' /* ${props => props.flex && css`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: ${(props.left && 'flex-start') || 'center'};
-  `};
-  ${props => props.center && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `};
-  ${props => props.bottom && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-  `};
-  ${props => props.left && css`
-    text-align: left !important;
-  `};
-  ${props => props.right && css`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
   `};
   ${props => props.rowTop && css`
     display: flex;
@@ -171,15 +194,7 @@ export const FlexFragment = styled(Fragment)`
     align-items: flex-start;
     justify-content: center;
   `};
-  ${props => props.top && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  `};
-  ${props => props.between && css`
-    justify-content: space-between;
-  `}; */}
+ */}
 `;
 FlexFragment.displayName = 'FlexFragment';
 

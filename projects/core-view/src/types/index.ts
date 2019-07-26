@@ -1,3 +1,10 @@
 export * from './Browser';
 export * from './Dimensions';
-export { Children, ChildrenOrComponent, ImageOrComponent } from '@finnoconsult/core-model';
+export {
+  OneComponentDefinitionType,
+  MultipleComponentDefinitionType,
+  Children,
+  ChildrenOrComponent,
+  ImageOrComponent,
+  ComponentDefinitionType,
+} from '@finnoconsult/core-model';

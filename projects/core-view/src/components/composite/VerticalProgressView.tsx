@@ -15,6 +15,13 @@ const VerticalProgressViewTitle = styled(Text)`
   margin-left: 16px;
 `;
 
+
+const VerticalProgressViewIconAndDividerStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const VerticalProgressViewItem = styled.div<VerticalProgressViewItemProps>`
   ${VerticalProgressViewTitle} {
     color: ${props => (props.done ? props.theme.colors.ready : props.theme.colors.text)};
@@ -24,7 +31,7 @@ const VerticalProgressViewItem = styled.div<VerticalProgressViewItemProps>`
   display: flex;
   &:not(:last-child) {
     margin-bottom: 10px;
-  } 
+  }
 `;
 
 const VerticalDivider = styled.div`
@@ -34,26 +41,22 @@ const VerticalDivider = styled.div`
   background-color: ${props => props.theme.colors.divider};
 `;
 
-const VerticalProgressViewIconAndDividerStyles = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
+interface Items {
+  title: string;
+  icon?: JSX.Element;
+}
 interface ProgressViewProps {
-  items: string[];
+  items: Items[];
   progress: number;
 }
 
 export default ({ items, progress }: ProgressViewProps) => (
   <VerticalProgressViewStyles>
-    {items.map((item, index) => (
+    {items.map(({title: item, icon: Icon}, index) => (
       <VerticalProgressViewItem key={item} current={progress === index} done={progress > index}>
         <VerticalProgressViewIconAndDividerStyles>
-          <div style={{
-            width: '21px', height: '21px', backgroundColor: 'red',
-          }}
-          />
+          {Icon}
           {index !== items.length-1 && <VerticalDivider />}
         </VerticalProgressViewIconAndDividerStyles>
         <VerticalProgressViewTitle>

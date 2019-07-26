@@ -1,6 +1,29 @@
-// ReactChild | ReactFragment | ReactPortal | 
-export type Children = boolean | null | undefined | JSX.Element[] | JSX.Element | string;
+type TextComponent = string;
+type EmptyComponent = null | undefined;
 
-export type ChildrenOrComponent = (() => JSX.Element) | ((props: any, state: any) => JSX.Element) | JSX.Element | string | undefined | null;
+// ReactChild | ReactFragment | ReactPortal |
+export type ComponentType = JSX.Element;
+export type MultipleComponentType = JSX.Element[];
+
+export type OneComponentDefinitionType = (() => JSX.Element) | ((props: any, state: any) => JSX.Element);
+export type MultipleComponentDefinitionType = (() => JSX.Element)[] | ((props: any, state: any) => JSX.Element)[];
+
+
+export type ComponentDefinitionType = MultipleComponentDefinitionType
+  | OneComponentDefinitionType
+  // | TextComponent
+  | EmptyComponent;
+
+export type Children = MultipleComponentType
+  | ComponentType
+  | TextComponent
+  | EmptyComponent
+  | boolean;
+
+
+export type ChildrenOrComponent = OneComponentDefinitionType
+  | ComponentType
+  | TextComponent
+  | EmptyComponent;
 
 export type ImageOrComponent = ChildrenOrComponent;

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg width="328px" height="152px" viewBox="0 0 328 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="landing-prices2">
+            <g id="Group-45" transform="translate(8.000000, 72.000000)">
+                <g id="Group-34" fill-rule="nonzero">
+                    <rect id="Rectangle-Copy-10" fill="#F3F3F4" x="0" y="0" width="312" height="80" rx="4"></rect>
+                    <rect id="Rectangle-Copy-11" fill="#B2B2B2" opacity="0.25" x="95" y="8" width="1" height="64"></rect>
+                </g>
+                <g id="Group-43" transform="translate(24.000000, 16.000000)" fill="#666666" font-weight="bold">
+                    <g id="Festpreis" transform="translate(0.000000, 26.000000)" font-family="MiloADACOffc-Bold, Milo ADAC Offc" font-size="14">
+                        <text>
+                            <tspan x="0" y="13">Festpreis</tspan>
+                        </text>
+                    </g>
+                    <g id="Headline-4-Copy" transform="translate(8.000000, 0.000000)" font-family="MiloSlabADAC-Bold, Milo Slab ADAC">
+                        <text id="179" font-size="24">
+                            <tspan x="0.494" y="22">179</tspan>
+                        </text>
+                        <text id="€" font-size="12">
+                            <tspan x="35.438" y="22">€</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-44" transform="translate(112.000000, 13.000000)" fill="#666666" font-family="MiloADACOffc, Milo ADAC Offc" font-size="14" font-weight="normal">
+                    <g id="Caption-Copy-7">
+                        <text id="Nacht-und-Wochenende">
+                            <tspan x="0" y="13">Nacht und Wochenende</tspan>
+                        </text>
+                    </g>
+                    <g id="Caption-Copy-8" transform="translate(0.000000, 18.000000)">
+                        <text id="Mo–Fr-20–6-Uhr">
+                            <tspan x="0" y="13">Mo–Fr 20–6 Uhr</tspan>
+                        </text>
+                        <text id="Sa,-So-und-Feiertage-0–24-Uhr">
+                            <tspan x="0" y="31">Sa, So und Feiertage 0–24 Uhr</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+            <g id="Group-42">
+                <g id="Rectangle-Copy-10">
+                    <g id="path-1-link" fill="#000000" fill-rule="nonzero">
+                        <rect id="path-1" x="0" y="0" width="328" height="80" rx="4"></rect>
+                    </g>
+                    <g id="path-1-link" fill="#33A3DC">
+                        <rect id="path-1" x="0" y="0" width="328" height="80" rx="4"></rect>
+                    </g>
+                </g>
+                <rect id="Rectangle-Copy-11" fill="#FFFFFF" fill-rule="nonzero" opacity="0.5" x="103" y="16" width="1" height="48"></rect>
+                <g id="Group-41" transform="translate(122.000000, 18.000000)" fill="#FFFFFF" font-family="MiloADACOffc, Milo ADAC Offc" font-size="16" font-weight="normal">
+                    <g id="Caption-Copy-4">
+                        <text id="Wochentags">
+                            <tspan x="0" y="15">Wochentags</tspan>
+                        </text>
+                    </g>
+                    <g id="Caption-Copy-4" transform="translate(0.000000, 22.000000)">
+                        <text id="Mo–Fr-6–20-Uhr">
+                            <tspan x="0" y="15">Mo–Fr 6–20 Uhr</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="Group-40" transform="translate(18.000000, 5.000000)" fill="#FFFFFF" font-weight="bold">
+                    <g id="Headline-4" transform="translate(10.000000, 0.000000)" font-family="MiloSlabADAC-Bold, Milo Slab ADAC">
+                        <text id="99" font-size="34">
+                            <tspan x="0.02" y="32">99</tspan>
+                        </text>
+                        <text id="€" font-size="16">
+                            <tspan x="37.556" y="32">€</tspan>
+                        </text>
+                    </g>
+                    <g id="Caption-Copy-5" transform="translate(0.000000, 41.000000)" font-family="MiloADACOffc-Bold, Milo ADAC Offc" font-size="16">
+                        <text id="Festpreis">
+                            <tspan x="0" y="15">Festpreis</tspan>
+                        </text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

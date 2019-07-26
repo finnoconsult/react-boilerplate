@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                    <circle id="Oval-10" fill="#00a8d6" cx="14" cy="14" r="14"></circle>
+                    <circle id="Oval-10" fill="#191919" cx="14" cy="14" r="14"></circle>
                     <polyline id="Rectangle-12" stroke="#FFFFFF" stroke-width="2" transform="translate(14.622778, 12.289444) rotate(-45.000000) translate(-14.622778, -12.289444) " points="20.2227778 15.0894444 9.02277776 15.0894444 9.02277776 9.48944443 9.02277776 9.48944443"></polyline>
     </g>
 </svg>

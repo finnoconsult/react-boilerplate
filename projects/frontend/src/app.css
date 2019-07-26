@@ -1,6 +1,6 @@
-a {
-  height: auto;
-  text-decoration: none;
+html, button {
+  font-size: 10px;
+  font-family: 'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif;
 }
 
 div#root {
@@ -9,4 +9,10 @@ div#root {
 
 div {
   height: auto;
+}
+
+
+a {
+  height: auto;
+  text-decoration: none;
 }

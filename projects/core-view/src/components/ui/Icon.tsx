@@ -114,3 +114,13 @@ export const Icon = (props: (IconProps)) => {
 }
 
 export default Icon;
+
+export function isIcon(arg: any): arg is JSX.Element {
+  //NOTE: TS complains about, but we know React component can be only an object.
+  // isIcon(Source) might be a solition, but this case not the class definition, but rather the object
+  // we always return true, if we receive object:
+  return !!arg && typeof arg === 'object';
+  // if (arg instanceof Icon) {
+  // }
+  // return false;
+}

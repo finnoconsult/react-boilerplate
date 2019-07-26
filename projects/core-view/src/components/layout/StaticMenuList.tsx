@@ -68,7 +68,7 @@ export function StaticMenuList(props: Props) {
           <>
             {!item.Component && item.image && (
               <Image source={(item.imageActive) || item.image} className={item.imageClassName} />
-              // this.isMatching(item) && 
+              // this.isMatching(item) &&
             )}
 
             {item.Component && (

@@ -11,11 +11,15 @@ import {
   Divider,
   TableView,
   FullWidthLayout,
+  Image,
 } from '@finnoconsult/core-view';
 
-import FireDepartment from '../svgs/FireDepartment';
-import Prices from '../svgs/Prices';
-import Conditions from '../svgs/Conditions';
+// import FireDepartment from '../svgs/FireDepartment';
+// import Prices from '../svgs/Prices';
+// import Conditions from '../svgs/Conditions';
+import prices from '../static/mobile/content/landing-prices.svg';
+import fireDepartment from '../static/mobile/content/landing-firedepartment.svg';
+import conditions from '../static/mobile/content/landing-conditions.svg';
 
 import Icon from '../ui/Icon';
 
@@ -71,19 +75,27 @@ export default () => {
         <Title>Ihr ADAC Schlüsselnotdienst in Berlin, Hamburg und München </Title>
       </SubPage>
 
-      {isFireDeptOpen && <FireDepartment onCloseClicked={() => setFireDeptOpen(false)} />}
 
       <SubPage>
         {/* <SubTitle>Berlin, Hamburg und München </SubTitle> */}
 
         <Marginizer>
+          <Image className="fullWidth" source={prices} />
           <Title>Wir sind von 0–24 Uhr für Sie da!</Title>
-          <Prices />
-          <Conditions />
-          <FullWidthLayout>
-            <Button title="Schlüsselnotdienst anfordern" cta link="/address" />
-          </FullWidthLayout>
+          <Image className="fullWidth" source={conditions} />
         </Marginizer>
+      </SubPage>
+
+      {isFireDeptOpen && (
+        <Button onClick={() => setFireDeptOpen(false)}>
+          <Image className="fullWidth" source={fireDepartment} />
+        </Button>
+      )}
+
+      <SubPage>
+        <FullWidthLayout style={{ marginBottom: '30px' }}>
+          <Button title="Schlüsselnotdienst anfordern" cta link="/address" />
+        </FullWidthLayout>
 
         <Marginizer>
           <Text>Lieber telefonisch anfragen?</Text>
@@ -92,7 +104,9 @@ export default () => {
         <PhoneButton title="ADAC Hamburg" phoneNumber="040 76 76 55 77" />
         <PhoneButton title="ADAC München" phoneNumber="089 76 76 55 77" />
       </SubPage>
+
       <Divider fullWidth />
+
       <SubPage>
         <TableView
           title="FAQ"

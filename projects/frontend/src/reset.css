@@ -55,15 +55,12 @@ button:focus {
   outline: 0;
 }
 
-html, button {
-  /* base for rem / 1rem = 10px */
-  /* font-size: 62.5%; */
+/* html, button {
   font-size: 10px;
-}
+} */
 
 /* body { */
   /* default font size = 14px */
-  /* font-size: 1.8rem; */
 /* } */
 
 /* html, body, div { */
@@ -84,7 +81,6 @@ html, body {
 }
 
 body > * {
-  /* font-family: 'Open Sans'; */
   letter-spacing: -0.02rem;
 }
 

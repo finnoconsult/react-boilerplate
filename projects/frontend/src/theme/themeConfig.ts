@@ -10,6 +10,11 @@ export const mainTheme = {
     disabled: '#e5e5e5', // TODO: ADAC
     text: '#191919',
     ready: '#2e7d2b',
+    overlay: 'rgba(25,25,25,0.5)',
+
+    progress: '#2E7D2B', // green
+    info2: '#33A3DC', // blue
+    warning: '#CC3330', // red
   },
   font: {
     text: '1.6rem',
@@ -18,6 +23,11 @@ export const mainTheme = {
     title: '2.4rem',
     link: '1.6rem',
     sizeButton: '1.6rem',
+  },
+  fontFace: {
+    office: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
+    default: "'Milo ADAC', MiloADAC, sans-serif",
+    slab: "'Milo Slab ADAC', MiloSlabADAC, 'Milo ADAC', MiloADAC, sans-serif",
   },
   animation: {
     time: '0.2s',

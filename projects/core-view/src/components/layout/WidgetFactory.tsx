@@ -2,16 +2,24 @@ import React from 'react';
 import { WidgetStyle } from './WidgetStyle';
 // import { WidgetType } from "./WidgetType";
 import { WidgetFactoryStatic } from "./WidgetFactoryStatic";
-import { WidgetType } from '@finnoconsult/core-model';
+import { WidgetType, OneComponentDefinitionType } from '@finnoconsult/core-model';
 
 export const WidgetFactory = (props: WidgetType) => {
-  const { component: Component, order, column, row, area, } = props;
+  const {
+    component: Component,
+    wrapperComponent,
+    order,
+    column,
+    row,
+    area,
+  } = props;
   const allowedStyledProps = {
     order, column, row, area,
   };
+  const WrapperComponent: OneComponentDefinitionType = wrapperComponent || WidgetStyle;
   return (
-    <WidgetStyle {...allowedStyledProps}>
+    <WrapperComponent {...allowedStyledProps}>
       {Component ? <Component /> : <WidgetFactoryStatic {...props} />}
-    </WidgetStyle>
+    </WrapperComponent>
   );
 };
