@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { HTMLBoolean } from '@finnoconsult/core-model';
 
 // import styles from '../../theme/app.global.scss';
 export interface FragmentProps {
@@ -134,37 +135,50 @@ export const Fragment = styled.div<FragmentProps>`
 `;
 Fragment.displayName = 'Fragment';
 
+export interface FlexFragmentProps extends FragmentProps {
+  center?: HTMLBoolean;
+  row?: HTMLBoolean;
+  column?: HTMLBoolean;
 
-export const FlexFragment = styled(Fragment)`
+  between?: HTMLBoolean;
+  left?: HTMLBoolean;
+  right?: HTMLBoolean;
+  start?: HTMLBoolean;
+  end?: HTMLBoolean;
+}
+
+export const FlexFragment = styled(Fragment)<FlexFragmentProps>`
   flex: 1 1 auto;
   display: flex;
 
+  ${props => props.row && css`
+    flex-direction: row;
+  `}
+  ${props => props.column && css`
+  flex-direction: column;
+  `}
+  ${props => props.center && css`
+    align-items: center;
+    justify-content: center;
+  `};
+  ${props => props.between && css`
+    justify-content: space-between;
+  `};
+  ${props => (props.left || props.start) && css`
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left !important;
+  `};
+  ${props => (props.right || props.end) && css`
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right !important;
+  `};
   ${'' /* ${props => props.flex && css`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: ${(props.left && 'flex-start') || 'center'};
-  `};
-  ${props => props.center && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  `};
-  ${props => props.bottom && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-  `};
-  ${props => props.left && css`
-    text-align: left !important;
-  `};
-  ${props => props.right && css`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
   `};
   ${props => props.rowTop && css`
     display: flex;
@@ -172,15 +186,7 @@ export const FlexFragment = styled(Fragment)`
     align-items: flex-start;
     justify-content: center;
   `};
-  ${props => props.top && css`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  `};
-  ${props => props.between && css`
-    justify-content: space-between;
-  `}; */}
+ */}
 `;
 FlexFragment.displayName = 'FlexFragment';
 

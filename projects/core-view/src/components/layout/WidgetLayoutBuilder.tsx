@@ -10,7 +10,7 @@ import { WidgetSearchProps } from './WidgetSearchProps';
 
 function renderWidgets(props: WidgetSearchProps) {
   const foundWidgets = WidgetFinderFactory(props);
-  // console.log('findWidget', position, foundWidgets);
+  // console.log('findWidget', props.position, foundWidgets);
   return (
     <>
       {foundWidgets.map((widget, index) => <WidgetFactory key={widget.id || index} {...widget} />)}
@@ -22,7 +22,7 @@ function renderWidgets(props: WidgetSearchProps) {
 interface Props {
   layout: (props: LayoutProps) => JSX.Element;
   widgets: WidgetType[];
-  children: Children;
+  children?: Children;
   resolution: Dimensions;
   browser: Browser;
 }
@@ -40,10 +40,12 @@ export const WidgetLayoutBuilder = ({
     left={() => renderWidgets({ widgets, position: 'left' })}
     right={() => renderWidgets({ widgets, position: 'right' })}
     footer={() => renderWidgets({ widgets, position: 'footer' })}
+    main={() => renderWidgets({ widgets, position: 'main' })}
     resolution={resolution}
     browser={browser}
   >
-    {children}
+    {renderWidgets({ widgets, position: 'children' })}
+    <>{children}</>
   </Layout>
 );
 

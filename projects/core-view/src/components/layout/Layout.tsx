@@ -12,6 +12,7 @@ export interface LayoutProps {
   left?: () => JSX.Element;
   right?: () => JSX.Element;
   footer?: () => JSX.Element;
+  main?: () => JSX.Element;
   resolution?: Dimensions;
   browser: Browser;
 }
@@ -23,6 +24,7 @@ export const Layout = ({
   right: RightSide,
   children,
   footer: Footer,
+  main: Main,
   resolution,
   browser,
 }: LayoutProps) => (
@@ -44,9 +46,10 @@ export const Layout = ({
     {LeftSide && <aside className="left"><LeftSide /></aside>}
     {RightSide && <aside className="right"><RightSide /></aside>}
     <main>
-      {children}
+      {Main && <Main />}
     </main>
     {Footer && <footer><Footer /></footer>}
+    {children}
   </LayoutStyle>
 );
 

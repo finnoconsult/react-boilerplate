@@ -9,6 +9,7 @@ export const mainTheme = {
     disabled: '#e5e5e5', // TODO: ADAC
     text: '#191919',
     ready: '#2e7d2b',
+    overlay: 'rgba(25,25,25,0.5)',
   },
   font: {
     text: '1.6rem',

@@ -1,4 +1,4 @@
-import { ImageOrComponent } from "..";
+import { ImageOrComponent, OneComponentDefinitionType } from "..";
 
 // TODO: refactor types to the core-model
 
@@ -25,7 +25,8 @@ export interface WidgetStaticType extends WidgetDefinitionType {
   }
 }
 export interface WidgetComponentType extends WidgetDefinitionType {
-  component?: () => JSX.Element | JSX.Element;
+  component?: OneComponentDefinitionType;
+  wrapperComponent?: OneComponentDefinitionType | undefined | null;
 }
 export interface WidgetAllDefinitionType extends WidgetStaticType, WidgetComponentType {
 

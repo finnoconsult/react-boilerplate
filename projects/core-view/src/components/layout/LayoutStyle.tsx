@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import { Fragment, FragmentProps } from '../Fragment';
 import { Dimensions, Browser, PlatformProps } from '../../types';
+import Page from './Page';
 
 interface LayoutStyleProps extends FragmentProps, PlatformProps {
   browser?: Browser;
@@ -24,21 +25,36 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
-    // place-content: center;
+    z-index: 90;
   }
   /* mobile header navigation */
+  > nav,
+  > footer,
+  > header {
+    z-index: 92;
+  }
+  > aside {
+    z-index: 91;
+  }
   > nav {
     grid-area: header;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
+    z-index: 91;
 
     background-color: ${props => props.theme.colors.cta}
   }
   > main {
     grid-area: main;
-    overflow: scroll;
+    overflow: hidden;
+
+    ${Page} {
+      height: 100%;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
   }
   > footer {
     display: none;
@@ -55,6 +71,9 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
   > aside.left,
   > aside.right {
     display: none;
+  }
+
+  > dialog {
   }
 
   /* ${props => (props.theme.isMobile || props.isMobile) && `

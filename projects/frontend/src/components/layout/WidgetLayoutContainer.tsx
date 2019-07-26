@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { ThemeProvider } from 'styled-components';
 import { Layout, WidgetLayoutBuilder, browser } from '@finnoconsult/core-view';
 
-import MainPageContainer from './MainPageContainer';
+// import MainPageContainer from './MainPageContainer';
 import StoreContext from '../../stores';
 
 export const WidgetDrivenLayout = observer(() => {
@@ -16,9 +16,7 @@ export const WidgetDrivenLayout = observer(() => {
         widgets={stores.ui.mobileWidgetList}
         resolution={stores.ui.resolution}
         browser={browser}
-      >
-        <MainPageContainer />
-      </WidgetLayoutBuilder>
+      />
     </ThemeProvider>
   );
 });
