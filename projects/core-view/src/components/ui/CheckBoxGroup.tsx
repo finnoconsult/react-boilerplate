@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Text from './Text';
+import { Children } from '../../types';
 
 const Title = styled(Text)`
   font-size: 1.4rem;
@@ -41,12 +42,12 @@ const CheckBoxWithTitleStyles = styled.div`
   display: flex;
   &:not(:last-child) {
     margin-bottom: 21px;
-  } 
+  }
 `;
 
 interface CheckBoxItem {
   value: string;
-  title: string;
+  title: Children;
 }
 
 interface CheckBoxGroupProps {
