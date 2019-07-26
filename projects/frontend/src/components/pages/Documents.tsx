@@ -38,7 +38,7 @@ export default () => (
     </SubPage>
     <SubPage>
       <FormLayout>
-        <Title>Dokmente per E-Mail erhalten</Title>
+        <Title>Dokumente per E-Mail erhalten</Title>
         <TextField
           badgeTitle="E-Mail"
           badgeEqualsPlaceholder
