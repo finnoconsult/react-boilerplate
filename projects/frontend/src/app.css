@@ -1,6 +1,7 @@
 html, button {
   font-size: 10px;
   font-family: 'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif;
+  line-height: 1.33;
 }
 
 div#root {

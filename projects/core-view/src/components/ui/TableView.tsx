@@ -2,22 +2,28 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from './Text';
+import { Children } from '../../types';
 
 const TableView = styled.div``;
 
 const Title = styled(Text)`
-  font-size: 2.4rem;
+  font-size: ${props => props.theme.font.title};
   font-weight: bold;
 `;
 
 const TableViewCellTitle = styled(Text)`
-  font-size: 1.6rem;
+  font-size: ${props => props.theme.font.subTitle};
+  font-family: ${props => props.theme.font.face.bold.office};
   font-weight: bold;
 `;
 
 const TableViewCellDescription = styled(Text)`
-  font-size: 1.6rem;
+  font-size: ${props => props.theme.font.text};
   margin-top: 8px;
+
+  span {
+    display: block;
+  }
 `;
 
 interface TableViewCellStylesProps {
@@ -66,8 +72,8 @@ interface TableViewCellTitleStylesProps {
   rotateRightView?: boolean;
 }
 
-const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`  
-  display: flex;  
+const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -99,7 +105,7 @@ const TableViewCell = (props: TableViewCellProps) => {
 
 interface CellItem {
   title: string;
-  description: string;
+  description: Children;
 }
 
 function useOpenStates(initialState: boolean[], onlyOneCellShouldOpen?: boolean): [boolean[], (index: number) => void] {

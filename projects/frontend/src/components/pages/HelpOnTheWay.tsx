@@ -9,6 +9,7 @@ import {
   SubTitle,
   LightSubTitle,
   TableView,
+  Image,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
@@ -17,7 +18,7 @@ import SMS4 from '../sms/SMS4';
 
 const CustomSubtitle = styled(SubTitle)`
   font-weight: normal;
-  margin-top: 17px;
+  margin-top: 10px;
 `;
 
 const OrderViewStyles = styled.div`
@@ -51,34 +52,57 @@ export default () => {
   useEffect(() => {
     setTimeout(() => {
       setHelperArrived(true);
-    }, 10000);
+      setSMSArrived(false);
+    }, 22000);
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
       setSMSArrived(true);
-    }, 4000);
+    }, 20000);
   }, []);
+
+  const titles = (
+    <>
+      <Title>{helperArrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
+      <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
+    </>
+  );
 
   return (
     <Page>
       {smsArrived && <SMS4 />}
-      <SubPage>
-        <Title>{ helperArrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
-        <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
-        {helperArrived
-          ? <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
-          : (
-            <CustomSubtitle>
-              Ankunft in
-              {' '}
-              <strong>ca. 35 Minuten</strong>
-            </CustomSubtitle>
-          )}
-      </SubPage>
+
+      {helperArrived
+        ? (
+          <>
+            <SubPage>
+              {titles}
+              <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
+            </SubPage>
+            <Image source={'/assets/images/static/mobile/thomas-mayer.png'} className="fullWidth" />
+          </>
+        )
+        : (
+          <>
+            <SubPage>
+              {titles}
+              <CustomSubtitle>
+                Ankunft in
+                {' '}
+                <strong>ca. 35 Minuten</strong><br />
+              </CustomSubtitle>
+              <CustomSubtitle>
+                Bitte stellen Sie sicher, dass Sie telefonisch erreichbar sind.
+              </CustomSubtitle>
+            </SubPage>
+            <Image source={'/assets/images/static/mobile/adac-waiting-anim-only-looped.gif'} className="fullWidth" />
+            <Image source={'/assets/images/static/mobile/thomas-approaching.png'} className="fullWidth" />
+          </>
+        )}
 
       <SubPage>
-        <SubTitle>So geht es nach der Ankunft weiter:</SubTitle>
+        <SubTitle big>So geht es nach der Ankunft weiter:</SubTitle>
         <TableView
           cellItems={[
             {
@@ -91,7 +115,13 @@ export default () => {
             },
             {
               title: 'Der Helfer öffnet Ihre Tür',
-              description: 'Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst vor Ort durch den Helfer eingeschätzt werden.',
+              description: (
+                <>
+                  <span>Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst <strong>vor Ort durch den Helfer eingeschätzt</strong> werden.</span>
+                  YTB
+                  <span>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</span>
+                </>
+              ),
             },
             {
               title: 'Nach Abschluss erhalten Sie sofort Ihre Rechnung aufs Handy',
