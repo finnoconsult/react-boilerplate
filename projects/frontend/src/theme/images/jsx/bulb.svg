@@ -9,7 +9,7 @@
                 <use xlink:href="#path-1"></use>
             </mask>
             <use id="Combined-Shape" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-            <g id="color/blue" mask="url(#mask-2)" fill="#00a8d6" fill-rule="evenodd">
+            <g id="color/blue" mask="url(#mask-2)" fill="#191919" fill-rule="evenodd">
                 <rect id="Rectangle-3" x="0" y="0" width="24" height="24"></rect>
             </g>
         </g>
