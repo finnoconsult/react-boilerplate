@@ -21,6 +21,8 @@ import prices from '../static/mobile/content/landing-prices.svg';
 import fireDepartment from '../static/mobile/content/landing-firedepartment.svg';
 import conditions from '../static/mobile/content/landing-conditions.svg';
 
+import Icon from '../ui/Icon';
+
 const PhoneButtonViewStyles = styled.div``;
 
 const Marginizer = styled.div`
@@ -116,6 +118,8 @@ export default () => {
             { title: 'Wie lange muss ich warten?', description: 'Wir bemühen uns, so schnell wie möglich bei Ihnen zu sein. Die Wartezeit kann je nach Auftragslage und Verkehrssituation variieren.' },
           ]}
           firstOpen
+          rightView={<Icon name="down" />}
+          rotateRightViewOnOpenClose
         />
       </SubPage>
     </Page>

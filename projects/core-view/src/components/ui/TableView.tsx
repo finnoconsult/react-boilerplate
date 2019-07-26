@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Text from './Text';
 
@@ -42,11 +42,29 @@ const TableViewCellInnerStyles = styled.div`
   padding: 16px 0;
 `;
 
+type OptionalElement = JSX.Element | undefined
+
 interface TableViewCellProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element | OptionalElement[];
   isOpen: boolean;
   toggle: () => void;
 }
+
+interface TableViewCellTitleStylesProps {
+  rotateRightView?: boolean;
+}
+
+const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${props => props.rotateRightView && css`
+    &>*:last-child {
+      transition: ${props.theme.animation.transformTransition};
+      transform: rotateZ(180deg);
+    }
+  `}
+`;
 
 const TableViewCell = ({ children, isOpen, toggle }: TableViewCellProps) => (
   <TableViewCellOuterStyles isOpen={isOpen} onClick={toggle}>
@@ -59,13 +77,6 @@ const TableViewCell = ({ children, isOpen, toggle }: TableViewCellProps) => (
 interface CellItem {
   title: string;
   description: string;
-}
-
-interface Props {
-  title?: string;
-  cellItems: CellItem[];
-  onlyOneCellShouldOpen?: boolean;
-  firstOpen?: boolean;
 }
 
 function useOpenStates(initialState: boolean[], onlyOneCellShouldOpen?: boolean): [boolean[], (index: number) => void] {
@@ -82,9 +93,23 @@ function useOpenStates(initialState: boolean[], onlyOneCellShouldOpen?: boolean)
   return [openStates, toggle];
 }
 
+interface Props {
+  title?: string;
+  cellItems: CellItem[];
+  onlyOneCellShouldOpen?: boolean;
+  firstOpen?: boolean;
+  rightView?: JSX.Element;
+  rotateRightViewOnOpenClose?: boolean;
+}
+
 export default (props: Props) => {
   const {
-    title, cellItems, onlyOneCellShouldOpen, firstOpen,
+    title,
+    cellItems,
+    onlyOneCellShouldOpen,
+    firstOpen,
+    rightView,
+    rotateRightViewOnOpenClose,
   } = props;
 
   const initialState = Array<boolean>(cellItems.length).fill(false);
@@ -96,7 +121,10 @@ export default (props: Props) => {
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
         <TableViewCell key={item.title} isOpen={openStates[index]} toggle={() => toggle(index)}>
-          <TableViewCellTitle>{item.title}</TableViewCellTitle>
+          <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
+            <TableViewCellTitle>{item.title}</TableViewCellTitle>
+            {rightView}
+          </TableViewCellTitleStyles>
           <TableViewCellDescription>{item.description}</TableViewCellDescription>
         </TableViewCell>
       ))}
