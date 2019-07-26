@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import Text from './Text';
 import View from '../View';
 import { Children } from '../../types';
+import Divider from './Divider';
 
 const TableView = styled.div``;
 
@@ -46,13 +47,6 @@ const TableViewCellOuterStyles = styled.div<TableViewCellStylesProps>`
   overflow: hidden;
   ${TableViewCellDescription} {
     display: ${props => (props.isOpen ? 'block' : 'none')};
-  }
-
-  &:not(:last-child)::after {
-    content: '';
-    display: block;
-    height: 1px;
-    background-color: ${props => props.theme.colors.divider};
   }
 `;
 
@@ -125,6 +119,7 @@ interface Props {
   title?: string;
   cellItems: CellItem[];
   onlyOneCellShouldOpen?: boolean;
+  disableOpening?: boolean;
   firstOpen?: boolean;
   rightView?: JSX.Element;
   rotateRightViewOnOpenClose?: boolean;
@@ -136,6 +131,7 @@ export default (props: Props) => {
     title,
     cellItems,
     onlyOneCellShouldOpen,
+    disableOpening,
     firstOpen,
     rightView,
     rotateRightViewOnOpenClose,
@@ -150,17 +146,20 @@ export default (props: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <TableViewCell
-          key={item.title}
-          isOpen={openStates[index]}
-          orderView={orderView && orderView(index)}
-        >
-          <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-            <TableViewCellTitle onClick={() => toggle(index)} >{item.title}</TableViewCellTitle>
-            {rightView}
-          </TableViewCellTitleStyles>
-          <TableViewCellDescription>{item.description}</TableViewCellDescription>
-        </TableViewCell>
+        <div key={`tableview${index}`}>
+          <TableViewCell
+            key={item.title}
+            isOpen={!disableOpening && openStates[index]}
+            orderView={orderView && orderView(index)}
+          >
+            <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
+              <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined} >{item.title}</TableViewCellTitle>
+              {rightView}
+            </TableViewCellTitleStyles>
+            <TableViewCellDescription>{item.description}</TableViewCellDescription>
+          </TableViewCell>
+          {index !== cellItems.length - 1 && <Divider fullWidth />}
+        </div>
       ))}
     </TableView>
   );

@@ -16,6 +16,7 @@ import {
 import Icon from '../ui/Icon';
 
 import SMS4 from '../sms/SMS4';
+import SMS5 from '../sms/SMS5';
 
 const CustomSubtitle = styled(SubTitle)`
   font-weight: normal;
@@ -48,20 +49,30 @@ const OrderView = ({ index }: { index: number }) => (
 
 export default () => {
   const [helperArrived, setHelperArrived] = useState(false);
-  const [smsArrived, setSMSArrived] = useState(false);
+  const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
+  const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
+
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setHelpComingSMSArrived(true);
+    }, 10000);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
       setHelperArrived(true);
-      setSMSArrived(false);
-    }, 22000);
+      // setHelpComingSMSArrived(true);
+    }, 15000);
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
-      setSMSArrived(true);
+      setDocumentsSMSArrived(true);
     }, 20000);
   }, []);
+
 
   const titles = (
     <>
@@ -84,9 +95,11 @@ export default () => {
     },
   };
 
+
   return (
     <Page>
-      {smsArrived && <SMS4 />}
+      {helpComingSMSArrived && <SMS4 />}
+      {documentsSMSArrived && <SMS5 />}
 
       {helperArrived
         ? (

@@ -3,7 +3,7 @@ import React from 'react';
 import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
 
 export default () => (
-  <SMS animated link="/progress">
+  <SMS animated link="/progress" dismissDisabled>
     <SMSText>
       Vielen Dank für Ihren Auftrag.
       Ihre Auftragsnummer: MUC-123123

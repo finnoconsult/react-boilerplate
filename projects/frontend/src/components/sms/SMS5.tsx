@@ -3,13 +3,16 @@ import React from 'react';
 import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
 
 export default () => (
-  <SMS animated link="/address/done" dismissDisabled>
-    <SMSText>Hallo Max,</SMSText>
+  <SMS animated link="/documents" dismissDisabled>
+    <SMSText>
+      Ihr Tätigkeitsbericht zur Auftragsnr. MUC-123123
+    </SMSText>
     <br />
     <SMSText>
-      Willkommen beim ADAC Schlüsselnotdienst.
-      Bitte öffnen Sie den Link, um Ihre Handy-Nummer zu bestätigen.
+      Sie können das Dokument über diesen Link aufrufen:
     </SMSText>
+    <br />
+
     <SMSLink>http://adac.de/schluesselnotdiest/yxc124ert</SMSLink>
   </SMS>
 );

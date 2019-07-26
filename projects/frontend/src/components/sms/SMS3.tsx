@@ -3,7 +3,7 @@ import React from 'react';
 import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
 
 export default () => (
-  <SMS animated link="/progress/ontheway">
+  <SMS animated link="/progress/ontheway" dismissDisabled>
     <SMSText>
       Hilfe ist unterwegs!
     </SMSText>
