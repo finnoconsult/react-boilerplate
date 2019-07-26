@@ -14,6 +14,7 @@ import {
 import Icon from '../ui/Icon';
 
 import SMS4 from '../sms/SMS4';
+import SMS5 from '../sms/SMS5';
 
 const CustomSubtitle = styled(SubTitle)`
   font-weight: normal;
@@ -46,7 +47,8 @@ const OrderView = ({ index }: { index: number }) => (
 
 export default () => {
   const [helperArrived, setHelperArrived] = useState(false);
-  const [smsArrived, setSMSArrived] = useState(false);
+  const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
+  const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -56,13 +58,20 @@ export default () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setSMSArrived(true);
+      setHelpComingSMSArrived(true);
     }, 4000);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDocumentsSMSArrived(true);
+    }, 12000);
   }, []);
 
   return (
     <Page>
-      {smsArrived && <SMS4 />}
+      {helpComingSMSArrived && <SMS4 />}
+      {documentsSMSArrived && <SMS5 />}
       <SubPage>
         <Title>{ helperArrived ? 'Ihr Helfer ist da!' : 'Hilfe ist unterwegs'}</Title>
         <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
