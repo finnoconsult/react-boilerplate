@@ -15,9 +15,9 @@ import Icon from '../ui/Icon';
 
 import SMS4 from '../sms/SMS4';
 
-const CustomSubtitle = styled(SubTitle)`  
+const CustomSubtitle = styled(SubTitle)`
   font-weight: normal;
-  margin-top: 17px;  
+  margin-top: 17px;
 `;
 
 const OrderViewStyles = styled.div`

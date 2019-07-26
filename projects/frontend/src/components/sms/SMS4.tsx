@@ -13,6 +13,6 @@ export default () => (
     </SMSText>
     <br />
 
-    <SMSLink href="">http://adac.de/schluesselnotdiest/yxc124ert</SMSLink>
+    <SMSLink>http://adac.de/schluesselnotdiest/yxc124ert</SMSLink>
   </SMS>
 );

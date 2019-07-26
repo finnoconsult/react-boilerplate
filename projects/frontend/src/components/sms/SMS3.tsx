@@ -1,10 +1,9 @@
 import React from 'react';
 
 import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
-import { Link } from 'react-router-dom';
 
 export default () => (
-  <SMS animated>
+  <SMS animated link="/progress/ontheway">
     <SMSText>
       Hilfe ist unterwegs!
     </SMSText>
@@ -22,6 +21,6 @@ export default () => (
     </SMSText>
     <br />
 
-    <Link to="/progress/ontheway"><SMSLink href="">http://adac.de/schluesselnotdiest/yxc124ert</SMSLink></Link>
+    <SMSLink>http://adac.de/schluesselnotdiest/yxc124ert</SMSLink>
   </SMS>
 );
