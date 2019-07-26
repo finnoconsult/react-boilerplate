@@ -51,7 +51,7 @@
         "_git:clean:local-branch:dry-run": "sh gitclean.local.sh",
         "### test": "",
         "upload:test": "DIR=$npm_package_environments_test_directory USER=$npm_package_environments_test_username DOMAIN=$npm_package_environments_test_host yarn _scp",
-        "___predeploy:test": "yarn build:frontend",
+        "predeploy:test": "yarn build:frontend",
         "deploy:test": "yarn upload:test",
         "deploy": "yarn deploy:test",
         "##DEV": "",
