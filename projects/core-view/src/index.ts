@@ -11,7 +11,7 @@ export { default as SubPage } from './components/layout/SubPage';
 
 export { default as LinkStyle } from './components/ui/LinkStyle';
 export { default as Image } from './components/ui/Image';
-export { default as Icon, IconProps } from './components/ui/Icon';
+export { default as Icon, IconProps, isIcon } from './components/ui/Icon';
 export { default as getIcon } from './components/ui/getIcon';
 export { default as Button } from './components/ui/Button';
 export {

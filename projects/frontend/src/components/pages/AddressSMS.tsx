@@ -39,7 +39,6 @@ export default () => {
 
   useEffect(() => {
     setTimeout(() => {
-      console.log('SMS');
       setShowSMS(true);
     }, 1000);
   });

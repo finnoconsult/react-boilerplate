@@ -3,11 +3,12 @@ import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { Children, ImageOrComponent, isComponent } from '@finnoconsult/core-model';
+import { Children, ImageOrComponent } from '@finnoconsult/core-model';
 
 // import styles from './Image.scss';
 
 import Button from './Button';
+import { isIcon } from './Icon';
 // import Link from './LinkStyle';
 
 
@@ -91,7 +92,7 @@ function cloneComponentInstanceHOC(Component: JSX.Element, props: ImgTagProps) {
 const ImgTag = (props: ImgTagProps) => {
   const {
     id,
-    source,
+    source: Source,
     title,
     caption,
     usemap,
@@ -106,19 +107,20 @@ const ImgTag = (props: ImgTagProps) => {
 
   return (
     <ImageStyle style={{ ...(figureStyle || {}), lineHeight: 0 }} className={className}>
-      {source && typeof source === 'object' && isComponent(source) && cloneComponentInstanceHOC(source, props)}
-      {typeof source === 'function' && (
-        <source
+      {'' /* //NOTE: TS complains about, but we know React component can be only an object. isIcon is a hack */}
+      {Source && isIcon(Source) && cloneComponentInstanceHOC(Source, props)}
+      {typeof Source === 'function' && (
+        <Source
           // {...cleanSVGProps(props)}
           style={style || {}}
           // className={`${className || styles.default} ${default && styles.default} ${originalSize && styles.originalSize}`}
         />
       )}
-      {typeof source !== 'object' && typeof source !== 'function' && (
+      {typeof Source !== 'object' && typeof Source !== 'function' && (
         <img
           onLoad={onLoad}
           id={(id && 1) ? `img-${id}` : 'f'}
-          src={source}
+          src={Source}
           alt={title || id as string || ''}
           style={style || {}}
           useMap={usemap}
