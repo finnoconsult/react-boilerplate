@@ -16,6 +16,16 @@ const TitleWithIconStyles = styled.div`
 
 const AuxViewStyles = styled.div`
   margin-top: 17px;
+
+  &, & > * {
+    ${props => `
+      color: ${props.theme.colors.text};
+      font-size: ${props.theme.font.link};
+      text-decoration: underline;
+      font-weight: bold;
+      font-family: ${props.theme.font.face.bold.office};
+    `};
+  }
 `;
 
 interface SOSMessageProps {
