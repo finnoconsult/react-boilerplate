@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import Text from '../ui/Text';
 import LinkStyle from '../ui/LinkStyle';
+import { Link } from 'react-router-dom';
 
 interface SMSStylesProps {
   animated?: boolean;
@@ -56,9 +57,10 @@ const SMSStyles = styled.div<SMSStylesProps>`
 interface SMSProps {
   children: JSX.Element | JSX.Element[];
   animated?: boolean;
+  link?: string;
 }
 
-export default ({ children, animated }: SMSProps) => {
+export default ({ children, animated, link }: SMSProps) => {
   const [hidden, setHidden] = useState(false);
   let touchStart: { x: number; y: number };
 
@@ -82,7 +84,8 @@ export default ({ children, animated }: SMSProps) => {
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      {children}
+      {link && <Link to={link}>{children}</Link>}
+      {!link && children}
     </SMSStyles>
   );
 };
