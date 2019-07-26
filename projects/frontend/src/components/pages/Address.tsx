@@ -17,6 +17,8 @@ import {
   ColumnLayout as InputColumnLayout,
 } from '@finnoconsult/core-view';
 
+import Icon from '../ui/Icon';
+
 const InputLayout = styled.div`
   &>div {
     margin-bottom: 24px;
@@ -85,7 +87,12 @@ export default () => {
             <TextField
               strong
               onClick={firstPartClicked}
-              utilityView={<MapPinUtilityView />}
+              utilityView={(
+                <MapPinUtilityView
+                  locatorView={<Icon name="gps" />}
+                  onClick={firstPartClicked}
+                />
+              )}
             />
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 1fr">

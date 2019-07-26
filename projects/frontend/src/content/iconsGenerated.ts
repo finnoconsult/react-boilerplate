@@ -51,6 +51,7 @@ import { ReactComponent as icoJsxFolder } from '../theme/images/jsx/folder.svg';
 import { ReactComponent as icoJsxGaming } from '../theme/images/jsx/gaming.svg';
 import { ReactComponent as icoJsxGear } from '../theme/images/jsx/gear.svg';
 import { ReactComponent as icoJsxGift } from '../theme/images/jsx/gift.svg';
+import { ReactComponent as icoJsxGps } from '../theme/images/jsx/gps.svg';
 import { ReactComponent as icoJsxGrid } from '../theme/images/jsx/grid.svg';
 import { ReactComponent as icoJsxGrid2X2 } from '../theme/images/jsx/grid2x2.svg';
 import { ReactComponent as icoJsxHaken } from '../theme/images/jsx/haken.svg';
@@ -183,6 +184,7 @@ export const iconsGenerated = {
       icoJsxGaming,
       icoJsxGear,
       icoJsxGift,
+      icoJsxGps,
       icoJsxGrid,
       icoJsxGrid2X2,
       icoJsxHaken,
