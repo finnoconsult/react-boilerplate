@@ -22,7 +22,7 @@ interface ProgressViewItemStylesProps {
 const ProgressViewItemStyles = styled.div<ProgressViewItemStylesProps>`
   padding: 12px 0;
   flex: 1 0 auto;
-  
+
   ${props => (props.done || props.current) && `border-bottom: 2px solid ${props.theme.colors.text}`};
   ${props => !props.done && !props.current && 'opacity: 0.25'};
 

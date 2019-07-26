@@ -11,7 +11,7 @@ interface LayoutStyleProps extends FragmentProps, PlatformProps {
 const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px 1fr 0px;
+  grid-template-rows: ${props => `${props.theme.layout.navBarHeight || '0px'} 1fr ${props.theme.layout.tabBarHeight || '0px'}`};
   grid-template-areas:  "header"
                         "main"
                         "footer";
@@ -50,11 +50,16 @@ const MobileLayoutStyle = styled(Fragment)<LayoutStyleProps | Dimensions>`
     grid-area: main;
     overflow: hidden;
     position: relative;
+    height: ${props => `${props.theme.getMainHeight || 100}px`};
 
     ${Page} {
       height: 100%;
+      /* // NOTE: not working on IOS due to invalid size for 100vh, so doing it programatically by styles */
+      /* max-height: calc(100vh-${props => props.theme.layout.navBarHeight || '0px'}); */
+      height: ${props => `${props.theme.getMainHeight || 100}px`};
       overflow: scroll;
       -webkit-overflow-scrolling: touch;
+      border-bottom: solid 1px transparent;
     }
   }
   > footer {

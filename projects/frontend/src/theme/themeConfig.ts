@@ -46,6 +46,10 @@ export const mainTheme = {
     paragraphPadding: '14px 20px',
     basicMargin: '14px',
   },
+  layout: {
+    navBarHeight: '60px',
+    tabBarHeight: '0px',
+  },
   effects: {
     bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
   },
