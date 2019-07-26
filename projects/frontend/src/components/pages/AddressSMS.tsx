@@ -52,7 +52,7 @@ export default () => {
       {showSMS && <SMS1 />}
       <HorizontalProgressView
         items={[
-          'Adresse',
+          <Link to="/address">Adresse</Link>,
           'Handy-Nummer bestätigen',
           'Beauftragen',
         ]}

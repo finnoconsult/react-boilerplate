@@ -42,8 +42,8 @@ export default () => {
       {showSMS && <SMS2 />}
       <HorizontalProgressView
         items={[
-          'Adresse',
-          'Handy-Nummer bestätigen',
+          <Link to="/address">Adresse</Link>,
+          <Link to="/address/sms">Handy-Nummer bestätigen</Link>,
           'Beauftragen',
         ]}
         progress={2}
