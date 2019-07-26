@@ -10,6 +10,10 @@ export const mainTheme = {
     text: '#191919',
     ready: '#2e7d2b',
     overlay: 'rgba(25,25,25,0.5)',
+
+    progress: '#2E7D2B', // green
+    info2: '#33A3DC', // blue
+    warning: '#CC3330', // red
   },
   font: {
     text: '1.6rem',

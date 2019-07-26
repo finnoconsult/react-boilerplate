@@ -12,6 +12,8 @@ export interface FragmentProps {
   marginBottom?: string | number;
   paddingTop?: string | number;
   paddingBottom?: string | number;
+  paddingLeft?: string | number;
+  paddingRight?: string | number;
   background?: string;
   hidden?: boolean;
   overflow?: string;
@@ -82,6 +84,12 @@ export const Fragment = styled.div<FragmentProps>`
   `};
   ${props => props.paddingBottom && css`
     padding-bottom: ${props.paddingBottom};
+  `};
+  ${props => props.paddingLeft && css`
+    padding-left: ${props.paddingLeft};
+  `};
+  ${props => props.paddingRight && css`
+    padding-left: ${props.paddingLeft};
   `};
 
   ${props => props.background && css`

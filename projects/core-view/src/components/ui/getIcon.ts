@@ -6,7 +6,7 @@ export default function getIcon(iconList: any, name?: string, path: string = 'ic
 
   const key = camelize(`${path}-${name}`);
 
-  // console.log('getIcon', icons, key);
+  // console.log('getIcon', key, icons[key]);
 
   if (icons && icons[key]) {
     return icons && icons[key];

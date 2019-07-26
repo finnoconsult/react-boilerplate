@@ -69,6 +69,9 @@ import { ReactComponent as icoJsxLetterK } from '../theme/images/jsx/letter-k.sv
 import { ReactComponent as icoJsxLetterM } from '../theme/images/jsx/letter-m.svg';
 import { ReactComponent as icoJsxList } from '../theme/images/jsx/list.svg';
 import { ReactComponent as icoJsxListType1 } from '../theme/images/jsx/listType1.svg';
+import { ReactComponent as icoJsxLockClosed } from '../theme/images/jsx/lock-closed.svg';
+import { ReactComponent as icoJsxLockOpen } from '../theme/images/jsx/lock-open.svg';
+import { ReactComponent as icoJsxLockPending } from '../theme/images/jsx/lock-pending.svg';
 import { ReactComponent as icoJsxLogout } from '../theme/images/jsx/logout.svg';
 import { ReactComponent as icoJsxLotus } from '../theme/images/jsx/lotus.svg';
 import { ReactComponent as icoJsxMail } from '../theme/images/jsx/mail.svg';
@@ -198,6 +201,9 @@ export const iconsGenerated = {
       icoJsxLetterM,
       icoJsxList,
       icoJsxListType1,
+      icoJsxLockClosed,
+      icoJsxLockOpen,
+      icoJsxLockPending,
       icoJsxLogout,
       icoJsxLotus,
       icoJsxMail,
