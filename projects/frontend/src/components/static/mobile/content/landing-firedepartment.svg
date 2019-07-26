@@ -1,11 +1,6 @@
-import React from 'react';
-
-interface FireDepartmentProps {
-  onCloseClicked: () => void;
-}
-
-export default ({ onCloseClicked }: FireDepartmentProps) => (
-  <svg width="360px" height="203px" viewBox="0 0 360 203" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="203px" viewBox="0 0 360 203" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
     <title>Group 15</title>
     <desc>Created with Sketch.</desc>
     <defs>
@@ -23,16 +18,16 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
                 <text id="Body-1" font-family="MiloADAC-Bold, Milo ADAC" font-size="16" font-weight="bold" line-spacing="21" fill="#191919">
                     <tspan x="16" y="31">Akute Gefahrensituation?</tspan>
                 </text>
-                <g onClick={onCloseClicked} id="Icon-/-Navigation-/-Close" transform="translate(320.000000, 15.000000)">
+                <g id="Icon-/-Navigation-/-Close" transform="translate(320.000000, 15.000000)">
                     <mask id="mask-2" fill="white">
-                        <use href="#path-1"></use>
+                        <use xlink:href="#path-1"></use>
                     </mask>
-                    <use id="Mask" fill="#191919" fill-rule="evenodd" href="#path-1"></use>
+                    <use id="Mask" fill="#191919" fill-rule="evenodd" xlink:href="#path-1"></use>
                     <g id="Colors-/-Black" mask="url(#mask-2)"></g>
                 </g>
                 <g id="CTA-/-Primary-/-Normal-Copy" transform="translate(16.000000, 139.000000)">
                     <mask id="mask-4" fill="white">
-                        <use href="#path-3"></use>
+                        <use xlink:href="#path-3"></use>
                     </mask>
                     <rect stroke="#191919" x="0.5" y="0.5" width="327" height="47" rx="4"></rect>
                     <g id="Stacked-Group" mask="url(#mask-4)">
@@ -42,9 +37,9 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
                             </text>
                             <g id="Icon-/-Phone">
                                 <mask id="mask-6" fill="white">
-                                    <use href="#path-5"></use>
+                                    <use xlink:href="#path-5"></use>
                                 </mask>
-                                <use id="Shape" fill="#191919" fill-rule="nonzero" href="#path-5"></use>
+                                <use id="Shape" fill="#191919" fill-rule="nonzero" xlink:href="#path-5"></use>
                                 <g id="Colors-/-Black" mask="url(#mask-6)"></g>
                             </g>
                         </g>
@@ -57,9 +52,9 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
                         <g id="Group-Copy" transform="translate(3.500000, 0.000000)">
                             <g id="Icon-/-Danger-/-Fire">
                                 <mask id="mask-8" fill="white">
-                                    <use href="#path-7"></use>
+                                    <use xlink:href="#path-7"></use>
                                 </mask>
-                                <use id="Fill-1" fill="#191919" fill-rule="evenodd" href="#path-7"></use>
+                                <use id="Fill-1" fill="#191919" fill-rule="evenodd" xlink:href="#path-7"></use>
                                 <g id="Colors-/-Black" mask="url(#mask-8)"></g>
                             </g>
                         </g>
@@ -77,9 +72,9 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
                             <g id="Group-Copy-2">
                                 <g id="Icon-/-Danger-/-Cooking">
                                     <mask id="mask-10" fill="white">
-                                        <use href="#path-9"></use>
+                                        <use xlink:href="#path-9"></use>
                                     </mask>
-                                    <use id="Shape" fill="#191919" fill-rule="evenodd" href="#path-9"></use>
+                                    <use id="Shape" fill="#191919" fill-rule="evenodd" xlink:href="#path-9"></use>
                                     <g id="Colors-/-Black" mask="url(#mask-10)"></g>
                                 </g>
                             </g>
@@ -90,9 +85,9 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
                             <g id="Group" transform="translate(25.000000, 0.000000)">
                                 <g id="Icon-/-Danger-/-Baby">
                                     <mask id="mask-12" fill="white">
-                                        <use href="#path-11"></use>
+                                        <use xlink:href="#path-11"></use>
                                     </mask>
-                                    <use id="Shape" fill="#191919" fill-rule="evenodd" href="#path-11"></use>
+                                    <use id="Shape" fill="#191919" fill-rule="evenodd" xlink:href="#path-11"></use>
                                     <g id="Colors-/-Black" mask="url(#mask-12)"></g>
                                 </g>
                             </g>
@@ -107,4 +102,3 @@ export default ({ onCloseClicked }: FireDepartmentProps) => (
         </g>
     </g>
 </svg>
-);

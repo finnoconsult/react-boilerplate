@@ -21,8 +21,7 @@ export type Children = MultipleComponentType
   | boolean;
 
 
-export type ChildrenOrComponent = MultipleComponentDefinitionType
-  | OneComponentDefinitionType
+export type ChildrenOrComponent = OneComponentDefinitionType
   | ComponentType
   | TextComponent
   | EmptyComponent;
