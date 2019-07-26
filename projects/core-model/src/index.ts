@@ -26,4 +26,5 @@ export {
   ChildrenOrComponent,
   ImageOrComponent,
   ComponentDefinitionType,
+  isComponent,
 } from './types/Children';

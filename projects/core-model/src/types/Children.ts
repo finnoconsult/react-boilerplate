@@ -27,3 +27,17 @@ export type ChildrenOrComponent = OneComponentDefinitionType
   | EmptyComponent;
 
 export type ImageOrComponent = ChildrenOrComponent;
+
+
+class Component implements ComponentType {
+  type = null;
+  props = {};
+  key = null;
+}
+
+export function isComponent(arg: ImageOrComponent): arg is Component {
+  if (arg instanceof Component) {
+    return true;
+  }
+  return false;
+}

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { Children, ImageOrComponent } from '@finnoconsult/core-model';
+import { Children, ImageOrComponent, isComponent } from '@finnoconsult/core-model';
 
 // import styles from './Image.scss';
 
@@ -103,9 +103,10 @@ const ImgTag = (props: ImgTagProps) => {
     style,
     figureStyle,
   } = props;
+
   return (
     <ImageStyle style={{ ...(figureStyle || {}), lineHeight: 0 }} className={className}>
-      {source && typeof source === 'object' && cloneComponentInstanceHOC(source, props)}
+      {source && typeof source === 'object' && isComponent(source) && cloneComponentInstanceHOC(source, props)}
       {typeof source === 'function' && (
         <source
           // {...cleanSVGProps(props)}
