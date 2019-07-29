@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Text from './Text';
 import { Children } from '../../types';
+import { useLocation } from '../..';
 
 interface CommonButtonProps {
   disabled?: boolean;
@@ -16,7 +17,7 @@ interface ButtonStylesProps extends CommonButtonProps{
   shouldFormat?: boolean;
 }
 
-const ButtonStyles = styled.div<ButtonStylesProps>`
+export const ButtonStyles = styled.div<ButtonStylesProps>`
   ${props => props.shouldFormat && `
     min-height: 48px;
     display: flex;
@@ -66,11 +67,14 @@ interface Props extends CommonButtonProps{
   children?: Children;
   onClick?: () => void;
   link?: string;
+  back?: boolean;
 }
 
 export default (props: Props) => {
+  const location = useLocation();
+
   const {
-    title, cta, info, cancel, children, disabled, onClick, link,
+    title, cta, info, cancel, children, disabled, onClick, link, back,
   } = props;
 
   const shouldFormat = cta || info || cancel;
@@ -83,6 +87,14 @@ export default (props: Props) => {
       {children}
     </>
   );
+
+  const backClick = () => {
+    location.back();
+  };
+
+  const buttonClick = back ? backClick : onClick;
+  const buttonLink = !back && !onClick && link;
+
   return (
     <ButtonStyles
       disabled={disabled}
@@ -90,9 +102,9 @@ export default (props: Props) => {
       cta={cta}
       info={info}
       cancel={cancel}
-      onClick={onClick}
+      onClick={buttonClick}
     >
-      {link ? <Link to={link}>{buttonContent}</Link> : <button disabled={disabled} type="button">{buttonContent}</button>}
+      {buttonLink ? <Link to={buttonLink}>{buttonContent}</Link> : <button disabled={disabled} type="button">{buttonContent}</button>}
     </ButtonStyles>
   );
 };

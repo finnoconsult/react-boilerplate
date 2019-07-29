@@ -109,7 +109,7 @@ export default () => {
               {titles}
               <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
             </SubPage>
-            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" link="?coming-soon" />
           </>
         )
         : (
@@ -127,7 +127,7 @@ export default () => {
               </CustomSubtitle>
             </SubPage>
             <Image source="/assets/images/static/mobile/adac-waiting-anim-only-looped.gif" className="fullWidth" />
-            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" link="?coming-soon" />
           </>
         )}
 

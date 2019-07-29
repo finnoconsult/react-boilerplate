@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
 import { observer } from 'mobx-react';
 
-import { FlexView } from '@finnoconsult/core-view';
+import { FlexView, useLocation } from '@finnoconsult/core-view';
 
 import StoreContext from '../../stores';
 
 import RateUs from '../overlays/RateUs';
+import ComingSoon from '../overlays/ComingSoon';
 
 interface DialogType {
   open?: boolean;
@@ -53,30 +54,44 @@ export default observer(() => {
     stores.ui.setShowOverlay(false);
   }
 
-  return (
-    <DialogStyle open={stores.ui.showOverlay} end="true">
-      {stores.ui.showOverlay && (
-        <Switch>
-          <Route
-            route="/documents"
-            render={() => (
-              <DialogContentStyle column center>
-                <RateUs onCloseClicked={dismiss} />
-              </DialogContentStyle>
-            )}
-          />
-          <Route render={() => (
-            <DialogContentStyle column center>
-              <h1>Defalt route</h1>
-              <h2>TODO:</h2>
-              <p>implement and add routers here</p>
-              <p>{'open=\'true\' will display overlay'}</p>
-              <p>{'end=\'true\' can locate the content to bottom'}</p>
-            </DialogContentStyle>
-          )}
-          />
-        </Switch>
+  const location = useLocation();
+  const isComingSoon = location.search.match(/[?&]coming-soon(\/|&|$)/gi) !== null;
+
+  // TODO: implement CustomSwitch to check if there is any children or not.
+  const GetChildren = () => (
+    <Switch>
+      <Route
+        path="/documents"
+        exact
+        render={() => (
+          <DialogContentStyle column center>
+            <RateUs onCloseClicked={dismiss} />
+          </DialogContentStyle>
+        )}
+      />
+      {/* <Route render={() => (
+        <DialogContentStyle column center>
+          <h1>Defalt route</h1>
+          <h2>TODO:</h2>
+          <p>implement and add routers here</p>
+          <p>{'open=\'true\' will display overlay'}</p>
+          <p>{'end=\'true\' can locate the content to bottom'}</p>
+        </DialogContentStyle>
       )}
+      /> */}
+    </Switch>
+  );
+
+  const children = <GetChildren />;
+  const open = isComingSoon || stores.ui.showOverlay;
+  // console.log('children', stores.ui.showOverlay, children, <ComingSoon />, <ComingSoon /> !== null);
+
+  return (
+    <DialogStyle open={open} end="true">
+      {stores.ui.showOverlay && (
+        children
+      )}
+      {isComingSoon && <Route component={ComingSoon} />}
     </DialogStyle>
   );
 });

@@ -12,9 +12,11 @@ export { default as Overlay } from './components/layout/Overlay';
 
 export { default as LinkStyle } from './components/ui/LinkStyle';
 export { default as Image } from './components/ui/Image';
-export { default as Icon, IconProps, isIcon } from './components/ui/Icon';
+export {
+  default as Icon, IconStyle, IconProps, isIcon,
+} from './components/ui/Icon';
 export { default as getIcon } from './components/ui/getIcon';
-export { default as Button } from './components/ui/Button';
+export { default as Button, ButtonStyles } from './components/ui/Button';
 export {
   default as Text, SmallText, Title, SubTitle, LightSubTitle,
 } from './components/ui/Text';

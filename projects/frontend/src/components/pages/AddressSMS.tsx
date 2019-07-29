@@ -66,7 +66,8 @@ geschickt. Bitte folgen Sie den Anweisungen.
         <FullWidthLayout>
           <Question>SMS nicht angekommen?</Question>
           {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
-          <Button link={showSMS ? '/address/done' :''} title="SMS erneut senden" info />
+          {/* showSMS ? '/address/done' : */}
+          <Button link="?coming-soon" title="SMS erneut senden" info />
         </FullWidthLayout>
       </SubPage>
     </Page>

@@ -62,7 +62,7 @@ const PhoneButton = ({ title, phoneNumber }: PhoneButtonProps) => (
   <PhoneButtonStyles>
     <SubTitle>{title}</SubTitle>
     <FullWidthLayout>
-      <Button info>
+      <Button info link="?coming-soon">
         <Icon name="phone" />
         <PhoneButtonView phoneNumber={phoneNumber} />
       </Button>
