@@ -80,13 +80,13 @@ export default () => {
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
               defaultValue={firstPart && firstPart.zipCode}
-              onClick={firstPartClicked}
+              // onClick={firstPartClicked}
               badgeTitle="PLZ"
               badgeEqualsPlaceholder
             />
             <TextField
               strong
-              onClick={firstPartClicked}
+              // onClick={firstPartClicked}
               utilityView={(
                 <MapPinUtilityView
                   locatorView={<Icon name="gps" />}
@@ -98,13 +98,13 @@ export default () => {
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
               defaultValue={firstPart && firstPart.street}
-              onClick={firstPartClicked}
+              // onClick={firstPartClicked}
               badgeTitle="Strasse"
               badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={firstPart && firstPart.houseNumber}
-              onClick={firstPartClicked}
+              // onClick={firstPartClicked}
               badgeTitle="Hausnummer"
               badgeEqualsPlaceholder
             />
