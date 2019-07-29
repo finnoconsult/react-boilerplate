@@ -25,6 +25,7 @@ import googleNavBar from '../images/google-search-navbar.png';
 import serviceProviderReport from '../components/static/mobile/layout/navigation-service-provider.png';
 // import MainPageContainer from '../components/layout/MainPageContainer';
 import OverlayContainer from '../components/layout/OverlayContainer';
+import DevTools from '../components/pages/DevTools';
 
 export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   // TODO: should be better with object id=key mapping, but that requires a different TS def
@@ -70,6 +71,7 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   { id: 'desktopMenuBar', title: 'desktopMenuBar', component: HeaderContainer },
   { id: 'desktopContentMenu', title: 'desktopContentMenu', component: LeftContainer },
 
+  { id: 'devTools', title: 'devTools', component: DevTools },
   { id: 'mobileTabBar', title: 'mobileTabBar', component: FooterContainer },
   {
     id: 'SampleStaticImage',
@@ -109,6 +111,7 @@ export const widgetConfigs: (WidgetConfigType)[] = [
   { id: 'desktopMenuBar', platform: 'desktop', position: 'header' },
   { id: 'desktopContentMenu', platform: 'desktop', position: 'left' },
 
+  { id: 'devTools', position: 'children' },
   // { id: 'mobileTabBar', position: 'footer', },
   // { id: 'SampleStaticImage', position: 'footer', size: 'medium', },
 ];

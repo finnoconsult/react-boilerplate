@@ -14,6 +14,7 @@ interface CommonButtonProps {
 
 }
 interface ButtonStylesProps extends CommonButtonProps{
+  id?: string;
   shouldFormat?: boolean;
 }
 
@@ -63,6 +64,7 @@ const ButtonText = styled(Text)`
 `;
 
 interface Props extends CommonButtonProps{
+  id?: string;
   title?: string;
   children?: Children;
   onClick?: () => void;
@@ -74,7 +76,7 @@ export default (props: Props) => {
   const location = useLocation();
 
   const {
-    title, cta, info, cancel, children, disabled, onClick, link, back,
+    id, title, cta, info, cancel, children, disabled, onClick, link, back,
   } = props;
 
   const shouldFormat = cta || info || cancel;
@@ -99,6 +101,7 @@ export default (props: Props) => {
 
   return (
     <ButtonStyles
+      id={id}
       disabled={disabled}
       shouldFormat={shouldFormat}
       cta={cta}

@@ -1,5 +1,7 @@
 export {
   View,
+  FlexView,
+  ButtonStyles,
   LinkStyle,
   Image,
   getIcon,
