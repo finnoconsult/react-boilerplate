@@ -40,7 +40,6 @@ export default () => {
   const [showSMS, setShowSMS] = useState(false);
 
   const getSMS = () => setTimeout(() => {
-    console.log('get new sms');
     setShowSMS(true);
   }, 5000);
 

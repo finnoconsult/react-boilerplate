@@ -45,7 +45,7 @@ export default () => {
   }
 
   const items = [
-    { title: 'Tätigkeitsbericht', description: '', link: '?coming-soon' },
+    { title: 'Tätigkeitsbericht', description: '', link: '/documents/reports/progress' },
   ].concat(
     hasInvoice ? { title: 'Ihre Rechnung', description: '', link: '?coming-soon' } : [],
   );

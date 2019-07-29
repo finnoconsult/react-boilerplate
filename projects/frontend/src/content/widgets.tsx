@@ -21,6 +21,7 @@ import {
 
 import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
 import googleNavBar from '../images/google-search-navbar.png';
+import serviceProviderReport from '../components/static/mobile/layout/navigation-service-provider.png';
 import MainPageContainer from '../components/layout/MainPageContainer';
 import OverlayContainer from '../components/layout/OverlayContainer';
 
@@ -39,6 +40,13 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     title: 'mobileNavBar',
     images: {
       medium: <NavigationLanding width="100vh" height="auto" />,
+    },
+  },
+  {
+    id: 'staticMobileNavBarReport',
+    title: 'mobileNavBar',
+    images: {
+      medium: serviceProviderReport,
     },
   },
   {
@@ -80,13 +88,16 @@ export const widgetConfigs: (WidgetConfigType)[] = [
     id: 'staticMobileNavBarLanding', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/landing$/],
   },
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 3, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'staticMobileNavBarReport', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/documents\/reports\/progress$/],
   },
   {
-    id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 3, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   {
-    id: 'logo2Mobile', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
+  },
+  {
+    id: 'logo2Mobile', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   { id: 'mainContent', platform: '*', position: 'main' },
   { id: 'overlay', position: 'children' },
