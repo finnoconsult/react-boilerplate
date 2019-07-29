@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 export interface InputColumnLayoutProps {
   ratio: string;
 }
-export const ColumnLayout = styled.div<InputColumnLayoutProps> `
+export const ColumnLayout = styled.div<InputColumnLayoutProps>`
   display: grid;
   grid-template-columns: ${props => props.ratio};
 

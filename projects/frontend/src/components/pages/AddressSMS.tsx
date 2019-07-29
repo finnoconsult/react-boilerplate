@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import {
   Page,
@@ -9,7 +10,6 @@ import {
   Text,
   SOSMessage,
   FullWidthLayout,
-  HorizontalProgressView,
 } from '@finnoconsult/core-view';
 
 // import HorizontalProgressView from '../components/HorizontalProgressView';
@@ -23,8 +23,8 @@ import {
 // import Link from '../components/Link';
 
 import SMS1 from '../sms/SMS1';
-import { Link } from 'react-router-dom';
 import { Icon } from '../ui';
+import AddressSubMenu from './AddressSubMenu';
 
 const Question = styled(Text)`
   text-align: center;
@@ -42,7 +42,7 @@ export default () => {
   const getSMS = () => setTimeout(() => {
     console.log('get new sms');
     setShowSMS(true);
-  }, 1000);
+  }, 3000);
 
   useEffect(() => {
     getSMS();
@@ -50,14 +50,7 @@ export default () => {
   return (
     <Page>
       {showSMS && <SMS1 />}
-      <HorizontalProgressView
-        items={[
-          <Link to="/address">Adresse</Link>,
-          'Handy-Nummer bestätigen',
-          'Beauftragen',
-        ]}
-        progress={1}
-      />
+      <AddressSubMenu progress={1} />
       <SubPage>
         <Title>Handy-Nummer bestätigen</Title>
       </SubPage>
@@ -72,7 +65,7 @@ geschickt. Bitte folgen Sie den Anweisungen.
       <SubPage>
         <FullWidthLayout>
           <Question>SMS nicht angekommen?</Question>
-          {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
+          {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
           <Button link={showSMS ? '/address/done' :''} title="SMS erneut senden" info />
         </FullWidthLayout>
       </SubPage>
