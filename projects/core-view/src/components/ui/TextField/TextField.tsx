@@ -47,6 +47,7 @@ interface Props {
   badgeTitle?: string;
   placeholder?: string;
   readonly?: boolean;
+  type?: string;
   badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
@@ -60,6 +61,7 @@ export default (props: Props) => {
     badgeTitle,
     placeholder,
     readonly,
+    type = 'text',
     badgeEqualsPlaceholder,
     utilityView,
     onClick,
@@ -82,7 +84,7 @@ export default (props: Props) => {
         value={defaultValue}
         onClick={onClick}
         onChange={onChange}
-        type="text"
+        type={type}
         placeholder={badgeEqualsPlaceholder ? badgeTitle : placeholder}
         strong={strong}
       />

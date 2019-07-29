@@ -119,6 +119,7 @@ export default () => {
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
               defaultValue={addressZipCode}
+              type="number"
               // onClick={firstPartClicked}
               onChange={e => handleTextInputChange(setAddressZipCode, e)}
               badgeTitle="PLZ"
@@ -145,6 +146,7 @@ export default () => {
             />
             <TextField
               defaultValue={addressHouseNumber}
+              type="number"
               // onClick={firstPartClicked}
               onChange={e => handleTextInputChange(setAddressHouseNumber, e)}
               badgeTitle="Hausnummer"
@@ -182,6 +184,7 @@ export default () => {
           <InputColumnLayout ratio="1fr 2fr" style={{ marginBottom: '0px' }}>
             <TextField
               defaultValue={secondPart && secondPart.phoneFirstPart}
+              type="tel"
               // onClick={secondPartClicked}
               onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneFirstPart', e)}
               badgeTitle="Vorwahl"
@@ -189,6 +192,7 @@ export default () => {
             />
             <TextField
               defaultValue={secondPart && secondPart.phoneSecondPart}
+              type="tel"
               // onClick={secondPartClicked}
               onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneSecondPart', e)}
               badgeTitle="Handy-Nummer"
