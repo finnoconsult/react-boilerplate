@@ -28,6 +28,12 @@ export interface FragmentProps {
   underline?: number | boolean;
   compact?: number | boolean;
   nowrap?: string | boolean;
+  tiny?: boolean;
+  small?: boolean;
+  subTitle?: boolean;
+  title?: boolean;
+  text?: boolean;
+  bold?: string | boolean;
   style?: {};
 }
 
@@ -40,29 +46,25 @@ export const Fragment = styled.div<FragmentProps>`
   ${props => props.color && css`
     color: ${props.color};
   `};
-  ${'' /*
-    ${props => props.small && css`
-      font-size: ${styles.webSmallfontSize} !important;
-    `};
-    ${props => props.medium && css`
-      font-size: ${styles.webMediumfontSize} !important;
-    `};
-    ${props => props.normal && css`
-      font-size: ${styles.webNormalfontSize} !important;
-    `};
-    ${props => props.big && css`
-      font-size: ${styles.webBigfontSize} !important;
-    `};
-    ${props => props.huge && css`
-      font-size: ${styles.webHugefontSize} !important;
-    `};
-    ${props => props.header && css`
-      font-size: ${styles.webTitleSize} !important;
-    `};
-    ${props => props.bold && css`
-      font-weight: ${props.bold !== true ? props.bold : 'bold'};
-    `};
-  */}
+  ${props => props.tiny && css`
+    font-size: ${props.theme.font.tinyText} !important;
+  `};
+  ${props => props.small && css`
+    font-size: ${props.theme.font.smallText} !important;
+  `};
+  ${props => props.subTitle && css`
+    font-size: ${props.theme.font.subTitle} !important;
+  `};
+  ${props => props.title && css`
+    font-size: ${props.theme.font.title} !important;
+  `};
+  ${props => props.text && css`
+  font-size: ${props.theme.font.text} !important;
+  `};
+  ${props => props.bold && css`
+    font-weight: ${props.bold === true ? 'bold': props.bold};
+    font-family: ${props.theme.font.face.bold.default};
+  `};
   ${props => props.normal && css`
     font-weight: normal;
   `};
