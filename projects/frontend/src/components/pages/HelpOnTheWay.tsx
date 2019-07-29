@@ -99,7 +99,7 @@ export default () => {
 
   return (
     <Page>
-      {helpComingSMSArrived && <SMS4 />}
+      {helpComingSMSArrived && !documentsSMSArrived && <SMS4 />}
       {documentsSMSArrived && <SMS5 />}
 
       {helperArrived

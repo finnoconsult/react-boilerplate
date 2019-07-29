@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Text from '../ui/Text';
 import LinkStyle from '../ui/LinkStyle';
 import { Children } from '../../types';
+import { useLocation } from '../..';
 
 interface SMSStylesProps {
   animated?: boolean;
@@ -64,6 +65,9 @@ interface SMSProps {
 }
 
 export default (props: SMSProps) => {
+  const location = useLocation();
+  const { pathname: currentRoute } = location;
+
   const {
     children, animated, link, dismissDisabled, icon,
   } = props;
@@ -82,6 +86,7 @@ export default (props: SMSProps) => {
     }
     const touchEndY = event.changedTouches[0].clientY;
     if (Math.abs(touchStart.y - touchEndY) >= 50) setHidden(true);
+    if (currentRoute === link) setHidden(true);
   }
 
   return (

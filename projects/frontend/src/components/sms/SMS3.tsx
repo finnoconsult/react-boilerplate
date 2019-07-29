@@ -9,6 +9,7 @@ export default () => (
       Hilfe ist unterwegs!
       Ihr Helfer wird in ca. 35 Minuten bei Ihnen eintreffen.
       Wir benachrichtigen Sie 5 Minuten vor Ankunft per SMS!
+      <br />
       Über diesen Link können Sie den aktuellen Status verfolgen:
     </SMSText>
     <br />

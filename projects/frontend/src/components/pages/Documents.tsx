@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -11,9 +11,11 @@ import {
   Button,
   SubTitle,
   ColumnLayout as InputColumnLayout,
+  useLocation,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
+import SMS6 from '../sms/SMS6';
 
 const FormLayout = styled.div`
   &>* {
@@ -21,35 +23,54 @@ const FormLayout = styled.div`
   }
 `;
 
-export default () => (
-  <Page>
-    <SubPage>
-      <Title>Dokumente und Rechnung</Title>
-      <LightSubTitle>Auftragsnr. MUC-123123 · Datum 30.7.2019</LightSubTitle>
+export default () => {
+  const [invoiceArrived, setInvoiceArrived] = useState(false);
+  const location = useLocation();
+  const { pathname: currentRoute } = location;
 
-      <TableView
-        disableOpening
-        cellItems={[
-          { title: 'Tätigkeitsbericht', description: '' },
-          // { title: 'Ihre Rechnung', description: '' },
-        ]}
-        rightView={<Icon name="right" />}
-        orderView={() => <Icon name="document" color="#33a3dc" />}
-      />
-    </SubPage>
-    <SubPage>
-      <FormLayout>
-        <SubTitle big>Dokumente per E-Mail erhalten</SubTitle>
-        <InputColumnLayout ratio="7fr 3fr">
-          <TextField
-            badgeTitle="E-Mail"
-            badgeEqualsPlaceholder
-            defaultValue="max@muster.de"
-          />
-          <Button cta title="Senden" />
-        </InputColumnLayout>
-        <Button info title="Fertig" />
-      </FormLayout>
-    </SubPage>
-  </Page>
-);
+  const hasInvoice = invoiceArrived || currentRoute.match(/invoice/);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInvoiceArrived(true);
+    }, 20000);
+  }, []);
+
+  const items = [
+    { title: 'Tätigkeitsbericht', description: '', link: '?coming-soon' },
+  ].concat(
+    hasInvoice ? { title: 'Ihre Rechnung', description: '', link: '?coming-soon' } : [],
+  );
+
+  return (
+    <Page>
+      {hasInvoice && <SMS6 />}
+
+      <SubPage>
+        <Title>Dokumente und Rechnung</Title>
+        <LightSubTitle>Auftragsnr. MUC-123123 · Datum 30.7.2019</LightSubTitle>
+
+        <TableView
+          disableOpening
+          cellItems={items}
+          rightView={<Icon name="right" />}
+          orderView={() => <Icon name="document" color="#33a3dc" />}
+        />
+      </SubPage>
+      <SubPage>
+        <FormLayout>
+          <SubTitle big>Dokumente per E-Mail erhalten</SubTitle>
+          <InputColumnLayout ratio="7fr 3fr">
+            <TextField
+              badgeTitle="E-Mail"
+              badgeEqualsPlaceholder
+              defaultValue="max@muster.de"
+            />
+            <Button cta title="Senden" />
+          </InputColumnLayout>
+          <Button info title="Fertig" />
+        </FormLayout>
+      </SubPage>
+    </Page>
+  );
+};

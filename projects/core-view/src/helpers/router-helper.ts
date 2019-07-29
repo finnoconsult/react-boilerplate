@@ -4,7 +4,7 @@ import { __RouterContext as RouterContext } from 'react-router';
 
 export function useRouter() {
   return useContext(RouterContext);
-};
+}
 
 export function useParams() {
   const { match } = useRouter();
@@ -13,7 +13,7 @@ export function useParams() {
 
 export function useLocation() {
   const { location, history } = useRouter();
-    
+
   function goTo(to: string, { replace = false } = {}) {
     if (replace) {
       history.replace(to);
@@ -21,9 +21,9 @@ export function useLocation() {
       history.push(to);
     }
   }
-    
+
   return {
     ...location,
-    goTo
+    goTo,
   };
 }
