@@ -53,7 +53,6 @@ export default () => {
   const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
 
 
-
   useEffect(() => {
     setTimeout(() => {
       setHelpComingSMSArrived(true);
@@ -108,7 +107,7 @@ export default () => {
               {titles}
               <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
             </SubPage>
-            <Image source={'/assets/images/static/mobile/thomas-mayer.png'} className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" />
           </>
         )
         : (
@@ -118,14 +117,15 @@ export default () => {
               <CustomSubtitle>
                 Ankunft in
                 {' '}
-                <strong>ca. 35 Minuten</strong><br />
+                <strong>ca. 35 Minuten</strong>
+                <br />
               </CustomSubtitle>
               <CustomSubtitle>
                 Bitte stellen Sie sicher, dass Sie telefonisch erreichbar sind.
               </CustomSubtitle>
             </SubPage>
-            <Image source={'/assets/images/static/mobile/adac-waiting-anim-only-looped.gif'} className="fullWidth" />
-            <Image source={'/assets/images/static/mobile/thomas-approaching.png'} className="fullWidth" />
+            <Image source="/assets/images/static/mobile/adac-waiting-anim-only-looped.gif" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" />
           </>
         )}
 
@@ -145,7 +145,11 @@ export default () => {
               title: 'Der Helfer öffnet Ihre Tür',
               description: (
                 <>
-                  <Text>Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst <strong>vor Ort durch den Helfer eingeschätzt</strong> werden.</Text>
+                  <Text>
+                    Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst
+                    <strong>vor Ort durch den Helfer eingeschätzt</strong>
+                    werden.
+                  </Text>
                   <YouTube
                     videoId="fyqPbjrYoCI"
                     opts={videoProps}

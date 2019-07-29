@@ -18,6 +18,7 @@ export const mainTheme = {
   },
   font: {
     text: '1.8rem',
+    tinyText: '1.4rem',
     smallText: '1.6rem',
     subTitle: '1.8rem',
     subTitleBig: '2.0rem',

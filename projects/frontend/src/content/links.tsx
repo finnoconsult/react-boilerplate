@@ -5,7 +5,7 @@ export const links = {
   nav: [
     {
       id: '',
-      route: '/',
+      route: '?coming-soon',
       image: <Icon name="phone" />,
     },
     // {
