@@ -91,6 +91,7 @@ export default () => {
   const videoProps = {
     width: '100%',
     height: 'auto',
+    // https://developers.google.com/youtube/player_parameters
     playerVars: {
       autoplay: PlayState.pause,
       controls: PlayState.pause,
@@ -157,7 +158,9 @@ export default () => {
                   <YouTube
                     videoId="tsPgP6e6YxU"
                     opts={videoProps}
-                    onReady={() => console.log('video READY!')}
+                    onReady={() => console.log('video loaded!')}
+                    onPlay={() => console.log('video starting!')}
+                    onEnd={() => console.log('video finished!')}
                   />
                   <Text>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</Text>
                 </>
