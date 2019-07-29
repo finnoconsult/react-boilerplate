@@ -42,7 +42,7 @@ export default () => {
 
   const getSMS = () => setTimeout(() => {
     setShowSMS(true);
-  }, 2500);
+  }, 1500);
 
   useEffect(() => {
     getSMS();
