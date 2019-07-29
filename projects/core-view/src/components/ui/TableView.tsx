@@ -159,8 +159,8 @@ export default (props: Props) => {
       isOpen={!disableOpening && openStates[index]}
       orderView={orderView && orderView(index)}
     >
-      <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-        <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined}>{item.title}</TableViewCellTitle>
+      <TableViewCellTitleStyles onClick={!disableOpening ? (() => toggle(index)) : undefined} rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
+        <TableViewCellTitle>{item.title}</TableViewCellTitle>
         {rightView}
       </TableViewCellTitleStyles>
       <TableViewCellDescription>{item.description}</TableViewCellDescription>
