@@ -32,9 +32,10 @@ export default () => {
   function sendSMS() {
     if (smsIncoming) return;
     setSMSIncoming(true);
-    setTimeout(() => {
-      setShowSMS(true);
-    }, 1000);
+    setShowSMS(true);
+    // setTimeout(() => {
+    //   setShowSMS(true);
+    // }, 1000);
   }
 
   return (
