@@ -22,29 +22,38 @@ const RadioStyles = styled.input`
   background-color: ${props => props.theme.colors.background}; */
 `;
 
+interface LabelProps {
+  htmlFor?: string;
+}
+const RadioTitle = styled(Text).attrs(() => ({ as: 'label' }))<LabelProps>``;
+
 interface RadioProps {
   name: string;
   value: string;
   onChange?: (value: string) => void;
   checked?: boolean;
+  title?: string;
 }
 
 const Radio = (props: RadioProps) => {
   const {
-    name, value, onChange, checked,
+    name, value, onChange, checked, title,
   } = props;
   return (
-    <RadioStyles
-      checked={checked}
-      type="radio"
-      name={name}
-      value={value}
-      onChange={e => onChange && onChange(e.target.value)}
-    />
+    <>
+      <RadioStyles
+        checked={checked}
+        type="radio"
+        name={name}
+        id={`${name}-${value}`}
+        value={value}
+        onChange={e => onChange && onChange(e.target.value)}
+      />
+      <RadioTitle htmlFor={`${name}-${value}`}>{title}</RadioTitle>
+    </>
   );
 };
 
-const RadioTitle = styled(Text)``;
 
 const RadioWithTitleStyles = styled.div`
   &>* {
@@ -84,10 +93,10 @@ export default (props: RadioGroupProps) => {
             <Radio
               name={name}
               value={item.value}
+              title={item.title}
               onChange={onChange}
               checked={defaultCheckedIndex === index}
             />
-            <RadioTitle>{item.title}</RadioTitle>
           </RadioWithTitleStyles>
         ))}
       </RadioGroupStyles>

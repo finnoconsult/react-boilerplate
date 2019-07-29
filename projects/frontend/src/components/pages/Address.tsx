@@ -149,7 +149,7 @@ export default () => {
             title="Anrede"
             name="gender"
             items={genderItems}
-            onChange={(value) => { console.log(value); setSecondPart({ ...secondPart, gender: value }); }}
+            onChange={value => setSecondPart({ ...secondPart, gender: value })}
             // onClick={e => handleTextSectionChange(setSecordPartHelper, 'gender', e)}
             defaultCheckedIndex={secondPart && genderItems.findIndex(gender => gender.value === secondPart.gender)}
           />
