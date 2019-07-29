@@ -127,6 +127,7 @@ interface Props {
   rightView?: JSX.Element;
   rotateRightViewOnOpenClose?: boolean;
   orderView?: (index: number) => JSX.Element;
+  onClick?: () => void;
 }
 
 export default (props: Props) => {
@@ -139,6 +140,7 @@ export default (props: Props) => {
     rightView,
     rotateRightViewOnOpenClose,
     orderView,
+    onClick,
   } = props;
 
   const initialState = Array<boolean>(cellItems.length).fill(false);
@@ -153,6 +155,11 @@ export default (props: Props) => {
   // }
   // const Container = ({ link }: {link?: string}): React.Component<LinkProps, any> => Link;
 
+  function cellClicked(index: number) {
+    if (!disableOpening) toggle(index);
+    if (onClick !== undefined && onClick !== null) onClick();
+  }
+
   const cell = (item: CellItem, index: number) => (
     <TableViewCell
       key={item.title}
@@ -160,7 +167,7 @@ export default (props: Props) => {
       orderView={orderView && orderView(index)}
     >
       <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-        <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined}>{item.title}</TableViewCellTitle>
+        <TableViewCellTitle onClick={() => cellClicked(index)}>{item.title}</TableViewCellTitle>
         {rightView}
       </TableViewCellTitleStyles>
       <TableViewCellDescription>{item.description}</TableViewCellDescription>

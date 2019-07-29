@@ -12,7 +12,7 @@ interface SMSStylesProps {
   hide?: boolean;
 }
 
-const SMSStyles = styled.div<SMSStylesProps>`
+export const SMSStyles = styled.div<SMSStylesProps>`
   position: absolute;
   z-index: 10;
   left: 8px;
@@ -60,6 +60,7 @@ interface SMSProps {
   children: JSX.Element | JSX.Element[];
   animated?: boolean;
   link?: string;
+  onClick?: () => void;
   dismissDisabled?: boolean;
   icon: Children;
 }
@@ -69,7 +70,7 @@ export default (props: SMSProps) => {
   const { pathname: currentRoute } = location;
 
   const {
-    children, animated, link, dismissDisabled, icon,
+    children, animated, link, onClick, dismissDisabled, icon,
   } = props;
 
   const [hidden, setHidden] = useState(false);
@@ -93,6 +94,7 @@ export default (props: SMSProps) => {
     <SMSStyles
       hide={hidden}
       animated={animated}
+      onClick={onClick}
       onTouchStart={!dismissDisabled ? onTouchStart : undefined}
       onTouchEnd={!dismissDisabled ? onTouchEnd : undefined}
     >

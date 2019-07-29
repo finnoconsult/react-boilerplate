@@ -11,6 +11,7 @@ import {
   LightSubTitle,
   TableView,
   Image,
+  MockupNotification,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
@@ -49,31 +50,53 @@ const OrderView = ({ index }: { index: number }) => (
   </OrderViewStyles>
 );
 
+let wait30TimerID: number;
+let wait30TimerStartedAt: number;
+
 export default () => {
-  const [helperArrived, setHelperArrived] = useState(false);
+  const [timeUntil30, setTimeUntil30] = useState(45000);
+  const [youHaveWaited30, setYouHaveWaited30] = useState(false);
   const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
+  const [helperArrived, setHelperArrived] = useState(false);
   const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
 
+  function shouldIncrementTimeUntil30() {
+    if (youHaveWaited30) return;
+
+    const currentTime = (new Date()).getTime();
+    const alreadySpentTime = currentTime - wait30TimerStartedAt;
+    const newTime = timeUntil30 - alreadySpentTime + 20000;
+
+    // console.log('new time', newTime);
+    // To consider elapsed time, change newTime to timeUntil30
+    if (newTime >= 5 * 60 * 1000) return;
+
+    setTimeUntil30(newTime);
+  }
 
   useEffect(() => {
-    setTimeout(() => {
-      setHelpComingSMSArrived(true);
-    }, 10000);
-  }, []);
+    clearTimeout(wait30TimerID);
 
-  useEffect(() => {
+    wait30TimerStartedAt = (new Date()).getTime();
+    wait30TimerID = setTimeout(() => {
+      setYouHaveWaited30(true);
+    }, timeUntil30);
+  }, [timeUntil30]);
+
+  function youHaveWaited30Clicked() {
+    setYouHaveWaited30(false);
+    setHelpComingSMSArrived(true);
+  }
+
+  function helpShouldArrive() {
+    setHelpComingSMSArrived(false);
     setTimeout(() => {
       setHelperArrived(true);
-      // setHelpComingSMSArrived(true);
-    }, 15000);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setDocumentsSMSArrived(true);
-    }, 20000);
-  }, []);
-
+      setTimeout(() => {
+        setDocumentsSMSArrived(true);
+      }, 5000);
+    }, 1000);
+  }
 
   const titles = (
     <>
@@ -81,7 +104,6 @@ export default () => {
       <LightSubTitle>Auftragsnr. MUC-123123 </LightSubTitle>
     </>
   );
-
 
   enum PlayState {
     pause,
@@ -99,8 +121,14 @@ export default () => {
 
   return (
     <Page>
-      {helpComingSMSArrived && !documentsSMSArrived && <SMS4 />}
+      {helpComingSMSArrived && <SMS4 onClick={helpShouldArrive} />}
       {documentsSMSArrived && <SMS5 />}
+
+      {youHaveWaited30 && (
+        <MockupNotification onClick={youHaveWaited30Clicked}>
+          <Text>Sie haben in der Zwischenzeit 30 Minuten gewartet.</Text>
+        </MockupNotification>
+      )}
 
       {helperArrived
         ? (
@@ -169,6 +197,7 @@ export default () => {
           rightView={<Icon name="down" />}
           rotateRightViewOnOpenClose
           orderView={(index: number) => <OrderView index={index+1} />}
+          onClick={shouldIncrementTimeUntil30}
         />
       </SubPage>
     </Page>

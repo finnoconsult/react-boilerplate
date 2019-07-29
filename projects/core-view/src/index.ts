@@ -29,6 +29,7 @@ export { default as VerticalProgressView } from './components/composite/Vertical
 export {
   default as SMS, SMSText, SMSLink, SMSTitle,
 } from './components/composite/SMS';
+export { default as MockupNotification } from './components/composite/MockupNotification';
 export { default as SOSMessage } from './components/composite/SOSMessage';
 
 export { default as Security } from './components/security';
