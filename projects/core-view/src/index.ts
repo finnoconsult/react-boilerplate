@@ -1,5 +1,6 @@
 export { View } from './components/View';
 export { FlexView } from './components/FlexView';
+export { FloatingView } from './components/FloatingView';
 
 export { WidgetLayoutBuilder } from './components/layout/WidgetLayoutBuilder';
 export { Layout } from './components/layout/Layout';

@@ -10,6 +10,7 @@ import {
   Text,
   SOSMessage,
   FullWidthLayout,
+  FloatingView,
 } from '@finnoconsult/core-view';
 
 // import HorizontalProgressView from '../components/HorizontalProgressView';
@@ -61,14 +62,17 @@ export default () => {
 geschickt. Bitte folgen Sie den Anweisungen.
         </WarningText>
       </SOSMessage>
-      <SubPage>
-        <FullWidthLayout>
-          <Question>SMS nicht angekommen?</Question>
-          {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
-          {/* showSMS ? '/address/done' : */}
-          <Button link="?coming-soon" title="SMS erneut senden" info />
-        </FullWidthLayout>
-      </SubPage>
+
+      <FloatingView bottom>
+        <SubPage>
+          <FullWidthLayout>
+            <Question>SMS nicht angekommen?</Question>
+            {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
+            {/* showSMS ? '/address/done' : */}
+            <Button link="?coming-soon" title="SMS erneut senden" info />
+          </FullWidthLayout>
+        </SubPage>
+      </FloatingView>
     </Page>
   );
 };
