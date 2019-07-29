@@ -8,7 +8,7 @@ interface FloatingViewProps {
 }
 
 export const FloatingView = styled(View)<FloatingViewProps>`
-  position: ${props => props.position || 'absolute'};
+  /* position: ${props => props.position || 'absolute'};
 
   ${props => props.bottom && `
     bottom: ${props.bottom === true ? '10px' : props.bottom};
@@ -20,7 +20,7 @@ export const FloatingView = styled(View)<FloatingViewProps>`
     top: ${props.top === true ? '10px' : props.top};
     left: 0;
     width: 100%;
-  `}
+  `} */
 `;
 
 export default FloatingView;
