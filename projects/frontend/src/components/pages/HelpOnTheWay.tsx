@@ -51,11 +51,15 @@ const OrderView = ({ index }: { index: number }) => (
 );
 
 let wait30TimerID: number;
-let wait30TimerStartedAt: number;
+
+let elapsedTime = 0;
+let lastTimeStopped = (new Date()).getTime();
+
 let doneWaiting = false;
 
 export default () => {
-  const [timeUntil30, setTimeUntil30] = useState(5000);
+  const [timeUntil30, setTimeUntil30] = useState(45000);
+  const [paused, setPaused] = useState(false);
   const [youHaveWaited30, setYouHaveWaited30] = useState(false);
   const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
   const [helperArrived, setHelperArrived] = useState(false);
@@ -64,26 +68,40 @@ export default () => {
   function shouldIncrementTimeUntil30() {
     if (youHaveWaited30) return;
     if (doneWaiting) return;
+    if (paused) return;
 
-    const currentTime = (new Date()).getTime();
-    const alreadySpentTime = currentTime - wait30TimerStartedAt;
-    const newTime = timeUntil30 - alreadySpentTime + 2000;
-
-    // console.log('new time', newTime);
-    // To consider elapsed time, change newTime to timeUntil30
+    const newTime = timeUntil30 + 20000;
+    console.log('incrementing', newTime);
     if (newTime >= 5 * 60 * 1000) return;
-
     setTimeUntil30(newTime);
   }
 
+  function pauseWaiting() {
+    // console.log('pause');
+    setPaused(true);
+  }
+
+  function continueWaiting() {
+    // console.log('play');
+    lastTimeStopped = (new Date()).getTime();
+    setPaused(false);
+  }
+
   useEffect(() => {
+    const currentTime = (new Date()).getTime();
+    elapsedTime += currentTime - lastTimeStopped;
+    lastTimeStopped = currentTime;
+
     clearTimeout(wait30TimerID);
 
-    wait30TimerStartedAt = (new Date()).getTime();
+    if (paused) return;
+    const time = timeUntil30 - elapsedTime;
+    if (time < 0) return;
+
     wait30TimerID = setTimeout(() => {
       setYouHaveWaited30(true);
-    }, timeUntil30);
-  }, [timeUntil30]);
+    }, time);
+  }, [timeUntil30, paused]);
 
   function youHaveWaited30Clicked() {
     doneWaiting = true;
@@ -132,7 +150,9 @@ export default () => {
 
       {youHaveWaited30 && !helpComingSMSArrived && (
         <MockupNotification onClick={youHaveWaited30Clicked}>
+          <Title>Test</Title>
           <Text>Sie haben in der Zwischenzeit 30 Minuten gewartet.</Text>
+          <Title>Test</Title>
         </MockupNotification>
       )}
 
@@ -187,10 +207,11 @@ export default () => {
                     werden.
                   </Text>
                   <YouTube
+                    onPause={continueWaiting}
                     videoId="tsPgP6e6YxU"
                     opts={videoProps}
                     onReady={() => console.log('video loaded!')}
-                    onPlay={() => console.log('video starting!')}
+                    onPlay={pauseWaiting}
                     onEnd={() => console.log('video finished!')}
                   />
                   <Text>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</Text>
