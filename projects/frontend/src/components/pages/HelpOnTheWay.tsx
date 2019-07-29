@@ -38,6 +38,8 @@ const OrderViewStyles = styled.div`
 
 const OrderText = styled(Text)`
   color: ${props => props.theme.colors.background};
+  font-weight: bold;
+  font-family: ${props => props.theme.font.face.bold.office};
   font-size: 12px;
 `;
 
