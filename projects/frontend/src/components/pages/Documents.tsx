@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -13,6 +13,8 @@ import {
   ColumnLayout as InputColumnLayout,
   useLocation,
 } from '@finnoconsult/core-view';
+import StoreContext from '../../stores';
+
 
 import Icon from '../ui/Icon';
 import SMS6 from '../sms/SMS6';
@@ -35,6 +37,14 @@ export default () => {
       setInvoiceArrived(true);
     }, 20000);
   }, []);
+
+  const stores = useContext(StoreContext);
+
+  useEffect(() => {
+    stores.ui.setShowOverlay(true);
+    // eslint-disable-next-line
+  }, []);
+
 
   const items = [
     { title: 'Tätigkeitsbericht', description: '', link: '?coming-soon' },

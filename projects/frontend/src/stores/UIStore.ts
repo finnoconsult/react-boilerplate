@@ -28,6 +28,8 @@ export default class UIStore {
 
   @observable private theme = undefined;
 
+  @observable public showOverlay = false;
+
   @computed public get isDesktop() {
     return isDesktop({
       ...this.themeConfig.devices,
@@ -61,7 +63,6 @@ export default class UIStore {
     return isLandscape(this.resolution);
   }
 
-
   private calculateDeviceMeasures = (resolution: Dimensions) => ({
     isPortrait: isPortrait(resolution),
     isLandscape: isLandscape(resolution),
@@ -89,6 +90,10 @@ export default class UIStore {
       height: res.height,
       ...this.calculateDeviceMeasures(res),
     };
+  }
+
+  @action public setShowOverlay(value: boolean) {
+    this.showOverlay = value;
   }
 
   @computed public get getMainHeight() {
