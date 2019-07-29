@@ -11,6 +11,7 @@ const TableView = styled.div``;
 const Title = styled(Text)`
   font-size: ${props => props.theme.font.title};
   font-weight: bold;
+  font-family: ${props => props.theme.font.face.bold.slab};
 `;
 
 const TableViewCellTitle = styled(Text)`
@@ -146,14 +147,14 @@ export default (props: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <div key={`tableview${index}`}>
+        <div key={item.title || `tableview${index}`}>
           <TableViewCell
             key={item.title}
             isOpen={!disableOpening && openStates[index]}
             orderView={orderView && orderView(index)}
           >
             <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-              <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined} >{item.title}</TableViewCellTitle>
+              <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined}>{item.title}</TableViewCellTitle>
               {rightView}
             </TableViewCellTitleStyles>
             <TableViewCellDescription>{item.description}</TableViewCellDescription>
