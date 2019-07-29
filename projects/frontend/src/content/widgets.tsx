@@ -54,13 +54,13 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     id: 'logoMobile',
     title: 'logo',
     images: {
-      medium: <View padding><Link to="/landing"><Icon name="adac" type="ico.logo" /></Link></View>,
+      medium: <View padding><Link to="/landing"><Icon name="adac" type="ico.logo" size="24px" /></Link></View>,
     },
   },
   {
     id: 'logoOpenHouse',
     images: {
-      medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" /></Link></View>,
+      medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" size="24px" /></Link></View>,
     },
   },
   { id: 'mainContent', component: MainPageContainer },
