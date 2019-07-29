@@ -17,17 +17,23 @@ export const mainTheme = {
     warning: '#CC3330', // red
   },
   font: {
-    text: '1.6rem',
-    smallText: '1.4rem',
+    text: '1.8rem',
+    smallText: '1.6rem',
     subTitle: '1.8rem',
+    subTitleBig: '2.0rem',
     title: '2.4rem',
-    link: '1.6rem',
-    sizeButton: '1.6rem',
-  },
-  fontFace: {
-    office: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
-    default: "'Milo ADAC', MiloADAC, sans-serif",
-    slab: "'Milo Slab ADAC', MiloSlabADAC, 'Milo ADAC', MiloADAC, sans-serif",
+    link: '1.8rem',
+    sizeButton: '1.8rem',
+    face: {
+      office: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
+      default: "'Milo ADAC', MiloADAC, sans-serif",
+      slab: "'Milo Slab ADAC', MiloSlabADAC, 'Milo ADAC', MiloADAC, sans-serif",
+      bold: {
+        office: "'Milo ADAC Offc Bold', MiloADACOffc-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
+        default: "'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
+        slab: "'Milo Slab ADAC Bold', MiloSlabADAC-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
+      },
+    },
   },
   animation: {
     time: '0.2s',
@@ -40,8 +46,13 @@ export const mainTheme = {
     paragraphPadding: '14px 20px',
     basicMargin: '14px',
   },
+  layout: {
+    navBarHeight: '60px',
+    tabBarHeight: '0px',
+  },
   effects: {
-    bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
+    bigShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.4)',
+    // bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
   },
 };
 

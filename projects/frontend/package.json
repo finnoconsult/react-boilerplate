@@ -1,15 +1,16 @@
 {
   "name": "@finnoconsult/frontend",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "dependencies": {
-    "@finnoconsult/core-model": "^0.7.0",
-    "@finnoconsult/core-view": "^0.7.0",
+    "@finnoconsult/core-model": "^0.8.0",
+    "@finnoconsult/core-view": "^0.8.0",
     "lodash.get": "^4.4.2",
     "mobx": "^5.11.0",
     "mobx-react": "^6.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
+    "react-youtube": "^7.9.0",
     "styled-components": "^4.3.2"
   },
   "scripts": {

@@ -25,7 +25,7 @@
                     </g>
                     <g id="↳-Icon-Color-Clipped">
                         <mask id="mask-2" fill="white">
-                            <use xlink:href="#path-1"></use>
+                            <use xlink:href="#navigation-landing-path-1"></use>
                         </mask>
                         <g id="navigation-landing-path-1"></g>
                         <g id="↳-Icon-Color" mask="url(#mask-2)" fill="#191919">
@@ -36,7 +36,7 @@
                     </g>
                     <g id="Colors-/-Black-Clipped">
                         <mask id="mask-4" fill="white">
-                            <use xlink:href="#path-3"></use>
+                            <use xlink:href="#navigation-landing-path-3"></use>
                         </mask>
                         <g id="navigation-landing-path-1"></g>
                         <g id="Colors-/-Black" mask="url(#mask-4)" fill="#191919" fill-rule="nonzero">
@@ -58,7 +58,7 @@
                 </g>
                 <g id="Colors-/-Black-Clipped">
                     <mask id="mask-6" fill="white">
-                        <use xlink:href="#path-5"></use>
+                        <use xlink:href="#navigation-landing-path-5"></use>
                     </mask>
                     <g id="navigation-landing-path-3"></g>
                     <g id="Colors-/-Black" mask="url(#mask-6)" fill="#191919" fill-rule="nonzero">
@@ -74,7 +74,7 @@
                 </g>
                 <g id="Colors-/-Black-Clipped">
                     <mask id="mask-8" fill="white">
-                        <use xlink:href="#path-7"></use>
+                        <use xlink:href="#navigation-landing-path-7"></use>
                     </mask>
                     <g id="navigation-landing-path-5"></g>
                     <g id="Colors-/-Black" mask="url(#mask-8)" fill="#191919" fill-rule="nonzero">
@@ -87,7 +87,7 @@
             <g id="Icon-/-Search-/-Filled" transform="translate(196.000000, 32.000000) scale(-1, 1) rotate(180.000000) translate(-196.000000, -32.000000) translate(187.000000, 23.000000)">
                 <g id="↳-Icon-Color-Clipped">
                     <mask id="mask-10" fill="white">
-                        <use xlink:href="#path-9"></use>
+                        <use xlink:href="#navigation-landing-path-9"></use>
                     </mask>
                     <g id="navigation-landing-path-7"></g>
                     <g id="↳-Icon-Color" mask="url(#mask-10)" fill="#191919">
@@ -98,7 +98,7 @@
                 </g>
                 <g id="Colors-/-Black-Clipped">
                     <mask id="mask-12" fill="white">
-                        <use xlink:href="#path-11"></use>
+                        <use xlink:href="#navigation-landing-path-11"></use>
                     </mask>
                     <g id="navigation-landing-path-7"></g>
                     <g id="Colors-/-Black" mask="url(#mask-12)" fill="#191919" fill-rule="nonzero">

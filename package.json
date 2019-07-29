@@ -16,7 +16,10 @@
         "boilerplate"
     ],
     "author": "Peter Horvath <peter.horvath@finnoconsult.at>, Levente Mathe <levente.mathe@finnoconsult.at>",
-    "contributors": ["Levente Mathe <levente.mathe@finnoconsult.at>", "Levente Mathe <levente.mathe@finnoconsult.at>"],
+    "contributors": [
+        "Levente Mathe <levente.mathe@finnoconsult.at>",
+        "Levente Mathe <levente.mathe@finnoconsult.at>"
+    ],
     "bugs": "https://github.com/finnoconsult/react-boilerplate/issues",
     "license": "UNLICENSED",
     "homepage": "https://demo.finnoconsult.at",
@@ -48,7 +51,7 @@
         "_git:clean:local-branch:dry-run": "sh gitclean.local.sh",
         "### test": "",
         "upload:test": "DIR=$npm_package_environments_test_directory USER=$npm_package_environments_test_username DOMAIN=$npm_package_environments_test_host yarn _scp",
-        "___predeploy:test": "yarn build:frontend",
+        "predeploy:test": "yarn build:frontend",
         "deploy:test": "yarn upload:test",
         "deploy": "yarn deploy:test",
         "##DEV": "",
@@ -81,6 +84,7 @@
         "@types/react": "^16.8.23",
         "@types/react-dom": "^16.8.4",
         "@types/react-router-dom": "^4.3.4",
+        "@types/react-youtube": "^7.6.2",
         "@types/styled-components": "^4.1.16",
         "@typescript-eslint/eslint-plugin": "^1.11.0",
         "@typescript-eslint/parser": "^1.11.0",

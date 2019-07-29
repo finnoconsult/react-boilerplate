@@ -2,23 +2,30 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 
 import Text from './Text';
+import View from '../View';
+import { Children } from '../../types';
 import Divider from './Divider';
 
 const TableView = styled.div``;
 
 const Title = styled(Text)`
-  font-size: 2.4rem;
+  font-size: ${props => props.theme.font.title};
   font-weight: bold;
 `;
 
 const TableViewCellTitle = styled(Text)`
-  font-size: 1.6rem;
+  font-size: ${props => props.theme.font.subTitle};
+  font-family: ${props => props.theme.font.face.bold.office};
   font-weight: bold;
 `;
 
-const TableViewCellDescription = styled(Text)`
-  font-size: 1.6rem;
-  margin-top: 8px;
+const TableViewCellDescription = styled(View)`
+  font-size: ${props => props.theme.font.text};
+
+  &, & > * {
+    margin-top: 8px;
+    display: block;
+  }
 `;
 
 interface TableViewCellStylesProps {
@@ -52,7 +59,6 @@ type OptionalElement = JSX.Element | undefined
 interface TableViewCellProps {
   children: JSX.Element | OptionalElement[];
   isOpen: boolean;
-  toggle?: () => void;
   orderView?: JSX.Element;
 }
 
@@ -60,8 +66,8 @@ interface TableViewCellTitleStylesProps {
   rotateRightView?: boolean;
 }
 
-const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`  
-  display: flex;  
+const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
@@ -75,13 +81,12 @@ const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
 
 const TableViewCell = (props: TableViewCellProps) => {
   const {
-    children, isOpen, toggle, orderView,
+    children, isOpen, orderView,
   } = props;
   return (
     <TableViewCellOuterStyles
       isOpen={isOpen}
       isOrdered={orderView !== undefined && orderView !== null}
-      onClick={toggle}
     >
       {orderView}
       <TableViewCellInnerStyles>
@@ -93,7 +98,7 @@ const TableViewCell = (props: TableViewCellProps) => {
 
 interface CellItem {
   title: string;
-  description: string;
+  description: Children;
 }
 
 function useOpenStates(initialState: boolean[], onlyOneCellShouldOpen?: boolean): [boolean[], (index: number) => void] {
@@ -141,20 +146,19 @@ export default (props: Props) => {
     <TableView>
       {title && <Title>{title}</Title>}
       {cellItems.map((item, index) => (
-        <div>
+        <div key={`tableview${index}`}>
           <TableViewCell
             key={item.title}
             isOpen={!disableOpening && openStates[index]}
-            toggle={!disableOpening ? (() => toggle(index)) : undefined}
             orderView={orderView && orderView(index)}
           >
             <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-              <TableViewCellTitle>{item.title}</TableViewCellTitle>
+              <TableViewCellTitle onClick={!disableOpening ? (() => toggle(index)) : undefined} >{item.title}</TableViewCellTitle>
               {rightView}
             </TableViewCellTitleStyles>
             <TableViewCellDescription>{item.description}</TableViewCellDescription>
           </TableViewCell>
-          {index !== cellItems.length-1 && <Divider fullWidth />}
+          {index !== cellItems.length - 1 && <Divider fullWidth />}
         </div>
       ))}
     </TableView>

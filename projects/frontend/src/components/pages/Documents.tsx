@@ -24,9 +24,9 @@ const FormLayout = styled.div`
 export default () => {
   const stores = useContext(StoreContext);
 
-  // eslint-disable-next-line
   useEffect(() => {
     stores.ui.setShowOverlay(true);
+    // eslint-disable-next-line
   }, []);
 
   return (

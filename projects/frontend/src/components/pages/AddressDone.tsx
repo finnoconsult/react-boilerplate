@@ -10,14 +10,18 @@ import {
   HorizontalProgressView,
   FullWidthLayout,
   CheckBoxGroup,
+  Image,
+  SubTitle,
 } from '@finnoconsult/core-view';
 
-import Offer from '../svgs/Offer';
+// import Offer from '../svgs/Offer';
 
 import SMS2 from '../sms/SMS2';
+import { Link } from 'react-router-dom';
+import { Icon } from '../ui';
 
 const AddressTextLayout = styled.div`
-  margin-top: 5px;
+  margin-top: 10px;
 `;
 
 export default () => {
@@ -38,27 +42,31 @@ export default () => {
       {showSMS && <SMS2 />}
       <HorizontalProgressView
         items={[
-          'Adresse',
-          'Handy-Nummer bestätigen',
+          <Link to="/address">Adresse</Link>,
+          <Link to="/address/sms">Handy-Nummer bestätigen</Link>,
           'Beauftragen',
         ]}
         progress={2}
       />
       <SubPage>
-        <Title>Danke für Ihr Vertrauen, Herr Max Muster</Title>
+        <Title>Danke für Ihr Vertrauen,<br />Herr Max Muster</Title>
         <AddressTextLayout>
-          <Text>Einsatzadresse: </Text>
-          <Text>Landwehrstraße 67, 80331 München</Text>
+          <SubTitle>Einsatzadresse: </SubTitle>
+          <Text>Landwehrstraße 67, 80331 München <Link to="?coming-soon"><Icon name="edit" /></Link></Text>
         </AddressTextLayout>
       </SubPage>
-      <Offer />
+
+      {/* <Offer /> */}
+      <Image source="/assets/images/static/mobile/address-done-user-offer.png" className="fullWidth" />
+
       <SubPage>
         <CheckBoxGroup
           name="agreement"
           items={[
-            { title: 'Ich verzichte auf das Widerrufsrecht', value: 'widerrufsrecht' },
-            { title: 'Ich stimme den AGBs zu', value: 'agb' },
-            { title: 'Ich stimme den Richlinien gemäß der DSGVO zu', value: 'dsgvo' },
+            {
+              title: <>Ich verzichte auf das <strong><u>Widerrufsrecht</u></strong></>, value: 'widerrufsrecht' },
+            { title: <>Ich stimme den <strong><u>AGBs</u></strong> zu</>, value: 'agb' },
+            { title: <>Ich stimme den Richlinien gemäß der <strong><u>DSGVO</u></strong> zu</>, value: 'dsgvo' },
           ]}
           accepted={allAccepted => setTermsAccepted(allAccepted)}
         />

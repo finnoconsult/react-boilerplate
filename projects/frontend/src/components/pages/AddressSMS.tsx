@@ -24,6 +24,7 @@ import {
 
 import SMS1 from '../sms/SMS1';
 import { Link } from 'react-router-dom';
+import { Icon } from '../ui';
 
 const Question = styled(Text)`
   text-align: center;
@@ -31,23 +32,27 @@ const Question = styled(Text)`
 `;
 
 const WarningText = styled(Text)`
-  font-size: 2.4rem;
+  font-size: ${props => props.theme.font.title};
+  padding-left: 10px;
 `;
 
 export default () => {
   const [showSMS, setShowSMS] = useState(false);
 
+  const getSMS = () => setTimeout(() => {
+    console.log('get new sms');
+    setShowSMS(true);
+  }, 1000);
+
   useEffect(() => {
-    setTimeout(() => {
-      setShowSMS(true);
-    }, 1000);
+    getSMS();
   });
   return (
     <Page>
       {showSMS && <SMS1 />}
       <HorizontalProgressView
         items={[
-          'Adresse',
+          <Link to="/address">Adresse</Link>,
           'Handy-Nummer bestätigen',
           'Beauftragen',
         ]}
@@ -57,6 +62,7 @@ export default () => {
         <Title>Handy-Nummer bestätigen</Title>
       </SubPage>
       <SOSMessage grey auxView={<Link to="/address">Nummer ändern</Link>}>
+        <Icon name="sms" />
         <WarningText>
         Wir haben eine SMS an
           <strong> 0172 123 123 </strong>
@@ -66,7 +72,8 @@ geschickt. Bitte folgen Sie den Anweisungen.
       <SubPage>
         <FullWidthLayout>
           <Question>SMS nicht angekommen?</Question>
-          <Button title="SMS erneut senden" info />
+          {/* <Button onClick={() => getSMS()} title="SMS erneut senden" info /> */}
+          <Button link={showSMS ? '/address/done' :''} title="SMS erneut senden" info />
         </FullWidthLayout>
       </SubPage>
     </Page>
