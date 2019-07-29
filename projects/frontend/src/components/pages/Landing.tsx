@@ -76,12 +76,12 @@ export default () => {
   return (
     <Page>
       <SubPage>
-        <Title>Ihr ADAC Schlüsselnotdienst in Berlin, Hamburg und München </Title>
+        <Title>Ihr ADAC Schlüsselnotdienst </Title>
+        <SubTitle>in Berlin, Hamburg und München</SubTitle>
       </SubPage>
 
 
       <SubPage>
-        {/* <SubTitle>Berlin, Hamburg und München </SubTitle> */}
 
         <Marginizer>
           <Image className="fullWidth" source={prices} />
