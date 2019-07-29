@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Text from './Text';
 import { Children } from '../../types';
+import { CheckBox } from './Checkbox';
 
 const Title = styled(Text)`
   font-size: 1.4rem;
@@ -11,32 +12,6 @@ const Title = styled(Text)`
 
 const CheckBoxGroupWithTitleStyles = styled.div``;
 const CheckBoxGroupStyles = styled.div``;
-
-const CheckboxStyles = styled.input`
-  margin-right: 12px;
-  width: 26px;
-  height: 26px;
-  border-radius: 4px;
-  border: solid 1px #000000;
-  flex-shrink: 0;
-`;
-
-interface CheckboxProps {
-  name: string;
-  value: string;
-  onChange?: (value: string) => void;
-}
-
-const CheckBox = ({ name, value, onChange }: CheckboxProps) => (
-  <CheckboxStyles
-    type="checkbox"
-    name={name}
-    value={value}
-    onChange={e => onChange && onChange(e.target.value)}
-  />
-);
-
-const CheckBoxTitle = styled(Text)``;
 
 const CheckBoxWithTitleStyles = styled.div`
   display: flex;
@@ -85,9 +60,9 @@ export default (props: CheckBoxGroupProps) => {
             <CheckBox
               name={name}
               value={item.value}
+              title={item.title}
               onChange={accepted && (() => setAcceptedAtIndex(index, accepted))}
             />
-            <CheckBoxTitle>{item.title}</CheckBoxTitle>
           </CheckBoxWithTitleStyles>
         ))}
       </CheckBoxGroupStyles>
