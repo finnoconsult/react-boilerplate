@@ -76,7 +76,7 @@ export default (props: Props) => {
     <TextFieldOuterBox>
       {badge}
       <TextField
-        // readOnly
+        readOnly
         defaultValue={defaultValue}
         onClick={onClick}
         onChange={onChange}
