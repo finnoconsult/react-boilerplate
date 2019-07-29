@@ -18,7 +18,7 @@ export default function AddressSubMenu({ progress }: AddressSubMenuProps) {
     <HorizontalProgressView
       separator={<Icon name="arrow-right" />}
       items={items.map(({ link, title }, index) => (
-        (link && progress > index) ? <Link to={link}>{title}</Link> : title
+        (link && progress > index) ? <Link key={title} to={link}>{title}</Link> : title
       ))}
       progress={progress}
     />
