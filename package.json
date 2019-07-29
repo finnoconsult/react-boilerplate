@@ -1,7 +1,7 @@
 {
-    "name": "finnoconsult-react-boilerplate",
-    "title": "FinnoConsult React boilerplate",
-    "description": "Our Latest React mockup boilerplate",
+    "name": "adacmockup",
+    "title": "ADAC Mockup",
+    "description": "Adac OpenHouse Mockup",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/finnoconsult/react-boilerplate.git"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -46,30 +46,59 @@ const InputLayout = styled.div`
 `;
 
 export default () => {
-  const [firstPart, setFirstPart] = useState();
+  const [addressZipCode, setAddressZipCode] = useState('');
+  const [addressStreet, setAddressStreet] = useState('');
+  const [addressHouseNumber, setAddressHouseNumber] = useState('');
   const [secondPart, setSecondPart] = useState();
 
+  const firstPartDefined = addressZipCode && addressStreet && !!addressHouseNumber;
+  const secondPartDefined = secondPart && secondPart.gender
+    && secondPart.firstName
+    && secondPart.lastName
+    && secondPart.phoneFirstPart
+    && secondPart.phoneSecondPart;
+
   function firstPartClicked() {
-    if (!firstPart) {
-      setFirstPart({
-        zipCode: '80331',
-        street: 'Landwehrstraße',
-        houseNumber: '67',
-      });
+    setAddressZipCode('80331');
+    setAddressStreet('Landwehrstraße');
+    setAddressHouseNumber('67');
+  }
+
+  function handleTextInputChange(callback: (arg0: string) => void, e?: ChangeEvent<HTMLInputElement>) {
+    if (e) {
+      callback(e.currentTarget.value);
     }
   }
 
-  function secondPartClicked() {
-    if (!secondPart) {
-      setSecondPart({
-        gender: 0,
-        firstName: 'Max',
-        lastName: 'Mustar',
-        phoneFirstPart: '0172',
-        phoneSecondPart: '847 3170',
-      });
+  function handleTextSectionChange(callback: (name: string, value: string) => void, name: string, e?: ChangeEvent<HTMLInputElement>) {
+    if (e) {
+      callback(name, e.currentTarget.value);
     }
   }
+
+  // function secondPartClicked() {
+  //   if (!secondPart) {
+  //     setSecondPart({
+  //       gender: 0,
+  //       firstName: 'Max',
+  //       lastName: 'Mustar',
+  //       phoneFirstPart: '0172',
+  //       phoneSecondPart: '847 3170',
+  //     });
+  //   }
+  // }
+
+  function setSecordPartHelper(name: string, value: string) {
+    setSecondPart({
+      ...secondPart,
+      [name]: value,
+    });
+  }
+
+  const genderItems = [
+    { value: 'male', title: 'Herr' },
+    { value: 'female', title: 'Frau' },
+  ];
 
   return (
     <Page>
@@ -80,8 +109,9 @@ export default () => {
           <Text>Wo können wir helfen?</Text>
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
-              defaultValue={firstPart && firstPart.zipCode}
+              defaultValue={addressZipCode}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressZipCode, e)}
               badgeTitle="PLZ"
               badgeEqualsPlaceholder
             />
@@ -98,14 +128,16 @@ export default () => {
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
-              defaultValue={firstPart && firstPart.street}
+              defaultValue={addressStreet}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressStreet, e)}
               badgeTitle="Strasse"
               badgeEqualsPlaceholder
             />
             <TextField
-              defaultValue={firstPart && firstPart.houseNumber}
+              defaultValue={addressHouseNumber}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressHouseNumber, e)}
               badgeTitle="Hausnummer"
               badgeEqualsPlaceholder
             />
@@ -116,23 +148,23 @@ export default () => {
           <RadioGroup
             title="Anrede"
             name="gender"
-            items={[
-              { value: 'male', title: 'Herr' },
-              { value: 'female', title: 'Frau' },
-            ]}
-            onClick={secondPartClicked}
-            defaultCheckedIndex={secondPart && secondPart.gender}
+            items={genderItems}
+            onChange={value => setSecondPart({ ...secondPart, gender: value })}
+            // onClick={e => handleTextSectionChange(setSecordPartHelper, 'gender', e)}
+            defaultCheckedIndex={secondPart && genderItems.findIndex(gender => gender.value === secondPart.gender)}
           />
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
               defaultValue={secondPart && secondPart.firstName}
-              onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'firstName', e)}
+              // onClick={secondPartClicked}
               badgeTitle="Vorname"
               badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.lastName}
-              onClick={secondPartClicked}
+              // onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'lastName', e)}
               badgeTitle="Nachname"
               badgeEqualsPlaceholder
             />
@@ -140,13 +172,15 @@ export default () => {
           <InputColumnLayout ratio="1fr 2fr" style={{ marginBottom: '0px' }}>
             <TextField
               defaultValue={secondPart && secondPart.phoneFirstPart}
-              onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneFirstPart', e)}
+              // onClick={secondPartClicked}
               badgeTitle="Vorwahl"
               badgeEqualsPlaceholder
             />
             <TextField
               defaultValue={secondPart && secondPart.phoneSecondPart}
-              onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneSecondPart', e)}
+              // onClick={secondPartClicked}
               badgeTitle="Handy-Nummer"
               badgeEqualsPlaceholder
             />
@@ -162,7 +196,7 @@ export default () => {
         <SubPage>
           <FullWidthLayout>
             <Button
-              disabled={!firstPart || !secondPart}
+              disabled={!firstPartDefined || !secondPartDefined}
               title="Handy-Nummer bestätigen"
               cta
               link="/address/sms"
