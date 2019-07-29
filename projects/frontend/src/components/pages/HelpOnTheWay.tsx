@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import YouTube from 'react-youtube';
 
@@ -52,11 +52,6 @@ const OrderView = ({ index }: { index: number }) => (
 
 let wait30TimerID: number;
 
-let elapsedTime = 0;
-let lastTimeStopped = (new Date()).getTime();
-
-let doneWaiting = false;
-
 export default () => {
   const [timeUntil30, setTimeUntil30] = useState(45000);
   const [paused, setPaused] = useState(false);
@@ -65,9 +60,13 @@ export default () => {
   const [helperArrived, setHelperArrived] = useState(false);
   const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
 
+  const elapsedTimeContainer = useRef(0);
+  const lastTimeStoppedContainer = useRef((new Date()).getTime());
+  const doneWaitingContainer = useRef(false);
+
   function shouldIncrementTimeUntil30() {
     if (youHaveWaited30) return;
-    if (doneWaiting) return;
+    if (doneWaitingContainer.current) return;
     if (paused) return;
 
     const newTime = timeUntil30 + 20000;
@@ -83,19 +82,19 @@ export default () => {
 
   function continueWaiting() {
     // console.log('play');
-    lastTimeStopped = (new Date()).getTime();
+    lastTimeStoppedContainer.current = (new Date()).getTime();
     setPaused(false);
   }
 
   useEffect(() => {
     const currentTime = (new Date()).getTime();
-    elapsedTime += currentTime - lastTimeStopped;
-    lastTimeStopped = currentTime;
+    elapsedTimeContainer.current += currentTime - lastTimeStoppedContainer.current;
+    lastTimeStoppedContainer.current = currentTime;
 
     clearTimeout(wait30TimerID);
 
     if (paused) return;
-    const time = timeUntil30 - elapsedTime;
+    const time = timeUntil30 - elapsedTimeContainer.current;
     if (time < 0) return;
 
     wait30TimerID = setTimeout(() => {
@@ -104,7 +103,7 @@ export default () => {
   }, [timeUntil30, paused]);
 
   function youHaveWaited30Clicked() {
-    doneWaiting = true;
+    doneWaitingContainer.current = true;
     setYouHaveWaited30(false);
     setHelpComingSMSArrived(true);
   }
