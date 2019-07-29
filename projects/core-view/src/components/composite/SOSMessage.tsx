@@ -28,7 +28,7 @@ const AuxViewStyles = styled.div`
       font-size: ${props.theme.font.link};
       text-decoration: underline;
       font-weight: bold;
-      font-family: ${props.theme.font.face.bold.office};
+      font-family: ${props.theme.font.face.bold.default};
     `};
   }
 `;

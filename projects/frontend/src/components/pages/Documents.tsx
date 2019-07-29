@@ -9,6 +9,8 @@ import {
   TableView,
   TextField,
   Button,
+  SubTitle,
+  ColumnLayout as InputColumnLayout,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
@@ -24,8 +26,7 @@ export default () => (
     <SubPage>
       <Title>Dokumente und Rechnung</Title>
       <LightSubTitle>Auftragsnr. MUC-123123 · Datum 30.7.2019</LightSubTitle>
-    </SubPage>
-    <SubPage>
+
       <TableView
         disableOpening
         cellItems={[
@@ -38,12 +39,15 @@ export default () => (
     </SubPage>
     <SubPage>
       <FormLayout>
-        <Title>Dokumente per E-Mail erhalten</Title>
-        <TextField
-          badgeTitle="E-Mail"
-          badgeEqualsPlaceholder
-          defaultValue="max@muster.de"
-        />
+        <SubTitle big>Dokumente per E-Mail erhalten</SubTitle>
+        <InputColumnLayout ratio="7fr 3fr">
+          <TextField
+            badgeTitle="E-Mail"
+            badgeEqualsPlaceholder
+            defaultValue="max@muster.de"
+          />
+          <Button cta title="Senden" />
+        </InputColumnLayout>
         <Button info title="Fertig" />
       </FormLayout>
     </SubPage>

@@ -16,7 +16,7 @@ const Title = styled(Text)`
 
 const TableViewCellTitle = styled(Text)`
   font-size: ${props => props.theme.font.subTitle};
-  font-family: ${props => props.theme.font.face.bold.office};
+  font-family: ${props => props.theme.font.face.bold.default};
   font-weight: bold;
 `;
 

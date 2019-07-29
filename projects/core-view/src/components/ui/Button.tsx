@@ -58,7 +58,7 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
 const ButtonText = styled(Text)`
   font-size: ${props => props.theme.font.sizeButton};
   font-weight: bold;
-  font-family: ${props => props.theme.font.face.bold.office};
+  font-family: ${props => props.theme.font.face.bold.default};
 `;
 
 interface Props extends CommonButtonProps{

@@ -27,11 +27,13 @@ export const mainTheme = {
     sizeButton: '1.8rem',
     face: {
       office: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
-      default: "'Milo ADAC', MiloADAC, sans-serif",
+      default: "'Milo ADAC Offc', MiloADACOffc, 'Milo ADAC', MiloADAC, sans-serif",
+      normal: "'Milo ADAC', MiloADAC, sans-serif",
       slab: "'Milo Slab ADAC', MiloSlabADAC, 'Milo ADAC', MiloADAC, sans-serif",
       bold: {
         office: "'Milo ADAC Offc Bold', MiloADACOffc-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
-        default: "'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
+        default: "'Milo ADAC Offc Bold', MiloADACOffc-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
+        normal: "'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
         slab: "'Milo Slab ADAC Bold', MiloSlabADAC-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
       },
     },
