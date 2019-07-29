@@ -93,6 +93,8 @@ export default () => {
     height: 'auto',
     playerVars: {
       autoplay: PlayState.pause,
+      controls: PlayState.pause,
+      disablekb: PlayState.pause,
     },
   };
 
