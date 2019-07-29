@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -46,17 +46,21 @@ const InputLayout = styled.div`
 `;
 
 export default () => {
-  const [firstPart, setFirstPart] = useState();
+  const [addressZipCode, setAddressZipCode] = useState('');
+  const [addressStreet, setAddressStreet] = useState('');
+  const [addressHouseNumber, setAddressHouseNumber] = useState('');
   const [secondPart, setSecondPart] = useState();
 
+  const firstPart = addressZipCode && addressStreet && !!addressHouseNumber;
+
   function firstPartClicked() {
-    if (!firstPart) {
-      setFirstPart({
-        zipCode: '80331',
-        street: 'Landwehrstraße',
-        houseNumber: '67',
-      });
-    }
+    setAddressZipCode('80331');
+    setAddressStreet('Landwehrstraße');
+    setAddressHouseNumber('67');
+  }
+
+  function handleTextInputChange(e: ChangeEvent<HTMLInputElement>, callback: (arg0: string) => void) {
+    callback(e.currentTarget.value);
   }
 
   function secondPartClicked() {
@@ -80,8 +84,9 @@ export default () => {
           <Text>Wo können wir helfen?</Text>
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
-              defaultValue={firstPart && firstPart.zipCode}
+              defaultValue={addressZipCode}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(e, setAddressZipCode)}
               badgeTitle="PLZ"
               badgeEqualsPlaceholder
             />
@@ -98,14 +103,16 @@ export default () => {
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
-              defaultValue={firstPart && firstPart.street}
+              defaultValue={addressStreet}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(e, setAddressStreet)}
               badgeTitle="Strasse"
               badgeEqualsPlaceholder
             />
             <TextField
-              defaultValue={firstPart && firstPart.houseNumber}
+              defaultValue={addressHouseNumber}
               // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(e, setAddressHouseNumber)}
               badgeTitle="Hausnummer"
               badgeEqualsPlaceholder
             />

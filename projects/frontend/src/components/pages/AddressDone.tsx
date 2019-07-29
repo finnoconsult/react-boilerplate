@@ -43,14 +43,14 @@ export default () => {
       <AddressSubMenu progress={2} />
       <SubPage>
         <Title>
-Danke für Ihr Vertrauen,
+          Danke für Ihr Vertrauen,
           <br />
-Herr Max Muster
+          Herr Max Muster
         </Title>
         <AddressTextLayout>
           <SubTitle>Einsatzadresse: </SubTitle>
           <Text>
-Landwehrstraße 67, 80331 München
+            Landwehrstraße 67, 80331 München
             {' '}
             <Link to="?coming-soon"><Icon name="edit" /></Link>
           </Text>
