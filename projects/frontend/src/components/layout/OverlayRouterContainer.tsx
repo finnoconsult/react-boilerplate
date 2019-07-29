@@ -8,6 +8,7 @@ import { FlexView } from '@finnoconsult/core-view';
 import StoreContext from '../../stores';
 
 import RateUs from '../overlays/RateUs';
+import ThankYou from '../overlays/ThankYou';
 
 interface DialogType {
   open?: boolean;
@@ -58,10 +59,23 @@ export default observer(() => {
       {stores.ui.showOverlay && (
         <Switch>
           <Route
-            route="/documents"
+            path="/documents"
             render={() => (
               <DialogContentStyle column center>
-                <RateUs onCloseClicked={dismiss} />
+                <RateUs
+                  onCloseClicked={dismiss}
+                  smileyLink="/documents?thankyou"
+                />
+              </DialogContentStyle>
+            )}
+          />
+          <Route
+            path="/documents?thankyou"
+            render={() => (
+              <DialogContentStyle column center>
+                <ThankYou
+                  onCloseClicked={dismiss}
+                />
               </DialogContentStyle>
             )}
           />

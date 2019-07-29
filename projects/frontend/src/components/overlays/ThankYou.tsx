@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {
-  Overlay, Title, Image, Button, View,
+  Overlay, Title, Text, Button, View,
 } from '@finnoconsult/core-view';
 
-
-import smileys from '../static/mobile/content/rate-us-smileys.svg';
 import { Icon } from '../ui/Icon';
 
 const CloseButtonStyles = styled(View)`
@@ -16,27 +14,25 @@ const CloseButtonStyles = styled(View)`
   margin-bottom: 8px;
 `;
 
-const RateUsTitle = styled(Title)`
-  font-size: 2rem;
+const ThankYouTitle = styled(Title)`
+  font-size: 2.4rem;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: 8px;
 `;
 
 interface Props {
   onCloseClicked: () => void;
-  smileyLink: string;
 }
 
-export default ({ onCloseClicked, smileyLink }: Props) => (
+export default ({ onCloseClicked }: Props) => (
   <Overlay>
     <CloseButtonStyles onClick={onCloseClicked}>
       <Button>
         <Icon name="close" />
       </Button>
     </CloseButtonStyles>
-    <RateUsTitle>Wie zufrieden sind Sie insgesamt mit dem Schlüsselnotdienst durch den ADAC?</RateUsTitle>
-    <Button link={smileyLink}>
-      <Image source={smileys} className="fullWidth" />
-    </Button>
+    <Icon name="thank-you-key" />
+    <ThankYouTitle>Danke für Ihre Bewertung!</ThankYouTitle>
+    <Text>Damit helfen Sie uns, diesen Service ständig zu verbessern.</Text>
   </Overlay>
 );

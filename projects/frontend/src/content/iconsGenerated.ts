@@ -114,6 +114,7 @@ import { ReactComponent as icoJsxSimpleQr } from '../theme/images/jsx/simple-qr.
 import { ReactComponent as icoJsxSms } from '../theme/images/jsx/sms.svg';
 import { ReactComponent as icoJsxSofa } from '../theme/images/jsx/sofa.svg';
 import { ReactComponent as icoJsxSun } from '../theme/images/jsx/sun.svg';
+import { ReactComponent as icoJsxThankYouKey } from '../theme/images/jsx/thank-you-key.svg';
 import { ReactComponent as icoJsxTheatre } from '../theme/images/jsx/theatre.svg';
 import { ReactComponent as icoJsxThreeCoins } from '../theme/images/jsx/threeCoins.svg';
 import { ReactComponent as icoJsxTosave } from '../theme/images/jsx/tosave.svg';
@@ -249,6 +250,7 @@ export const iconsGenerated = {
       icoJsxSms,
       icoJsxSofa,
       icoJsxSun,
+      icoJsxThankYouKey,
       icoJsxTheatre,
       icoJsxThreeCoins,
       icoJsxTosave,
