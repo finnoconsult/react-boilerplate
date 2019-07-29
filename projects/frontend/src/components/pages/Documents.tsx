@@ -31,7 +31,7 @@ export default () => (
         disableOpening
         cellItems={[
           { title: 'Tätigkeitsbericht', description: '' },
-          { title: 'Ihre Rechnung', description: '' },
+          // { title: 'Ihre Rechnung', description: '' },
         ]}
         rightView={<Icon name="right" />}
         orderView={() => <Icon name="document" color="#33a3dc" />}
