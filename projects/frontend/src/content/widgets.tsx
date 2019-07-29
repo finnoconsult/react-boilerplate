@@ -9,6 +9,7 @@ import {
 } from '@finnoconsult/core-model';
 // import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import HeaderContainer from '../components/layout/HeaderContainer';
 // import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
@@ -53,13 +54,13 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     id: 'logoMobile',
     title: 'logo',
     images: {
-      medium: <View padding><Icon name="adac" type="ico.logo" /></View>,
+      medium: <View padding><Link to="/landing"><Icon name="adac" type="ico.logo" /></Link></View>,
     },
   },
   {
-    id: 'logo2Mobile',
+    id: 'logoOpenHouse',
     images: {
-      medium: <View><Icon name="open-house" type="ico.logo" /></View>,
+      medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" /></Link></View>,
     },
   },
   { id: 'mainContent', component: MainPageContainer },
@@ -97,7 +98,7 @@ export const widgetConfigs: (WidgetConfigType)[] = [
     id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   {
-    id: 'logo2Mobile', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
+    id: 'logoOpenHouse', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   { id: 'mainContent', platform: '*', position: 'main' },
   { id: 'overlay', position: 'children' },
