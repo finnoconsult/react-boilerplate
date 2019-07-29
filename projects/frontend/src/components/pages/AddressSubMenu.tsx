@@ -12,13 +12,14 @@ export default function AddressSubMenu({ progress }: AddressSubMenuProps) {
   const items = [
     { link: '/address', title: 'Adresse' },
     { link: '/address/sms', title: 'Handy-Nummer bestätigen' },
-    { title: 'Beauftragen' },
+    { link: '/address/done', title: 'Beauftragen' },
   ];
   return (
     <HorizontalProgressView
       separator={<Icon name="arrow-right" />}
       items={items.map(({ link, title }, index) => (
-        (link && progress > index) ? <Link key={link || title || `title${index}`} to={link}>{title}</Link> : title
+        // (link && progress > index) ? <Link key={link || title || `title${index}`} to={link}>{title}</Link> : title
+        (link) ? <Link key={link || title || `title${index}`} to={link}>{title}</Link> : title
       ))}
       progress={progress}
     />
