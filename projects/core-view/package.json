@@ -1,6 +1,6 @@
 {
   "name": "@finnoconsult/core-view",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "license": "UNLICENSED",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
