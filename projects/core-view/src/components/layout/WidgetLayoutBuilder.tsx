@@ -3,7 +3,7 @@ import React from 'react';
 import { Dimensions, Browser, Children } from '../../types';
 
 import { LayoutProps } from './Layout';
-import { WidgetType } from "./WidgetType";
+import { WidgetType } from './WidgetType';
 import { WidgetFactory } from './WidgetFactory';
 import { WidgetFinderFactory } from './WidgetFinderFactory';
 import { WidgetSearchProps } from './WidgetSearchProps';
@@ -40,7 +40,7 @@ export const WidgetLayoutBuilder = ({
     left={() => renderWidgets({ widgets, position: 'left' })}
     right={() => renderWidgets({ widgets, position: 'right' })}
     footer={() => renderWidgets({ widgets, position: 'footer' })}
-    main={() => renderWidgets({ widgets, position: 'main' })}
+    // main={() => renderWidgets({ widgets, position: 'main' })}
     resolution={resolution}
     browser={browser}
   >

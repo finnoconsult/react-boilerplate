@@ -46,6 +46,7 @@ interface Props {
   defaultValue?: string;
   badgeTitle?: string;
   placeholder?: string;
+  readonly?: boolean;
   badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
@@ -58,6 +59,7 @@ export default (props: Props) => {
     defaultValue,
     badgeTitle,
     placeholder,
+    readonly,
     badgeEqualsPlaceholder,
     utilityView,
     onClick,
@@ -76,8 +78,8 @@ export default (props: Props) => {
     <TextFieldOuterBox>
       {badge}
       <TextField
-        readOnly
-        defaultValue={defaultValue}
+        readOnly={readonly}
+        value={defaultValue}
         onClick={onClick}
         onChange={onChange}
         type="text"

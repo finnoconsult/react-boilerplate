@@ -47,9 +47,9 @@ export const Layout = ({
     {RightSide && <aside className="right"><RightSide /></aside>}
     <main>
       {Main && <Main />}
+      {children}
     </main>
     {Footer && <footer><Footer /></footer>}
-    {children}
   </LayoutStyle>
 );
 

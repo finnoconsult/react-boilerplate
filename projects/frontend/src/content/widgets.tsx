@@ -23,7 +23,7 @@ import {
 import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
 import googleNavBar from '../images/google-search-navbar.png';
 import serviceProviderReport from '../components/static/mobile/layout/navigation-service-provider.png';
-import MainPageContainer from '../components/layout/MainPageContainer';
+// import MainPageContainer from '../components/layout/MainPageContainer';
 import OverlayContainer from '../components/layout/OverlayContainer';
 
 export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
@@ -63,7 +63,7 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
       medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" size="24px" /></Link></View>,
     },
   },
-  { id: 'mainContent', component: MainPageContainer },
+  // { id: 'mainContent', component: MainPageContainer },
   { id: 'overlay', wrapperComponent: OverlayContainer },
 
   { id: 'desktopMenuBar', title: 'desktopMenuBar', component: HeaderContainer },
@@ -100,7 +100,7 @@ export const widgetConfigs: (WidgetConfigType)[] = [
   {
     id: 'logoOpenHouse', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
-  { id: 'mainContent', platform: '*', position: 'main' },
+  // { id: 'mainContent', platform: '*', position: 'main' },
   { id: 'overlay', position: 'children' },
 
   { id: 'desktopMenuBar', platform: 'desktop', position: 'header' },
