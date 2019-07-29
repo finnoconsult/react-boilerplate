@@ -59,18 +59,18 @@ export default observer(() => {
       {stores.ui.showOverlay && (
         <Switch>
           <Route
-            path="/documents"
+            path="/documents/rateus"
             render={() => (
               <DialogContentStyle column center>
                 <RateUs
                   onCloseClicked={dismiss}
-                  smileyLink="/documents?thankyou"
+                  smileyLink="/documents/thankyou"
                 />
               </DialogContentStyle>
             )}
           />
           <Route
-            path="/documents?thankyou"
+            path="/documents/thankyou"
             render={() => (
               <DialogContentStyle column center>
                 <ThankYou
@@ -79,7 +79,7 @@ export default observer(() => {
               </DialogContentStyle>
             )}
           />
-          <Route render={() => (
+          {/* <Route render={() => (
             <DialogContentStyle column center>
               <h1>Defalt route</h1>
               <h2>TODO:</h2>
@@ -88,7 +88,7 @@ export default observer(() => {
               <p>{'end=\'true\' can locate the content to bottom'}</p>
             </DialogContentStyle>
           )}
-          />
+          /> */}
         </Switch>
       )}
     </DialogStyle>

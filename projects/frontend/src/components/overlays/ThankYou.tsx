@@ -2,16 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import {
-  Overlay, Title, Text, Button, View,
+  Overlay, Title, Text,
 } from '@finnoconsult/core-view';
 
 import { Icon } from '../ui/Icon';
 
-const CloseButtonStyles = styled(View)`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-bottom: 8px;
+import CloseButton from './CloseButton';
+
+const CenteredOverlay = styled(Overlay)`
+  text-align: center;
 `;
 
 const ThankYouTitle = styled(Title)`
@@ -25,14 +24,10 @@ interface Props {
 }
 
 export default ({ onCloseClicked }: Props) => (
-  <Overlay>
-    <CloseButtonStyles onClick={onCloseClicked}>
-      <Button>
-        <Icon name="close" />
-      </Button>
-    </CloseButtonStyles>
+  <CenteredOverlay>
+    <CloseButton onClick={onCloseClicked} />
     <Icon name="thank-you-key" />
     <ThankYouTitle>Danke für Ihre Bewertung!</ThankYouTitle>
     <Text>Damit helfen Sie uns, diesen Service ständig zu verbessern.</Text>
-  </Overlay>
+  </CenteredOverlay>
 );
