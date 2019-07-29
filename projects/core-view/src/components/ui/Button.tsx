@@ -93,8 +93,9 @@ export default (props: Props) => {
   };
 
   const buttonClick = back ? backClick : onClick;
+  const enabledButtonClick = !disabled ? buttonClick : () => {};
   // const buttonLink = !back && !onClick && link;
-  const buttonLink = !back && link;
+  const buttonLink = !back && !disabled && link;
 
   return (
     <ButtonStyles
@@ -103,7 +104,7 @@ export default (props: Props) => {
       cta={cta}
       info={info}
       cancel={cancel}
-      onClick={buttonClick}
+      onClick={enabledButtonClick}
     >
       {buttonLink ? <Link to={buttonLink}>{buttonContent}</Link> : <button disabled={disabled} type="button">{buttonContent}</button>}
     </ButtonStyles>
