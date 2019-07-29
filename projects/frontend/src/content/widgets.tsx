@@ -64,6 +64,7 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     },
   },
   // { id: 'mainContent', component: MainPageContainer },
+  // { id: 'mainContent', component: () => <div>After MainPageContainer</div> },
   { id: 'overlay', wrapperComponent: OverlayContainer },
 
   { id: 'desktopMenuBar', title: 'desktopMenuBar', component: HeaderContainer },
@@ -100,7 +101,9 @@ export const widgetConfigs: (WidgetConfigType)[] = [
   {
     id: 'logoOpenHouse', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
-  // { id: 'mainContent', platform: '*', position: 'main' },
+  // {
+  //   id: 'mainContent', platform: '*', position: 'main', order: 2,
+  // },
   { id: 'overlay', position: 'children' },
 
   { id: 'desktopMenuBar', platform: 'desktop', position: 'header' },
