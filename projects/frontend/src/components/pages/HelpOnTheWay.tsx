@@ -52,9 +52,10 @@ const OrderView = ({ index }: { index: number }) => (
 
 let wait30TimerID: number;
 let wait30TimerStartedAt: number;
+let doneWaiting = false;
 
 export default () => {
-  const [timeUntil30, setTimeUntil30] = useState(45000);
+  const [timeUntil30, setTimeUntil30] = useState(5000);
   const [youHaveWaited30, setYouHaveWaited30] = useState(false);
   const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
   const [helperArrived, setHelperArrived] = useState(false);
@@ -62,10 +63,11 @@ export default () => {
 
   function shouldIncrementTimeUntil30() {
     if (youHaveWaited30) return;
+    if (doneWaiting) return;
 
     const currentTime = (new Date()).getTime();
     const alreadySpentTime = currentTime - wait30TimerStartedAt;
-    const newTime = timeUntil30 - alreadySpentTime + 20000;
+    const newTime = timeUntil30 - alreadySpentTime + 2000;
 
     // console.log('new time', newTime);
     // To consider elapsed time, change newTime to timeUntil30
@@ -84,6 +86,7 @@ export default () => {
   }, [timeUntil30]);
 
   function youHaveWaited30Clicked() {
+    doneWaiting = true;
     setYouHaveWaited30(false);
     setHelpComingSMSArrived(true);
   }
@@ -127,7 +130,7 @@ export default () => {
       {helpComingSMSArrived && <SMS4 onClick={helpShouldArrive} />}
       {documentsSMSArrived && <SMS5 />}
 
-      {youHaveWaited30 && (
+      {youHaveWaited30 && !helpComingSMSArrived && (
         <MockupNotification onClick={youHaveWaited30Clicked}>
           <Text>Sie haben in der Zwischenzeit 30 Minuten gewartet.</Text>
         </MockupNotification>
