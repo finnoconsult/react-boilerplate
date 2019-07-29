@@ -64,7 +64,6 @@ export default () => {
 
   const stores = useContext(StoreContext);
   const [open, setOpen] = useState(false);
-  console.log('getBrowser', getBrowser());
 
   return (
     <Draggable>
