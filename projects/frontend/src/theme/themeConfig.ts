@@ -32,7 +32,7 @@ export const mainTheme = {
         office: "'Milo ADAC Offc Bold', MiloADACOffc-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
         default: "'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
         slab: "'Milo Slab ADAC Bold', MiloSlabADAC-Bold, 'Milo ADAC Bold', MiloADAC-Bold, sans-serif",
-      }
+      },
     },
   },
   animation: {
@@ -51,7 +51,8 @@ export const mainTheme = {
     tabBarHeight: '0px',
   },
   effects: {
-    bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
+    bigShadow: '0 4px 16px 0 rgba(0, 0, 0, 0.4)',
+    // bigShadow: '0 0 12px 0 rgba(0,0,0,0.25)',
   },
 };
 

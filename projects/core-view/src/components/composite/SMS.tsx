@@ -13,15 +13,15 @@ interface SMSStylesProps {
 const SMSStyles = styled.div<SMSStylesProps>`
   position: absolute;
   z-index: 10;
-  left: 16px;
-  right: 16px;
+  left: 8px;
+  right: 8px;
 
   word-break: break-all;
 
-  background-color: #e6e5eb;
+  background-color: #f4f2f3;
 
   padding: 9px 16px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
 
   box-shadow: ${props => props.theme.effects.bigShadow};
 

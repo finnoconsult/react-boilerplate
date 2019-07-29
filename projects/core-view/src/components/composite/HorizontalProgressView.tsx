@@ -15,7 +15,7 @@ const ProgressViewTitle = styled(Text)`
   text-align: center;
 
   a {
-    color: ${props => props.theme.color.text};
+    color: ${props => props.theme.colors.text};
   }
 `;
 
