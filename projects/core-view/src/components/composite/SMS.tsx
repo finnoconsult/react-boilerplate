@@ -14,7 +14,7 @@ interface SMSStylesProps {
 
 export const SMSStyles = styled.div<SMSStylesProps>`
   position: absolute;
-  z-index: 10;
+  z-index: 90;
   left: 8px;
   right: 8px;
 

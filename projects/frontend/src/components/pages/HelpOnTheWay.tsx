@@ -113,8 +113,11 @@ export default () => {
   const videoProps = {
     width: '100%',
     height: 'auto',
+    // https://developers.google.com/youtube/player_parameters
     playerVars: {
       autoplay: PlayState.pause,
+      controls: PlayState.pause,
+      disablekb: PlayState.pause,
     },
   };
 
@@ -137,7 +140,7 @@ export default () => {
               {titles}
               <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
             </SubPage>
-            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" link="?coming-soon" />
           </>
         )
         : (
@@ -155,7 +158,7 @@ export default () => {
               </CustomSubtitle>
             </SubPage>
             <Image source="/assets/images/static/mobile/adac-waiting-anim-only-looped.gif" className="fullWidth" />
-            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" link="?coming-soon" />
           </>
         )}
 
@@ -181,9 +184,11 @@ export default () => {
                     werden.
                   </Text>
                   <YouTube
-                    videoId="fyqPbjrYoCI"
+                    videoId="tsPgP6e6YxU"
                     opts={videoProps}
-                    onReady={() => console.log('video READY!')}
+                    onReady={() => console.log('video loaded!')}
+                    onPlay={() => console.log('video starting!')}
+                    onEnd={() => console.log('video finished!')}
                   />
                   <Text>In nahezu allen Fällen öffnen wir die Türen ohne Beschädigung von Tür, Rahmen oder Schloss. In Einzelfällen muss das Schloss aufgebohrt werden. Im Falle einer unausweichlichen Beschädigung werden wir Sie ausdrücklich darauf hinweisen und erst nach Ihrer Zustimmung weiter verfahren.</Text>
                 </>

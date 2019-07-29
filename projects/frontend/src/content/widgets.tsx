@@ -9,6 +9,7 @@ import {
 } from '@finnoconsult/core-model';
 // import { Link } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 import HeaderContainer from '../components/layout/HeaderContainer';
 // import LogoContainer from '../components/layout/LogoContainer';
 import NavBarContainer from '../components/layout/NavBarContainer';
@@ -21,6 +22,7 @@ import {
 
 import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
 import googleNavBar from '../images/google-search-navbar.png';
+import serviceProviderReport from '../components/static/mobile/layout/navigation-service-provider.png';
 import MainPageContainer from '../components/layout/MainPageContainer';
 import OverlayContainer from '../components/layout/OverlayContainer';
 
@@ -42,16 +44,23 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
     },
   },
   {
-    id: 'logoMobile',
-    title: 'logo',
+    id: 'staticMobileNavBarReport',
+    title: 'mobileNavBar',
     images: {
-      medium: <View padding><Icon name="adac" type="ico.logo" /></View>,
+      medium: serviceProviderReport,
     },
   },
   {
-    id: 'logo2Mobile',
+    id: 'logoMobile',
+    title: 'logo',
     images: {
-      medium: <View><Icon name="open-house" type="ico.logo" /></View>,
+      medium: <View padding><Link to="/landing"><Icon name="adac" type="ico.logo" /></Link></View>,
+    },
+  },
+  {
+    id: 'logoOpenHouse',
+    images: {
+      medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" /></Link></View>,
     },
   },
   { id: 'mainContent', component: MainPageContainer },
@@ -80,13 +89,16 @@ export const widgetConfigs: (WidgetConfigType)[] = [
     id: 'staticMobileNavBarLanding', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/landing$/],
   },
   {
-    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 3, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'staticMobileNavBarReport', platform: 'mobile', position: 'nav', order: 2, routes: [/^\/documents\/reports\/progress$/],
   },
   {
-    id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'mobileNavBar', platform: 'mobile', position: 'nav', order: 3, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   {
-    id: 'logo2Mobile', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing)$/],
+    id: 'logoMobile', platform: '*', position: 'nav', order: 1, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
+  },
+  {
+    id: 'logoOpenHouse', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
   { id: 'mainContent', platform: '*', position: 'main' },
   { id: 'overlay', position: 'children' },

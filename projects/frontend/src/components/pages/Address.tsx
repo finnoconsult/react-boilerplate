@@ -14,6 +14,7 @@ import {
   RadioGroup,
   FullWidthLayout,
   ColumnLayout as InputColumnLayout,
+  FloatingView,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
@@ -22,7 +23,7 @@ import AddressSubMenu from './AddressSubMenu';
 
 const DescriptionText = styled(SmallText)`
   margin-top: 8px !important;
-  margin-bottom: 46px !important;
+  /* margin-bottom: 46px; */
   font-size: 1.4rem;
 `;
 
@@ -155,19 +156,23 @@ export default () => {
             erreichbar sind.
           </DescriptionText>
         </InputLayout>
-
-        <FullWidthLayout>
-          <Button
-            disabled={!firstPart || !secondPart}
-            title="Handy-Nummer bestätigen"
-            cta
-            link="/address/sms"
-          />
-        </FullWidthLayout>
-        <DescriptionText>
-          Der Auftrag wird erst aktiv, wenn Sie Ihre Handy-Nummer bestätigt haben. Diese brauchen wir, um Sie ggf. zu kontaktieren.
-        </DescriptionText>
       </SubPage>
+
+      <FloatingView bottom>
+        <SubPage>
+          <FullWidthLayout>
+            <Button
+              disabled={!firstPart || !secondPart}
+              title="Handy-Nummer bestätigen"
+              cta
+              link="/address/sms"
+            />
+            <DescriptionText marginBottom="0px">
+              Der Auftrag wird erst aktiv, wenn Sie Ihre Handy-Nummer bestätigt haben. Diese brauchen wir, um Sie ggf. zu kontaktieren.
+            </DescriptionText>
+          </FullWidthLayout>
+        </SubPage>
+      </FloatingView>
     </Page>
   );
 };

@@ -58,7 +58,7 @@ interface HorizontalProgressViewProps {
 export default ({ items, progress, separator }: HorizontalProgressViewProps) => (
   <ProgressViewStyles>
     {items.map((item, index) => (
-      <ProgressViewItemStyles key={item as string || `horizontal${index}`} done={progress > index} current={progress === index}>
+      <ProgressViewItemStyles key={typeof (item) !== 'object' ? item as string : `horizontal${index}`} done={progress > index} current={progress === index}>
         <ProgressViewTitle>{item}</ProgressViewTitle>
         {index < items.length -1 && separator && <ProgressViewSeparator>{separator}</ProgressViewSeparator>}
       </ProgressViewItemStyles>

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
+import { View } from '../View';
 
-export default styled.div`
+export default styled(View)`
   width: 100%;
 `;

@@ -22,8 +22,13 @@ export function useLocation() {
     }
   }
 
+  function back() {
+    history.goBack();
+  }
+
   return {
     ...location,
     goTo,
+    back,
   };
 }

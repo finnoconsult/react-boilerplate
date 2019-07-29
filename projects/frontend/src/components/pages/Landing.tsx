@@ -62,7 +62,7 @@ const PhoneButton = ({ title, phoneNumber }: PhoneButtonProps) => (
   <PhoneButtonStyles>
     <SubTitle>{title}</SubTitle>
     <FullWidthLayout>
-      <Button info>
+      <Button info link="?coming-soon">
         <Icon name="phone" />
         <PhoneButtonView phoneNumber={phoneNumber} />
       </Button>
@@ -85,6 +85,11 @@ export default () => {
 
         <Marginizer>
           <Image className="fullWidth" source={prices} />
+          <Text tiny color="#666666" padding="0px 10px">
+            ggf. zzgl. Materialkosten Profilzylinder pauschal 30 €.
+            <br />
+            Bei defekter Mechanik erfolgt die Abrechnung nach erforderlichem Aufwand.
+          </Text>
           <Title nowrap>Wir sind von 0–24 Uhr für Sie da!</Title>
           <Image className="fullWidth" source={conditions} />
         </Marginizer>

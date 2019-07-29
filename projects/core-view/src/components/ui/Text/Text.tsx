@@ -14,7 +14,7 @@ export interface TextProps {
 export const Text = styled(View).attrs(() => ({ as: 'p' }))<TextProps>`
   margin: ${props => props.margin && '0 0 8px 0'};
   font-size: ${props => props.theme.font.text};
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.color || props.theme.colors.text};
 
   ${props => props.left && `
     text-align: left !important;
