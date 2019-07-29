@@ -13,6 +13,10 @@ const ProgressViewStyles = styled.div`
 const ProgressViewTitle = styled(Text)`
   font-size: 1.2rem;
   text-align: center;
+
+  a {
+    color: ${props => props.theme.color.text};
+  }
 `;
 
 interface ProgressViewItemStylesProps {
