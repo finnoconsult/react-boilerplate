@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
+import { observer } from 'mobx-react';
 
 import { FlexView } from '@finnoconsult/core-view';
+
+import StoreContext from '../../stores';
+
+import RateUs from '../overlays/RateUs';
 
 interface DialogType {
   open?: boolean;
@@ -10,7 +15,7 @@ interface DialogType {
 }
 
 const DialogContentStyle = styled(FlexView)<DialogType>`
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${props => props.theme.colors.background};
   min-height: 30vh;
   flex: 0 0 auto;
   width: 100%;
@@ -29,7 +34,7 @@ const DialogStyle = styled(FlexView).attrs(() => ({ as: 'dialog' })) <DialogType
 
   &[open] {
     display: flex;
-    background: ${props => props.theme.colors.overlay};
+    background: ${props => props.theme.colors.overlay};
     height: 100vh;
     z-index: 99;
   }
@@ -41,26 +46,37 @@ const DialogStyle = styled(FlexView).attrs(() => ({ as: 'dialog' })) <DialogType
 DialogStyle.displayName = 'DialogStyle';
 
 
-export default function MainRouterContainer(): JSX.Element {
-  // TODO: get this from UIStore
-  const showOverlay = false;
+export default observer(() => {
+  const stores = useContext(StoreContext);
+
+  function dismiss() {
+    stores.ui.setShowOverlay(false);
+  }
 
   return (
-    <DialogStyle open={showOverlay} end={'true'}>
-      {showOverlay && (
+    <DialogStyle open={stores.ui.showOverlay} end="true">
+      {stores.ui.showOverlay && (
         <Switch>
-          {/* <Route route="/address/done" render={() => (<DialogContentStyle column center>Hú</DialogContentStyle>)} /> */}
-          <Route render={() => (
+          <Route
+            route="/documents"
+            render={() => (
+              <DialogContentStyle column center>
+                <RateUs onCloseClicked={dismiss} />
+              </DialogContentStyle>
+            )}
+          />
+          <Route render={() => (
             <DialogContentStyle column center>
               <h1>Defalt route</h1>
               <h2>TODO:</h2>
               <p>implement and add routers here</p>
-              <p>open='true' will display overlay</p>
-              <p>end='true' can locate the content to bottom</p>
+              <p>{'open=\'true\' will display overlay'}</p>
+              <p>{'end=\'true\' can locate the content to bottom'}</p>
             </DialogContentStyle>
-          )} />
+          )}
+          />
         </Switch>
       )}
     </DialogStyle>
   );
-}
+});

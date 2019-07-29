@@ -8,6 +8,7 @@ export { FullWidthLayout } from './components/layout/FullWidthLayout';
 export { StaticMenuList } from './components/layout/StaticMenuList';
 export { default as Page } from './components/layout/Page';
 export { default as SubPage } from './components/layout/SubPage';
+export { default as Overlay } from './components/layout/Overlay';
 
 export { default as LinkStyle } from './components/ui/LinkStyle';
 export { default as Image } from './components/ui/Image';
