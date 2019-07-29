@@ -20,7 +20,7 @@ export default function MainRouterContainer(): JSX.Element {
       <Route path="/address/done" exact component={AddressDone} />
       <Route path="/progress" exact component={Progress} />
       <Route path="/progress/ontheway" exact component={HelpOnTheWay} />
-      <Route path="/documents" exact component={Documents} />
+      <Route path="/documents" component={Documents} />
     </>
   );
 }

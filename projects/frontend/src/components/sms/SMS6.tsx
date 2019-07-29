@@ -4,10 +4,9 @@ import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
 import { Icon } from '../ui';
 
 export default () => (
-  <SMS animated link="/documents" dismissDisabled icon={<Icon name="message" />}>
+  <SMS animated link="/documents/invoice" icon={<Icon name="message" />}>
     <SMSText>
-      {/* Ihre Beauftragung zur Türöffnung zur Auftragsnr. MUC-123123. */}
-      Ihr Tätigkeitsbericht zur Auftragsnr. MUC-123123
+      Sehr geehrter Herr Max Muster, abschliessend erhalten Sie Ihre ADAC-Rechnung zur Auftragsnr. MUC-123123. Sie können das Dokument über diesen Link aufrufen:
     </SMSText>
     <SMSText>
       Sie können das Dokument über diesen Link aufrufen:

@@ -8,7 +8,8 @@
 		{"type": "image/png", "src": "/images/avatar-500.png", "sizes": "500x500"}
 	],
 	"start_url": "/",
-	"display": "fullscreen",
+	"display": "browser",
+	"--display--fullscreen": "fullscreen",
 	"background_color": "#ffffff",
 	"theme_color": "#00bd59",
 	"orientation": "portrait"

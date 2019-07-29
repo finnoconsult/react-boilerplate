@@ -4,6 +4,8 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Text from '../ui/Text';
 import LinkStyle from '../ui/LinkStyle';
+import { Children } from '../../types';
+import { useLocation } from '../..';
 
 interface SMSStylesProps {
   animated?: boolean;
@@ -59,11 +61,15 @@ interface SMSProps {
   animated?: boolean;
   link?: string;
   dismissDisabled?: boolean;
+  icon: Children;
 }
 
 export default (props: SMSProps) => {
+  const location = useLocation();
+  const { pathname: currentRoute } = location;
+
   const {
-    children, animated, link, dismissDisabled,
+    children, animated, link, dismissDisabled, icon,
   } = props;
 
   const [hidden, setHidden] = useState(false);
@@ -80,6 +86,7 @@ export default (props: SMSProps) => {
     }
     const touchEndY = event.changedTouches[0].clientY;
     if (Math.abs(touchStart.y - touchEndY) >= 50) setHidden(true);
+    if (currentRoute === link) setHidden(true);
   }
 
   return (
@@ -89,13 +96,35 @@ export default (props: SMSProps) => {
       onTouchStart={!dismissDisabled ? onTouchStart : undefined}
       onTouchEnd={!dismissDisabled ? onTouchEnd : undefined}
     >
+      <SMSHeader>
+        {icon}
+        {' '}
+        Messages
+      </SMSHeader>
       {link && <Link to={link}>{children}</Link>}
       {!link && children}
     </SMSStyles>
   );
 };
-
-export const SMSText = styled(Text)``;
+export const SMSText = styled(Text)`
+  font-size: ${props => props.theme.font.tinyText};
+  margin-bottom: 8px;
+  opacity: 0.6;
+  `;
+export const SMSHeader = styled(SMSText)`
+  opacity: 1;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  color: #3a63ca;
+  `;
+export const SMSTitle = styled(SMSText)`
+  opacity: 1;
+  color: #2b2b2b;
+  `;
 export const SMSLink = styled(LinkStyle).attrs(() => ({ as: 'span' }))`
+  font-size: ${props => props.theme.font.tinyText};
   color: #007aff;
 `;

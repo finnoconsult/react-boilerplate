@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { SMS, SMSText, SMSLink } from '@finnoconsult/core-view';
+import { Icon } from '../ui';
 
 export default () => (
-  <SMS animated>
+  <SMS animated icon={<Icon name="message" />}>
     <SMSText>
       Ihr Helfer wird in ca. 5 Minuten bei Ihnen eintreffen.
     </SMSText>

@@ -26,7 +26,9 @@ export { default as TableView } from './components/ui/TableView';
 
 export { default as HorizontalProgressView } from './components/composite/HorizontalProgressView';
 export { default as VerticalProgressView } from './components/composite/VerticalProgressView';
-export { default as SMS, SMSText, SMSLink } from './components/composite/SMS';
+export {
+  default as SMS, SMSText, SMSLink, SMSTitle,
+} from './components/composite/SMS';
 export { default as SOSMessage } from './components/composite/SOSMessage';
 
 export { default as Security } from './components/security';

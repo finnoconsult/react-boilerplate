@@ -12,8 +12,8 @@ const MapPinUtilityViewStyles = styled.div`
   }
 `;
 
-const MapPinUtilityViewTitle = styled(Text)`  
-  font-size: 13px;
+const MapPinUtilityViewTitle = styled(Text)`
+  font-size: ${props => props.theme.font.text};
   font-weight: bold;
 `;
 
@@ -25,6 +25,6 @@ interface Props {
 export default ({ locatorView, onClick }: Props) => (
   <MapPinUtilityViewStyles onClick={onClick}>
     {locatorView}
-    <MapPinUtilityViewTitle>Meinen Standort bestimmen</MapPinUtilityViewTitle>
+    <MapPinUtilityViewTitle>Mein Standort</MapPinUtilityViewTitle>
   </MapPinUtilityViewStyles>
 );

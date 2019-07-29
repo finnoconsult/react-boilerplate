@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -9,11 +9,15 @@ import {
   TableView,
   TextField,
   Button,
+  SubTitle,
+  ColumnLayout as InputColumnLayout,
+  useLocation,
 } from '@finnoconsult/core-view';
 import StoreContext from '../../stores';
 
 
 import Icon from '../ui/Icon';
+import SMS6 from '../sms/SMS6';
 
 const FormLayout = styled.div`
   &>* {
@@ -22,6 +26,18 @@ const FormLayout = styled.div`
 `;
 
 export default () => {
+  const [invoiceArrived, setInvoiceArrived] = useState(false);
+  const location = useLocation();
+  const { pathname: currentRoute } = location;
+
+  const hasInvoice = invoiceArrived || currentRoute.match(/invoice/);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInvoiceArrived(true);
+    }, 20000);
+  }, []);
+
   const stores = useContext(StoreContext);
 
   useEffect(() => {
@@ -29,31 +45,39 @@ export default () => {
     // eslint-disable-next-line
   }, []);
 
+
+  const items = [
+    { title: 'Tätigkeitsbericht', description: '', link: '?coming-soon' },
+  ].concat(
+    hasInvoice ? { title: 'Ihre Rechnung', description: '', link: '?coming-soon' } : [],
+  );
+
   return (
     <Page>
+      {hasInvoice && <SMS6 />}
+
       <SubPage>
         <Title>Dokumente und Rechnung</Title>
         <LightSubTitle>Auftragsnr. MUC-123123 · Datum 30.7.2019</LightSubTitle>
-      </SubPage>
-      <SubPage>
+
         <TableView
           disableOpening
-          cellItems={[
-            { title: 'Tätigkeitsbericht', description: '' },
-            { title: 'Ihre Rechnung', description: '' },
-          ]}
+          cellItems={items}
           rightView={<Icon name="right" />}
           orderView={() => <Icon name="document" color="#33a3dc" />}
         />
       </SubPage>
       <SubPage>
         <FormLayout>
-          <Title>Dokumente per E-Mail erhalten</Title>
-          <TextField
-            badgeTitle="E-Mail"
-            badgeEqualsPlaceholder
-            defaultValue="max@muster.de"
-          />
+          <SubTitle big>Dokumente per E-Mail erhalten</SubTitle>
+          <InputColumnLayout ratio="7fr 3fr">
+            <TextField
+              badgeTitle="E-Mail"
+              badgeEqualsPlaceholder
+              defaultValue="max@muster.de"
+            />
+            <Button cta title="Senden" />
+          </InputColumnLayout>
           <Button info title="Fertig" />
         </FormLayout>
       </SubPage>

@@ -38,6 +38,8 @@ const OrderViewStyles = styled.div`
 
 const OrderText = styled(Text)`
   color: ${props => props.theme.colors.background};
+  font-weight: bold;
+  font-family: ${props => props.theme.font.face.bold.default};
   font-size: 12px;
 `;
 
@@ -51,7 +53,6 @@ export default () => {
   const [helperArrived, setHelperArrived] = useState(false);
   const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
   const [documentsSMSArrived, setDocumentsSMSArrived] = useState(false);
-
 
 
   useEffect(() => {
@@ -98,7 +99,7 @@ export default () => {
 
   return (
     <Page>
-      {helpComingSMSArrived && <SMS4 />}
+      {helpComingSMSArrived && !documentsSMSArrived && <SMS4 />}
       {documentsSMSArrived && <SMS5 />}
 
       {helperArrived
@@ -108,7 +109,7 @@ export default () => {
               {titles}
               <CustomSubtitle>Ihr Helfer ist angekommen und wird gleich bei Ihnen sein.</CustomSubtitle>
             </SubPage>
-            <Image source={'/assets/images/static/mobile/thomas-mayer.png'} className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-mayer.png" className="fullWidth" />
           </>
         )
         : (
@@ -118,14 +119,15 @@ export default () => {
               <CustomSubtitle>
                 Ankunft in
                 {' '}
-                <strong>ca. 35 Minuten</strong><br />
+                <strong>ca. 35 Minuten</strong>
+                <br />
               </CustomSubtitle>
               <CustomSubtitle>
                 Bitte stellen Sie sicher, dass Sie telefonisch erreichbar sind.
               </CustomSubtitle>
             </SubPage>
-            <Image source={'/assets/images/static/mobile/adac-waiting-anim-only-looped.gif'} className="fullWidth" />
-            <Image source={'/assets/images/static/mobile/thomas-approaching.png'} className="fullWidth" />
+            <Image source="/assets/images/static/mobile/adac-waiting-anim-only-looped.gif" className="fullWidth" />
+            <Image source="/assets/images/static/mobile/thomas-approaching.png" className="fullWidth" />
           </>
         )}
 
@@ -145,7 +147,11 @@ export default () => {
               title: 'Der Helfer öffnet Ihre Tür',
               description: (
                 <>
-                  <Text>Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst <strong>vor Ort durch den Helfer eingeschätzt</strong> werden.</Text>
+                  <Text>
+                    Wie lange es dauern wird um Ihre Tür zu öffnen, ist situationsabhängig und kann erst
+                    <strong>vor Ort durch den Helfer eingeschätzt</strong>
+                    werden.
+                  </Text>
                   <YouTube
                     videoId="fyqPbjrYoCI"
                     opts={videoProps}

@@ -6,7 +6,7 @@ interface TypedIconProps extends IconProps {
   type?: string;
 }
 
-export const Icon = (props: (TypedIconProps)) => {
+export const Icon = (props: (TypedIconProps)) => {
   const {
     name, type,
   } = props;
@@ -16,6 +16,6 @@ export const Icon = (props: (TypedIconProps)) => {
   return (
     <PureIcon {...props} source={source} />
   );
-}
+};
 
 export default Icon;

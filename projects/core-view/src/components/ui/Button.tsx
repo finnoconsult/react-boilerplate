@@ -17,7 +17,7 @@ interface ButtonStylesProps extends CommonButtonProps{
 }
 
 const ButtonStyles = styled.div<ButtonStylesProps>`
-  ${props => props.shouldFormat && `
+  ${props => props.shouldFormat && `
     min-height: 48px;
     display: flex;
   `}
@@ -58,6 +58,7 @@ const ButtonStyles = styled.div<ButtonStylesProps>`
 const ButtonText = styled(Text)`
   font-size: ${props => props.theme.font.sizeButton};
   font-weight: bold;
+  font-family: ${props => props.theme.font.face.bold.default};
 `;
 
 interface Props extends CommonButtonProps{

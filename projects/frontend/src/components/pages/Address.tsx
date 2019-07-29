@@ -12,29 +12,36 @@ import {
   Button,
   Divider,
   RadioGroup,
-  HorizontalProgressView,
   FullWidthLayout,
   ColumnLayout as InputColumnLayout,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
+import AddressSubMenu from './AddressSubMenu';
+
+
+const DescriptionText = styled(SmallText)`
+  margin-top: 8px !important;
+  margin-bottom: 46px !important;
+  font-size: 1.4rem;
+`;
 
 const InputLayout = styled.div`
   &>div {
     margin-bottom: 24px;
-  }
 
-  &>${Title} {
-    margin-bottom: 16px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 
   &>${Text} {
     margin-bottom: 16px;
   }
-`;
 
-const DescriptionText = styled(SmallText)`
-  margin-top: 16px;
+  &>${Title} {
+    margin-bottom: 0 !important;
+  }
 `;
 
 export default () => {
@@ -65,14 +72,7 @@ export default () => {
 
   return (
     <Page>
-      <HorizontalProgressView
-        items={[
-          'Adresse',
-          'Handy-Nummer bestätigen',
-          'Beauftragen',
-        ]}
-        progress={0}
-      />
+      <AddressSubMenu progress={0} />
       <SubPage>
         <InputLayout>
           <Title>Ihre Adresse</Title>
@@ -136,7 +136,7 @@ export default () => {
               badgeEqualsPlaceholder
             />
           </InputColumnLayout>
-          <InputColumnLayout ratio="1fr 2fr">
+          <InputColumnLayout ratio="1fr 2fr" style={{ marginBottom: '0px' }}>
             <TextField
               defaultValue={secondPart && secondPart.phoneFirstPart}
               onClick={secondPartClicked}

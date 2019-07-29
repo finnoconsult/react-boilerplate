@@ -27,6 +27,7 @@ export interface FragmentProps {
   round?: number | boolean;
   underline?: number | boolean;
   compact?: number | boolean;
+  nowrap?: string | boolean;
   style?: {};
 }
 
@@ -129,15 +130,18 @@ export const Fragment = styled.div<FragmentProps>`
     text-decoration: underline;
   `};
   ${props => props.compact && css`
+  line-height: 0;
+
+  & > figure {
     line-height: 0;
+  }
 
-    & > figure {
-      line-height: 0;
-    }
-
-    & > *, p, h1, h2, h3, h4, h5, h6 {
-      line-height: normal;
-    }
+  & > *, p, h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+  }
+  `};
+  ${props => props.nowrap && css`
+    white-space: ${(props.round !== true && props.round) || 'nowrap'};
   `};
 
 `;

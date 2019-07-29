@@ -17,9 +17,9 @@ import {
 // import FireDepartment from '../svgs/FireDepartment';
 // import Prices from '../svgs/Prices';
 // import Conditions from '../svgs/Conditions';
-import prices from '../static/mobile/content/landing-prices.svg';
-import fireDepartment from '../static/mobile/content/landing-firedepartment.svg';
-import conditions from '../static/mobile/content/landing-conditions.svg';
+import prices from '../static/mobile/content/landing-prices.png';
+import fireDepartment from '../static/mobile/content/landing-firedepartment.png';
+import conditions from '../static/mobile/content/landing-conditions.png';
 
 import Icon from '../ui/Icon';
 
@@ -48,6 +48,9 @@ const PhoneButtonStyles = styled.div`
   &>${FullWidthLayout} {
     margin-bottom: 24px;
   }
+  svg, img {
+    margin-right: 7px;
+  }
 `;
 
 interface PhoneButtonProps {
@@ -60,6 +63,7 @@ const PhoneButton = ({ title, phoneNumber }: PhoneButtonProps) => (
     <SubTitle>{title}</SubTitle>
     <FullWidthLayout>
       <Button info>
+        <Icon name="phone" />
         <PhoneButtonView phoneNumber={phoneNumber} />
       </Button>
     </FullWidthLayout>
@@ -81,7 +85,7 @@ export default () => {
 
         <Marginizer>
           <Image className="fullWidth" source={prices} />
-          <Title>Wir sind von 0–24 Uhr für Sie da!</Title>
+          <Title nowrap>Wir sind von 0–24 Uhr für Sie da!</Title>
           <Image className="fullWidth" source={conditions} />
         </Marginizer>
       </SubPage>
@@ -94,7 +98,7 @@ export default () => {
 
       <SubPage>
         <FullWidthLayout style={{ marginBottom: '30px' }}>
-          <Button title="Schlüsselnotdienst anfordern" cta link="/address" />
+          <Button title="Schlüsseldienst jetzt anfordern" cta link="/address" />
         </FullWidthLayout>
 
         <Marginizer>
@@ -107,7 +111,7 @@ export default () => {
 
       <Divider fullWidth />
 
-      <SubPage>
+      <SubPage marginTop="16px">
         <TableView
           title="FAQ"
           cellItems={[

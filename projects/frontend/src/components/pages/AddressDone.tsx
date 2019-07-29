@@ -7,7 +7,6 @@ import {
   Title,
   Text,
   Button,
-  HorizontalProgressView,
   FullWidthLayout,
   CheckBoxGroup,
   Image,
@@ -16,9 +15,10 @@ import {
 
 // import Offer from '../svgs/Offer';
 
-import SMS2 from '../sms/SMS2';
 import { Link } from 'react-router-dom';
+import SMS2 from '../sms/SMS2';
 import { Icon } from '../ui';
+import AddressSubMenu from './AddressSubMenu';
 
 const AddressTextLayout = styled.div`
   margin-top: 10px;
@@ -40,19 +40,20 @@ export default () => {
   return (
     <Page>
       {showSMS && <SMS2 />}
-      <HorizontalProgressView
-        items={[
-          <Link to="/address">Adresse</Link>,
-          <Link to="/address/sms">Handy-Nummer bestätigen</Link>,
-          'Beauftragen',
-        ]}
-        progress={2}
-      />
+      <AddressSubMenu progress={2} />
       <SubPage>
-        <Title>Danke für Ihr Vertrauen,<br />Herr Max Muster</Title>
+        <Title>
+Danke für Ihr Vertrauen,
+          <br />
+Herr Max Muster
+        </Title>
         <AddressTextLayout>
           <SubTitle>Einsatzadresse: </SubTitle>
-          <Text>Landwehrstraße 67, 80331 München <Link to="?coming-soon"><Icon name="edit" /></Link></Text>
+          <Text>
+Landwehrstraße 67, 80331 München
+            {' '}
+            <Link to="?coming-soon"><Icon name="edit" /></Link>
+          </Text>
         </AddressTextLayout>
       </SubPage>
 
@@ -64,9 +65,39 @@ export default () => {
           name="agreement"
           items={[
             {
-              title: <>Ich verzichte auf das <strong><u>Widerrufsrecht</u></strong></>, value: 'widerrufsrecht' },
-            { title: <>Ich stimme den <strong><u>AGBs</u></strong> zu</>, value: 'agb' },
-            { title: <>Ich stimme den Richlinien gemäß der <strong><u>DSGVO</u></strong> zu</>, value: 'dsgvo' },
+              title: (
+                <>
+                  Ich verzichte auf das
+                  {' '}
+                  <strong><u>Widerrufsrecht</u></strong>
+                </>
+              ),
+              value: 'widerrufsrecht',
+            },
+            {
+              title: (
+                <>
+                  Ich stimme den
+                  {' '}
+                  <strong><u>AGBs</u></strong>
+                  {' '}
+                  zu
+                </>
+              ),
+              value: 'agb',
+            },
+            {
+              title: (
+                <>
+                  Ich stimme den Richlinien gemäß der
+                  {' '}
+                  <strong><u>DSGVO</u></strong>
+                  {' '}
+                  zu
+                </>
+              ),
+              value: 'dsgvo',
+            },
           ]}
           accepted={allAccepted => setTermsAccepted(allAccepted)}
         />
