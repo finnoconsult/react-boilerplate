@@ -8,6 +8,7 @@ import { FlexView, useLocation } from '@finnoconsult/core-view';
 import StoreContext from '../../stores';
 
 import RateUs from '../overlays/RateUs';
+import ThankYou from '../overlays/ThankYou';
 import ComingSoon from '../overlays/ComingSoon';
 
 interface DialogType {
@@ -58,14 +59,26 @@ export default observer(() => {
   const isComingSoon = location.search.match(/[?&]coming-soon(\/|&|$)/gi) !== null;
 
   // TODO: implement CustomSwitch to check if there is any children or not.
-  const GetChildren = () => (
+  const RouteSwitcher = () => (
     <Switch>
       <Route
-        path="/documents"
-        exact
+        path="/documents/rateus"
         render={() => (
           <DialogContentStyle column center>
-            <RateUs onCloseClicked={dismiss} />
+            <RateUs
+              onCloseClicked={dismiss}
+              smileyLink="/documents/thankyou"
+            />
+          </DialogContentStyle>
+        )}
+      />
+      <Route
+        path="/documents/thankyou"
+        render={() => (
+          <DialogContentStyle column center>
+            <ThankYou
+              onCloseClicked={dismiss}
+            />
           </DialogContentStyle>
         )}
       />
@@ -82,14 +95,14 @@ export default observer(() => {
     </Switch>
   );
 
-  const children = <GetChildren />;
+  const renderedSwitch = <RouteSwitcher />;
   const open = isComingSoon || stores.ui.showOverlay;
-  // console.log('children', stores.ui.showOverlay, children, <ComingSoon />, <ComingSoon /> !== null);
+  // console.log('renderedSwitch', stores.ui.showOverlay, renderedSwitch, <ComingSoon />, <ComingSoon /> !== null);
 
   return (
     <DialogStyle open={open} end="true">
       {stores.ui.showOverlay && (
-        children
+        renderedSwitch
       )}
       {isComingSoon && <Route component={ComingSoon} />}
     </DialogStyle>

@@ -40,11 +40,9 @@ export default () => {
 
   const stores = useContext(StoreContext);
 
-  useEffect(() => {
+  function showOverlay() {
     stores.ui.setShowOverlay(true);
-    // eslint-disable-next-line
-  }, []);
-
+  }
 
   const items = [
     { title: 'Tätigkeitsbericht', description: '', link: '?coming-soon' },
@@ -78,7 +76,7 @@ export default () => {
             />
             <Button cta title="Senden" />
           </InputColumnLayout>
-          <Button info title="Fertig" />
+          <Button info title="Fertig" onClick={showOverlay} link="/documents/rateus" />
         </FormLayout>
       </SubPage>
     </Page>

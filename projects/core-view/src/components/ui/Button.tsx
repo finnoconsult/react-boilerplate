@@ -93,7 +93,8 @@ export default (props: Props) => {
   };
 
   const buttonClick = back ? backClick : onClick;
-  const buttonLink = !back && !onClick && link;
+  // const buttonLink = !back && !onClick && link;
+  const buttonLink = !back && link;
 
   return (
     <ButtonStyles
