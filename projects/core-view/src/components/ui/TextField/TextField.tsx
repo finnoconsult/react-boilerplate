@@ -77,7 +77,7 @@ export default (props: Props) => {
       {badge}
       <TextField
         // readOnly
-        value={defaultValue}
+        defaultValue={defaultValue}
         onClick={onClick}
         onChange={onChange}
         type="text"
