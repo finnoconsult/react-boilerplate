@@ -18,14 +18,15 @@ interface DialogType {
 
 const DialogContentStyle = styled(FlexView)<DialogType>`
   background-color: ${props => props.theme.colors.background};
-  min-height: 30vh;
+  min-height: 50vh;
   flex: 0 0 auto;
+  justify-content: flex-start;
   width: 100%;
 `;
 
 
 const DialogStyle = styled(FlexView).attrs(() => ({ as: 'dialog' })) <DialogType>`
-  position: fixed;
+  position: fixed;  
   border: none;
   background: none;
   background: transparent;
