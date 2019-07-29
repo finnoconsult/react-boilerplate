@@ -67,19 +67,9 @@ Landwehrstraße 67, 80331 München
             {
               title: (
                 <>
-                  Ich verzichte auf das
-                  {' '}
-                  <strong><u>Widerrufsrecht</u></strong>
-                </>
-              ),
-              value: 'widerrufsrecht',
-            },
-            {
-              title: (
-                <>
                   Ich stimme den
                   {' '}
-                  <strong><u>AGBs</u></strong>
+                  <Link to="?coming-soon"><strong><u>AGBs</u></strong></Link>
                   {' '}
                   zu
                 </>
@@ -89,9 +79,19 @@ Landwehrstraße 67, 80331 München
             {
               title: (
                 <>
+                  Ich verzichte auf das
+                  {' '}
+                  <Link to="?coming-soon"><strong><u>Widerrufsrecht</u></strong></Link>
+                </>
+              ),
+              value: 'widerrufsrecht',
+            },
+            {
+              title: (
+                <>
                   Ich stimme den Richlinien gemäß der
                   {' '}
-                  <strong><u>DSGVO</u></strong>
+                  <Link to="?coming-soon"><strong><u>DSGVO</u></strong></Link>
                   {' '}
                   zu
                 </>
