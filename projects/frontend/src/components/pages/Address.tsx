@@ -118,6 +118,7 @@ export default () => {
           <Text>Wo können wir helfen?</Text>
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
+              name="addressZipCode"
               defaultValue={addressZipCode}
               type="number"
               // onClick={firstPartClicked}
@@ -126,6 +127,7 @@ export default () => {
               badgeEqualsPlaceholder
             />
             <TextField
+              name="addressMap"
               strong
               // onClick={firstPartClicked}
               utilityView={(
@@ -138,6 +140,7 @@ export default () => {
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
+              name="addressStreet"
               defaultValue={addressStreet}
               // onClick={firstPartClicked}
               onChange={e => handleTextInputChange(setAddressStreet, e)}
@@ -145,6 +148,7 @@ export default () => {
               badgeEqualsPlaceholder
             />
             <TextField
+              name="addressHouseNumber"
               defaultValue={addressHouseNumber}
               type="number"
               // onClick={firstPartClicked}
@@ -167,6 +171,7 @@ export default () => {
           />
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
+              name="firstName"
               defaultValue={secondPart && secondPart.firstName}
               // onClick={secondPartClicked}
               onChange={e => handleTextSectionChange(setSecordPartHelper, 'firstName', e)}
@@ -174,6 +179,7 @@ export default () => {
               badgeEqualsPlaceholder
             />
             <TextField
+              name="lastName"
               defaultValue={secondPart && secondPart.lastName}
               // onClick={secondPartClicked}
               onChange={e => handleTextSectionChange(setSecordPartHelper, 'lastName', e)}
@@ -183,6 +189,7 @@ export default () => {
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 2fr" style={{ marginBottom: '0px' }}>
             <TextField
+              name="phoneFirstPart"
               defaultValue={secondPart && secondPart.phoneFirstPart}
               type="tel"
               // onClick={secondPartClicked}
@@ -191,6 +198,7 @@ export default () => {
               badgeEqualsPlaceholder
             />
             <TextField
+              name="phoneSecondPart"
               defaultValue={secondPart && secondPart.phoneSecondPart}
               type="tel"
               // onClick={secondPartClicked}

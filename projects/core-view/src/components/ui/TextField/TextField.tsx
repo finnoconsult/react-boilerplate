@@ -43,6 +43,7 @@ const UtilityViewStyles = styled.div`
 `;
 
 interface Props {
+  name: string;
   defaultValue?: string;
   badgeTitle?: string;
   placeholder?: string;
@@ -57,6 +58,7 @@ interface Props {
 
 export default (props: Props) => {
   const {
+    name,
     defaultValue,
     badgeTitle,
     placeholder,
@@ -80,6 +82,7 @@ export default (props: Props) => {
     <TextFieldOuterBox>
       {badge}
       <TextField
+        name={name}
         readOnly={readonly}
         value={defaultValue}
         onClick={onClick}
