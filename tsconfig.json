@@ -32,6 +32,8 @@
     "removeComments": true
   },
   "exclude": [
+    "lib",
+    "**/lib/**",
     "node_modules",
     "**/*.spec.ts",
     "**/*.spec.js",
