@@ -30,5 +30,12 @@
 
     "sourceMap": true,
     "removeComments": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.js",
+    "**/*.spec.tsx",
+    "**/*.spec.jsx"
+  ]
 }
