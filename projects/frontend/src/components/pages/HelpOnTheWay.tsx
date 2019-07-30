@@ -55,7 +55,7 @@ const OrderView = ({ index }: { index: number }) => (
 let wait30TimerID: number;
 
 export default () => {
-  const [timeUntil30, setTimeUntil30] = useState(5000);
+  const [timeUntil30, setTimeUntil30] = useState(45000);
   const [paused, setPaused] = useState(false);
   const [youHaveWaited30, setYouHaveWaited30] = useState(false);
   const [helpComingSMSArrived, setHelpComingSMSArrived] = useState(false);
