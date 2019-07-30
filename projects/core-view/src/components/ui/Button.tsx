@@ -7,6 +7,7 @@ import { Children } from '../../types';
 import { useLocation } from '../..';
 
 interface CommonButtonProps {
+  id?: string;
   disabled?: boolean;
   cta?: boolean;
   info?: boolean;
@@ -74,7 +75,7 @@ export default (props: Props) => {
   const location = useLocation();
 
   const {
-    title, cta, info, cancel, children, disabled, onClick, link, back,
+    id, title, cta, info, cancel, children, disabled, onClick, link, back,
   } = props;
 
   const shouldFormat = cta || info || cancel;
@@ -99,6 +100,7 @@ export default (props: Props) => {
 
   return (
     <ButtonStyles
+      id={id}
       disabled={disabled}
       shouldFormat={shouldFormat}
       cta={cta}

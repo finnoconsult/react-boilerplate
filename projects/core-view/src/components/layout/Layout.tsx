@@ -41,15 +41,15 @@ export const Layout = ({
     {...resolution}
     browser={browser}
   >
-    {Header && <header><Header /></header>}
-    {Nav && <nav><Nav /></nav>}
-    {LeftSide && <aside className="left"><LeftSide /></aside>}
-    {RightSide && <aside className="right"><RightSide /></aside>}
-    <main>
+    {Header && <header key="layout-header"><Header /></header>}
+    {Nav && <nav key="layout-nav"><Nav /></nav>}
+    {LeftSide && <aside className="left" key="layout-aside-left"><LeftSide /></aside>}
+    {RightSide && <aside className="right" key="layout-aside-right"><RightSide /></aside>}
+    <main key="layout-main">
       {Main && <Main />}
+      {children}
     </main>
-    {Footer && <footer><Footer /></footer>}
-    {children}
+    {Footer && <footer key="layout-footer"><Footer /></footer>}
   </LayoutStyle>
 );
 

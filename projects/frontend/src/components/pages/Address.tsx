@@ -1,6 +1,6 @@
 import React, {
   useState,
-  // ChangeEvent,
+  ChangeEvent,
 } from 'react';
 import styled from 'styled-components';
 
@@ -73,36 +73,36 @@ export default () => {
     setAddressHouseNumber('67');
   }
 
-  // function handleTextInputChange(callback: (arg0: string) => void, e?: ChangeEvent<HTMLInputElement>) {
-  //   if (e) {
-  //     callback(e.currentTarget.value);
-  //   }
-  // }
-
-  function secondPartClicked() {
-    // if (!secondPart) {
-    setSecondPart({
-      gender: 'male',
-      firstName: 'Max',
-      lastName: 'Mustar',
-      phoneFirstPart: '0172',
-      phoneSecondPart: '847 3170',
-    });
-    // }
+  function handleTextInputChange(callback: (arg0: string) => void, e?: ChangeEvent<HTMLInputElement>) {
+    if (e) {
+      callback(e.currentTarget.value);
+    }
   }
 
-  // function handleTextSectionChange(callback: (name: string, value: string) => void, name: string, e?: ChangeEvent<HTMLInputElement>) {
-  //   if (e) {
-  //     callback(name, e.currentTarget.value);
-  //   }
+  // function secondPartClicked() {
+  //   // if (!secondPart) {
+  //   setSecondPart({
+  //     gender: 'male',
+  //     firstName: 'Max',
+  //     lastName: 'Mustar',
+  //     phoneFirstPart: '0172',
+  //     phoneSecondPart: '847 3170',
+  //   });
+  //   // }
   // }
 
-  // function setSecordPartHelper(name: string, value: string) {
-  //   setSecondPart({
-  //     ...secondPart,
-  //     [name]: value,
-  //   });
-  // }
+  function handleTextSectionChange(callback: (name: string, value: string) => void, name: string, e?: ChangeEvent<HTMLInputElement>) {
+    if (e) {
+      callback(name, e.currentTarget.value);
+    }
+  }
+
+  function setSecordPartHelper(name: string, value: string) {
+    setSecondPart({
+      ...secondPart,
+      [name]: value,
+    });
+  }
 
   const genderItems = [
     { value: 'male', title: 'Herr' },
@@ -118,13 +118,16 @@ export default () => {
           <Text>Wo können wir helfen?</Text>
           <InputColumnLayout ratio="1fr 2fr">
             <TextField
+              name="addressZipCode"
               defaultValue={addressZipCode}
-              onClick={firstPartClicked}
-              // onChange={e => handleTextInputChange(setAddressZipCode, e)}
+              type="number"
+              // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressZipCode, e)}
               badgeTitle="PLZ"
               badgeEqualsPlaceholder
             />
             <TextField
+              name="addressMap"
               strong
               // onClick={firstPartClicked}
               utilityView={(
@@ -137,16 +140,19 @@ export default () => {
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
+              name="addressStreet"
               defaultValue={addressStreet}
-              onClick={firstPartClicked}
-              // onChange={e => handleTextInputChange(setAddressStreet, e)}
+              // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressStreet, e)}
               badgeTitle="Strasse"
               badgeEqualsPlaceholder
             />
             <TextField
+              name="addressHouseNumber"
               defaultValue={addressHouseNumber}
-              onClick={firstPartClicked}
-              // onChange={e => handleTextInputChange(setAddressHouseNumber, e)}
+              type="number"
+              // onClick={firstPartClicked}
+              onChange={e => handleTextInputChange(setAddressHouseNumber, e)}
               badgeTitle="Hausnummer"
               badgeEqualsPlaceholder
             />
@@ -158,39 +164,45 @@ export default () => {
             title="Anrede"
             name="gender"
             items={genderItems}
-            onClick={secondPartClicked}
-            // onChange={value => setSecondPart({ ...secondPart, gender: value })}
+            // onClick={secondPartClicked}
+            onChange={value => setSecondPart({ ...secondPart, gender: value })}
             // onClick={e => handleTextSectionChange(setSecordPartHelper, 'gender', e)}
             defaultCheckedIndex={secondPart && genderItems.findIndex(gender => gender.value === secondPart.gender)}
           />
           <InputColumnLayout ratio="1fr 1fr">
             <TextField
+              name="firstName"
               defaultValue={secondPart && secondPart.firstName}
-              onClick={secondPartClicked}
-              // onChange={e => handleTextSectionChange(setSecordPartHelper, 'firstName', e)}
+              // onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'firstName', e)}
               badgeTitle="Vorname"
               badgeEqualsPlaceholder
             />
             <TextField
+              name="lastName"
               defaultValue={secondPart && secondPart.lastName}
-              onClick={secondPartClicked}
-              // onChange={e => handleTextSectionChange(setSecordPartHelper, 'lastName', e)}
+              // onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'lastName', e)}
               badgeTitle="Nachname"
               badgeEqualsPlaceholder
             />
           </InputColumnLayout>
           <InputColumnLayout ratio="1fr 2fr" style={{ marginBottom: '0px' }}>
             <TextField
+              name="phoneFirstPart"
               defaultValue={secondPart && secondPart.phoneFirstPart}
-              onClick={secondPartClicked}
-              // onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneFirstPart', e)}
+              type="tel"
+              // onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneFirstPart', e)}
               badgeTitle="Vorwahl"
               badgeEqualsPlaceholder
             />
             <TextField
+              name="phoneSecondPart"
               defaultValue={secondPart && secondPart.phoneSecondPart}
-              onClick={secondPartClicked}
-              // onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneSecondPart', e)}
+              type="tel"
+              // onClick={secondPartClicked}
+              onChange={e => handleTextSectionChange(setSecordPartHelper, 'phoneSecondPart', e)}
               badgeTitle="Handy-Nummer"
               badgeEqualsPlaceholder
             />

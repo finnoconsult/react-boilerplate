@@ -15,6 +15,7 @@ const ComingSoonStyle = styled(Flex)`
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: ${props => `${props.theme.getDeviceHeight}px`};
   position: fixed;
   align-items: center;
   background: ${props => props.theme.colors.overlay};

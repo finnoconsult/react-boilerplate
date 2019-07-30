@@ -72,6 +72,7 @@ const TableViewCellTitleStyles = styled.div<TableViewCellTitleStylesProps>`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 
   ${props => props.rotateRightView && css`
     &>*:last-child {
@@ -166,8 +167,8 @@ export default (props: Props) => {
       isOpen={!disableOpening && openStates[index]}
       orderView={orderView && orderView(index)}
     >
-      <TableViewCellTitleStyles rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
-        <TableViewCellTitle onClick={() => cellClicked(index)}>{item.title}</TableViewCellTitle>
+      <TableViewCellTitleStyles onClick={() => cellClicked(index)} rotateRightView={rotateRightViewOnOpenClose && openStates[index]}>
+        <TableViewCellTitle>{item.title}</TableViewCellTitle>
         {rightView}
       </TableViewCellTitleStyles>
       <TableViewCellDescription>{item.description}</TableViewCellDescription>

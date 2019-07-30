@@ -55,7 +55,7 @@ export const Fragment = styled.div<FragmentProps>`
   ${props => props.subTitle && css`
     font-size: ${props.theme.font.subTitle} !important;
   `};
-  ${props => props.title && css`
+  ${props => props.title === true && css`
     font-size: ${props.theme.font.title} !important;
   `};
   ${props => props.text && css`

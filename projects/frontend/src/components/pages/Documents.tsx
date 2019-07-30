@@ -70,6 +70,9 @@ export default () => {
           <SubTitle big>Dokumente per E-Mail erhalten</SubTitle>
           <InputColumnLayout ratio="7fr 3fr">
             <TextField
+              name="email"
+              type="email"
+              readonly
               badgeTitle="E-Mail"
               badgeEqualsPlaceholder
               defaultValue="max@muster.de"

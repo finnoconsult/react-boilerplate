@@ -74,6 +74,8 @@ export function isAndoridNewerThanKitKat() {
   return isAndroid() && parseFloat(get(browser, 'os.version')) >= 4.4;
 }
 
-export default function getBrowser() {
+export function getBrowser() {
   return browser;
 }
+
+export default browser;

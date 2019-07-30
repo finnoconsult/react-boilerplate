@@ -43,9 +43,12 @@ const UtilityViewStyles = styled.div`
 `;
 
 interface Props {
+  name: string;
   defaultValue?: string;
   badgeTitle?: string;
   placeholder?: string;
+  readonly?: boolean;
+  type?: string;
   badgeEqualsPlaceholder?: boolean;
   utilityView?: JSX.Element | JSX.Element[];
   onClick?: () => void;
@@ -55,9 +58,12 @@ interface Props {
 
 export default (props: Props) => {
   const {
+    name,
     defaultValue,
     badgeTitle,
     placeholder,
+    readonly,
+    type = 'text',
     badgeEqualsPlaceholder,
     utilityView,
     onClick,
@@ -76,11 +82,12 @@ export default (props: Props) => {
     <TextFieldOuterBox>
       {badge}
       <TextField
-        readOnly
-        defaultValue={defaultValue}
+        name={name}
+        readOnly={readonly}
+        value={defaultValue}
         onClick={onClick}
         onChange={onChange}
-        type="text"
+        type={type}
         placeholder={badgeEqualsPlaceholder ? badgeTitle : placeholder}
         strong={strong}
       />

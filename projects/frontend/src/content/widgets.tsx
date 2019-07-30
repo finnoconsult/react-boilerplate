@@ -23,8 +23,9 @@ import {
 import { ReactComponent as NavigationLanding } from '../components/static/mobile/layout/navigation-landing.svg';
 import googleNavBar from '../images/google-search-navbar.png';
 import serviceProviderReport from '../components/static/mobile/layout/navigation-service-provider.png';
-import MainPageContainer from '../components/layout/MainPageContainer';
+// import MainPageContainer from '../components/layout/MainPageContainer';
 import OverlayContainer from '../components/layout/OverlayContainer';
+import DevTools from '../components/pages/DevTools';
 
 export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
   // TODO: should be better with object id=key mapping, but that requires a different TS def
@@ -63,12 +64,14 @@ export const widgetDefinitions: (WidgetAllDefinitionType)[] = [
       medium: <View><Link to="/landing"><Icon name="open-house" type="ico.logo" size="24px" /></Link></View>,
     },
   },
-  { id: 'mainContent', component: MainPageContainer },
+  // { id: 'mainContent', component: MainPageContainer },
+  // { id: 'mainContent', component: () => <div>After MainPageContainer</div> },
   { id: 'overlay', wrapperComponent: OverlayContainer },
 
   { id: 'desktopMenuBar', title: 'desktopMenuBar', component: HeaderContainer },
   { id: 'desktopContentMenu', title: 'desktopContentMenu', component: LeftContainer },
 
+  { id: 'devTools', title: 'devTools', component: DevTools },
   { id: 'mobileTabBar', title: 'mobileTabBar', component: FooterContainer },
   {
     id: 'SampleStaticImage',
@@ -100,12 +103,15 @@ export const widgetConfigs: (WidgetConfigType)[] = [
   {
     id: 'logoOpenHouse', platform: '*', position: 'nav', order: 2, excludedRoutes: [/^(|\/|\/landing|\/documents\/reports\/progress)$/],
   },
-  { id: 'mainContent', platform: '*', position: 'main' },
+  // {
+  //   id: 'mainContent', platform: '*', position: 'main', order: 2,
+  // },
   { id: 'overlay', position: 'children' },
 
   { id: 'desktopMenuBar', platform: 'desktop', position: 'header' },
   { id: 'desktopContentMenu', platform: 'desktop', position: 'left' },
 
+  { id: 'devTools', position: 'children' },
   // { id: 'mobileTabBar', position: 'footer', },
   // { id: 'SampleStaticImage', position: 'footer', size: 'medium', },
 ];

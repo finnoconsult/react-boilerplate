@@ -96,11 +96,16 @@ export default class UIStore {
     this.showOverlay = value;
   }
 
+  @computed public get getDeviceHeight() {
+    return this.resolution.height;
+  }
+
   @computed public get getMainHeight() {
     const navBarHeight = (parseInt(this.themeConfig.layout.navBarHeight, 10) || 0);
     const tabBarHeight = (parseInt(this.themeConfig.layout.tabBarHeight, 10) || 0);
-    return (this.resolution.height - navBarHeight - tabBarHeight - 1);
+    return (this.getDeviceHeight - navBarHeight - tabBarHeight - 1);
   }
+
 
   @computed public get currentTheme() {
     return {
@@ -112,6 +117,7 @@ export default class UIStore {
       isPhone: this.isPhone,
       isMobile: this.isMobile,
       getMainHeight: this.getMainHeight,
+      getDeviceHeight: this.getDeviceHeight,
     };
   }
 

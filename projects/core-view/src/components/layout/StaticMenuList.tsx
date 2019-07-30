@@ -5,7 +5,7 @@ import { ChildrenOrComponent } from '../../types';
 import { FlexFragment, Fragment } from '../Fragment';
 // import { View } from '../View';
 // import { Text } from '../ui/Text';
-import { default as Button } from '../ui/Button';
+import Button from '../ui/Button';
 import { Image } from '../ui/Image';
 
 
@@ -62,6 +62,7 @@ export function StaticMenuList(props: Props) {
         <Button
           key={item.id as string || index}
           {...item}
+          id={item.id as string}
           link={item.route}
           // this.isMatching({ ...item, index })
         >

@@ -12,6 +12,8 @@ import {
   TableView,
   Image,
   MockupNotification,
+  Button,
+  View,
 } from '@finnoconsult/core-view';
 
 import Icon from '../ui/Icon';
@@ -98,6 +100,7 @@ export default () => {
     if (time < 0) return;
 
     wait30TimerID = setTimeout(() => {
+      console.log('setYouHaveWaited30');
       setYouHaveWaited30(true);
     }, time);
   }, [timeUntil30, paused]);
@@ -147,11 +150,18 @@ export default () => {
       {helpComingSMSArrived && <SMS4 onClick={helpShouldArrive} />}
       {documentsSMSArrived && <SMS5 />}
 
+      {youHaveWaited30 && !helpComingSMSArrived && 'setYouHaveWaited30'}
       {youHaveWaited30 && !helpComingSMSArrived && (
         <MockupNotification onClick={youHaveWaited30Clicked}>
-          <Title>Test</Title>
-          <Text>Sie haben in der Zwischenzeit 30 Minuten gewartet.</Text>
-          <Title>Test</Title>
+          <View padding="20px" fullWidth style={{ position: 'relative' }}>
+            <View style={{ position: 'absolute', top: '10px', right: '10px' }}>
+              <Icon name="close" />
+            </View>
+            {/* <Title>Test</Title> */}
+            <View padding="30px" fullWidth style={{ fontSize: '24px' }}>Sie haben in der Zwischenzeit 30 Minuten gewartet.</View>
+            <Button info><Text style={{ fontSize: '18px', fontWeight: 'bold' }}>Weiter</Text></Button>
+          </View>
+          {/* <Title>Test</Title> */}
         </MockupNotification>
       )}
 
