@@ -2,7 +2,7 @@
   "name": "@finnoconsult/frontend",
   "title": "ADAC Mockup Frontend",
   "description": "Adac OpenHouse Mockup frontend",
-  "version": "0.9.9",
+  "version": "0.9.10",
   "dependencies": {
     "@finnoconsult/core-model": "^0.9.8",
     "@finnoconsult/core-view": "^0.9.9",
