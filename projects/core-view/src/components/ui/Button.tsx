@@ -7,6 +7,7 @@ import { Children } from '../../types';
 import { useLocation } from '../..';
 
 interface CommonButtonProps {
+  id?: string;
   disabled?: boolean;
   cta?: boolean;
   info?: boolean;
@@ -14,7 +15,6 @@ interface CommonButtonProps {
 
 }
 interface ButtonStylesProps extends CommonButtonProps{
-  id?: string;
   shouldFormat?: boolean;
 }
 
@@ -64,7 +64,6 @@ const ButtonText = styled(Text)`
 `;
 
 interface Props extends CommonButtonProps{
-  id?: string;
   title?: string;
   children?: Children;
   onClick?: () => void;
